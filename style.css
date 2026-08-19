@@ -6,9 +6,9 @@
   --bone-soft: #b4aa98;
   --rule: #2c2822;
   --rule-hot: #4a4338;
-  --honesty: #c4a35a;
-  --honesty-bg: #16130e;
-  --honesty-rule: #6b5428;
+  --accent: #c4a35a;
+  --accent-bg: #16130e;
+  --accent-rule: #6b5428;
   --stamp: #c4a35a;
   --ease: 180ms ease;
   --stage: calc(2.6rem + env(safe-area-inset-top, 0px));
@@ -52,7 +52,7 @@ html, body {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--stamp);
-  border: 1px solid var(--honesty-rule);
+  border: 1px solid var(--accent-rule);
   padding: 0.2rem 0.5rem;
 }
 
@@ -84,7 +84,7 @@ html, body {
   color: var(--bone-soft);
 }
 
-.trade .dot { color: var(--honesty); }
+.trade .dot { color: var(--accent); }
 
 .rail {
   display: flex;
@@ -105,7 +105,7 @@ html, body {
 
 .rail a:hover,
 .rail a:focus-visible {
-  color: var(--honesty);
+  color: var(--accent);
   text-decoration: underline;
 }
 
@@ -127,14 +127,6 @@ h1 {
   font-size: 1.12rem;
   color: var(--bone-soft);
   text-wrap: pretty;
-}
-
-.honesty {
-  background: var(--honesty-bg);
-  color: var(--honesty);
-  border: 1px solid var(--honesty-rule);
-  padding: 0.8rem 0.95rem;
-  font-size: 0.98rem;
 }
 
 .cta-block {
@@ -169,17 +161,17 @@ h1 {
 .cta:hover,
 .cta:focus-visible {
   background: #f3ebe0;
-  border-color: var(--honesty);
+  border-color: var(--accent);
   transform: translateY(-1px);
 }
 
 .cta:focus-visible {
-  outline: 2px solid var(--honesty);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
 .cta.is-copied {
-  border-color: var(--honesty);
+  border-color: var(--accent);
 }
 
 .cta-sec {
@@ -193,7 +185,7 @@ h1 {
 }
 
 .cta-sec:hover,
-.cta-sec:focus-visible { color: var(--honesty); }
+.cta-sec:focus-visible { color: var(--accent); }
 
 .cta-help {
   margin: 0.8rem 0 0;
@@ -207,7 +199,7 @@ h1 {
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--honesty);
+  color: var(--accent);
 }
 
 .page-brief {
@@ -221,7 +213,7 @@ h1 {
 .page-brief p:last-child { margin-bottom: 0; }
 
 .page-brief.is-live {
-  border-color: var(--honesty-rule);
+  border-color: var(--accent-rule);
 }
 
 h2 {
@@ -321,7 +313,7 @@ code, .mono {
   font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
   font-size: 0.68rem;
   letter-spacing: 0.14em;
-  color: var(--honesty);
+  color: var(--accent);
 }
 
 .card h3 { margin: 0 0 0.35rem; }
@@ -331,11 +323,11 @@ code, .mono {
 .card-note {
   margin: 0.55rem 0 0;
   font-size: 0.92rem;
-  color: var(--honesty);
+  color: var(--accent);
 }
 
 .card-note a {
-  color: var(--honesty);
+  color: var(--accent);
   text-underline-offset: 0.15em;
 }
 
@@ -469,7 +461,7 @@ footer p { margin: 0; }
 
 #request:target,
 #part-request:target {
-  border-color: var(--honesty-rule);
+  border-color: var(--accent-rule);
 }
 
 .skip {
@@ -479,7 +471,7 @@ footer p { margin: 0; }
   z-index: 4;
   padding: 0.45rem 0.7rem;
   background: var(--lift);
-  border: 1px solid var(--honesty-rule);
+  border: 1px solid var(--accent-rule);
   color: var(--bone);
   font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
   font-size: 0.68rem;
@@ -491,7 +483,7 @@ footer p { margin: 0; }
 .skip:focus,
 .skip:focus-visible {
   transform: none;
-  outline: 2px solid var(--honesty);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -504,9 +496,9 @@ footer p { margin: 0; }
     --bone-soft: #3a3d36;
     --rule: #c9c2b2;
     --rule-hot: #8a8374;
-    --honesty: #6b5428;
-    --honesty-bg: #f0ebe0;
-    --honesty-rule: #8a5a2a;
+    --accent: #6b5428;
+    --accent-bg: #f0ebe0;
+    --accent-rule: #8a5a2a;
     --stamp: #6b5428;
   }
   body {

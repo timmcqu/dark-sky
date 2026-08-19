@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="dark" />
   <meta name="theme-color" content="#0c0b09" />
-  <title>Dark Sky Systems — Event Air Picture</title>
-  <meta name="description" content="Software map of drones broadcasting Remote ID. Friendly list and unknown-RID alert. Cooperative only. We do not jam. We do not shoot." />
+  <title>Dark Sky Systems — Overhead counter-UAS</title>
+  <meta name="description" content="Dark Sky is overhead counter-UAS. Contractor aircraft and a picture over a named sit." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <a class="skip" href="#request">Skip to Request Event Air Picture</a>
+  <a class="skip" href="#request">Skip to Request overhead C-UAS</a>
   <div class="sheet">
     <header class="mast">
       <p class="wordmark">Dark Sky Systems</p>
@@ -19,204 +19,83 @@
         <a href="#request">Request</a>
         <a href="#catalog">Catalog</a>
         <a href="#parts">Parts</a>
-        <a href="#sits">Sits</a>
-        <a href="#bound">Bound</a>
       </nav>
     </header>
 
-    <h1>Event Air Picture 0.1.1</h1>
-    <p class="lede">A live map of cooperative Remote ID over a venue. Who is up. Whether they are on the friendly list. An alert only when a broadcasting track is unknown or has no usable ID.</p>
-    <p>If they are not broadcasting, they are not on the map. We do not jam. We do not shoot.</p>
-    <p>Software. Buyer brings the receivers.</p>
-
-    <div class="honesty" role="status">
-      Cooperative Remote ID only. Does not detect dark or RID-off aircraft. We do not jam. We do not shoot.
-    </div>
+    <h1>Overhead counter-UAS</h1>
+    <p class="lede">Contractor aircraft and a picture over a named sit.</p>
 
     <section class="cta-block" id="request">
       <div class="cta-row">
-        <button type="button" class="cta" id="btnEap">Request Event Air Picture</button>
-        <a class="cta-sec" href="#bound">Re-read the bound</a>
+        <button type="button" class="cta" id="btnCuas">Request overhead C-UAS</button>
       </div>
-      <p class="cta-help">Cooperative Remote ID only. We do not jam. We do not shoot.</p>
+      <p class="cta-help">One sit. Contractor aircraft. A picture.</p>
       <p class="copied" id="copied" role="status" aria-live="polite" hidden>Copied.</p>
-      <div class="page-brief" id="eap-brief">
-        <p>Event Air Picture is a live map of cooperative Remote ID over a venue: who is up, whether they are on the friendly list, and an alert only when a broadcasting track is unknown or has no usable ID. If they are not broadcasting, they are not on the map. We do not jam. We do not shoot.</p>
-        <p>Software. Buyer brings the receivers.</p>
+      <div class="page-brief" id="brief">
+        <p>Dark Sky is overhead counter-UAS. Contractor aircraft and a picture over a named sit.</p>
+        <p>Request overhead C-UAS.</p>
       </div>
     </section>
 
-    <section class="eap" aria-labelledby="eap-heading">
-      <h2 id="eap-heading">Event Air Picture</h2>
+    <section aria-labelledby="spoken-heading">
+      <h2 id="spoken-heading">Dark Sky</h2>
       <ol class="spoken">
-        <li>Dark Sky. Event Air Picture. Cooperative Remote ID only.</li>
-        <li>If they are not broadcasting, they are not on this picture.</li>
-        <li>Unknown RID. Broadcasting. Not on the friendly list.</li>
-        <li>We do not jam. We do not shoot.</li>
+        <li>Dark Sky. Overhead counter-UAS.</li>
+        <li>Contractor aircraft and a picture.</li>
+        <li>One sit. One window.</li>
+        <li>Request overhead C-UAS.</li>
       </ol>
-
-      <h3>What this is</h3>
-      <p>A live map of cooperative drones over a venue. ASTM F3411 / OpenDroneID only.</p>
-      <p>A Python web map you run at the venue. Cooperative Remote ID only. Who is up, whether they are on the friendly list, and an alert only when a broadcasting track is unknown or has no usable ID. If they are not broadcasting, they are not on the map. No ghost tracks.</p>
-
-      <h3>What this is not</h3>
-      <p>Not a detector of dark or RID-off aircraft. Not a radio. Not an effector. Not a claim of radar, RF direction-finding, acoustic, or optical detect-and-track. Range rings on the map are map scale, not a detection range. Not certified Remote ID. Not FAA / DoD / SAFETY Act / FEMA-approved.</p>
-
-      <h3>What the buyer gets</h3>
-      <ol class="gets">
-        <li>The software — <code>server.py</code> plus the static UI. Python 3 standard library. No pip.</li>
-        <li>A friendly list as CSV (<code>uas_id</code>, <code>callsign</code>, <code>operator</code>, <code>note</code>). Buyer edits it for the venue.</li>
-        <li>Ingest from phones / ESP32 / receivers they already have. We do not ship radios.</li>
-        <li>Alert queue. Optional Slack-compatible webhook to their URL.</li>
-        <li>One venue picture for the sit (per-event, up to 72 hours) or one season month. Unlimited seats on that picture.</li>
-        <li>Log / after-action export for the window (event: 14-day export; month: 30-day retention).</li>
-        <li>Operator notes. Honesty banner stays on.</li>
-      </ol>
-
-      <h3>Offer shape</h3>
-      <p>Per-event (one venue, one sit, up to 72 hours) or one season month. Not a 12-month SaaS.</p>
-      <div class="close">
-        <p>They bring a laptop, a phone or ESP32 that can POST OpenDroneID-shaped JSON, and their own friendly CSV. We do not invent a track if the radio heard nothing.</p>
-        <p>First sit is on their machine. Do not sell a season if they cannot read friendly vs unknown vs no-usable-ID. Live air is a real POST, not demo chrome sold as the sit.</p>
-      </div>
-
-      <h3>Request Event Air Picture</h3>
-      <ol class="steps">
-        <li><strong>Request Event Air Picture</strong> — the live picture. Honesty banner stays on.</li>
-        <li><strong>Bounded venue eval</strong> — cooperative RID only. Success is reading friendlies vs unknown RID, not an emit demo.</li>
-        <li><strong>Event Air Picture</strong> — software. Bring your own receivers, or phones / ESP32s that already speak OpenDroneID.</li>
-        <li><strong>Optional attach</strong> — after-action brief only if the picture holds. Same refuse list.</li>
-      </ol>
-
-      <p class="who">For operations and security leads at a stadium, a campus, or an NSSE who need to see the cooperative picture before anyone talks about effects. If the first question is a stamp, a jam, or a guaranteed effect, this is the wrong product.</p>
-
-      <section class="sits" id="sits" aria-labelledby="sits-heading">
-        <h3 id="sits-heading">Sits</h3>
-        <p class="lede">College football. NFL. NSSE. One named venue. One named window.</p>
-        <p>Event Air Picture 0.1.1 sits a software picture. DS-PART sits on that same picture — mounts, enclosures, brackets. Software only unless they asked for a part. You bring the receivers.</p>
-        <p>Not a live World Cup sit. World Cup 2026 is over. Not coverage. Not a public eval sit.</p>
-        <p class="who">College football. NFL. NSSE. Software only. You bring the receivers.</p>
-      </section>
-    </section>
-
-    <section class="plates" aria-label="Picture plates">
-      <figure>
-        <img src="assets/eap_1_initial.png" alt="Event Air Picture at STANDBY over a stadium, honesty banner on, no tracks yet" />
-        <figcaption><span class="mono">PLATE A</span> Standby. Honesty banner on. Picture empty until RID arrives.</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/eap_2_alert.png" alt="Event Air Picture with friendly tracks and an unknown RID alert" />
-        <figcaption><span class="mono">PLATE B</span> Friendlies on the list. One unknown RID, broadcasting, not briefed.</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/event_air_picture.png" alt="Event Air Picture live map with tracks and alert rail" />
-        <figcaption><span class="mono">PLATE C</span> The live picture. Rings are map scale, not a detection range.</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/eap_3_alerts.png" alt="Event Air Picture alert rail: unknown RID and no usable ID" />
-        <figcaption><span class="mono">PLATE D</span> Alert rail. Unknown RID or no usable ID. Dark / RID-off are not drawn.</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/eap_4_console.png" alt="Event Air Picture live console with honesty banner, tracks, and alerts" />
-        <figcaption><span class="mono">PLATE E</span> Console. Honesty banner on. Four tracks. Two alerts.</figcaption>
-      </figure>
+      <p>A sit is one venue and one window. The aircraft is contracted. The picture is ours to run. Thermal is theirs if they brought it.</p>
+      <p>Stadium. Campus. VIP and private event. Motorcade-adjacent when the sit is named.</p>
     </section>
 
     <section class="catalog" id="catalog" aria-labelledby="catalog-heading">
       <h2 id="catalog-heading">Catalog</h2>
-      <p class="catalog-lede">Event Air Picture 0.1.1 is the platform. Request Event Air Picture. Parts attach.</p>
+      <p class="catalog-lede">Overhead counter-UAS. Printed fixtures attach.</p>
 
       <div class="cards">
         <article class="card">
           <p class="card-k">01</p>
-          <h3>Event Air Picture 0.1.1</h3>
-          <p>Software. Cooperative Remote ID map. Buyer brings receivers. Python web map, friendly list, unknown-RID alert. If they are not broadcasting, they are not on the map. Per-event or season-month. Not a 12-month SaaS.</p>
-          <p class="card-note"><a href="#request">Request Event Air Picture</a></p>
+          <h3>Overhead C-UAS</h3>
+          <p>Contractor aircraft + picture. Named sit.</p>
+          <p class="card-note"><a href="#request">Request overhead C-UAS</a></p>
         </article>
         <article class="card">
           <p class="card-k">02</p>
           <h3>DS-PART</h3>
-          <p>DS-PART-MOUNT. DS-PART-ENCL. DS-PART-MAST. DS-PART-CUSTOM. Field hardware for Event Air Picture 0.1.1. Printed fixture. Printed here. Quote a part. We do not hold stock.</p>
-          <p class="card-note"><a href="#parts">Request a part</a> — attach only.</p>
-        </article>
-        <article class="card">
-          <p class="card-k">DS-PART-MOUNT</p>
-          <h3>DS-PART-MOUNT</h3>
-          <p>clamp for a RID receiver on a rail or tripod. Printed fixture. Not a radio.</p>
-          <p class="card-note"><a href="#part-request">Request a part</a></p>
-        </article>
-        <article class="card">
-          <p class="card-k">DS-PART-ENCL</p>
-          <h3>DS-PART-ENCL</h3>
-          <p>enclosure already on an Event Air Picture sit. Printed fixture. Not a detector.</p>
-          <p class="card-note"><a href="#part-request">Request a part</a></p>
-        </article>
-        <article class="card">
-          <p class="card-k">DS-PART-MAST</p>
-          <h3>DS-PART-MAST</h3>
-          <p>bracket for a receive antenna on a temporary event pole. Not a transmit or jam antenna.</p>
-          <p class="card-note"><a href="#part-request">Request a part</a></p>
-        </article>
-        <article class="card">
-          <p class="card-k">DS-PART-CUSTOM</p>
-          <h3>DS-PART-CUSTOM</h3>
-          <p>one-off in the same family, same sit. Not a second catalog.</p>
-          <p class="card-note"><a href="#part-request">Request a part</a></p>
+          <p>Printed fixtures. Printed here. Quote a part. DS-PART-MOUNT. DS-PART-ENCL. DS-PART-MAST. DS-PART-CUSTOM.</p>
+          <p class="card-note"><a href="#parts">Request a part</a></p>
         </article>
       </div>
-      <p class="instrument">A listen-only instrument can sit next to the picture. TX locked. Not a headline.</p>
     </section>
 
     <section class="parts" id="parts" aria-labelledby="parts-heading">
       <h2 id="parts-heading">DS-PART</h2>
-      <p class="lede">Field hardware for Event Air Picture 0.1.1. Printed fixture. Printed here. Quote a part.</p>
-      <p>DS-PART-MOUNT. DS-PART-ENCL. DS-PART-MAST. DS-PART-CUSTOM. High-end materials. Tight tolerance. Printed fixture. Printed here. Quote a part. We do not hold stock.</p>
-      <p>Not a print-shop brand, a trinket line, a coverage offer, an eval card, jam or TX parts, an airframe, a second brand.</p>
+      <p class="lede">Printed fixtures. Printed here. Quote a part.</p>
+      <p>DS-PART-MOUNT. DS-PART-ENCL. DS-PART-MAST. DS-PART-CUSTOM.</p>
       <ol class="spoken">
-        <li>DS-PART. Field hardware for Event Air Picture 0.1.1.</li>
+        <li>Printed fixture. Printed here.</li>
         <li>Mount. Enclosure. Mast. Custom.</li>
-        <li>Printed here. Quote a part. We do not hold stock.</li>
+        <li>Quote a part.</li>
         <li>Request a part.</li>
       </ol>
-      <div class="close">
-        <p>Listen / picture family only. We do not jam. We do not shoot. This is a mount, a box, or a bracket — not a radio, not a range, not an airframe.</p>
-        <p>A quote against a named receiver, phone, loaner, or pole already on a picture or eval sit. No part ships as a standalone detect product. A part is requested, not invoiced.</p>
-      </div>
-
 
       <div class="cta-block" id="part-request">
         <div class="cta-row">
           <button type="button" class="cta" id="btnPart">Request a part</button>
-          <a class="cta-sec" href="#bound">Re-read the bound</a>
         </div>
-        <p class="cta-help">Field hardware for Event Air Picture 0.1.1. Printed here. Quote a part.</p>
-        <p class="cta-help">A part is requested, not invoiced. Request a part.</p>
+        <p class="cta-help">Printed fixture. Printed here. Quote a part.</p>
         <p class="copied" id="copiedPart" role="status" aria-live="polite" hidden>Copied.</p>
         <div class="page-brief" id="part-brief">
-          <p>DS-PART. Field hardware for Event Air Picture 0.1.1. Printed fixture. Printed here. Quote a part.</p>
-          <p>DS-PART-MOUNT. DS-PART-ENCL. DS-PART-MAST. DS-PART-CUSTOM. High-end materials. Tight tolerance. Printed fixture. Printed here. Quote a part. We do not hold stock.</p>
+          <p>Printed fixtures. Printed here. Quote a part.</p>
+          <p>DS-PART-MOUNT. DS-PART-ENCL. DS-PART-MAST. DS-PART-CUSTOM.</p>
           <p>Request a part.</p>
         </div>
       </div>
     </section>
 
-    <section id="bound">
-      <h2>The bound</h2>
-      <p class="lede">If a sentence is not on this plate, do not say it.</p>
-      <ul>
-        <li>Listen-only. Receive-only. No transmit.</li>
-        <li>If they are not broadcasting, they are not on this picture.</li>
-        <li>No dark-drone detect. No jam. No spoof. No shoot.</li>
-        <li>Parts are mounts, enclosures, and brackets for the picture. Printed here. Quote a part. Not a print-shop brand. Not jam or TX parts. Not an airframe.</li>
-        <li>No FAA / DoD / FEMA / SAFETY Act stamp. No certified claim.</li>
-        <li>No public price. No cart. Request Event Air Picture. Request a part.</li>
-        <li>Brand: Dark Sky. Company: Dark Sky Systems (forming). This plate is not an offer for payment.</li>
-        <li>Rings on the map are scale, not a detection range. Buyer brings the receivers.</li>
-      </ul>
-    </section>
-
     <footer>
-      <p>We do not jam. We do not shoot. Dark Sky Systems is forming. Not an offer for payment.</p>
+      <p>Dark Sky Systems is forming. Overhead counter-UAS. Not an offer for payment.</p>
     </footer>
   </div>
   <script src="app.js"></script>
