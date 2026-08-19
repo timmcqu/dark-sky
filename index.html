@@ -4,100 +4,218 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="dark" />
-  <meta name="theme-color" content="#0c0b09" />
-  <title>Dark Sky Systems — Overhead counter-UAS</title>
-  <meta name="description" content="Dark Sky is overhead counter-UAS. Contractor aircraft and a picture over a named sit." />
+  <meta name="theme-color" content="#070706" />
+  <title>Dark Sky Systems — Overhead operations</title>
+  <meta name="description" content="Professional drone operations for events and VIPs. Overhead imaging, passive Full Site Picture, and written risk assessment." />
+  <link rel="preload" as="image" href="assets/poster.jpg" />
   <link rel="stylesheet" href="style.css" />
 </head>
+<!-- Dark Sky Systems LLC -->
 <body>
-  <a class="skip" href="#request">Skip to Request overhead C-UAS</a>
-  <div class="sheet">
-    <header class="mast">
-      <p class="wordmark">Dark Sky Systems</p>
-      <p class="trade">Dark Sky <span class="dot">·</span> forming</p>
-      <nav class="rail" aria-label="On this plate">
+  <a class="skip" href="#request">Skip to request</a>
+
+  <header class="mast">
+    <div class="wrap mast-inner">
+      <a class="brand" href="#top">
+        <span class="wordmark">Dark Sky Systems</span>
+        <span class="trade">Dark Sky</span>
+      </a>
+      <nav class="rail" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#picture">Picture</a>
+        <a href="#risk">Risk</a>
+        <a href="#about">About</a>
         <a href="#request">Request</a>
-        <a href="#catalog">Catalog</a>
-        <a href="#parts">Parts</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <h1>Overhead counter-UAS</h1>
-    <p class="lede">Contractor aircraft and a picture over a named sit.</p>
+  <section class="hero" id="top" aria-label="Overhead operations">
+    <div class="hero-media" aria-hidden="true">
+      <img class="hero-poster" src="assets/poster.jpg" alt="" width="1920" height="1080" />
+      <video class="hero-loop" autoplay muted loop playsinline preload="auto" poster="assets/poster.jpg">
+        <source src="assets/hero.webm" type="video/webm" />
+        <source src="assets/hero.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="hero-veil" aria-hidden="true"></div>
+    <div class="wrap hero-copy">
+      <p class="eyebrow">Events · VIP · Named venues</p>
+      <h1>Overhead operations with a Full Site Picture.</h1>
+      <p class="lede">Professional drone work for events and principals. Imaging of the ground. Passive detection of the air. A written risk assessment before the aircraft leaves the box.</p>
+      <p class="venues">Stadium. Campus. VIP and private event. Motorcade-adjacent when the sit is named.</p>
+      <a class="cta" href="#request">Request a sit</a>
+    </div>
+  </section>
 
-    <section class="cta-block" id="request">
-      <div class="cta-row">
-        <button type="button" class="cta" id="btnCuas">Request overhead C-UAS</button>
-      </div>
-      <p class="cta-help">One sit. Contractor aircraft. A picture.</p>
-      <p class="copied" id="copied" role="status" aria-live="polite" hidden>Copied.</p>
-      <div class="page-brief" id="brief">
-        <p>Dark Sky is overhead counter-UAS. Contractor aircraft and a picture over a named sit.</p>
-        <p>Request overhead C-UAS.</p>
-      </div>
-    </section>
-
-    <section aria-labelledby="spoken-heading">
-      <h2 id="spoken-heading">Dark Sky</h2>
-      <ol class="spoken">
-        <li>Dark Sky. Overhead counter-UAS.</li>
-        <li>Contractor aircraft and a picture.</li>
-        <li>One sit. One window.</li>
-        <li>Request overhead C-UAS.</li>
-      </ol>
-      <p>A sit is one venue and one window. The aircraft is contracted. The picture is ours to run. Thermal is theirs if they brought it.</p>
-      <p>Stadium. Campus. VIP and private event. Motorcade-adjacent when the sit is named.</p>
-    </section>
-
-    <section class="catalog" id="catalog" aria-labelledby="catalog-heading">
-      <h2 id="catalog-heading">Catalog</h2>
-      <p class="catalog-lede">Overhead counter-UAS. Printed fixtures attach.</p>
-
-      <div class="cards">
-        <article class="card">
-          <p class="card-k">01</p>
-          <h3>Overhead C-UAS</h3>
-          <p>Contractor aircraft + picture. Named sit.</p>
-          <p class="card-note"><a href="#request">Request overhead C-UAS</a></p>
+  <section class="services" id="services" aria-labelledby="services-heading">
+    <div class="wrap">
+      <header class="sec-head">
+        <h2 id="services-heading">Services</h2>
+        <p>Four lines. Named venue. Named window.</p>
+      </header>
+      <div class="service-grid">
+        <article class="svc">
+          <picture>
+            <source type="image/webp" srcset="assets/strip-01.webp" />
+            <img src="assets/strip-01.jpg" alt="" width="1600" height="900" loading="lazy" />
+          </picture>
+          <p class="svc-k">01</p>
+          <h3>Event &amp; VIP operations</h3>
+          <p>Staffed air work for stadiums, campus, private events, and motorcade-adjacent windows when the sit is named. Discrete handling. No social from the pad.</p>
         </article>
-        <article class="card">
-          <p class="card-k">02</p>
-          <h3>DS-PART</h3>
-          <p>Printed fixtures. Printed here. Quote a part. DS-PART-MOUNT. DS-PART-ENCL. DS-PART-MAST. DS-PART-CUSTOM.</p>
-          <p class="card-note"><a href="#parts">Request a part</a></p>
+        <article class="svc">
+          <picture>
+            <source type="image/webp" srcset="assets/strip-03.webp" />
+            <img src="assets/strip-03.jpg" alt="" width="1600" height="900" loading="lazy" />
+          </picture>
+          <p class="svc-k">02</p>
+          <h3>Overhead imaging</h3>
+          <p>Stills, video, and thermal when the aircraft brought it. Mapping when the window and airspace allow. The client sees what is on the ground.</p>
+        </article>
+        <article class="svc">
+          <picture>
+            <source type="image/webp" srcset="assets/map.webp" />
+            <img src="assets/map.jpg" alt="" width="890" height="668" loading="lazy" />
+          </picture>
+          <p class="svc-k">03</p>
+          <h3>Full Site Picture</h3>
+          <p>Passive detection for the named volume. Remote ID and other receive layers when the sit is equipped. This map is broadcasts. It does not show aircraft that are not broadcasting.</p>
+        </article>
+        <article class="svc">
+          <picture>
+            <source type="image/webp" srcset="assets/strip-04.webp" />
+            <img src="assets/strip-04.jpg" alt="" width="1600" height="900" loading="lazy" />
+          </picture>
+          <p class="svc-k">04</p>
+          <h3>Professional risk assessment</h3>
+          <p>A written size-up with drone assets: pre-mission matrix, in-window review, close-out. Observations, not a guarantee. Residual risk you accept stays yours.</p>
         </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="parts" id="parts" aria-labelledby="parts-heading">
-      <h2 id="parts-heading">DS-PART</h2>
-      <p class="lede">Printed fixtures. Printed here. Quote a part.</p>
-      <p>DS-PART-MOUNT. DS-PART-ENCL. DS-PART-MAST. DS-PART-CUSTOM.</p>
-      <ol class="spoken">
-        <li>Printed fixture. Printed here.</li>
-        <li>Mount. Enclosure. Mast. Custom.</li>
-        <li>Quote a part.</li>
-        <li>Request a part.</li>
+  <section class="picture" id="picture" aria-labelledby="picture-heading">
+    <div class="wrap picture-intro">
+      <h2 id="picture-heading">The picture</h2>
+      <p>A common operating picture for the window. Tracks that exist. CLEAR when a layer is empty. Nothing invented to fill the hour.</p>
+      <p class="fine">Cooperative Remote ID shows broadcasts. It does not show aircraft that are not broadcasting. Other layers report only what they can sense.</p>
+    </div>
+    <figure class="map-plate">
+      <picture>
+        <source type="image/webp" srcset="assets/map.webp" />
+        <img src="assets/map.jpg" alt="Passive site picture over a stadium bowl. Green and red marks are broadcasts." width="890" height="668" loading="lazy" />
+      </picture>
+    </figure>
+    <div class="strip" aria-label="Stills from overhead imaging">
+      <figure><picture><source type="image/webp" srcset="assets/strip-01.webp" /><img src="assets/strip-01.jpg" alt="" width="1600" height="900" loading="lazy" /></picture></figure>
+      <figure><picture><source type="image/webp" srcset="assets/strip-02.webp" /><img src="assets/strip-02.jpg" alt="" width="1600" height="900" loading="lazy" /></picture></figure>
+      <figure><picture><source type="image/webp" srcset="assets/strip-03.webp" /><img src="assets/strip-03.jpg" alt="" width="1600" height="900" loading="lazy" /></picture></figure>
+      <figure><picture><source type="image/webp" srcset="assets/strip-04.webp" /><img src="assets/strip-04.jpg" alt="" width="1600" height="900" loading="lazy" /></picture></figure>
+      <figure><picture><source type="image/webp" srcset="assets/strip-05.webp" /><img src="assets/strip-05.jpg" alt="" width="1600" height="900" loading="lazy" /></picture></figure>
+      <figure><picture><source type="image/webp" srcset="assets/strip-06.webp" /><img src="assets/strip-06.jpg" alt="" width="1280" height="1024" loading="lazy" /></picture></figure>
+    </div>
+  </section>
+
+  <section class="method" id="method" aria-labelledby="method-heading">
+    <div class="wrap">
+      <header class="sec-head">
+        <h2 id="method-heading">How a sit runs</h2>
+        <p>Simple for the client. Strict for the crew.</p>
+      </header>
+      <ol class="steps">
+        <li>
+          <span class="step-n">01</span>
+          <h3>Name the venue and the window</h3>
+          <p>No sit without both. You name friendlies and keep-out. VIP principals need not appear in the request if you want the sit held privately.</p>
+        </li>
+        <li>
+          <span class="step-n">02</span>
+          <h3>Full Site Picture</h3>
+          <p>We image the ground. When the sit is equipped, operators run passive detection and fuse what those sensors can see. We do not jam, spoof, or intercept.</p>
+        </li>
+        <li>
+          <span class="step-n">03</span>
+          <h3>Written risk assessment</h3>
+          <p>A 360 before launch. A scored matrix. Dynamic review if the scene changes. You receive observations, residuals, and abort criteria — not a green sticker.</p>
+        </li>
       </ol>
+    </div>
+  </section>
 
-      <div class="cta-block" id="part-request">
-        <div class="cta-row">
-          <button type="button" class="cta" id="btnPart">Request a part</button>
-        </div>
-        <p class="cta-help">Printed fixture. Printed here. Quote a part.</p>
-        <p class="copied" id="copiedPart" role="status" aria-live="polite" hidden>Copied.</p>
-        <div class="page-brief" id="part-brief">
-          <p>Printed fixtures. Printed here. Quote a part.</p>
-          <p>DS-PART-MOUNT. DS-PART-ENCL. DS-PART-MAST. DS-PART-CUSTOM.</p>
-          <p>Request a part.</p>
-        </div>
+  <section class="risk" id="risk" aria-labelledby="risk-heading">
+    <div class="wrap risk-grid">
+      <div>
+        <h2 id="risk-heading">Risk assessment</h2>
+        <p class="lead">Emergency-services method. Walk the 360 before the aircraft leaves the box. Risk a lot to save a lot. Risk nothing to save a highlight reel.</p>
+        <p>People, airspace, ground hazards, weather, energy (including lithium-ion packs), RF environment, and emergency access. Likelihood times consequence. Empty cells are a no-go. Dynamic assessment when the scene changes. Close-out names what the matrix missed.</p>
+        <p>This is a planning and liability product. It is not a promise the sit will be safe, and it is not licensed security.</p>
       </div>
-    </section>
+      <ul class="risk-list">
+        <li>Pre-mission matrix, signed</li>
+        <li>In-window dynamic review</li>
+        <li>Abort criteria on the board</li>
+        <li>Sensor-tagged observations</li>
+        <li>Pack-fire and medical cards</li>
+        <li>Post-mission review</li>
+      </ul>
+    </div>
+  </section>
 
-    <footer>
-      <p>Dark Sky Systems is forming. Overhead counter-UAS. Not an offer for payment.</p>
-    </footer>
-  </div>
+  <section class="about" id="about" aria-labelledby="about-heading">
+    <div class="wrap about-grid">
+      <h2 id="about-heading">About</h2>
+      <div>
+        <p class="lead">Dark Sky Systems is built for high-stakes venues that need a quiet, competent overhead desk — not theater.</p>
+        <p>The safety culture comes from emergency services. The founder is a former firefighter and paramedic, and a former Tesla emergency services specialist. That background sits in the size-up, the battery-fire discipline, the accountability on the pad, and the language we use with arriving companies.</p>
+        <p>Detection stays passive. Imaging stays in the named box. VIP work stays off social.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="request" id="request" aria-labelledby="request-heading">
+    <div class="wrap request-grid">
+      <div>
+        <h2 id="request-heading">Request a sit</h2>
+        <p class="lead">Name the venue and the window. The button copies a brief you can paste to us. No public inbox on this plate.</p>
+        <p class="fine">Discrete VIP: omit principal names. Describe the sit, not the person.</p>
+      </div>
+      <form class="ask" id="ask" action="#" method="post">
+        <label>Organization
+          <input type="text" id="org" name="org" autocomplete="organization" />
+        </label>
+        <label>Venue <span class="req">required</span>
+          <input type="text" id="venue" name="venue" required autocomplete="off" />
+        </label>
+        <label>Window <span class="req">required</span>
+          <input type="text" id="window" name="window" required placeholder="Dates and hours, local" autocomplete="off" />
+        </label>
+        <fieldset>
+          <legend>Need</legend>
+          <label class="check"><input type="checkbox" name="need" value="Event &amp; VIP operations" /> Event &amp; VIP</label>
+          <label class="check"><input type="checkbox" name="need" value="Overhead imaging" /> Overhead imaging</label>
+          <label class="check"><input type="checkbox" name="need" value="Full Site Picture" /> Full Site Picture</label>
+          <label class="check"><input type="checkbox" name="need" value="Professional risk assessment" /> Risk assessment</label>
+        </fieldset>
+        <label>Note
+          <textarea id="note" name="note" rows="3" placeholder="Keep-out, friendlies, discrete VIP — no principal names required."></textarea>
+        </label>
+        <button type="submit" class="cta" id="btnCuas">Copy request</button>
+        <p class="copied" id="copied" role="status" aria-live="polite" hidden>Copied.</p>
+        <div class="page-brief" id="brief">
+          <p>Dark Sky Systems — request a sit.</p>
+          <p>Name the venue and the window.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap foot-inner">
+      <p><strong>Dark Sky Systems</strong> · darksky.systems</p>
+      <p>Passive detection and monitoring only. We do not jam, spoof, or intercept. Not a licensed security company. Dark Sky Systems is forming. Not an offer for payment.</p>
+    </div>
+  </footer>
   <script src="app.js"></script>
 </body>
 </html>

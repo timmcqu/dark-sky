@@ -1,16 +1,6 @@
 (function () {
   function trimText(s) {
-    var start = 0;
-    var end = s.length;
-    while (start < end && /\s/.test(s.charAt(start))) start += 1;
-    while (end > start && /\s/.test(s.charAt(end - 1))) end -= 1;
-    return s.slice(start, end);
-  }
-
-  function briefFrom(id) {
-    var el = document.getElementById(id);
-    var raw = el ? (el.textContent || "") : "";
-    return trimText(raw).replace(/\n[ \t]+/g, "\n");
+    return String(s || "").replace(/^\s+|\s+$/g, "");
   }
 
   function fallbackCopy(text) {
@@ -31,41 +21,92 @@
     return ok;
   }
 
-  function bindCopy(btnId, briefId, noteId) {
-    var btn = document.getElementById(btnId);
-    var note = document.getElementById(noteId);
-    var brief = briefFrom(briefId);
-    if (!btn) return;
+  function composeBrief() {
+    var org = trimText(document.getElementById("org") && document.getElementById("org").value);
+    var venue = trimText(document.getElementById("venue") && document.getElementById("venue").value);
+    var windowEl = document.getElementById("window");
+    var win = trimText(windowEl && windowEl.value);
+    var note = trimText(document.getElementById("note") && document.getElementById("note").value);
+    var needs = [];
+    var boxes = document.querySelectorAll('input[name="need"]:checked');
+    for (var i = 0; i < boxes.length; i += 1) needs.push(boxes[i].value);
 
-    var briefEl = document.getElementById(briefId);
-
-    function showCopied() {
-      if (note) {
-        note.hidden = false;
-        note.textContent = "Copied.";
-      }
-      if (btn.className.indexOf("is-copied") === -1) btn.className = trimText(btn.className + " is-copied");
-      if (briefEl && briefEl.className.indexOf("is-live") === -1) briefEl.className = trimText(briefEl.className + " is-live");
-    }
-
-    function onClick(ev) {
-      ev.preventDefault();
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(brief).then(showCopied).catch(function () {
-          if (fallbackCopy(brief)) showCopied();
-          else if (note) {
-            note.hidden = false;
-            note.textContent = "Copy blocked in this browser. Brief is on the clipboard path only — paste failed.";
-          }
-        });
-        return;
-      }
-      if (fallbackCopy(brief)) showCopied();
-    }
-
-    btn.addEventListener("click", onClick);
+    var lines = ["Dark Sky Systems — request a sit."];
+    if (org) lines.push("Organization: " + org);
+    lines.push("Venue: " + (venue || "(name the venue)"));
+    lines.push("Window: " + (win || "(name the window)"));
+    lines.push("Need: " + (needs.length ? needs.join("; ") : "Overhead operations"));
+    if (note) lines.push("Note: " + note);
+    lines.push("Passive detection only. Discrete VIP — omit principal names.");
+    return lines.join("\n");
   }
 
-  bindCopy("btnCuas", "brief", "copied");
-  bindCopy("btnPart", "part-brief", "copiedPart");
+  function syncBrief() {
+    var el = document.getElementById("brief");
+    if (!el) return;
+    var text = composeBrief();
+    el.textContent = "";
+    var parts = text.split("\n");
+    for (var i = 0; i < parts.length; i += 1) {
+      var p = document.createElement("p");
+      p.textContent = parts[i];
+      el.appendChild(p);
+    }
+    return text;
+  }
+
+  var form = document.getElementById("ask");
+  var btn = document.getElementById("btnCuas");
+  var note = document.getElementById("copied");
+  var briefEl = document.getElementById("brief");
+
+  function showCopied() {
+    if (note) {
+      note.hidden = false;
+      note.textContent = "Copied.";
+    }
+    if (btn && btn.className.indexOf("is-copied") === -1) {
+      btn.className = trimText(btn.className + " is-copied");
+    }
+    if (briefEl && briefEl.className.indexOf("is-live") === -1) {
+      briefEl.className = trimText(briefEl.className + " is-live");
+    }
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(showCopied).catch(function () {
+        if (fallbackCopy(text)) showCopied();
+        else if (note) {
+          note.hidden = false;
+          note.textContent = "Copy blocked in this browser.";
+        }
+      });
+      return;
+    }
+    if (fallbackCopy(text)) showCopied();
+  }
+
+  if (form) {
+    form.addEventListener("input", syncBrief);
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      if (typeof form.reportValidity === "function" && !form.reportValidity()) return;
+      copyText(syncBrief());
+    });
+    syncBrief();
+  }
+
+  var loop = document.querySelector(".hero-loop");
+  if (loop) {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      loop.removeAttribute("autoplay");
+      loop.pause();
+    } else {
+      loop.muted = true;
+      loop.setAttribute("playsinline", "");
+      var play = loop.play();
+      if (play && play.catch) play.catch(function () {});
+    }
+  }
 })();
