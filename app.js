@@ -156,9 +156,11 @@
     syncBrief();
   }
 
-  var loop = document.querySelector(".hero-loop");
-  if (loop) {
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  var loops = document.querySelectorAll(".hero-loop, .ground-loop");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  for (var i = 0; i < loops.length; i += 1) {
+    var loop = loops[i];
+    if (reduce) {
       loop.removeAttribute("autoplay");
       loop.pause();
     } else {

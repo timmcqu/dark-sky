@@ -117,7 +117,7 @@ img { height: auto; }
 .rail a:hover,
 .rail a:focus-visible { color: var(--gold); }
 
-#services, #picture, #method, #risk, #about, #crew, #request, #missions {
+#services, #picture, #ground-heading, #method, #risk, #about, #crew, #request, #missions {
   scroll-margin-top: calc(var(--stage) + 0.5rem);
 }
 
@@ -316,6 +316,33 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
   object-fit: cover;
   object-position: 50% 62%;
   filter: contrast(1.08) brightness(0.92);
+}
+
+.ground-intro {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+  padding-bottom: 1rem;
+}
+
+.ground-plate {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: var(--lift);
+}
+
+.ground-poster,
+.ground-loop {
+  display: block;
+  width: 100%;
+  height: min(62svh, 34rem);
+  object-fit: cover;
+  object-position: 42% 70%;
+}
+
+.ground-loop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 }
 
 .strip {
@@ -525,6 +552,8 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
   .svc img { height: 11.5rem; }
   .map-plate,
   .map-plate img { height: 58vw; max-height: 20rem; }
+  .ground-poster,
+  .ground-loop { height: 58vw; max-height: 20rem; }
   .strip { grid-auto-columns: 70vw; }
   .strip img { height: 38vw; max-height: 9rem; }
 }
@@ -536,11 +565,12 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .cta { transition: none; }
-  .hero-loop { display: none; }
+  .hero-loop,
+  .ground-loop { display: none; }
 }
 
 @media print {
-  .hero-loop, .hero-veil, .skip, .rail { display: none; }
+  .hero-loop, .ground-loop, .hero-veil, .skip, .rail { display: none; }
   .mast { position: static; }
   body { background: #fff; color: #111; }
 }
