@@ -117,7 +117,7 @@ img { height: auto; }
 .rail a:hover,
 .rail a:focus-visible { color: var(--gold); }
 
-#services, #picture, #method, #risk, #about, #request, #missions {
+#services, #picture, #method, #risk, #about, #crew, #request, #missions {
   scroll-margin-top: calc(var(--stage) + 0.5rem);
 }
 
