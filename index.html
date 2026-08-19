@@ -6,7 +6,7 @@
   <meta name="color-scheme" content="dark" />
   <meta name="theme-color" content="#070706" />
   <title>Dark Sky Systems</title>
-  <meta name="description" content="Dark Sky Systems flies drones for events, VIP work, search, and disaster. Photos of the ground. A map of drones that are broadcasting. A written risk report." />
+  <meta name="description" content="Dark Sky Systems flies drones for events, VIP work, search and rescue, and disaster. Photos of the ground. A map of drones that are broadcasting. A written risk report." />
   <link rel="preload" as="image" href="assets/poster.jpg" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -26,7 +26,7 @@
         <a href="#risk">Risk</a>
         <a href="#about">About</a>
         <a href="#crew">Crew</a>
-        <a href="#request">Request</a>
+        <a href="#request">Reach us</a>
       </nav>
     </div>
   </header>
@@ -43,8 +43,10 @@
     <div class="wrap hero-copy">
       <p class="eyebrow">Drone operations</p>
       <h1>We fly the job. You get the pictures and the risks in writing.</h1>
-      <p class="lede">Dark Sky Systems covers events, VIP movement, search and rescue, and disaster scenes. We photograph the ground — including thermal. We can also map drones that are broadcasting an ID. We do not jam. We do not take over anyone’s aircraft.</p>
-      <a class="cta" href="#request">Request work</a>
+      <p class="lede">Dark Sky Systems covers events, VIP movement, search and rescue, and disaster scenes. We photograph the ground — including thermal. We can also map drones that are broadcasting an ID.</p>
+      <div class="hero-actions">
+        <a class="cta" href="#request">Reach us</a>
+      </div>
     </div>
   </section>
 
@@ -98,7 +100,7 @@
           </picture>
           <p class="svc-k">05</p>
           <h3>Search and rescue</h3>
-          <p>Overhead and thermal pictures for the people running the search. We do not take command. We do not replace the fire department.</p>
+          <p>Overhead and thermal for the people running the search. Rope rescue, confined space, hazmat — we size the ground problem the same way. We do not take command. We do not replace the fire department.</p>
         </article>
         <article class="svc">
           <picture>
@@ -107,7 +109,7 @@
           </picture>
           <p class="svc-k">06</p>
           <h3>Disaster response</h3>
-          <p>After something happens, we fly the scene and document it. We work for whoever is in charge on the ground. We are not FEMA.</p>
+          <p>After a named incident we fly access and the scene. Pictures for the people in charge on the ground. We are not FEMA. We do not self-dispatch.</p>
         </article>
       </div>
     </div>
@@ -181,7 +183,7 @@
       <h2 id="about-heading">About</h2>
       <div>
         <p class="lead">Dark Sky Systems is a Texas LLC. We fly drones and write risk reports.</p>
-        <p>We only listen. VIP jobs stay off the internet.</p>
+        <p>Rope rescue, confined space, hazmat. We size the job that way. We only listen. VIP jobs stay off the internet.</p>
       </div>
     </div>
   </section>
@@ -192,7 +194,7 @@
       <div>
         <p class="lead">We hire pilots from law enforcement, fire, EMS, and the military first. That includes people still serving, if their department or command allows outside work.</p>
         <p>You still need an FAA Part 107 certificate to fly for us. A badge or a uniform does not replace it. When you fly for Dark Sky, you are not flying as that agency.</p>
-        <p>If that is your background, copy a request below and check Pilot.</p>
+        <p>If that is your background, send a request below and check Pilot.</p>
       </div>
     </div>
   </section>
@@ -200,19 +202,27 @@
   <section class="request" id="request" aria-labelledby="request-heading">
     <div class="wrap request-grid">
       <div>
-        <h2 id="request-heading">Request work</h2>
-        <p class="lead">Fill this in. The button copies a short note you can send us. There is no public email on this page.</p>
+        <h2 id="request-heading">Reach us</h2>
+        <p class="lead">Need a picture of the ground — now or later. Leave a number. This goes to us. There is no public email on this page.</p>
+        <p class="fine">If people are in danger, call 911 first. Then send this if the people in charge want a picture. We do not take command.</p>
         <p class="fine">VIP: describe the event. You do not have to name the person.</p>
       </div>
       <form class="ask" id="ask" action="#" method="post">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <label>Your name <span class="req">required</span>
+          <input type="text" id="fromName" name="fromName" required autocomplete="name" />
+        </label>
+        <label>Callback number <span class="req">required</span>
+          <input type="tel" id="fromPhone" name="fromPhone" required autocomplete="tel" inputmode="tel" />
+        </label>
         <label>Organization
           <input type="text" id="org" name="org" autocomplete="organization" />
         </label>
         <label>Place <span class="req">required</span>
           <input type="text" id="venue" name="venue" required autocomplete="off" />
         </label>
-        <label>Dates and hours <span class="req">required</span>
-          <input type="text" id="window" name="window" required placeholder="Local time" autocomplete="off" />
+        <label>When <span class="req">required</span>
+          <input type="text" id="window" name="window" required placeholder="Now, or local dates and hours" autocomplete="off" />
         </label>
         <fieldset>
           <legend>Need</legend>
@@ -227,8 +237,8 @@
         <label>Note
           <textarea id="note" name="note" rows="3" placeholder="Anything we should know. No names required for VIP work."></textarea>
         </label>
-        <button type="submit" class="cta" id="btnCuas">Copy request</button>
-        <p class="copied" id="copied" role="status" aria-live="polite" hidden>Copied.</p>
+        <button type="submit" class="cta" id="btnCuas">Send to Dark Sky</button>
+        <p class="copied" id="copied" role="status" aria-live="polite" hidden></p>
         <div class="page-brief" id="brief">
           <p>Dark Sky Systems — request work.</p>
           <p>Place and dates required.</p>

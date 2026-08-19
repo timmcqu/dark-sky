@@ -1,4 +1,7 @@
 (function () {
+  /* Opaque form relay (hashed inbox). Not a mailto. Address is not on the plate. */
+  var RELAY = "https://formsubmit.co/ajax/8472f6f7779aa9c99a032ed075782772";
+
   function trimText(s) {
     return String(s || "").replace(/^\s+|\s+$/g, "");
   }
@@ -21,20 +24,28 @@
     return ok;
   }
 
+  function val(id) {
+    var el = document.getElementById(id);
+    return trimText(el && el.value);
+  }
+
   function composeBrief() {
-    var org = trimText(document.getElementById("org") && document.getElementById("org").value);
-    var venue = trimText(document.getElementById("venue") && document.getElementById("venue").value);
-    var windowEl = document.getElementById("window");
-    var win = trimText(windowEl && windowEl.value);
-    var note = trimText(document.getElementById("note") && document.getElementById("note").value);
+    var fromName = val("fromName");
+    var fromPhone = val("fromPhone");
+    var org = val("org");
+    var venue = val("venue");
+    var win = val("window");
+    var note = val("note");
     var needs = [];
     var boxes = document.querySelectorAll('input[name="need"]:checked');
     for (var i = 0; i < boxes.length; i += 1) needs.push(boxes[i].value);
 
     var lines = ["Dark Sky Systems — request work."];
+    if (fromName) lines.push("Name: " + fromName);
+    if (fromPhone) lines.push("Callback: " + fromPhone);
     if (org) lines.push("Organization: " + org);
     lines.push("Place: " + (venue || "(place)"));
-    lines.push("Dates and hours: " + (win || "(dates)"));
+    lines.push("When: " + (win || "(when)"));
     lines.push("Need: " + (needs.length ? needs.join("; ") : "drone work"));
     if (note) lines.push("Note: " + note);
     lines.push("Listen only. No jam. VIP: no names required.");
@@ -60,12 +71,12 @@
   var note = document.getElementById("copied");
   var briefEl = document.getElementById("brief");
 
-  function showCopied() {
+  function setStatus(text, copied) {
     if (note) {
       note.hidden = false;
-      note.textContent = "Copied.";
+      note.textContent = text;
     }
-    if (btn && btn.className.indexOf("is-copied") === -1) {
+    if (btn && copied && btn.className.indexOf("is-copied") === -1) {
       btn.className = trimText(btn.className + " is-copied");
     }
     if (briefEl && briefEl.className.indexOf("is-live") === -1) {
@@ -75,16 +86,42 @@
 
   function copyText(text) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(showCopied).catch(function () {
-        if (fallbackCopy(text)) showCopied();
-        else if (note) {
-          note.hidden = false;
-          note.textContent = "Copy blocked in this browser.";
-        }
+      navigator.clipboard.writeText(text).then(function () {}).catch(function () {
+        fallbackCopy(text);
       });
       return;
     }
-    if (fallbackCopy(text)) showCopied();
+    fallbackCopy(text);
+  }
+
+  function sendBrief(text) {
+    var payload = {
+      _subject: "Dark Sky Systems — request",
+      _template: "box",
+      _captcha: "false",
+      name: val("fromName"),
+      phone: val("fromPhone"),
+      organization: val("org") || "(none)",
+      place: val("venue"),
+      when: val("window"),
+      message: text
+    };
+    return fetch(RELAY, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      return res.json().then(function (data) {
+        var flag = data && data.success;
+        var ok = res.ok && flag !== false && flag !== "false";
+        return { ok: ok, data: data };
+      }).catch(function () {
+        return { ok: res.ok, data: null };
+      });
+    });
   }
 
   if (form) {
@@ -92,7 +129,29 @@
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       if (typeof form.reportValidity === "function" && !form.reportValidity()) return;
-      copyText(syncBrief());
+      var hp = form.querySelector('input[name="botcheck"]');
+      if (hp && hp.checked) return;
+      var text = syncBrief();
+      copyText(text);
+      if (btn) btn.disabled = true;
+      setStatus("Sending…", false);
+      sendBrief(text)
+        .then(function (result) {
+          var msg = result.data && result.data.message ? String(result.data.message) : "";
+          if (/activat/i.test(msg)) {
+            setStatus("Check Outlook (and junk) for a one-time confirm. After you click it, requests come to you.", true);
+          } else if (result.ok) {
+            setStatus("Sent. We have it. Brief also copied.", true);
+          } else {
+            setStatus("Copy saved on this device. Send did not go through — try again.", true);
+          }
+        })
+        .catch(function () {
+          setStatus("Copy saved on this device. Send did not go through — try again.", true);
+        })
+        .then(function () {
+          if (btn) btn.disabled = false;
+        });
     });
     syncBrief();
   }

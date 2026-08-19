@@ -215,6 +215,8 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
 
 .lede { font-size: 1.12rem; color: #d4ccbc; max-width: 38rem; }
 
+.hero-actions { margin-top: 0.25rem; }
+
 .cta {
   display: inline-flex;
   align-items: center;
@@ -433,6 +435,14 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
 }
 
 .check input { width: auto; margin: 0; accent-color: var(--gold); }
+
+.ask .hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 
 .req { color: var(--gold); font-size: 0.62rem; }
 
