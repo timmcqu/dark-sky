@@ -98,12 +98,14 @@ img { height: auto; }
 
 .rail {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.15rem 1.15rem;
   margin-left: auto;
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .rail a {
@@ -118,7 +120,7 @@ img { height: auto; }
 .rail a:focus-visible { color: var(--gold); }
 
 #services, #picture, #ground-heading, #method, #risk, #about, #crew, #request, #missions {
-  scroll-margin-top: calc(var(--stage) + 0.5rem);
+  scroll-margin-top: calc(var(--stage) + 1.35rem);
 }
 
 .venues {

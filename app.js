@@ -48,28 +48,13 @@
     lines.push("When: " + (win || "(when)"));
     lines.push("Need: " + (needs.length ? needs.join("; ") : "drone work"));
     if (note) lines.push("Note: " + note);
-    lines.push("Listen only. No jam. VIP: no names required.");
+    lines.push("VIP: no names required.");
     return lines.join("\n");
-  }
-
-  function syncBrief() {
-    var el = document.getElementById("brief");
-    if (!el) return;
-    var text = composeBrief();
-    el.textContent = "";
-    var parts = text.split("\n");
-    for (var i = 0; i < parts.length; i += 1) {
-      var p = document.createElement("p");
-      p.textContent = parts[i];
-      el.appendChild(p);
-    }
-    return text;
   }
 
   var form = document.getElementById("ask");
   var btn = document.getElementById("btnCuas");
   var note = document.getElementById("copied");
-  var briefEl = document.getElementById("brief");
 
   function setStatus(text, copied) {
     if (note) {
@@ -78,9 +63,6 @@
     }
     if (btn && copied && btn.className.indexOf("is-copied") === -1) {
       btn.className = trimText(btn.className + " is-copied");
-    }
-    if (briefEl && briefEl.className.indexOf("is-live") === -1) {
-      briefEl.className = trimText(briefEl.className + " is-live");
     }
   }
 
@@ -125,13 +107,12 @@
   }
 
   if (form) {
-    form.addEventListener("input", syncBrief);
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       if (typeof form.reportValidity === "function" && !form.reportValidity()) return;
       var hp = form.querySelector('input[name="botcheck"]');
       if (hp && hp.checked) return;
-      var text = syncBrief();
+      var text = composeBrief();
       copyText(text);
       if (btn) btn.disabled = true;
       setStatus("Sending…", false);
@@ -153,7 +134,6 @@
           if (btn) btn.disabled = false;
         });
     });
-    syncBrief();
   }
 
   var loops = document.querySelectorAll(".hero-loop, .ground-loop");
