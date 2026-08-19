@@ -341,7 +341,7 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
   width: 100%;
   height: min(62svh, 34rem);
   object-fit: cover;
-  object-position: 42% 70%;
+  object-position: 50% 62%;
 }
 
 .ground-loop {
