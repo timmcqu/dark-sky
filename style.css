@@ -478,6 +478,7 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
 
 @media (min-width: 960px) {
   .hero-copy { margin-left: 0; }
+  .service-grid { grid-template-columns: 1fr 1fr 1fr; }
 }
 
 @media (max-width: 639px) {
