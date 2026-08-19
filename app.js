@@ -31,13 +31,13 @@
     var boxes = document.querySelectorAll('input[name="need"]:checked');
     for (var i = 0; i < boxes.length; i += 1) needs.push(boxes[i].value);
 
-    var lines = ["Dark Sky Systems — request a sit."];
+    var lines = ["Dark Sky Systems — request work."];
     if (org) lines.push("Organization: " + org);
-    lines.push("Venue: " + (venue || "(name the venue)"));
-    lines.push("Window: " + (win || "(name the window)"));
-    lines.push("Need: " + (needs.length ? needs.join("; ") : "Overhead operations"));
+    lines.push("Place: " + (venue || "(place)"));
+    lines.push("Dates and hours: " + (win || "(dates)"));
+    lines.push("Need: " + (needs.length ? needs.join("; ") : "drone work"));
     if (note) lines.push("Note: " + note);
-    lines.push("Passive detection only. Discrete VIP — omit principal names.");
+    lines.push("Listen only. No jam. VIP: no names required.");
     return lines.join("\n");
   }
 
