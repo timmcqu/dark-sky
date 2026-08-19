@@ -66,6 +66,6 @@
     btn.addEventListener("click", onClick);
   }
 
-  bindCopy("btnWalk", "walk-brief", "copied");
+  bindCopy("btnEap", "eap-brief", "copied");
   bindCopy("btnPart", "part-brief", "copiedPart");
 })();
