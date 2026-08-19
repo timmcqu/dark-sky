@@ -118,7 +118,7 @@ img { height: auto; }
 .rail a:hover,
 .rail a:focus-visible { color: var(--gold); }
 
-#services, #picture, #method, #risk, #about, #request {
+#services, #picture, #method, #risk, #about, #request, #missions {
   scroll-margin-top: calc(var(--stage) + 0.5rem);
 }
 
@@ -126,6 +126,20 @@ img { height: auto; }
   margin: 0 0 1.35rem;
   color: var(--mute);
   font-size: 0.98rem;
+}
+
+.missions {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+.missions li {
+  margin: 0;
+  padding: 0.12rem 0;
+  color: var(--paper);
+  font-size: clamp(1.12rem, 2.3vw, 1.4rem);
+  letter-spacing: -0.02em;
+  line-height: 1.28;
 }
 
 .hero {
