@@ -136,7 +136,7 @@
     });
   }
 
-  var loops = document.querySelectorAll(".hero-loop, .ground-loop");
+  var loops = document.querySelectorAll(".hero-loop, .ground-loop, .svc-loop");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   for (var i = 0; i < loops.length; i += 1) {
     var loop = loops[i];

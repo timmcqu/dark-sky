@@ -276,16 +276,20 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
 }
 
 .svc picture,
-.svc img {
+.svc img,
+.svc-loop {
   display: block;
 }
 
-.svc img {
+.svc img,
+.svc-loop {
   width: 100%;
   height: 12.5rem;
   object-fit: cover;
   background: var(--lift);
 }
+
+.svc-loop { pointer-events: none; }
 
 .svc-k {
   margin: 0.85rem 0 0.25rem;
@@ -513,7 +517,8 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
 
 @media (min-width: 720px) {
   .service-grid { grid-template-columns: 1fr 1fr; gap: 2rem 1.75rem; }
-  .svc img { height: 14rem; }
+  .svc img,
+  .svc-loop { height: 14rem; }
   .steps { grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
   .risk-grid,
   .about-grid,
@@ -556,7 +561,8 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
   }
   .rail::-webkit-scrollbar { display: none; }
   .rail a { flex: 0 0 auto; }
-  .svc img { height: 11.5rem; }
+  .svc img,
+  .svc-loop { height: 11.5rem; }
   .map-plate,
   .map-plate img { height: 58vw; max-height: 20rem; }
   .ground-poster,
@@ -573,7 +579,8 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
   html { scroll-behavior: auto; }
   .cta { transition: none; }
   .hero-loop,
-  .ground-loop { display: none; }
+  .ground-loop,
+  .svc-loop { display: none; }
 }
 
 @media print {
