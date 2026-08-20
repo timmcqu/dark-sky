@@ -286,6 +286,7 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
   width: 100%;
   height: 12.5rem;
   object-fit: cover;
+  object-position: 50% 50%;
   background: var(--lift);
 }
 
