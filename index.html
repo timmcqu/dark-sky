@@ -15,7 +15,7 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preload" as="image" href="assets/poster.jpg" />
-  <link rel="stylesheet" href="style.css?v=7" />
+  <link rel="stylesheet" href="style.css?v=9" />
 </head>
 <!-- Dark Sky Systems LLC -->
 <body>
@@ -41,8 +41,8 @@
     <div class="hero-media" aria-hidden="true">
       <img class="hero-poster" src="assets/poster.jpg" alt="" width="1920" height="1080" />
       <video class="hero-loop" autoplay muted loop playsinline preload="auto" poster="assets/poster.jpg">
-        <source src="assets/hero.webm?v=5" type="video/webm" />
-        <source src="assets/hero.mp4?v=5" type="video/mp4" />
+        <source src="assets/hero.webm?v=9" type="video/webm" />
+        <source src="assets/hero.mp4?v=9" type="video/mp4" />
       </video>
     </div>
     <div class="hero-veil" aria-hidden="true"></div>
@@ -82,7 +82,7 @@
         </article>
         <article class="svc">
           <video class="svc-loop" autoplay muted loop playsinline poster="assets/still-close-mini.jpg" width="1280" height="720" aria-hidden="true">
-            <source src="assets/mini-close.mp4?v=5" type="video/mp4" />
+            <source src="assets/mini-close.mp4?v=9" type="video/mp4" />
           </video>
           <p class="svc-k">03</p>
           <h3>Overhead photos and video</h3>
@@ -116,13 +116,13 @@
           <p>Thermal finds heat in the trees and in the dark — fire, engines, and people. We fly that picture for the people running the search. The incident commander owns the scene.</p>
         </article>
         <article class="svc">
-          <video class="svc-loop" autoplay muted loop playsinline poster="assets/still-er.jpg" width="1920" height="1080" aria-hidden="true">
-            <source src="assets/disaster.webm?v=5" type="video/webm" />
-            <source src="assets/disaster.mp4?v=5" type="video/mp4" />
-          </video>
+          <picture>
+            <source type="image/webp" srcset="assets/still-er.webp" />
+            <img src="assets/still-er.jpg" alt="Overhead of fire apparatus on a named incident." width="1920" height="1080" loading="lazy" />
+          </picture>
           <p class="svc-k">07</p>
-          <h3>Disaster response</h3>
-          <p>After a named incident we fly access and the scene, then deliver pictures to whoever is in charge. We do not self-dispatch. The incident commander owns the scene.</p>
+          <h3>Emergency and Disaster</h3>
+          <p>After a named incident we fly access and the scene. Fire apparatus, the wreck, and the road — pictures for whoever is in charge. We do not self-dispatch. The incident commander owns the scene.</p>
         </article>
       </div>
     </div>
@@ -269,7 +269,7 @@
           <label class="check"><input type="checkbox" name="need" value="Full Site Picture" /> Air map</label>
           <label class="check"><input type="checkbox" name="need" value="Risk report" /> Risk report</label>
           <label class="check"><input type="checkbox" name="need" value="Search and rescue" /> Search and rescue</label>
-          <label class="check"><input type="checkbox" name="need" value="Disaster response" /> Disaster response</label>
+          <label class="check"><input type="checkbox" name="need" value="Emergency and Disaster" /> Emergency and Disaster</label>
           <label class="check"><input type="checkbox" name="need" value="Pilot" /> Pilot (LE / fire / EMS / military)</label>
         </fieldset>
         <label>Note
