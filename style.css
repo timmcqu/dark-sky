@@ -165,7 +165,7 @@ img { height: auto; }
   height: 100%;
   max-width: none;
   object-fit: cover;
-  object-position: center 40%;
+  object-position: center 48%;
 }
 
 .hero-loop { pointer-events: none; }
@@ -232,7 +232,16 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
 
 .lede { font-size: 1.02rem; line-height: 1.5; color: #d4ccbc; max-width: 32rem; }
 
-.hero-actions { margin-top: 0.25rem; }
+.hero-copy .lede {
+  margin: 0 0 1.1rem;
+  max-width: 28rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+  line-height: 1.4;
+  color: var(--paper);
+  text-shadow: 0 1px 18px rgba(7, 7, 6, 0.65);
+}
+
+.hero-actions { margin-top: 0.15rem; }
 
 .cta {
   display: inline-flex;
@@ -288,6 +297,10 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
   gap: 1.75rem;
 }
 
+.svc {
+  min-width: 0;
+}
+
 .svc picture,
 .svc img,
 .svc-loop {
@@ -304,6 +317,8 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
 }
 
 .svc-loop { pointer-events: none; }
+
+.svc h3 { max-width: 22rem; }
 
 .svc-k {
   margin: 0.85rem 0 0.25rem;
@@ -472,7 +487,12 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
   margin: 0.2rem 0 0;
   padding: 0;
   display: grid;
-  gap: 0.45rem;
+  gap: 0.15rem 1rem;
+}
+
+@media (min-width: 520px) {
+  .ask fieldset { grid-template-columns: 1fr 1fr; }
+  .ask fieldset legend { grid-column: 1 / -1; }
 }
 
 .check {
@@ -532,7 +552,10 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
 @media (min-width: 720px) {
   .service-grid { grid-template-columns: 1fr 1fr; gap: 2rem 1.75rem; }
   .svc img,
-  .svc-loop { height: 14rem; }
+  .svc-loop { height: 15rem; }
+  .svc:last-child { grid-column: 1 / -1; }
+  .svc:last-child img,
+  .svc:last-child .svc-loop { height: 20rem; object-position: 50% 42%; }
   .steps { grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
   .risk-grid,
   .about-grid,
