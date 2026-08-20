@@ -15,7 +15,7 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preload" as="image" href="assets/poster.jpg" />
-  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=7" />
 </head>
 <!-- Dark Sky Systems LLC -->
 <body>
@@ -29,7 +29,7 @@
       </a>
       <nav class="rail" aria-label="Primary">
         <a href="#services">Services</a>
-        <a href="#picture">Ground</a>
+        <a href="#ground-heading">Ground</a>
         <a href="#risk">Risk</a>
         <a href="#crew">Crew</a>
         <a href="#request">Reach us</a>
@@ -113,7 +113,7 @@
           </video>
           <p class="svc-k">06</p>
           <h3>Search and rescue</h3>
-          <p>Overhead and thermal for the people running the search. We size the work as rope rescue, confined space, and hazmat. The incident commander owns the scene.</p>
+          <p>Thermal finds heat in the trees and in the dark — fire, engines, and people. We fly that picture for the people running the search. The incident commander owns the scene.</p>
         </article>
         <article class="svc">
           <video class="svc-loop" autoplay muted loop playsinline poster="assets/still-er.jpg" width="1920" height="1080" aria-hidden="true">
@@ -141,21 +141,32 @@
     </figure>
     <div class="wrap picture-intro ground-intro">
       <h2 id="ground-heading">The ground</h2>
-      <p>You name the road or the venue. We fly thermal overhead so movement shows as heat, including at night. We do not read license plates.</p>
+      <p>Same aircraft, same second. Visual shows the road and the apparatus. Thermal shows the fire in the trees, the engines, and people as heat — including at night, including when a victim is in the brush. We fly that picture for the people running the scene. We do not read plates. The incident commander owns the search.</p>
     </div>
-    <figure class="ground-plate">
-      <img class="ground-poster" src="assets/thermal-road.jpg" alt="Thermal overhead of an incident on a road." width="1280" height="720" />
-      <video class="ground-loop" autoplay muted loop playsinline preload="metadata" poster="assets/thermal-road.jpg" width="1280" height="720" aria-hidden="true">
-        <source src="assets/thermal-road.webm?v=5" type="video/webm" />
-        <source src="assets/thermal-road.mp4?v=5" type="video/mp4" />
-      </video>
-    </figure>
+    <div class="ground-compare">
+      <figure class="ground-pane">
+        <figcaption>Visual</figcaption>
+        <img class="ground-poster" src="assets/scene-visual.jpg" alt="Overhead visual of an incident on a road." width="1280" height="720" />
+        <video class="ground-loop" autoplay muted loop playsinline preload="metadata" poster="assets/scene-visual.jpg" width="1280" height="720" aria-hidden="true">
+          <source src="assets/scene-visual.webm?v=7" type="video/webm" />
+          <source src="assets/scene-visual.mp4?v=7" type="video/mp4" />
+        </video>
+      </figure>
+      <figure class="ground-pane">
+        <figcaption>Thermal</figcaption>
+        <img class="ground-poster" src="assets/scene-thermal.jpg" alt="Same overhead as heat: fire in the trees, vehicles, and people." width="1280" height="720" />
+        <video class="ground-loop" autoplay muted loop playsinline preload="metadata" poster="assets/scene-thermal.jpg" width="1280" height="720" aria-hidden="true">
+          <source src="assets/scene-thermal.webm?v=7" type="video/webm" />
+          <source src="assets/scene-thermal.mp4?v=7" type="video/mp4" />
+        </video>
+      </figure>
+    </div>
     <div class="strip" aria-label="Photos from flights">
+      <figure><picture><source type="image/webp" srcset="assets/scene-visual.webp" /><img src="assets/scene-visual.jpg" alt="" width="1280" height="720" loading="lazy" /></picture></figure>
+      <figure><picture><source type="image/webp" srcset="assets/scene-thermal.webp" /><img src="assets/scene-thermal.jpg" alt="" width="1280" height="720" loading="lazy" /></picture></figure>
       <figure><picture><source type="image/webp" srcset="assets/still-er.webp" /><img src="assets/still-er.jpg" alt="" width="1920" height="1080" loading="lazy" /></picture></figure>
       <figure><picture><source type="image/webp" srcset="assets/still-thermal-air.webp" /><img src="assets/still-thermal-air.jpg" alt="" width="1280" height="720" loading="lazy" /></picture></figure>
       <figure><picture><source type="image/webp" srcset="assets/still-search.webp" /><img src="assets/still-search.jpg" alt="" width="1280" height="1024" loading="lazy" /></picture></figure>
-      <figure><picture><source type="image/webp" srcset="assets/thermal-cars.webp" /><img src="assets/thermal-cars.jpg" alt="" width="1600" height="900" loading="lazy" /></picture></figure>
-      <figure><picture><source type="image/webp" srcset="assets/still-scene.webp" /><img src="assets/still-scene.jpg" alt="" width="1600" height="900" loading="lazy" /></picture></figure>
       <figure><picture><source type="image/webp" srcset="assets/still-close-mini.webp" /><img src="assets/still-close-mini.jpg" alt="" width="1600" height="900" loading="lazy" /></picture></figure>
       <figure><picture><source type="image/webp" srcset="assets/still-other-drone.webp" /><img src="assets/still-other-drone.jpg" alt="" width="1600" height="900" loading="lazy" /></picture></figure>
       <figure><picture><source type="image/webp" srcset="assets/still-airframe.webp" /><img src="assets/still-airframe.jpg" alt="" width="1600" height="900" loading="lazy" /></picture></figure>
@@ -276,6 +287,6 @@
       <p>Detection is receive-only. We do not jam, spoof, or intercept. We are not a licensed security company. This page is not a price list and is not an offer for payment.</p>
     </div>
   </footer>
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>

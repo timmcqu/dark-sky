@@ -361,22 +361,43 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
 .ground-intro {
   margin-top: clamp(2rem, 5vw, 3.5rem);
   padding-bottom: 1rem;
+  max-width: 42rem;
 }
 
-.ground-plate {
+.ground-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  margin: 0;
+  background: var(--gold-dim);
+}
+
+.ground-pane {
   position: relative;
   margin: 0;
   overflow: hidden;
-  background: var(--lift);
+  background: var(--ink);
+}
+
+.ground-pane figcaption {
+  position: absolute;
+  z-index: 2;
+  left: 0.7rem;
+  top: 0.6rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-shadow: 0 1px 14px rgba(7, 7, 6, 0.85);
 }
 
 .ground-poster,
 .ground-loop {
   display: block;
   width: 100%;
-  height: min(62svh, 34rem);
+  height: min(48svh, 26rem);
   object-fit: cover;
-  object-position: 50% 62%;
+  object-position: 50% 48%;
 }
 
 .ground-loop {
@@ -602,6 +623,7 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
   .svc-loop { height: 11.5rem; }
   .map-plate,
   .map-plate img { height: 58vw; max-height: 20rem; }
+  .ground-compare { grid-template-columns: 1fr; }
   .ground-poster,
   .ground-loop { height: 58vw; max-height: 20rem; }
   .strip { grid-auto-columns: 70vw; }
