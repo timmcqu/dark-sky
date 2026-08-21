@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=56" />
+  <link rel="stylesheet" href="style.css?v=57" />
 </head>
 <!-- Dark Sky Systems LLC -->
 <body>
@@ -159,7 +159,7 @@
       <h2 id="picture-heading">The picture</h2>
       <p class="lead">Fielded listen console. Map, spectrum, RID, and RF on one glass. Named place and time.</p>
       <p>RID-only tools only see aircraft that broadcast an ID. A drone can still radiate on a video or control link with RID off. This console logs that energy: time, band, and level. Radio-only contacts have no map pin and are not direction-finding. Quiet air is recorded. Dead feeds drop. Tracks are not invented.</p>
-      <p>Two independent layers. Remote ID: cooperative Bluetooth LE ads on an ESP32-S3 (1M, coded S8, extended). RF: spectrum on the bands the kit actually covers that job — commonly 2.4 GHz and 5.8 GHz (this frame: 5800–5810 MHz). ADS-B fills the manned air picture. Fusion only when both RID and RF are honestly running. Green is on your list. Red is broadcasting off-list. This hour: RF LIVE, RID ABSENT. Both states are valid.</p>
+      <p>Two independent layers. Remote ID: ESP32-S3, Bluetooth LE 1M / coded S8 / extended ads. RF: spectrum on the bands the kit covers that job — commonly 2.4 GHz and 5.8 GHz (this frame 5800–5810 MHz). Analog FPV energy on 5.8 GHz. ADS-B 1090 MHz for manned traffic: commercial, general aviation, and military when those aircraft broadcast. Airports and runways from the OurAirports public-domain pack (large, regional, municipal, heliport, military fields). Map overlay. Not DF. Not ATC. Fusion only when RID and RF are honestly running. Green is on your list. Red is broadcasting off-list. This hour: RF LIVE, RID ABSENT. Both states are valid.</p>
       <p>TX LOCKED. Dual-gate. auto_tx=OFF. CyberReaper in development.</p>
       <p class="hero-actions" style="margin-top:1.25rem">
         <a class="cta" href="software.html">Software</a>

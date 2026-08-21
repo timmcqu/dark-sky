@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=56" />
+  <link rel="stylesheet" href="style.css?v=57" />
 </head>
 <!-- Dark Sky Systems LLC -->
 <body>
@@ -58,7 +58,8 @@
       <table class="spec">
         <tr><th>RID receiver</th><td>ESP32-S3. Bluetooth LE 1M, coded S8, extended ads. Cooperative Remote ID listen.</td></tr>
         <tr><th>RF</th><td>Spectrum on the bands the kit covers that job. Common air links: 2.4 GHz and 5.8 GHz. This frame: 5800–5810 MHz, 10 MHz span.</td></tr>
-        <tr><th>Air</th><td>ADS-B for manned traffic on the same map.</td></tr>
+        <tr><th>Air</th><td>ADS-B 1090 MHz. Commercial, general aviation, and military traffic when those aircraft broadcast. Same map as the UAS picture.</td></tr>
+        <tr><th>Airports</th><td>OurAirports public-domain overlay. Large, regional, municipal, heliport, and military fields in the pack. Runway centerlines. Map display. Not DF. Not ATC clearance.</td></tr>
         <tr><th>Log</th><td>Time, band, energy. Repeat hits stay. Dead feeds drop. Quiet hour is valid data.</td></tr>
         <tr><th>Gate</th><td>TX LOCKED. Dual-gate. auto_tx=OFF.</td></tr>
       </table>
@@ -73,6 +74,31 @@
         <article class="card plan">
           <h3>What you see</h3>
           <p>Time, band, and energy. Repeat hits stay on the log. A dead feed drops off. Radio-only tracks have no map pin. We do not invent tracks to fill a quiet hour.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="work" id="air">
+    <div class="wrap">
+      <h2>Air picture</h2>
+      <p class="lead">Manned and unmanned on one map. Airports and runways underneath. Live tracks only when the aircraft is broadcasting.</p>
+      <div class="grid plans-grid">
+        <article class="card plan">
+          <h3>ADS-B</h3>
+          <p>1090 MHz cooperative position. Airline, business, general aviation, and military aircraft appear when they emit ADS-B. No ADS-B, no live track from this layer.</p>
+        </article>
+        <article class="card plan">
+          <h3>Airports and runways</h3>
+          <p>OurAirports public-domain pack. ICAO labels. Runway overlays. Large, regional, municipal, heliport, military. Map geography. Not a clearance.</p>
+        </article>
+        <article class="card plan">
+          <h3>ESP32-S3</h3>
+          <p>On-kit RID listener. Bluetooth LE 1M, coded S8, extended advertisements. Slot B listen. BLE ads counted. Apple folded counted. RID none is a valid state.</p>
+        </article>
+        <article class="card plan">
+          <h3>Signal recognition</h3>
+          <p>Analog FPV energy on 5.8 GHz. Spectrum peaks on the job band. Radio-only UAS contacts when RID is absent. Additional bands only when that kit is actually on the job.</p>
         </article>
       </div>
     </div>
