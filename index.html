@@ -4,18 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="dark" />
-  <meta name="theme-color" content="#070706" />
+  <meta name="theme-color" content="#0a0908" />
   <title>Dark Sky Systems</title>
-  <meta name="description" content="Dark Sky Systems LLC. Overhead imaging, an air map, and a written risk assessment for a named venue and window." />
+  <meta name="description" content="Dark Sky Systems LLC. Overhead imaging, an air map, and a site survey for a named venue and window." />
   <link rel="canonical" href="https://darksky.systems/" />
   <meta property="og:title" content="Dark Sky Systems" />
-  <meta property="og:description" content="Dark Sky Systems LLC. Overhead imaging, an air map, and a written risk assessment for a named venue and window." />
+  <meta property="og:description" content="Overhead imaging, an air map, and a site survey. Named place. Named window." />
   <meta property="og:url" content="https://darksky.systems/" />
   <meta property="og:image" content="https://darksky.systems/assets/poster.jpg" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preload" as="image" href="assets/poster.jpg" />
-  <link rel="stylesheet" href="style.css?v=24" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=30" />
 </head>
 <!-- Dark Sky Systems LLC -->
 <body>
@@ -23,12 +26,9 @@
 
   <header class="mast">
     <div class="wrap mast-inner">
-      <a class="brand" href="#top">
-        <span class="wordmark">Dark Sky Systems</span>
-        <span class="trade">Dark Sky</span>
-      </a>
+      <a class="brand" href="#top">Dark Sky Systems</a>
       <nav class="rail" aria-label="Primary">
-        <a href="#services">Work</a>
+        <a href="#work">Work</a>
         <a href="#survey">Survey</a>
         <a href="#picture">Picture</a>
         <a href="#request">Reach us</a>
@@ -36,7 +36,7 @@
     </div>
   </header>
 
-  <section class="hero" id="top" aria-label="Dark Sky Systems">
+  <section class="hero" id="top">
     <div class="hero-media" aria-hidden="true">
       <img class="hero-poster" src="assets/poster.jpg" alt="" width="1920" height="1080" />
       <video class="hero-loop" autoplay muted loop playsinline preload="auto" poster="assets/poster.jpg">
@@ -48,90 +48,49 @@
     <div class="wrap hero-copy">
       <p class="eyebrow">Dark Sky</p>
       <h1>Overhead imaging for a named place and a named window.</h1>
-      <p class="lede">Pictures of the ground. A map of aircraft that are broadcasting. We call you back.</p>
-      <div class="hero-actions">
-        <a class="cta" href="#request">Reach us</a>
-      </div>
+      <p class="lede">We fly the ground, map aircraft that are broadcasting, and call you back.</p>
+      <a class="cta" href="#request">Reach us</a>
     </div>
   </section>
 
-  <section class="services" id="services" aria-labelledby="services-heading">
+  <section class="work" id="work" aria-labelledby="work-heading">
     <div class="wrap">
       <header class="sec-head">
-        <h2 id="services-heading">Work</h2>
-        <p>You name the place and the hours. We fly that window. Also: construction progress, mapping, restoration files, and annuals.</p>
+        <h2 id="work-heading">Work</h2>
+        <p>You name the place and the hours. We fly that window.</p>
       </header>
-      <div class="service-grid">
-        <article class="svc">
-          <picture>
-            <source type="image/webp" srcset="assets/strip-01.webp" />
-            <img src="assets/strip-01.jpg" alt="" width="1600" height="900" loading="lazy" />
-          </picture>
-          <p class="svc-k">01</p>
+      <div class="grid">
+        <article class="card">
+          <img src="assets/strip-01.jpg" alt="" width="1600" height="900" loading="lazy" />
           <h3>Events</h3>
           <p>Stadium, campus, or private event. Pictures from the air for the hours you name.</p>
         </article>
-        <article class="svc">
-          <picture>
-            <source type="image/webp" srcset="assets/still-runway.webp" />
-            <img src="assets/still-runway.jpg" alt="" width="1600" height="900" loading="lazy" />
-          </picture>
-          <p class="svc-k">02</p>
+        <article class="card">
+          <img src="assets/still-runway.jpg" alt="" width="1600" height="900" loading="lazy" />
           <h3>VIP</h3>
           <p>A named route and window. You can leave the person’s name off the request.</p>
         </article>
-        <article class="svc">
-          <video class="svc-loop" autoplay muted loop playsinline poster="assets/still-close-mini.jpg" width="1280" height="720" aria-hidden="true">
+        <article class="card">
+          <video class="loop" autoplay muted loop playsinline poster="assets/still-close-mini.jpg" width="1280" height="720" aria-hidden="true">
             <source src="assets/mini-close.mp4?v=9" type="video/mp4" />
           </video>
-          <p class="svc-k">03</p>
           <h3>Photos and video</h3>
           <p>Stills and video of the ground. Thermal when that camera is on the aircraft.</p>
         </article>
-        <article class="svc">
-          <picture>
-            <source type="image/webp" srcset="assets/map.webp" />
-            <img src="assets/map.jpg" alt="" width="890" height="668" loading="lazy" />
-          </picture>
-          <p class="svc-k">04</p>
+        <article class="card">
+          <img src="assets/map.jpg" alt="" width="890" height="668" loading="lazy" />
           <h3>Air map</h3>
           <p>CyberRaptor listens. The map shows aircraft that are broadcasting. Green is on your list. Red is not.</p>
         </article>
-        <article class="svc svc-sar">
-          <video class="svc-loop" autoplay muted loop playsinline poster="assets/still-sar.jpg" width="1600" height="1066" aria-label="Two helicopters on a search.">
+        <article class="card">
+          <video class="loop" autoplay muted loop playsinline poster="assets/still-sar.jpg" width="1600" height="1066" aria-hidden="true">
             <source src="assets/sar-heli.mp4?v=22" type="video/mp4" />
           </video>
-          <p class="svc-k">05</p>
           <h3>Search and rescue</h3>
           <p>Overhead and thermal for the people running the search.</p>
         </article>
-        <article class="svc svc-split">
-          <div class="svc-compare">
-            <figure>
-              <figcaption>Visual</figcaption>
-              <picture>
-                <source type="image/webp" srcset="assets/still-er.webp" />
-                <img src="assets/still-er.jpg" alt="Overhead visual of fire apparatus on a named incident." width="1920" height="1080" loading="lazy" />
-              </picture>
-            </figure>
-            <figure>
-              <figcaption>Thermal</figcaption>
-              <picture>
-                <source type="image/webp" srcset="assets/still-er-thermal.webp" />
-                <img src="assets/still-er-thermal.jpg" alt="Same second in thermal." width="1920" height="1080" loading="lazy" />
-              </picture>
-            </figure>
-          </div>
-          <p class="svc-k">06</p>
-          <h3>Emergency and disaster</h3>
-          <p>After a named incident we fly the scene. Pictures go to whoever is in charge.</p>
-        </article>
-        <article class="svc">
-          <picture>
-            <source type="image/webp" srcset="assets/still-roofs.webp" />
-            <img src="assets/still-roofs.jpg" alt="Thermal overhead of residential roofs." width="1600" height="900" loading="lazy" />
-          </picture>
-          <p class="svc-k">07</p>
+        <article class="card">
+          <img src="assets/still-roofs.jpg" alt="Thermal overhead of residential roofs." width="1600" height="900" loading="lazy" />
           <h3>Roof ops</h3>
           <p>After hail, or on a named calendar. Thermal of the roof for the owner, the contractor, or the inspector.</p>
         </article>
@@ -143,15 +102,15 @@
     <div class="wrap survey-grid">
       <div>
         <h2 id="survey-heading">Site survey</h2>
-        <p class="lead">A walk and a flight of a named property, then a written risk assessment. That is its own job. It is not an event, and it is not a search.</p>
-        <p>People, airspace, ground, weather, energy, access. Residual on the paper. The file is for facilities, a campus, a contractor, or a host who needs the survey before anyone else shows up.</p>
-        <p><a class="cta" href="#request">Request a survey</a></p>
+        <p class="lead">A walk and a flight of a named property, then a written risk assessment. That is a separate job from an event or a search.</p>
+        <p>People, airspace, ground, weather, energy, access. Residual on the paper. For facilities, a campus, a contractor, or a host who needs the file before anyone else arrives.</p>
+        <a class="cta" href="#request">Request a survey</a>
       </div>
-      <div class="ra-sheet ra-sheet-lg" aria-hidden="true">
-        <p class="ra-brand">Dark Sky Systems LLC</p>
-        <p class="ra-title">Site survey · risk assessment</p>
-        <p class="ra-meta">Named property · Named window</p>
-        <ul class="ra-grid">
+      <div class="sheet" aria-hidden="true">
+        <p class="sheet-k">Dark Sky Systems LLC</p>
+        <p class="sheet-title">Site survey</p>
+        <p class="sheet-meta">Named property · Named window</p>
+        <ul>
           <li>People</li>
           <li>Airspace</li>
           <li>Ground</li>
@@ -159,102 +118,60 @@
           <li>Energy</li>
           <li>Access</li>
         </ul>
-        <p class="ra-foot">Walk · Fly · Written file</p>
+        <p class="sheet-foot">Walk · Fly · Written file</p>
       </div>
     </div>
   </section>
 
   <section class="picture" id="picture" aria-labelledby="picture-heading">
-    <div class="wrap picture-intro">
+    <div class="wrap intro">
       <h2 id="picture-heading">The picture</h2>
-      <p>CyberRaptor is our listen platform. Remote ID goes on the map. Radio energy in the bands we are watching is noted. The map shows aircraft that are broadcasting.</p>
+      <p>CyberRaptor is our listen platform. Aircraft that are broadcasting appear on the map. After a named incident we fly the scene — visual and thermal, same second.</p>
     </div>
-    <figure class="map-plate">
-      <picture>
-        <source type="image/webp" srcset="assets/map.webp" />
-        <img src="assets/map.jpg" alt="Map of broadcasting drones over a stadium." width="890" height="668" loading="lazy" />
-      </picture>
+    <figure class="bleed">
+      <img src="assets/map.jpg" alt="Map of broadcasting drones over a stadium." width="890" height="668" loading="lazy" />
     </figure>
-    <div class="wrap picture-intro ground-intro">
-      <h2 id="ground-heading">Ground</h2>
-      <p>Same aircraft, same second. Visual and thermal of the scene.</p>
-    </div>
-    <div class="ground-compare">
-      <figure class="ground-pane">
+    <div class="pair">
+      <figure>
         <figcaption>Visual</figcaption>
-        <picture>
-          <source type="image/webp" srcset="assets/still-er.webp" />
-          <img src="assets/still-er.jpg" alt="Overhead visual of an incident on a road." width="1920" height="1080" loading="lazy" />
-        </picture>
+        <img src="assets/still-er.jpg" alt="Overhead of fire apparatus on a road." width="1920" height="1080" loading="lazy" />
       </figure>
-      <figure class="ground-pane">
+      <figure>
         <figcaption>Thermal</figcaption>
-        <picture>
-          <source type="image/webp" srcset="assets/still-er-thermal.webp" />
-          <img src="assets/still-er-thermal.jpg" alt="Same overhead as heat." width="1920" height="1080" loading="lazy" />
-        </picture>
+        <img src="assets/still-er-thermal.jpg" alt="Same second in thermal." width="1920" height="1080" loading="lazy" />
       </figure>
     </div>
   </section>
 
   <section class="method" id="method" aria-labelledby="method-heading">
     <div class="wrap">
-      <header class="sec-head">
-        <h2 id="method-heading">How it works</h2>
-      </header>
+      <h2 id="method-heading">How it works</h2>
       <ol class="steps">
         <li>
-          <span class="step-n">01</span>
+          <span>01</span>
           <h3>Name the job</h3>
           <p>Place and hours. For VIP work, you can leave the person’s name off.</p>
         </li>
         <li>
-          <span class="step-n">02</span>
+          <span>02</span>
           <h3>We fly</h3>
           <p>Stills, video, and thermal. The air map when you ask for it.</p>
         </li>
         <li>
-          <span class="step-n">03</span>
+          <span>03</span>
           <h3>You get the file</h3>
-          <p>The pictures. If you hired a site survey, the written assessment. If the window is not safe, we stay on the ground.</p>
+          <p>The pictures. If you hired a site survey, the written assessment.</p>
         </li>
       </ol>
     </div>
   </section>
 
-  <section class="risk" id="risk" aria-labelledby="risk-heading">
-    <div class="wrap risk-grid">
-      <div>
-        <h2 id="risk-heading">Before we fly</h2>
-        <p class="lead">Every flight gets a go/no-go. People, weather, access, and other aircraft.</p>
-        <p>If the day changes, we write the change. If it is not safe, we stay on the ground.</p>
-      </div>
-      <ul class="risk-list">
-        <li>Walk the site before launch</li>
-        <li>Risks in writing</li>
-        <li>Stop-flying rules on paper</li>
-        <li>Battery fire and medical cards</li>
-        <li>Notes after the job</li>
-      </ul>
-    </div>
-  </section>
-
   <section class="about" id="about" aria-labelledby="about-heading">
     <div class="wrap about-grid">
-      <h2 id="about-heading">About</h2>
+      <h2 id="about-heading">Company</h2>
       <div>
-        <p class="lead">Dark Sky Systems LLC is a Texas company. Overhead imaging, an air map, and a separate site survey when that is the job.</p>
-        <p>We can bring CyberRaptor so you see the air as well as the ground. VIP work is discreet.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="about" id="crew" aria-labelledby="crew-heading">
-    <div class="wrap about-grid">
-      <h2 id="crew-heading">Who flies</h2>
-      <div>
-        <p class="lead">When we hire, we look first to people with a law-enforcement, fire, EMS, or military background. Serving people may fly if their department allows outside work.</p>
-        <p>An FAA Part 107 certificate is required. A badge does not replace it. When you fly for Dark Sky, you are not flying as that agency. If that is your background, mark Pilot on the form below.</p>
+        <p class="lead">Dark Sky Systems LLC is a Texas company. Overhead imaging, an air map, and a site survey when that is the job.</p>
+        <p>Every flight gets a go or no-go: people, weather, access, and other aircraft. When we hire, we look first to people with a law-enforcement, fire, EMS, or military background. An FAA Part 107 certificate is required. VIP work is discreet.</p>
       </div>
     </div>
   </section>
@@ -264,8 +181,8 @@
       <div>
         <h2 id="request-heading">Reach us</h2>
         <p class="lead">We are taking requests. Name, callback number, place, and hours. We call you back.</p>
-        <p class="fine">What happens next: we call, we name the job, we send a written brief.</p>
-        <p class="fine">If people are in danger, call 911 first. Then this form if you want a picture. For VIP work you can leave the person’s name off.</p>
+        <p class="fine">We call, we name the job, we send a written brief.</p>
+        <p class="fine">If people are in danger, call 911 first. Then this form if you want a picture.</p>
       </div>
       <form class="ask" id="ask" action="#" method="post">
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
@@ -292,7 +209,7 @@
           <label class="check"><input type="checkbox" name="need" value="Full Site Picture" /> Air map</label>
           <label class="check"><input type="checkbox" name="need" value="Site survey" /> Site survey</label>
           <label class="check"><input type="checkbox" name="need" value="Search and rescue" /> Search and rescue</label>
-          <label class="check"><input type="checkbox" name="need" value="Emergency and Disaster" /> Emergency and disaster</label>
+          <label class="check"><input type="checkbox" name="need" value="Emergency and Disaster" /> Emergency</label>
           <label class="check"><input type="checkbox" name="need" value="Roof ops" /> Roof ops</label>
           <label class="check"><input type="checkbox" name="need" value="Construction progress" /> Construction</label>
           <label class="check"><input type="checkbox" name="need" value="Mapping" /> Mapping</label>
@@ -300,7 +217,7 @@
           <label class="check"><input type="checkbox" name="need" value="Pilot" /> Pilot</label>
         </fieldset>
         <label>Note
-          <textarea id="note" name="note" rows="3" placeholder="Anything we should know."></textarea>
+          <textarea id="note" name="note" rows="3"></textarea>
         </label>
         <button type="submit" class="cta" id="btnCuas">Send to Dark Sky</button>
         <p class="copied" id="copied" role="status" aria-live="polite" hidden></p>
@@ -309,11 +226,11 @@
   </section>
 
   <footer class="foot">
-    <div class="wrap foot-inner">
+    <div class="wrap">
       <p><strong>Dark Sky Systems LLC</strong> · darksky.systems</p>
       <p>We listen. We do not jam, spoof, or intercept. We are not a licensed security company. This page is not a price list.</p>
     </div>
   </footer>
-  <script src="app.js?v=20"></script>
+  <script src="app.js?v=30"></script>
 </body>
 </html>
