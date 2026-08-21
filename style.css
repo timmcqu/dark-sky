@@ -199,7 +199,21 @@ h1, h2, h3 {
 }
 
 .bleed.tight { margin-top: 1rem; }
-.bleed.tight img { height: min(38svh, 18rem); }
+.bleed.tight img { height: min(38svh, 18rem); object-fit: cover; width: 100%; }
+
+.console-bleed {
+  margin: 1.75rem 0 0;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+}
+
+.console-bleed img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  background: #050505;
+}
 
 @media (min-width: 760px) {
   .layers { grid-template-columns: 1fr 1fr; align-items: start; }

@@ -6,17 +6,17 @@
   <meta name="color-scheme" content="dark" />
   <meta name="theme-color" content="#0a0908" />
   <title>Software — Dark Sky Systems</title>
-  <meta name="description" content="RF monitoring, Remote ID, and a picture of the ground. CyberRaptor fielded today. CyberReaper gated. Dark Sky Systems LLC." />
+  <meta name="description" content="CyberRaptor fielded today. RF monitoring, Remote ID, picture of the ground. CyberReaper gated. Dark Sky Systems LLC." />
   <link rel="canonical" href="https://darksky.systems/software.html" />
   <meta property="og:title" content="Software — Dark Sky Systems" />
-  <meta property="og:description" content="RF monitoring. Remote ID. Picture of the ground. Fielded today." />
+  <meta property="og:description" content="Live console. Listening. RF LIVE. TX LOCKED. Fielded today." />
   <meta property="og:url" content="https://darksky.systems/software.html" />
-  <meta property="og:image" content="https://darksky.systems/assets/map.jpg" />
+  <meta property="og:image" content="https://darksky.systems/assets/console.jpg" />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=42" />
+  <link rel="stylesheet" href="style.css?v=50" />
 </head>
 <!-- Dark Sky Systems LLC -->
 <body>
@@ -39,19 +39,25 @@
       <p class="eyebrow">Software</p>
       <h1>RF monitoring. Remote ID. Picture of the ground.</h1>
       <p class="lede">Named place and time. Fielded today. More layers in development.</p>
-      <p class="status"><span>Fielded today</span><span>In development</span></p>
+      <p class="status"><span>Fielded today</span><span>RADIO Listening</span><span>RF LIVE</span><span>TX LOCKED</span></p>
       <div class="hero-actions">
         <a class="cta" href="index.html#request">Request software</a>
-        <a class="cta cta-ghost" href="#reaper">CyberReaper</a>
+        <a class="cta cta-ghost" href="#reaper">Request a briefing</a>
       </div>
     </div>
+    <figure class="console-bleed">
+      <img src="assets/console.jpg" alt="CyberRaptor live console. Pflugerville map, B5 radio contact, spectrum listening, Activate CyberReaper TX LOCKED." width="1440" height="780" />
+    </figure>
   </section>
 
   <section class="survey" id="rf">
     <div class="wrap">
       <h2>RF monitoring</h2>
       <p class="lead">Receive-only radio picture of a named place and time. Energy in the bands we are watching is logged. Quiet air is a valid hour.</p>
-      <p>This is the core of the platforms. A drone that is not broadcasting Remote ID can still radiate on a control or video link. RF monitoring is how that energy shows up. Presence and band. Not a tail number. Not a legal intercept order.</p>
+      <p>A drone that is not broadcasting Remote ID can still radiate on a control or video link. That contact shows as radio-only. Presence and band. Not a tail number. Not a legal intercept order. Not direction-finding. TX stays gated.</p>
+      <figure class="bleed tight">
+        <img src="assets/console-spectrum.jpg" alt="Live spectrum. Listening. Time, band, and energy." width="1440" height="140" loading="lazy" />
+      </figure>
       <div class="grid plans-grid">
         <article class="card plan">
           <h3>Bands</h3>
@@ -59,7 +65,7 @@
         </article>
         <article class="card plan">
           <h3>What you see</h3>
-          <p>Time, band, and energy. Repeat hits stay on the log. A dead feed drops off. We do not invent tracks to fill a quiet hour.</p>
+          <p>Time, band, and energy. Repeat hits stay on the log. A dead feed drops off. Radio-only tracks have no map pin. We do not invent tracks to fill a quiet hour.</p>
         </article>
       </div>
     </div>
@@ -68,13 +74,13 @@
   <section class="work" id="layers">
     <div class="wrap">
       <h2>Layers</h2>
-      <p class="lead">RF and RID are two layers. They are fused only when both are honestly running.</p>
+      <p class="lead">RF and RID are two layers. They are fused only when both are honestly running. This hour: RF LIVE. RID ABSENT. Both states are valid.</p>
       <div class="layers">
         <article>
           <h3>With Remote ID</h3>
           <p>When an aircraft is broadcasting an ID, it is on the map. Green is on your list. Red is broadcasting off-list.</p>
           <figure class="bleed tight">
-            <img src="assets/map.jpg" alt="Map of broadcasting drones. Green on-list. Red off-list." width="890" height="668" loading="lazy" />
+            <img src="assets/console-map.jpg" alt="Live tactical map. Pflugerville. Aircraft tracks. Radio contacts B5." width="860" height="530" loading="lazy" />
           </figure>
         </article>
         <article>
@@ -99,8 +105,11 @@
     <div class="wrap">
       <header class="sec-head">
         <h2>CyberRaptor</h2>
-        <p>Listen software. Fielded today as Remote ID plus RF monitoring when that kit is on the job. More sensors in development: radar, acoustic, and tighter fusion.</p>
+        <p>Listen software. Fielded today as Remote ID plus RF monitoring when that kit is on the job. Console shows Listening, RF LIVE, AIR UP. More sensors in development: radar, acoustic, and tighter fusion.</p>
       </header>
+      <figure class="bleed tight">
+        <img src="assets/console-listen.jpg" alt="Listen panel. ESP32-S3. RID Listening. BLE. Analog FPV. Slot B." width="500" height="620" loading="lazy" />
+      </figure>
       <div class="grid plans-grid">
         <article class="card plan">
           <h3>Listen</h3>
@@ -122,8 +131,11 @@
   <section class="work" id="reaper">
     <div class="wrap">
       <h2>CyberReaper</h2>
-      <p class="lead">Operator platform for trained crews. Dual control. Audit. It shares the same RF monitoring picture. Access is gated.</p>
-      <p>CyberReaper is in the field and in development. It is not listed as a public checkout on this site.</p>
+      <p class="lead">Operator platform for trained crews. Dual control. Audit. Same RF monitoring picture. Activate CyberReaper from this console when authorized. TX LOCKED until dual-gate clears.</p>
+      <figure class="bleed tight" style="max-width:22rem">
+        <img src="assets/console-reaper.jpg" alt="Activate CyberReaper. TX LOCKED. Dual-gate. auto_tx=OFF." width="340" height="100" loading="lazy" />
+      </figure>
+      <p>CyberReaper is in the field and in development. It is not listed as a public checkout on this site. Access is gated. Request a briefing if you are a qualified buyer.</p>
       <p class="plans-cta" id="request-briefing"><a class="cta" href="index.html#request">Request a briefing</a></p>
     </div>
   </section>
