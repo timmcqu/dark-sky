@@ -318,11 +318,87 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
 
 .svc-loop { pointer-events: none; }
 
-.svc-sar img {
-  object-fit: contain;
-  object-position: center;
-  background: #8fa6bb;
+.svc-sar img,
+.svc-sar .svc-loop {
+  object-fit: cover;
+  object-position: 50% 42%;
   height: 16rem;
+}
+
+.plat {
+  padding-block: clamp(2rem, 5vw, 3.25rem);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.plat-inner { max-width: 38rem; }
+
+.plat-k {
+  margin: 0 0 0.4rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.plat h2 { margin: 0 0 0.7rem; }
+
+.plat p { margin: 0; color: var(--mute); max-width: 36rem; }
+
+.ra-sheet {
+  min-height: 12.5rem;
+  padding: 1rem 1.1rem 0.9rem;
+  background: #e8dfd0;
+  color: #1c1914;
+  display: grid;
+  gap: 0.35rem;
+  align-content: start;
+}
+
+.ra-brand {
+  margin: 0;
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6a6256;
+}
+
+.ra-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 550;
+  color: #1c1914;
+}
+
+.ra-meta {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  color: #5c564c;
+}
+
+.ra-grid {
+  margin: 0;
+  padding: 0.45rem 0 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.15rem 1rem;
+  border-top: 1px solid #cfc4b0;
+}
+
+.ra-grid li {
+  padding: 0.28rem 0;
+  font-size: 0.78rem;
+  border-bottom: 1px solid #ddd4c4;
+  color: #2a261f;
+}
+
+.ra-foot {
+  margin: 0.45rem 0 0;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  color: #6a6256;
 }
 
 .svc-compare {
