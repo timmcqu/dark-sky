@@ -318,6 +318,46 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
 
 .svc-loop { pointer-events: none; }
 
+.svc-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--gold-dim);
+}
+
+.svc-compare figure {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.svc-compare figcaption {
+  position: absolute;
+  z-index: 2;
+  left: 0.7rem;
+  top: 0.6rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-shadow: 0 1px 14px rgba(7, 7, 6, 0.85);
+}
+
+.svc-compare img,
+.svc-compare .svc-loop {
+  width: 100%;
+  height: 12.5rem;
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+
+.svc-compare .svc-loop {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+}
+
 .svc h3 { max-width: 22rem; }
 
 .svc-k {
@@ -577,6 +617,8 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
   .svc:last-child { grid-column: 1 / -1; }
   .svc:last-child img,
   .svc:last-child .svc-loop { height: 20rem; object-position: 50% 42%; }
+  .svc-compare img,
+  .svc-compare .svc-loop { height: 20rem; }
   .steps { grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
   .risk-grid,
   .about-grid,
@@ -623,7 +665,8 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
   .svc-loop { height: 11.5rem; }
   .map-plate,
   .map-plate img { height: 58vw; max-height: 20rem; }
-  .ground-compare { grid-template-columns: 1fr; }
+  .ground-compare,
+  .svc-compare { grid-template-columns: 1fr; }
   .ground-poster,
   .ground-loop { height: 58vw; max-height: 20rem; }
   .strip { grid-auto-columns: 70vw; }

@@ -15,7 +15,7 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preload" as="image" href="assets/poster.jpg" />
-  <link rel="stylesheet" href="style.css?v=9" />
+  <link rel="stylesheet" href="style.css?v=10" />
 </head>
 <!-- Dark Sky Systems LLC -->
 <body>
@@ -116,13 +116,26 @@
           <p>Thermal finds heat in the trees and in the dark — fire, engines, and people. We fly that picture for the people running the search. The incident commander owns the scene.</p>
         </article>
         <article class="svc">
-          <picture>
-            <source type="image/webp" srcset="assets/still-er.webp" />
-            <img src="assets/still-er.jpg" alt="Overhead of fire apparatus on a named incident." width="1920" height="1080" loading="lazy" />
-          </picture>
+          <div class="svc-compare">
+            <figure>
+              <figcaption>Visual</figcaption>
+              <picture>
+                <source type="image/webp" srcset="assets/still-er.webp" />
+                <img src="assets/still-er.jpg" alt="Overhead visual of fire apparatus on a named incident." width="1920" height="1080" loading="lazy" />
+              </picture>
+            </figure>
+            <figure>
+              <figcaption>Thermal</figcaption>
+              <img class="ground-poster" src="assets/still-er-thermal.jpg" alt="Same second in thermal: fire in the trees, engines, and the road as heat." width="1920" height="1080" />
+              <video class="svc-loop" autoplay muted loop playsinline poster="assets/still-er-thermal.jpg" width="1920" height="1080" aria-hidden="true">
+                <source src="assets/scene-thermal.webm?v=10" type="video/webm" />
+                <source src="assets/scene-thermal.mp4?v=10" type="video/mp4" />
+              </video>
+            </figure>
+          </div>
           <p class="svc-k">07</p>
           <h3>Emergency and Disaster</h3>
-          <p>After a named incident we fly access and the scene. Fire apparatus, the wreck, and the road — pictures for whoever is in charge. We do not self-dispatch. The incident commander owns the scene.</p>
+          <p>Same aircraft, same second. Visual shows the apparatus and the road. Thermal shows the fire in the trees and the engines as heat. Pictures for whoever is in charge. We do not self-dispatch. The incident commander owns the scene.</p>
         </article>
       </div>
     </div>
