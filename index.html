@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=35" />
+  <link rel="stylesheet" href="style.css?v=36" />
 </head>
 <!-- Dark Sky Systems LLC -->
 <body>
@@ -30,6 +30,7 @@
       <nav class="rail" aria-label="Primary">
         <a href="#work">Work</a>
         <a href="#survey">Survey</a>
+        <a href="#plans">Plans</a>
         <a href="#picture">Picture</a>
         <a href="#request">Reach us</a>
       </nav>
@@ -119,6 +120,30 @@
         </ul>
         <p class="sheet-foot">Walk · Fly · Written file</p>
       </div>
+    </div>
+  </section>
+
+  <section class="plans" id="plans" aria-labelledby="plans-heading">
+    <div class="wrap">
+      <header class="sec-head">
+        <h2 id="plans-heading">Plans</h2>
+        <p>Recurring flights for one named property. We quote the job. This is not a checkout.</p>
+      </header>
+      <div class="grid plans-grid">
+        <article class="card plan">
+          <h3>Property</h3>
+          <p>Four visits a year. Stills, thermal roofs, and one written site survey.</p>
+        </article>
+        <article class="card plan">
+          <h3>Build</h3>
+          <p>Weekly or every other week while the job is open. Progress pictures of the site.</p>
+        </article>
+        <article class="card plan">
+          <h3>Season</h3>
+          <p>A named venue on scheduled dates. Pictures and an air map of drones that are broadcasting an ID.</p>
+        </article>
+      </div>
+      <p class="plans-cta"><a class="cta" href="#request">Request a plan</a></p>
     </div>
   </section>
 
@@ -212,6 +237,9 @@
           <label class="check"><input type="checkbox" name="need" value="Construction progress" /> Construction</label>
           <label class="check"><input type="checkbox" name="need" value="Mapping" /> Mapping</label>
           <label class="check"><input type="checkbox" name="need" value="File photos" /> File photos</label>
+          <label class="check"><input type="checkbox" name="need" value="Property plan" /> Property plan</label>
+          <label class="check"><input type="checkbox" name="need" value="Build plan" /> Build plan</label>
+          <label class="check"><input type="checkbox" name="need" value="Season plan" /> Season plan</label>
           <label class="check"><input type="checkbox" name="need" value="Pilot" /> Pilot</label>
         </fieldset>
         <label>Note

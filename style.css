@@ -100,7 +100,7 @@ img { height: auto; }
 .rail a:hover,
 .rail a:focus-visible { color: var(--gold); }
 
-#work, #survey, #picture, #method, #about, #request {
+#work, #survey, #plans, #picture, #method, #about, #request {
   scroll-margin-top: 4.5rem;
 }
 
@@ -213,6 +213,7 @@ h3 {
 
 .work,
 .survey,
+.plans,
 .method,
 .about,
 .request {
@@ -311,6 +312,16 @@ h3 {
   text-transform: uppercase;
   color: #6a6256;
 }
+
+.plan {
+  padding: 1.35rem 1.25rem 1.4rem;
+  border: 1px solid var(--line);
+  background: var(--lift);
+}
+
+.plan h3 { margin-top: 0; }
+
+.plans-cta { margin: 2rem 0 0; }
 
 .intro {
   max-width: 36rem;
@@ -483,6 +494,7 @@ h3 {
 
 @media (min-width: 1040px) {
   .grid { grid-template-columns: 1fr 1fr 1fr; }
+  .plans-grid { grid-template-columns: 1fr 1fr 1fr; }
 }
 
 @media (max-width: 639px) {
