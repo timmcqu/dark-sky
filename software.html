@@ -6,17 +6,17 @@
   <meta name="color-scheme" content="dark" />
   <meta name="theme-color" content="#0a0908" />
   <title>Software — Dark Sky Systems</title>
-  <meta name="description" content="CyberRaptor RF monitoring and Remote ID. CyberReaper gated operator platform. Site surveys. Dark Sky Systems LLC." />
+  <meta name="description" content="RF monitoring, Remote ID, and a picture of the ground. CyberRaptor fielded today. CyberReaper gated. Dark Sky Systems LLC." />
   <link rel="canonical" href="https://darksky.systems/software.html" />
   <meta property="og:title" content="Software — Dark Sky Systems" />
-  <meta property="og:description" content="RF monitoring, Remote ID, and gated operator software. Texas." />
+  <meta property="og:description" content="RF monitoring. Remote ID. Picture of the ground. Fielded today." />
   <meta property="og:url" content="https://darksky.systems/software.html" />
-  <meta property="og:image" content="https://darksky.systems/assets/poster.jpg" />
+  <meta property="og:image" content="https://darksky.systems/assets/map.jpg" />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=41" />
+  <link rel="stylesheet" href="style.css?v=42" />
 </head>
 <!-- Dark Sky Systems LLC -->
 <body>
@@ -34,12 +34,16 @@
     </div>
   </header>
 
-  <section class="work" id="software">
+  <section class="soft-hero" id="top">
     <div class="wrap">
-      <header class="sec-head">
-        <h1>Software</h1>
-        <p>CyberRaptor and CyberReaper. RF monitoring, Remote ID, and a picture of the ground. Fielded today. More layers in development.</p>
-      </header>
+      <p class="eyebrow">Software</p>
+      <h1>RF monitoring. Remote ID. Picture of the ground.</h1>
+      <p class="lede">Named place and time. Fielded today. More layers in development.</p>
+      <p class="status"><span>Fielded today</span><span>In development</span></p>
+      <div class="hero-actions">
+        <a class="cta" href="index.html#request">Request software</a>
+        <a class="cta cta-ghost" href="#reaper">CyberReaper</a>
+      </div>
     </div>
   </section>
 
@@ -47,7 +51,7 @@
     <div class="wrap">
       <h2>RF monitoring</h2>
       <p class="lead">Receive-only radio picture of a named place and time. Energy in the bands we are watching is logged. Quiet air is a valid hour.</p>
-      <p>This is the core of the platforms. A drone that is not broadcasting Remote ID can still radiate on a control or video link. RF monitoring is how that energy shows up. It is presence and band, not a tail number and not a legal intercept order.</p>
+      <p>This is the core of the platforms. A drone that is not broadcasting Remote ID can still radiate on a control or video link. RF monitoring is how that energy shows up. Presence and band. Not a tail number. Not a legal intercept order.</p>
       <div class="grid plans-grid">
         <article class="card plan">
           <h3>Bands</h3>
@@ -57,13 +61,35 @@
           <h3>What you see</h3>
           <p>Time, band, and energy. Repeat hits stay on the log. A dead feed drops off. We do not invent tracks to fill a quiet hour.</p>
         </article>
-        <article class="card plan">
+      </div>
+    </div>
+  </section>
+
+  <section class="work" id="layers">
+    <div class="wrap">
+      <h2>Layers</h2>
+      <p class="lead">RF and RID are two layers. They are fused only when both are honestly running.</p>
+      <div class="layers">
+        <article>
           <h3>With Remote ID</h3>
-          <p>When an aircraft is broadcasting an ID, it is on the map as well. Green is on your list. Red is broadcasting off-list. RF and RID are two layers. They are fused only when both are honestly running.</p>
+          <p>When an aircraft is broadcasting an ID, it is on the map. Green is on your list. Red is broadcasting off-list.</p>
+          <figure class="bleed tight">
+            <img src="assets/map.jpg" alt="Map of broadcasting drones. Green on-list. Red off-list." width="890" height="668" loading="lazy" />
+          </figure>
         </article>
-        <article class="card plan">
+        <article>
           <h3>With the aircraft</h3>
           <p>Visual and thermal from overhead in the same window, when we fly. The radio picture and the ground picture are one file.</p>
+          <div class="pair">
+            <figure>
+              <figcaption>Visual</figcaption>
+              <img src="assets/still-er.jpg" alt="Overhead visual of a scene." width="1920" height="1080" loading="lazy" />
+            </figure>
+            <figure>
+              <figcaption>Thermal</figcaption>
+              <img src="assets/still-er-thermal.jpg" alt="Same window in thermal." width="1920" height="1080" loading="lazy" />
+            </figure>
+          </div>
         </article>
       </div>
     </div>
@@ -71,8 +97,10 @@
 
   <section class="plans" id="raptor">
     <div class="wrap">
-      <h2>CyberRaptor</h2>
-      <p class="lead">Listen software. Fielded today as Remote ID plus RF monitoring when that kit is on the job. More sensors in development: radar, acoustic, and tighter fusion.</p>
+      <header class="sec-head">
+        <h2>CyberRaptor</h2>
+        <p>Listen software. Fielded today as Remote ID plus RF monitoring when that kit is on the job. More sensors in development: radar, acoustic, and tighter fusion.</p>
+      </header>
       <div class="grid plans-grid">
         <article class="card plan">
           <h3>Listen</h3>
@@ -87,19 +115,20 @@
           <p>A named venue on scheduled dates. Same layers, held on a calendar.</p>
         </article>
       </div>
-      <p class="plans-cta"><a class="cta" href="index.html#request">Request software</a></p>
+      <p class="plans-cta" id="request-software"><a class="cta" href="index.html#request">Request software</a></p>
     </div>
   </section>
 
   <section class="work" id="reaper">
     <div class="wrap">
       <h2>CyberReaper</h2>
-      <p class="lead">Operator platform for trained crews. Dual control. Audit. It shares the same RF monitoring picture. Access is gated. Request a briefing if you are a qualified buyer.</p>
+      <p class="lead">Operator platform for trained crews. Dual control. Audit. It shares the same RF monitoring picture. Access is gated.</p>
       <p>CyberReaper is in the field and in development. It is not listed as a public checkout on this site.</p>
+      <p class="plans-cta" id="request-briefing"><a class="cta" href="index.html#request">Request a briefing</a></p>
     </div>
   </section>
 
-  <section class="survey" id="survey-note">
+  <section class="survey" id="request-survey">
     <div class="wrap">
       <h2>Surveys and software together</h2>
       <p class="lead">Large sites and corporations hire a walk, a flight, RF monitoring, and a written risk assessment as one file. That is a site survey, not an event.</p>

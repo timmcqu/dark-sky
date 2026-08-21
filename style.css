@@ -166,6 +166,45 @@ h1, h2, h3 {
   font-size: 1.35rem;
 }
 
+.soft-hero {
+  padding-block: clamp(3.5rem, 10vw, 7rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.soft-hero h1 {
+  max-width: 16ch;
+  font-size: clamp(2rem, 5vw, 3.1rem);
+}
+
+.status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.5rem;
+}
+
+.status span {
+  border: 1px solid var(--line);
+  padding: 0.28rem 0.65rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.layers {
+  display: grid;
+  gap: 2.25rem;
+  margin-top: 1.5rem;
+}
+
+.bleed.tight { margin-top: 1rem; }
+.bleed.tight img { height: min(38svh, 18rem); }
+
+@media (min-width: 760px) {
+  .layers { grid-template-columns: 1fr 1fr; align-items: start; }
+}
+
 h1 {
   margin: 0 0 1rem;
   font-size: clamp(2.15rem, 5.4vw, 3.4rem);
