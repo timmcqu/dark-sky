@@ -480,6 +480,47 @@ a.card:focus-visible h3 { color: var(--gold); }
 
 .plans-cta { margin: 2rem 0 0; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
 
+.fold-stack { padding-block: 1rem 3rem; }
+.fold {
+  border-top: 1px solid var(--line);
+}
+.fold > summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 0;
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  font-weight: 500;
+}
+.fold > summary::-webkit-details-marker { display: none; }
+.fold > summary .hint {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-weight: 400;
+}
+.fold > summary::after {
+  content: "+";
+  color: var(--gold);
+  font-family: var(--sans);
+  font-size: 1.2rem;
+  flex: none;
+}
+.fold[open] > summary::after { content: "–"; }
+.fold-body { padding: 0 0 1.6rem; }
+.fold-body > .lead { margin-top: 0; }
+.fold-sub { margin: 0.35rem 0; border-top: 1px solid var(--line); }
+.fold-sub > summary {
+  font-size: 1.05rem;
+  padding: 0.85rem 0;
+}
+
 .plan-price {
   font-family: var(--serif);
   font-size: 1.85rem;
