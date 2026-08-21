@@ -628,9 +628,9 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
   .service-grid { grid-template-columns: 1fr 1fr; gap: 2rem 1.75rem; }
   .svc img,
   .svc-loop { height: 15rem; }
-  .svc:last-child { grid-column: 1 / -1; }
-  .svc:last-child img,
-  .svc:last-child .svc-loop { height: 20rem; object-position: 50% 42%; }
+  .svc:nth-child(7) { grid-column: 1 / -1; }
+  .svc:nth-child(7) img,
+  .svc:nth-child(7) .svc-loop { height: 20rem; object-position: 50% 42%; }
   .svc-compare img,
   .svc-compare .svc-loop { height: 20rem; }
   .steps { grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
