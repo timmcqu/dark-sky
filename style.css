@@ -344,18 +344,11 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
   text-shadow: 0 1px 14px rgba(7, 7, 6, 0.85);
 }
 
-.svc-compare img,
-.svc-compare .svc-loop {
+.svc-compare img {
   width: 100%;
   height: 12.5rem;
   object-fit: cover;
   object-position: 50% 42%;
-}
-
-.svc-compare .svc-loop {
-  position: absolute;
-  inset: 0;
-  height: 100%;
 }
 
 .svc h3 { max-width: 22rem; }
@@ -398,6 +391,26 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
   filter: contrast(1.08) brightness(0.92);
 }
 
+.rf-points {
+  max-width: 42rem;
+  margin-top: 1.35rem;
+  margin-bottom: 0;
+}
+
+.rf-points ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rf-points li {
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--paper);
+}
+
+.rf-points li:last-child { border-bottom: 1px solid var(--line); }
+
 .ground-intro {
   margin-top: clamp(2rem, 5vw, 3.5rem);
   padding-bottom: 1rem;
@@ -432,6 +445,7 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
 }
 
 .ground-poster,
+.ground-pane img,
 .ground-loop {
   display: block;
   width: 100%;
@@ -667,7 +681,7 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
   .map-plate img { height: 58vw; max-height: 20rem; }
   .ground-compare,
   .svc-compare { grid-template-columns: 1fr; }
-  .ground-poster,
+  .ground-pane img,
   .ground-loop { height: 58vw; max-height: 20rem; }
   .strip { grid-auto-columns: 70vw; }
   .strip img { height: 38vw; max-height: 9rem; }

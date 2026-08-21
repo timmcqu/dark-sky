@@ -6,16 +6,16 @@
   <meta name="color-scheme" content="dark" />
   <meta name="theme-color" content="#070706" />
   <title>Dark Sky Systems</title>
-  <meta name="description" content="Dark Sky Systems LLC. Overhead imaging and written risk assessment for a named venue and window." />
+  <meta name="description" content="Dark Sky Systems LLC. Overhead imaging, Full Site Picture (listen-only RF and Remote ID), and written risk assessment for a named venue and window." />
   <link rel="canonical" href="https://darksky.systems/" />
   <meta property="og:title" content="Dark Sky Systems" />
-  <meta property="og:description" content="Dark Sky Systems LLC. Overhead imaging and written risk assessment for a named venue and window." />
+  <meta property="og:description" content="Dark Sky Systems LLC. Overhead imaging, Full Site Picture (listen-only RF and Remote ID), and written risk assessment for a named venue and window." />
   <meta property="og:url" content="https://darksky.systems/" />
   <meta property="og:image" content="https://darksky.systems/assets/poster.jpg" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preload" as="image" href="assets/poster.jpg" />
-  <link rel="stylesheet" href="style.css?v=10" />
+  <link rel="stylesheet" href="style.css?v=12" />
 </head>
 <!-- Dark Sky Systems LLC -->
 <body>
@@ -29,6 +29,7 @@
       </a>
       <nav class="rail" aria-label="Primary">
         <a href="#services">Services</a>
+        <a href="#picture">Air</a>
         <a href="#ground-heading">Ground</a>
         <a href="#risk">Risk</a>
         <a href="#crew">Crew</a>
@@ -48,7 +49,7 @@
     <div class="hero-veil" aria-hidden="true"></div>
     <div class="wrap hero-copy">
       <h1 class="vh">Dark Sky Systems</h1>
-      <p class="lede">Overhead imaging and a written risk assessment for a named place and a named window.</p>
+      <p class="lede">Overhead imaging, a Full Site Picture of the air, and a written risk assessment for a named place and a named window.</p>
       <div class="hero-actions">
         <a class="cta" href="#request">Reach us</a>
       </div>
@@ -95,7 +96,7 @@
           </picture>
           <p class="svc-k">04</p>
           <h3>Full Site Picture</h3>
-          <p>The live map shows drones that are broadcasting an ID. Aircraft that are not broadcasting are not on it.</p>
+          <p>CyberRaptor listen on the sit: Remote ID on the map, RF listen in the tuned bands. The RID layer shows aircraft that are broadcasting. A RID-only hour does not detect dark aircraft. We do not jam, spoof, or intercept.</p>
         </article>
         <article class="svc">
           <picture>
@@ -126,11 +127,10 @@
             </figure>
             <figure>
               <figcaption>Thermal</figcaption>
-              <img class="ground-poster" src="assets/still-er-thermal.jpg" alt="Same second in thermal: fire in the trees, engines, and the road as heat." width="1920" height="1080" />
-              <video class="svc-loop" autoplay muted loop playsinline poster="assets/still-er-thermal.jpg" width="1920" height="1080" aria-hidden="true">
-                <source src="assets/scene-thermal.webm?v=10" type="video/webm" />
-                <source src="assets/scene-thermal.mp4?v=10" type="video/mp4" />
-              </video>
+              <picture>
+                <source type="image/webp" srcset="assets/still-er-thermal.webp" />
+                <img src="assets/still-er-thermal.jpg" alt="Same second in thermal: fire in the trees, engines, and the road as heat." width="1920" height="1080" loading="lazy" />
+              </picture>
             </figure>
           </div>
           <p class="svc-k">07</p>
@@ -143,8 +143,8 @@
 
   <section class="picture" id="picture" aria-labelledby="picture-heading">
     <div class="wrap picture-intro">
-      <h2 id="picture-heading">The air map</h2>
-      <p>This map shows aircraft that are broadcasting Remote ID. Green is on the client’s list. Red is broadcasting and not on that list. Aircraft that are not broadcasting are not on the map.</p>
+      <h2 id="picture-heading">The air</h2>
+      <p>Full Site Picture is the air and the ground on one sit. Operators can bring CyberRaptor — receive-only RF listen and Remote ID. Green is on your list. Red is broadcasting and not on your list. Aircraft that are not broadcasting are not on the RID layer. RF listen hears emitters in the tuned bands; it does not name a silent aircraft. We do not jam, spoof, or intercept.</p>
     </div>
     <figure class="map-plate">
       <picture>
@@ -152,6 +152,13 @@
         <img src="assets/map.jpg" alt="Map of broadcasting drones over a stadium." width="890" height="668" loading="lazy" />
       </picture>
     </figure>
+    <div class="wrap rf-points">
+      <ul>
+        <li>Listen only. No jam, spoof, or intercept.</li>
+        <li>Remote ID: broadcasts. Dark / RID-off aircraft are not on that layer.</li>
+        <li>RF listen when CyberRaptor is on the sit: tuned-band emitters, not a classified ID.</li>
+      </ul>
+    </div>
     <div class="wrap picture-intro ground-intro">
       <h2 id="ground-heading">The ground</h2>
       <p>Same aircraft, same second. Visual shows the road and the apparatus. Thermal shows the fire in the trees, the engines, and people as heat — including at night, including when a victim is in the brush. We fly that picture for the people running the scene. We do not read plates. The incident commander owns the search.</p>
@@ -159,19 +166,17 @@
     <div class="ground-compare">
       <figure class="ground-pane">
         <figcaption>Visual</figcaption>
-        <img class="ground-poster" src="assets/scene-visual.jpg" alt="Overhead visual of an incident on a road." width="1280" height="720" />
-        <video class="ground-loop" autoplay muted loop playsinline preload="metadata" poster="assets/scene-visual.jpg" width="1280" height="720" aria-hidden="true">
-          <source src="assets/scene-visual.webm?v=7" type="video/webm" />
-          <source src="assets/scene-visual.mp4?v=7" type="video/mp4" />
-        </video>
+        <picture>
+          <source type="image/webp" srcset="assets/still-er.webp" />
+          <img src="assets/still-er.jpg" alt="Overhead visual of an incident on a road." width="1920" height="1080" loading="lazy" />
+        </picture>
       </figure>
       <figure class="ground-pane">
         <figcaption>Thermal</figcaption>
-        <img class="ground-poster" src="assets/scene-thermal.jpg" alt="Same overhead as heat: fire in the trees, vehicles, and people." width="1280" height="720" />
-        <video class="ground-loop" autoplay muted loop playsinline preload="metadata" poster="assets/scene-thermal.jpg" width="1280" height="720" aria-hidden="true">
-          <source src="assets/scene-thermal.webm?v=7" type="video/webm" />
-          <source src="assets/scene-thermal.mp4?v=7" type="video/mp4" />
-        </video>
+        <picture>
+          <source type="image/webp" srcset="assets/still-er-thermal.webp" />
+          <img src="assets/still-er-thermal.jpg" alt="Same overhead as heat: fire in the trees, vehicles, and people." width="1920" height="1080" loading="lazy" />
+        </picture>
       </figure>
     </div>
     <div class="strip" aria-label="Photos from flights">
@@ -200,7 +205,7 @@
         <li>
           <span class="step-n">02</span>
           <h3>We fly</h3>
-          <p>We fly stills, video, and thermal. The air map is included when you request it.</p>
+          <p>Stills, video, and thermal. Full Site Picture — Remote ID and RF listen — when you ask for the air.</p>
         </li>
         <li>
           <span class="step-n">03</span>
@@ -232,8 +237,8 @@
     <div class="wrap about-grid">
       <h2 id="about-heading">About</h2>
       <div>
-        <p class="lead">Dark Sky Systems LLC is a Texas company. Clients hire us for overhead imaging and a written risk assessment over a named venue and window.</p>
-        <p>We size each job the way emergency services size rope rescue, confined space, and hazmat. People come first, then the scene, then whether the aircraft leaves the ground. Detection is receive-only. Private and VIP work is discreet; you do not have to name the person.</p>
+        <p class="lead">Dark Sky Systems LLC is a Texas company. Clients hire us for overhead imaging, a Full Site Picture of the air, and a written risk assessment over a named venue and window.</p>
+        <p>Operators can be equipped with CyberRaptor, our receive-only RF platform, so the client sees what is broadcasting and what is emitting in the tuned bands — fused with the picture of the ground. We size each job the way emergency services size rope rescue, confined space, and hazmat. Detection is receive-only. Private and VIP work is discreet; you do not have to name the person.</p>
       </div>
     </div>
   </section>
@@ -279,7 +284,7 @@
           <label class="check"><input type="checkbox" name="need" value="Events" /> Events</label>
           <label class="check"><input type="checkbox" name="need" value="VIP" /> VIP</label>
           <label class="check"><input type="checkbox" name="need" value="Overhead photos and video" /> Photos and video</label>
-          <label class="check"><input type="checkbox" name="need" value="Full Site Picture" /> Air map</label>
+          <label class="check"><input type="checkbox" name="need" value="Full Site Picture" /> Full Site Picture</label>
           <label class="check"><input type="checkbox" name="need" value="Risk report" /> Risk report</label>
           <label class="check"><input type="checkbox" name="need" value="Search and rescue" /> Search and rescue</label>
           <label class="check"><input type="checkbox" name="need" value="Emergency and Disaster" /> Emergency and Disaster</label>
