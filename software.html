@@ -6,17 +6,17 @@
   <meta name="color-scheme" content="dark" />
   <meta name="theme-color" content="#0a0908" />
   <title>Software — Dark Sky Systems</title>
-  <meta name="description" content="CyberRaptor fielded today. RF monitoring, Remote ID, picture of the ground. CyberReaper gated. Dark Sky Systems LLC." />
+  <meta name="description" content="CyberRaptor listen software. ADS-B, Remote ID, RF monitoring, OurAirports. Recurring Season plans. Dark Sky Systems LLC." />
   <link rel="canonical" href="https://darksky.systems/software.html" />
   <meta property="og:title" content="Software — Dark Sky Systems" />
-  <meta property="og:description" content="Live console. Listening. RF LIVE. Fielded today." />
+  <meta property="og:description" content="CyberRaptor. ADS-B, Remote ID, RF monitoring, OurAirports." />
   <meta property="og:url" content="https://darksky.systems/software.html" />
   <meta property="og:image" content="https://darksky.systems/assets/console.jpg" />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=59" />
+  <link rel="stylesheet" href="style.css?v=62" />
 </head>
 <!-- Dark Sky Systems LLC -->
 <body>
@@ -35,12 +35,11 @@
   <section class="soft-hero" id="top">
     <div class="wrap">
       <p class="eyebrow">Software</p>
-      <h1>RF monitoring. Remote ID. Picture of the ground.</h1>
-      <p class="lede">Named place and time. Fielded today. More layers in development.</p>
-      <p class="status"><span>Fielded today</span><span>RADIO Listening</span><span>RF LIVE</span></p>
+      <h1>CyberRaptor. Air picture. Ground picture.</h1>
+      <p class="lede">ADS-B, Remote ID, RF monitoring, and OurAirports on one console. Hire it for a window, or hold it on a Season plan.</p>
       <div class="hero-actions">
         <a class="cta" href="index.html#request">Request software</a>
-        <a class="cta cta-ghost" href="#reaper">Request a briefing</a>
+        <a class="cta cta-ghost" href="index.html#plans">Request a plan</a>
       </div>
     </div>
     <figure class="console-bleed">
@@ -48,74 +47,63 @@
     </figure>
   </section>
 
-  <section class="survey" id="rf">
+  <section class="work" id="data">
     <div class="wrap">
-      <h2>RF monitoring</h2>
-      <p class="lead">Receive-only radio picture of a named place and time. Energy in the bands we are watching is logged. Quiet air is a valid hour.</p>
-      <p>RID-only maps miss aircraft that do not broadcast an ID. Those aircraft can still radiate on a control or analog FPV link. This layer is how that energy is recorded. Presence and band. Not a tail number. Not a legal intercept order. Not direction-finding. Radio-only contacts have no map pin.</p>
-      <table class="spec">
-        <tr><th>RID receiver</th><td>ESP32-S3. Bluetooth LE 1M, coded S8, extended ads. Cooperative Remote ID listen.</td></tr>
-        <tr><th>RF</th><td>Spectrum on the bands the kit covers that job. Common air links: 2.4 GHz and 5.8 GHz. This frame: 5800–5810 MHz, 10 MHz span.</td></tr>
-        <tr><th>Air</th><td>ADS-B 1090 MHz. Commercial, general aviation, and military traffic when those aircraft broadcast. Same map as the UAS picture.</td></tr>
-        <tr><th>Airports</th><td>OurAirports public-domain overlay. Large, regional, municipal, heliport, and military fields in the pack. Runway centerlines. Map display. Not DF. Not ATC clearance.</td></tr>
-        <tr><th>Log</th><td>Time, band, energy. Repeat hits stay. Dead feeds drop. Quiet hour is valid data.</td></tr>
-      </table>
-      <figure class="bleed tight">
-        <img src="assets/console-spectrum.jpg" alt="Live spectrum. Listening. Time, band, and energy." width="1440" height="140" loading="lazy" />
-      </figure>
+      <header class="sec-head">
+        <h2>Datasets</h2>
+        <p>What sits on the map.</p>
+      </header>
       <div class="grid plans-grid">
         <article class="card plan">
-          <h3>Bands</h3>
-          <p>We watch the bands on that job. Common air links sit in 2.4 GHz and 5.8 GHz. Other bands are added when the kit on site actually covers them.</p>
+          <h3>ADS-B</h3>
+          <p>1090 MHz cooperative position. Airline, business, general aviation, and military traffic.</p>
         </article>
         <article class="card plan">
-          <h3>What you see</h3>
-          <p>Time, band, and energy. Repeat hits stay on the log. A dead feed drops off. Radio-only tracks have no map pin. We do not invent tracks to fill a quiet hour.</p>
+          <h3>OurAirports</h3>
+          <p>Public-domain pack. ICAO labels. Runway overlays. Large, regional, municipal, heliport, and military fields.</p>
+        </article>
+        <article class="card plan">
+          <h3>ESP32-S3</h3>
+          <p>On-kit Remote ID listener. Bluetooth LE 1M, coded S8, extended advertisements.</p>
+        </article>
+        <article class="card plan">
+          <h3>RF monitoring</h3>
+          <p>2.4 GHz and 5.8 GHz. Analog FPV on 5.8 GHz. This frame: 5800–5810 MHz, 10 MHz span. Time, band, and energy — including aircraft with no Remote ID.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="work" id="air">
+  <section class="survey" id="rf">
     <div class="wrap">
-      <h2>Air picture</h2>
-      <p class="lead">Manned and unmanned on one map. Airports and runways underneath. Live tracks only when the aircraft is broadcasting.</p>
-      <div class="grid plans-grid">
-        <article class="card plan">
-          <h3>ADS-B</h3>
-          <p>1090 MHz cooperative position. Airline, business, general aviation, and military aircraft appear when they emit ADS-B. No ADS-B, no live track from this layer.</p>
-        </article>
-        <article class="card plan">
-          <h3>Airports and runways</h3>
-          <p>OurAirports public-domain pack. ICAO labels. Runway overlays. Large, regional, municipal, heliport, military. Map geography. Not a clearance.</p>
-        </article>
-        <article class="card plan">
-          <h3>ESP32-S3</h3>
-          <p>On-kit RID listener. Bluetooth LE 1M, coded S8, extended advertisements. BLE ads counted. Apple folded counted. RID none is a valid state.</p>
-        </article>
-        <article class="card plan">
-          <h3>Signal recognition</h3>
-          <p>Analog FPV energy on 5.8 GHz. Spectrum peaks on the job band. Radio-only UAS contacts when RID is absent. Additional bands only when that kit is actually on the job.</p>
-        </article>
-      </div>
+      <h2>RF monitoring</h2>
+      <p class="lead">Receive-only radio picture. Time, band, and energy on the job bands.</p>
+      <table class="spec">
+        <tr><th>RID receiver</th><td>ESP32-S3. Bluetooth LE 1M, coded S8, extended ads.</td></tr>
+        <tr><th>RF</th><td>2.4 GHz and 5.8 GHz. Analog FPV on 5.8 GHz.</td></tr>
+        <tr><th>Air</th><td>ADS-B 1090 MHz. Commercial, general aviation, and military on the same map as the UAS picture.</td></tr>
+        <tr><th>Airports</th><td>OurAirports overlay. Large, regional, municipal, heliport, and military fields. Runway centerlines.</td></tr>
+        <tr><th>Log</th><td>Time, band, energy.</td></tr>
+      </table>
+      <figure class="bleed tight">
+        <img src="assets/console-spectrum.jpg" alt="Live spectrum. Time, band, and energy." width="1440" height="140" loading="lazy" />
+      </figure>
     </div>
   </section>
 
   <section class="work" id="layers">
     <div class="wrap">
-      <h2>Layers</h2>
-      <p class="lead">RF and RID are two layers. They are fused only when both are honestly running. This hour: RF LIVE. RID ABSENT. Both states are valid.</p>
+      <h2>On the glass</h2>
+      <p class="lead">Green is on your list. Red is broadcasting off-list. Visual and thermal from overhead in the same file.</p>
       <div class="layers">
         <article>
-          <h3>With Remote ID</h3>
-          <p>When an aircraft is broadcasting an ID, it is on the map. Green is on your list. Red is broadcasting off-list.</p>
+          <h3>Map</h3>
           <figure class="bleed tight">
             <img src="assets/console-map.jpg?v=60" alt="Live tactical map. Aircraft tracks. Radio contacts." width="860" height="482" loading="lazy" />
           </figure>
         </article>
         <article>
-          <h3>With the aircraft</h3>
-          <p>Visual and thermal from overhead in the same window, when we fly. The radio picture and the ground picture are one file.</p>
+          <h3>Ground</h3>
           <div class="pair">
             <figure>
               <figcaption>Visual</figcaption>
@@ -134,22 +122,22 @@
   <section class="plans" id="raptor">
     <div class="wrap">
       <header class="sec-head">
-        <h2>CyberRaptor</h2>
-        <p>Listen software. Fielded today as Remote ID plus RF monitoring when that kit is on the job. Console shows Listening and RF LIVE. More sensors in development: radar, acoustic, and tighter fusion.</p>
+        <h2>How you buy it</h2>
+        <p>CyberRaptor on a window, or held on a calendar.</p>
       </header>
       <div class="grid plans-grid">
-        <article class="card plan">
+        <a class="card plan" href="index.html#request">
           <h3>Listen</h3>
-          <p>Named place and dates. RF monitoring and Remote ID for that window.</p>
-        </article>
-        <article class="card plan">
+          <p>Remote ID and RF monitoring for the dates you hire.</p>
+        </a>
+        <a class="card plan" href="index.html#request">
           <h3>Field</h3>
-          <p>The radio picture fused with overhead stills and thermal from the same window.</p>
-        </article>
-        <article class="card plan">
+          <p>CyberRaptor plus overhead stills and thermal.</p>
+        </a>
+        <a class="card plan" href="index.html#plans">
           <h3>Season</h3>
-          <p>A named venue on scheduled dates. Same layers, held on a calendar.</p>
-        </article>
+          <p>A venue on scheduled dates. Pictures and CyberRaptor together.</p>
+        </a>
       </div>
       <p class="plans-cta" id="request-software"><a class="cta" href="index.html#request">Request software</a></p>
     </div>
@@ -158,15 +146,15 @@
   <section class="work" id="reaper">
     <div class="wrap">
       <h2>CyberReaper</h2>
-      <p class="lead">CyberReaper in development. Same RF monitoring picture. Access is gated. Request a briefing if you are a qualified buyer.</p>
+      <p class="lead">CyberReaper in development.</p>
       <p class="plans-cta" id="request-briefing"><a class="cta" href="index.html#request">Request a briefing</a></p>
     </div>
   </section>
 
   <section class="survey" id="request-survey">
     <div class="wrap">
-      <h2>Surveys and software together</h2>
-      <p class="lead">Large sites and corporations hire a walk, a flight, RF monitoring, and a written risk assessment as one file. That is a site survey, not an event.</p>
+      <h2>With a site survey</h2>
+      <p class="lead">Walk, fly, CyberRaptor, and a written risk assessment as one file.</p>
       <p><a class="cta" href="index.html#survey">Site survey</a></p>
     </div>
   </section>
