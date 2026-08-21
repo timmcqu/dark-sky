@@ -11,11 +11,16 @@
   ];
 
   var TRACKS = [
-    { id: "N9411T", layer: "adsb", kind: "ADS-B 1090", heading: "030", alt: "10", r: 0.28, a: -0.35, color: "#d8d2c4" },
-    { id: "A67BA2", layer: "adsb", kind: "ADS-B 1090", heading: "058", alt: "18", r: 0.42, a: 0.85, color: "#d8d2c4" },
+    { id: "N9411T", layer: "adsb", kind: "ADS-B 1090", heading: 30, alt: "10", r: 0.28, a: -0.35, color: "#d8d2c4" },
+    { id: "A67BA2", layer: "adsb", kind: "ADS-B 1090", heading: 58, alt: "18", r: 0.42, a: 0.85, color: "#d8d2c4" },
     { id: "A7", layer: "rf", kind: "RF · analog FPV energy", freq: "5.8 GHz · 2.4 GHz hop", snr: "energy on glass", r: 0.08, a: 0.4, color: "#e24b4b" },
     { id: "A4", layer: "rf", kind: "RF · OcuSync-class", freq: "2.4 / 5.8 GHz dual-band", snr: "hop set in the log", r: 0.18, a: 1.1, color: "#e24b4b" }
   ];
+
+  TRACKS.forEach(function (tr) {
+    tr.nx = Math.sin(tr.a) * tr.r;
+    tr.ny = -Math.cos(tr.a) * tr.r;
+  });
 
   var layers = { adsb: true, rf: true, apt: true, rid: true };
   var selected = null;
@@ -30,9 +35,75 @@
     return !!layers[tr.layer];
   }
 
-  function polar(cx, cy, rMax, r, a, spin) {
-    var ang = a + spin;
-    return { x: cx + Math.sin(ang) * r * rMax, y: cy - Math.cos(ang) * r * rMax };
+  function polar(cx, cy, rMax, r, a) {
+    return { x: cx + Math.sin(a) * r * rMax, y: cy - Math.cos(a) * r * rMax };
+  }
+
+  function drawAirplane(ctx) {
+    ctx.fillStyle = "#cfc8ba";
+    ctx.beginPath();
+    ctx.moveTo(0, -20);
+    ctx.bezierCurveTo(2.8, -18, 3.1, -8, 2.8, 6);
+    ctx.lineTo(2.2, 18);
+    ctx.lineTo(0, 15);
+    ctx.lineTo(-2.2, 18);
+    ctx.lineTo(-2.8, 6);
+    ctx.bezierCurveTo(-3.1, -8, -2.8, -18, 0, -20);
+    ctx.closePath();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(2.6, -1);
+    ctx.lineTo(24, 9);
+    ctx.lineTo(22, 12);
+    ctx.lineTo(2.4, 6);
+    ctx.closePath();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(-2.6, -1);
+    ctx.lineTo(-24, 9);
+    ctx.lineTo(-22, 12);
+    ctx.lineTo(-2.4, 6);
+    ctx.closePath();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(2, 11);
+    ctx.lineTo(9, 17);
+    ctx.lineTo(1.8, 14.5);
+    ctx.closePath();
+    ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(-2, 11);
+    ctx.lineTo(-9, 17);
+    ctx.lineTo(-1.8, 14.5);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  function drawDrone(ctx) {
+    var arm = 15;
+    ctx.strokeStyle = "#e24b4b";
+    ctx.fillStyle = "#e24b4b";
+    ctx.lineWidth = 3.2;
+    ctx.lineCap = "round";
+    ctx.beginPath();
+    ctx.moveTo(-arm, -arm);
+    ctx.lineTo(arm, arm);
+    ctx.moveTo(arm, -arm);
+    ctx.lineTo(-arm, arm);
+    ctx.stroke();
+    [[-arm, -arm], [arm, -arm], [-arm, arm], [arm, arm]].forEach(function (p) {
+      ctx.beginPath();
+      ctx.arc(p[0], p[1], 4.4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(p[0], p[1], 7.2, 0, Math.PI * 2);
+      ctx.lineWidth = 1.4;
+      ctx.stroke();
+    });
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(-6.5, -5, 13, 10, 2.5);
+    else ctx.rect(-6.5, -5, 13, 10);
+    ctx.fill();
   }
 
   function drawRadar(now) {
@@ -42,7 +113,8 @@
     var cx = w * 0.5;
     var cy = h * 0.52;
     var rMax = Math.min(w, h) * 0.42;
-    var spin = reduce ? 0 : ((now - t0) / 18000);
+    var dt = reduce ? 0 : Math.min(32, now - (drawRadar._last || now));
+    drawRadar._last = now;
 
     ctx.fillStyle = "#050505";
     ctx.fillRect(0, 0, w, h);
@@ -75,40 +147,38 @@
 
     TRACKS.forEach(function (tr) {
       if (!visible(tr)) return;
-      var drift = tr.layer === "adsb" && !reduce ? spin * 0.15 : 0;
-      var p = polar(cx, cy, rMax, tr.r, tr.a + drift, 0);
-      tr._x = p.x;
-      tr._y = p.y;
+      if (tr.layer === "adsb" && dt) {
+        var rad = (tr.heading * Math.PI) / 180;
+        tr.nx += Math.sin(rad) * 0.000028 * dt;
+        tr.ny -= Math.cos(rad) * 0.000028 * dt;
+        var dist = Math.hypot(tr.nx, tr.ny);
+        if (dist > 0.78) {
+          tr.heading = (tr.heading + 160) % 360;
+        }
+      }
+      var px = cx + tr.nx * rMax * 1.15;
+      var py = cy + tr.ny * rMax;
+      if (tr.layer === "rf" && !reduce) {
+        py += Math.sin(now / 420 + tr.a) * 3;
+      }
+      tr._x = px;
+      tr._y = py;
       ctx.save();
-      ctx.translate(p.x, p.y);
+      ctx.translate(px, py);
       if (tr.layer === "adsb") {
-        ctx.rotate((parseInt(tr.heading, 10) || 0) * Math.PI / 180);
-        ctx.fillStyle = tr.color;
-        ctx.beginPath();
-        ctx.moveTo(0, -11);
-        ctx.lineTo(7, 10);
-        ctx.lineTo(0, 6);
-        ctx.lineTo(-7, 10);
-        ctx.closePath();
-        ctx.fill();
+        ctx.rotate((tr.heading * Math.PI) / 180);
+        ctx.scale(1.15, 1.15);
+        drawAirplane(ctx);
       } else {
-        ctx.strokeStyle = tr.color;
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.moveTo(-10, 0);
-        ctx.lineTo(10, 0);
-        ctx.moveTo(0, -10);
-        ctx.lineTo(0, 10);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.arc(0, 0, 14, 0, Math.PI * 2);
-        ctx.stroke();
+        ctx.rotate(reduce ? 0 : now / 2800);
+        ctx.scale(1.05, 1.05);
+        drawDrone(ctx);
       }
       ctx.restore();
       ctx.fillStyle = selected === tr.id ? "#c4a35a" : tr.color;
       ctx.font = "18px Outfit, sans-serif";
       ctx.textAlign = "left";
-      ctx.fillText(tr.id, p.x + 14, p.y - 8);
+      ctx.fillText(tr.id, px + 18, py - 10);
     });
 
     if (layers.rid) {
