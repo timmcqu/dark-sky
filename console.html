@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Fusion Sensor console — Dark Sky Systems</title>
+  <link rel="canonical" href="https://darksky.systems/console.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="console.css?v=1" />
+</head>
+<body>
+  <div class="pad" id="pad">
+    <header class="pad-top">
+      <p class="brand"><a href="software.html" target="_top">Fusion Sensor</a></p>
+      <p class="status"><span class="dot"></span> Demo replay · Listening</p>
+      <p class="place">Named window</p>
+    </header>
+    <aside class="list" aria-label="Tracks">
+      <p class="k">Tracks</p>
+      <ul id="track-list"></ul>
+    </aside>
+    <main class="glass">
+      <div class="layers" role="group" aria-label="Layers">
+        <button type="button" class="on" data-layer="adsb">ADS-B</button>
+        <button type="button" class="on" data-layer="rf">RF</button>
+        <button type="button" class="on" data-layer="apt">Airports</button>
+        <button type="button" class="on" data-layer="rid">RID</button>
+      </div>
+      <canvas id="radar" width="900" height="620" aria-label="Air picture. Click a track."></canvas>
+    </main>
+    <aside class="detail" id="detail">
+      <p class="k" id="detail-k">Track</p>
+      <h2 id="detail-id">Click a contact</h2>
+      <dl id="detail-dl">
+        <dt>Hint</dt>
+        <dd>ADS-B airframes, RF energy, airports, RID listen. Demo replay of a named window.</dd>
+      </dl>
+      <button type="button" class="close" id="detail-close">Clear</button>
+    </aside>
+    <footer class="spec-bar">
+      <canvas id="spec" width="1200" height="88" aria-label="Spectrum. 2.4 GHz scan."></canvas>
+      <p class="spec-meta">SPECTRUM · 2.4 GHz · 10 MHz span · OcuSync-class hop · analog FPV on 5.8</p>
+    </footer>
+  </div>
+  <script src="console.js?v=1"></script>
+</body>
+</html>
