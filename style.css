@@ -324,6 +324,27 @@ h3 {
   font-size: 0.98rem;
 }
 
+a.card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+a.card:hover h3,
+a.card:focus-visible h3 { color: var(--gold); }
+
+.page-hero {
+  padding-block: clamp(2.5rem, 7vw, 4.5rem);
+}
+
+.page-hero img,
+.page-hero .loop {
+  width: 100%;
+  height: min(48svh, 26rem);
+  object-fit: cover;
+  margin: 1.25rem 0 0;
+}
+
 .survey { border-block: 1px solid var(--line); background: #0e0d0b; }
 
 .survey-grid {
