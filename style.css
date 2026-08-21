@@ -470,6 +470,66 @@ a.card:focus-visible h3 { color: var(--gold); }
   color: #6a6256;
 }
 
+.survey-doc {
+  background: #100f0c;
+  border: 1px solid #3a3428;
+  box-shadow: 0 22px 48px rgba(0,0,0,0.5);
+  padding: 1.35rem 1.4rem 1.15rem;
+  max-width: 28rem;
+}
+.survey-doc-k {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 0.85rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.survey-doc h3 {
+  margin: 0;
+  font-size: 1.55rem;
+}
+.survey-doc-meta {
+  margin: 0.25rem 0 0.9rem;
+  font-size: 0.82rem;
+  color: var(--mute);
+}
+.survey-doc dl {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+.survey-doc div {
+  display: grid;
+  grid-template-columns: 7.2rem 1fr;
+  gap: 0.65rem;
+  padding: 0.48rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.86rem;
+}
+.survey-doc dt {
+  margin: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  color: var(--gold);
+  padding-top: 0.2rem;
+}
+.survey-doc dd { margin: 0; color: var(--paper); }
+.survey-doc-obs {
+  margin: 0.85rem 0 0;
+  font-size: 0.84rem;
+  color: var(--mute);
+}
+.survey-doc-foot {
+  margin: 0.9rem 0 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
 .plan {
   padding: 1.35rem 1.25rem 1.4rem;
   border: 1px solid var(--line);
