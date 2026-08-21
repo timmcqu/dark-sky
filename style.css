@@ -325,9 +325,18 @@ h3 {
 }
 
 a.card {
+  position: relative;
+  display: block;
   text-decoration: none;
   color: inherit;
-  display: block;
+  cursor: pointer;
+}
+
+a.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
 }
 
 a.card:hover h3,
