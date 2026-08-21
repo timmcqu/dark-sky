@@ -318,6 +318,13 @@ h3 { margin: 0 0 0.4rem; font-size: 1.12rem; letter-spacing: -0.02em; }
 
 .svc-loop { pointer-events: none; }
 
+.svc-sar img {
+  object-fit: contain;
+  object-position: center;
+  background: #8fa6bb;
+  height: 16rem;
+}
+
 .svc-compare {
   display: grid;
   grid-template-columns: 1fr 1fr;
