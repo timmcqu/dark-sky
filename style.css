@@ -215,6 +215,27 @@ h1, h2, h3 {
   background: #050505;
 }
 
+.spec {
+  width: 100%;
+  margin: 1.25rem 0 1.5rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.spec th,
+.spec td {
+  text-align: left;
+  padding: 0.55rem 0.75rem 0.55rem 0;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.spec th {
+  color: var(--mute);
+  font-weight: 400;
+  width: 8.5rem;
+}
+
 @media (min-width: 760px) {
   .layers { grid-template-columns: 1fr 1fr; align-items: start; }
 }
