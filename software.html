@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=62" />
+  <link rel="stylesheet" href="style.css?v=63" />
 </head>
 <!-- Dark Sky Systems LLC -->
 <body>
@@ -36,14 +36,18 @@
     <div class="wrap">
       <p class="eyebrow">CyberRaptor</p>
       <h1>Fusion Sensor.</h1>
-      <p class="lede">ADS-B, Remote ID, RF monitoring, and OurAirports on one console. Hire it for a window, or hold it on a Season plan.</p>
+      <p class="lede">ADS-B, OpenDroneID, OurAirports, RFUAV, and analog FPV on one console. Hire it for a window, or hold it on a Season plan.</p>
       <div class="hero-actions">
-        <a class="cta" href="index.html#request">Request software</a>
-        <a class="cta cta-ghost" href="index.html#plans">Request a plan</a>
+        <a class="cta" href="index.html#request">Buy software</a>
+        <a class="cta cta-ghost" href="index.html#request">Buy software + radios</a>
       </div>
     </div>
     <figure class="console-bleed">
       <img src="assets/console.jpg?v=60" alt="Live listen console. Map of the named area." width="940" height="480" />
+    </figure>
+    <figure class="spectrum-bleed">
+      <figcaption>Spectrum</figcaption>
+      <img src="assets/console-spectrum.jpg?v=63" alt="Live spectrum analysis. 5.8 GHz. Time, band, and energy." width="1440" height="70" />
     </figure>
   </section>
 
@@ -51,24 +55,40 @@
     <div class="wrap">
       <header class="sec-head">
         <h2>Datasets</h2>
-        <p>What sits on the map.</p>
+        <p>What the Fusion Sensor is trained and flown on.</p>
       </header>
       <div class="grid plans-grid">
         <article class="card plan">
-          <h3>ADS-B</h3>
-          <p>1090 MHz cooperative position. Airline, business, general aviation, and military traffic.</p>
+          <h3>ADS-B / OpenSky</h3>
+          <p>1090 MHz. Airline, business, general aviation, and military. Aircraft registry on the same map.</p>
         </article>
         <article class="card plan">
           <h3>OurAirports</h3>
-          <p>Public-domain pack. ICAO labels. Runway overlays. Large, regional, municipal, heliport, and military fields.</p>
+          <p>ICAO labels and runway overlays. Large, regional, municipal, heliport, and military fields.</p>
         </article>
         <article class="card plan">
-          <h3>ESP32-S3</h3>
-          <p>On-kit Remote ID listener. Bluetooth LE 1M, coded S8, extended advertisements.</p>
+          <h3>OpenDroneID</h3>
+          <p>ASTM F3411. ESP32-S3. Bluetooth LE 1M, coded S8, extended advertisements.</p>
         </article>
         <article class="card plan">
-          <h3>RF monitoring</h3>
-          <p>2.4 GHz and 5.8 GHz. Analog FPV on 5.8 GHz. This frame: 5800–5810 MHz, 10 MHz span. Time, band, and energy — including aircraft with no Remote ID.</p>
+          <h3>Analog FPV</h3>
+          <p>5.8 GHz spectrum. This frame: 5800–5810 MHz. Time, band, and energy.</p>
+        </article>
+        <article class="card plan">
+          <h3>RFUAV</h3>
+          <p>Thirty-five airframe types. Detect and ID. Mavic 3 and Mini 4 in the pack.</p>
+        </article>
+        <article class="card plan">
+          <h3>CageDroneRF · CardRF</h3>
+          <p>Outdoor UAV RF with Bluetooth and Wi-Fi on the same scene.</p>
+        </article>
+        <article class="card plan">
+          <h3>Own kit</h3>
+          <p>Mini 4 Pro and Mavic 3T captures from our aircraft.</p>
+        </article>
+        <article class="card plan">
+          <h3>VisDrone</h3>
+          <p>Visual detect and track. Same file as the radio picture.</p>
         </article>
       </div>
     </div>
@@ -77,7 +97,7 @@
   <section class="survey" id="rf">
     <div class="wrap">
       <h2>RF monitoring</h2>
-      <p class="lead">Receive-only radio picture. Time, band, and energy on the job bands.</p>
+      <p class="lead">Radio picture. Time, band, and energy on the job bands.</p>
       <table class="spec">
         <tr><th>RID receiver</th><td>ESP32-S3. Bluetooth LE 1M, coded S8, extended ads.</td></tr>
         <tr><th>RF</th><td>2.4 GHz and 5.8 GHz. Analog FPV on 5.8 GHz.</td></tr>
@@ -85,8 +105,8 @@
         <tr><th>Airports</th><td>OurAirports overlay. Large, regional, municipal, heliport, and military fields. Runway centerlines.</td></tr>
         <tr><th>Log</th><td>Time, band, energy.</td></tr>
       </table>
-      <figure class="bleed tight">
-        <img src="assets/console-spectrum.jpg" alt="Live spectrum. Time, band, and energy." width="1440" height="140" loading="lazy" />
+      <figure class="spectrum-bleed" style="border-top:0;margin-top:1.5rem">
+        <img src="assets/console-spectrum.jpg?v=63" alt="Live spectrum analysis. 5.8 GHz." width="1440" height="70" loading="lazy" />
       </figure>
     </div>
   </section>
@@ -94,7 +114,7 @@
   <section class="work" id="layers">
     <div class="wrap">
       <h2>On the glass</h2>
-      <p class="lead">Green is on your list. Red is broadcasting off-list. Visual and thermal from overhead in the same file.</p>
+      <p class="lead">Green is your list. Red is everyone else on the air. Visual and thermal from overhead in the same file.</p>
       <div class="layers">
         <article>
           <h3>Map</h3>
@@ -119,27 +139,30 @@
     </div>
   </section>
 
-  <section class="plans" id="raptor">
+  <section class="plans" id="buy">
     <div class="wrap">
       <header class="sec-head">
-        <h2>How you buy it</h2>
-        <p>CyberRaptor on a window, or held on a calendar.</p>
+        <h2>Buy Fusion Sensor</h2>
+        <p>Set price for the software. Radios are an upcharge.</p>
       </header>
       <div class="grid plans-grid">
         <a class="card plan" href="index.html#request">
-          <h3>Listen</h3>
-          <p>Remote ID and RF monitoring for the dates you hire.</p>
+          <h3>Software</h3>
+          <p>Fusion Sensor at the set price. You run it on radios you already have.</p>
         </a>
         <a class="card plan" href="index.html#request">
-          <h3>Field</h3>
-          <p>CyberRaptor plus overhead stills and thermal.</p>
+          <h3>Software + radios</h3>
+          <p>Fusion Sensor plus the listen radios. Additional upcharge.</p>
         </a>
         <a class="card plan" href="index.html#plans">
           <h3>Season</h3>
-          <p>A venue on scheduled dates. Pictures and CyberRaptor together.</p>
+          <p>Hold it on a calendar. Pictures and Fusion Sensor together.</p>
         </a>
       </div>
-      <p class="plans-cta" id="request-software"><a class="cta" href="index.html#request">Request software</a></p>
+      <p class="plans-cta" id="request-software">
+        <a class="cta" href="index.html#request">Buy software</a>
+        <a class="cta cta-ghost" href="index.html#request">Buy software + radios</a>
+      </p>
     </div>
   </section>
 

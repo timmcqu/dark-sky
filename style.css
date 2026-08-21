@@ -201,6 +201,27 @@ h1, h2, h3 {
 .bleed.tight { margin-top: 1rem; }
 .bleed.tight img { height: min(38svh, 18rem); object-fit: cover; width: 100%; }
 
+.spectrum-bleed {
+  margin: 0;
+  background: #050505;
+  border-top: 1px solid var(--line);
+}
+.spectrum-bleed img {
+  width: 100%;
+  min-height: 9rem;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  background: #050505;
+}
+.spectrum-bleed figcaption {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 0.75rem clamp(1.25rem, 4.5vw, 2.5rem) 0.35rem;
+}
+
 .console-bleed {
   margin: 1.75rem 0 0;
   overflow: hidden;
