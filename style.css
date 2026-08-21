@@ -206,7 +206,8 @@ h1, h2, h3 {
   background: #050505;
   border-top: 1px solid var(--line);
 }
-.spectrum-bleed img {
+.spectrum-bleed img,
+.spectrum-bleed video {
   width: 100%;
   min-height: 9rem;
   height: auto;
@@ -228,7 +229,8 @@ h1, h2, h3 {
   border-top: 1px solid var(--line);
 }
 
-.console-bleed img {
+.console-bleed img,
+.console-bleed video {
   width: 100%;
   height: auto;
   display: block;

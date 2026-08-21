@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=64" />
+  <link rel="stylesheet" href="style.css?v=65" />
 </head>
 <!-- Dark Sky Systems LLC -->
 <body>
@@ -43,11 +43,15 @@
       </div>
     </div>
     <figure class="console-bleed">
-      <img src="assets/console.jpg?v=60" alt="Live listen console. Map of the named area." width="940" height="480" />
+      <video class="loop" autoplay muted loop playsinline poster="assets/fusion-map.jpg" width="800" height="500">
+        <source src="assets/fusion-map.mp4" type="video/mp4" />
+      </video>
     </figure>
     <figure class="spectrum-bleed">
       <figcaption>Spectrum</figcaption>
-      <img src="assets/console-spectrum.jpg?v=63" alt="Live spectrum analysis. 5.8 GHz. Time, band, and energy." width="1440" height="70" />
+      <video class="loop" autoplay muted loop playsinline poster="assets/fusion-spectrum.jpg" width="1280" height="92">
+        <source src="assets/fusion-spectrum.mp4" type="video/mp4" />
+      </video>
     </figure>
   </section>
 
@@ -71,8 +75,8 @@
           <p>ASTM F3411. ESP32-S3. Bluetooth LE 1M, coded S8, extended advertisements.</p>
         </article>
         <article class="card plan">
-          <h3>Analog FPV</h3>
-          <p>5.8 GHz spectrum. This frame: 5800–5810 MHz. Time, band, and energy.</p>
+          <h3>RF monitoring</h3>
+          <p>Intelligent scan on 2.4 GHz and 5.8 GHz. OcuSync-class links, frequency hopping, analog FPV. Time, band, and energy.</p>
         </article>
         <article class="card plan">
           <h3>RFUAV</h3>
@@ -97,16 +101,19 @@
   <section class="survey" id="rf">
     <div class="wrap">
       <h2>RF monitoring</h2>
-      <p class="lead">Radio picture. Time, band, and energy on the job bands.</p>
+      <p class="lead">The console walks 2.4 GHz and 5.8 GHz, holds each dwell, and matches the pattern. OcuSync-class links, hop sets, analog FPV — time, band, and energy on the glass and in the log.</p>
       <table class="spec">
-        <tr><th>RID receiver</th><td>ESP32-S3. Bluetooth LE 1M, coded S8, extended ads.</td></tr>
-        <tr><th>RF</th><td>2.4 GHz and 5.8 GHz. Analog FPV on 5.8 GHz.</td></tr>
-        <tr><th>Air</th><td>ADS-B 1090 MHz. Commercial, general aviation, and military on the same map as the UAS picture.</td></tr>
-        <tr><th>Airports</th><td>OurAirports overlay. Large, regional, municipal, heliport, and military fields. Runway centerlines.</td></tr>
-        <tr><th>Log</th><td>Time, band, energy.</td></tr>
+        <tr><th>Scan</th><td>Multi-channel dwells on 2.4 GHz and 5.8 GHz. Occupancy, bandwidth, duty, energy.</td></tr>
+        <tr><th>Analog FPV</th><td>5.8 GHz analog video energy. This frame: 5800–5810 MHz, 10 MHz span.</td></tr>
+        <tr><th>OcuSync-class</th><td>Digital control and video links. Dual-band pattern across 2.4 GHz and 5.8 GHz.</td></tr>
+        <tr><th>Frequency hopping</th><td>Hop-set occupancy and cadence on the job bands.</td></tr>
+        <tr><th>Pattern analysis</th><td>Energy, bandwidth, hop timing, dual-band correlation. Named classes on the glass.</td></tr>
+        <tr><th>Log</th><td>Time, band, energy, class. Export after the sit.</td></tr>
       </table>
       <figure class="spectrum-bleed" style="border-top:0;margin-top:1.5rem">
-        <img src="assets/console-spectrum.jpg?v=63" alt="Live spectrum analysis. 5.8 GHz." width="1440" height="70" loading="lazy" />
+        <video class="loop" autoplay muted loop playsinline poster="assets/fusion-spectrum.jpg" width="1280" height="92">
+          <source src="assets/fusion-spectrum.mp4" type="video/mp4" />
+        </video>
       </figure>
     </div>
   </section>
@@ -114,7 +121,7 @@
   <section class="work" id="layers">
     <div class="wrap">
       <h2>On the glass</h2>
-      <p class="lead">Green is your list. Red is everyone else on the air. Visual and thermal from overhead in the same file.</p>
+      <p class="lead">Green is your list. Red is everyone else on the air. Map and spectrum on one console.</p>
       <div class="layers">
         <article>
           <h3>Map</h3>
@@ -123,17 +130,12 @@
           </figure>
         </article>
         <article>
-          <h3>Ground</h3>
-          <div class="pair">
-            <figure>
-              <figcaption>Visual</figcaption>
-              <img src="assets/still-er.jpg" alt="Overhead visual of a scene." width="1920" height="1080" loading="lazy" />
-            </figure>
-            <figure>
-              <figcaption>Thermal</figcaption>
-              <img src="assets/still-er-thermal.jpg" alt="Same window in thermal." width="1920" height="1080" loading="lazy" />
-            </figure>
-          </div>
+          <h3>RF</h3>
+          <ul class="sheet" style="list-style:none;padding:1rem 1.25rem;margin:0">
+            <li>Scan. Intelligent dwells on 2.4 GHz and 5.8 GHz.</li>
+            <li>Hop. Frequency-hopping control and OcuSync-class dual-band patterns.</li>
+            <li>Analog FPV. Analog video energy on 5.8 GHz. This frame: 5800–5810 MHz.</li>
+          </ul>
         </article>
       </div>
     </div>
