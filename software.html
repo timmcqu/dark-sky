@@ -9,14 +9,14 @@
   <meta name="description" content="CyberRaptor fielded today. RF monitoring, Remote ID, picture of the ground. CyberReaper gated. Dark Sky Systems LLC." />
   <link rel="canonical" href="https://darksky.systems/software.html" />
   <meta property="og:title" content="Software — Dark Sky Systems" />
-  <meta property="og:description" content="Live console. Listening. RF LIVE. TX LOCKED. Fielded today." />
+  <meta property="og:description" content="Live console. Listening. RF LIVE. Fielded today." />
   <meta property="og:url" content="https://darksky.systems/software.html" />
   <meta property="og:image" content="https://darksky.systems/assets/console.jpg" />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=57" />
+  <link rel="stylesheet" href="style.css?v=59" />
 </head>
 <!-- Dark Sky Systems LLC -->
 <body>
@@ -37,14 +37,14 @@
       <p class="eyebrow">Software</p>
       <h1>RF monitoring. Remote ID. Picture of the ground.</h1>
       <p class="lede">Named place and time. Fielded today. More layers in development.</p>
-      <p class="status"><span>Fielded today</span><span>RADIO Listening</span><span>RF LIVE</span><span>TX LOCKED</span></p>
+      <p class="status"><span>Fielded today</span><span>RADIO Listening</span><span>RF LIVE</span></p>
       <div class="hero-actions">
         <a class="cta" href="index.html#request">Request software</a>
         <a class="cta cta-ghost" href="#reaper">Request a briefing</a>
       </div>
     </div>
     <figure class="console-bleed">
-      <img src="assets/console.jpg?v=56" alt="Live listen console. Map, spectrum, TX LOCKED." width="1440" height="760" />
+      <img src="assets/console.jpg?v=60" alt="Live listen console. Map of the named area." width="940" height="480" />
     </figure>
   </section>
 
@@ -52,14 +52,13 @@
     <div class="wrap">
       <h2>RF monitoring</h2>
       <p class="lead">Receive-only radio picture of a named place and time. Energy in the bands we are watching is logged. Quiet air is a valid hour.</p>
-      <p>RID-only maps miss aircraft that do not broadcast an ID. Those aircraft can still radiate on a control or analog FPV link. This layer is how that energy is recorded. Presence and band. Not a tail number. Not a legal intercept order. Not direction-finding. Radio-only contacts have no map pin. TX stays gated.</p>
+      <p>RID-only maps miss aircraft that do not broadcast an ID. Those aircraft can still radiate on a control or analog FPV link. This layer is how that energy is recorded. Presence and band. Not a tail number. Not a legal intercept order. Not direction-finding. Radio-only contacts have no map pin.</p>
       <table class="spec">
         <tr><th>RID receiver</th><td>ESP32-S3. Bluetooth LE 1M, coded S8, extended ads. Cooperative Remote ID listen.</td></tr>
         <tr><th>RF</th><td>Spectrum on the bands the kit covers that job. Common air links: 2.4 GHz and 5.8 GHz. This frame: 5800–5810 MHz, 10 MHz span.</td></tr>
         <tr><th>Air</th><td>ADS-B 1090 MHz. Commercial, general aviation, and military traffic when those aircraft broadcast. Same map as the UAS picture.</td></tr>
         <tr><th>Airports</th><td>OurAirports public-domain overlay. Large, regional, municipal, heliport, and military fields in the pack. Runway centerlines. Map display. Not DF. Not ATC clearance.</td></tr>
         <tr><th>Log</th><td>Time, band, energy. Repeat hits stay. Dead feeds drop. Quiet hour is valid data.</td></tr>
-        <tr><th>Gate</th><td>TX LOCKED. Dual-gate. auto_tx=OFF.</td></tr>
       </table>
       <figure class="bleed tight">
         <img src="assets/console-spectrum.jpg" alt="Live spectrum. Listening. Time, band, and energy." width="1440" height="140" loading="lazy" />
@@ -92,7 +91,7 @@
         </article>
         <article class="card plan">
           <h3>ESP32-S3</h3>
-          <p>On-kit RID listener. Bluetooth LE 1M, coded S8, extended advertisements. Slot B listen. BLE ads counted. Apple folded counted. RID none is a valid state.</p>
+          <p>On-kit RID listener. Bluetooth LE 1M, coded S8, extended advertisements. BLE ads counted. Apple folded counted. RID none is a valid state.</p>
         </article>
         <article class="card plan">
           <h3>Signal recognition</h3>
@@ -111,7 +110,7 @@
           <h3>With Remote ID</h3>
           <p>When an aircraft is broadcasting an ID, it is on the map. Green is on your list. Red is broadcasting off-list.</p>
           <figure class="bleed tight">
-            <img src="assets/console-map.jpg" alt="Live tactical map. Pflugerville. Aircraft tracks. Radio contacts B5." width="860" height="530" loading="lazy" />
+            <img src="assets/console-map.jpg?v=60" alt="Live tactical map. Aircraft tracks. Radio contacts." width="860" height="482" loading="lazy" />
           </figure>
         </article>
         <article>
@@ -136,11 +135,8 @@
     <div class="wrap">
       <header class="sec-head">
         <h2>CyberRaptor</h2>
-        <p>Listen software. Fielded today as Remote ID plus RF monitoring when that kit is on the job. Console shows Listening, RF LIVE, AIR UP. More sensors in development: radar, acoustic, and tighter fusion.</p>
+        <p>Listen software. Fielded today as Remote ID plus RF monitoring when that kit is on the job. Console shows Listening and RF LIVE. More sensors in development: radar, acoustic, and tighter fusion.</p>
       </header>
-      <figure class="bleed tight">
-        <img src="assets/console-listen.jpg" alt="Listen panel. ESP32-S3. RID Listening. BLE. Analog FPV. Slot B." width="500" height="620" loading="lazy" />
-      </figure>
       <div class="grid plans-grid">
         <article class="card plan">
           <h3>Listen</h3>
@@ -162,11 +158,7 @@
   <section class="work" id="reaper">
     <div class="wrap">
       <h2>CyberReaper</h2>
-      <p class="lead">Operator platform for trained crews. Dual control. Audit. Same RF monitoring picture. Activate CyberReaper from this console when authorized. TX LOCKED until dual-gate clears.</p>
-      <figure class="bleed tight" style="max-width:22rem">
-        <img src="assets/console-reaper.jpg" alt="Activate CyberReaper. TX LOCKED. Dual-gate. auto_tx=OFF." width="340" height="100" loading="lazy" />
-      </figure>
-      <p>CyberReaper is in the field and in development. It is not listed as a public checkout on this site. Access is gated. Request a briefing if you are a qualified buyer.</p>
+      <p class="lead">CyberReaper in development. Same RF monitoring picture. Access is gated. Request a briefing if you are a qualified buyer.</p>
       <p class="plans-cta" id="request-briefing"><a class="cta" href="index.html#request">Request a briefing</a></p>
     </div>
   </section>
