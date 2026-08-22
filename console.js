@@ -16,7 +16,7 @@
       label: "Avata",
       layer: "rf",
       kind: "Avata-class",
-      family: "DJI FPV · OcuSync",
+      family: "DJI Avata family",
       freq: "2.412 / 5.745 GHz · hop set",
       vote: "0.93",
       packs: [
@@ -25,7 +25,7 @@
         ["Field missions", "0.86 · live IQ"],
         ["DroneRF", "0.81 · 2.4 / 5.8 class"]
       ],
-      lat: 39.99, lng: -83.02, heading: 18, online: false, appearAt: 3200
+      lat: 39.99, lng: -83.02, heading: 18, online: false, appearAt: 1800
     },
     {
       id: "UAS-11",
@@ -41,7 +41,7 @@
         ["Field missions", "0.82 · live IQ"],
         ["DroneRF", "0.77 · 2.4 / 5.8 class"]
       ],
-      lat: 40.02, lng: -82.96, heading: 210, online: false, appearAt: 6400
+      lat: 40.02, lng: -82.96, heading: 210, online: false, appearAt: 3600
     },
     {
       id: "UAS-19",
@@ -57,7 +57,7 @@
         ["Field missions", "0.83 · live IQ"],
         ["AirID", "0.76 · front-end RFFI"]
       ],
-      lat: 39.96, lng: -83.01, heading: 95, online: false, appearAt: 9800
+      lat: 39.96, lng: -83.01, heading: 95, online: false, appearAt: 5400
     }
   ];
 
@@ -274,7 +274,8 @@
     tr.online = true;
     makeMarker(tr, true);
     if (layers.rf) tr.marker.addTo(map);
-    if (layers.rf) openTrack(tr.id);
+    var live = TRACKS.filter(function (t) { return t.layer === "rf" && t.online; }).length;
+    if (live === 1 && layers.rf) openTrack(tr.id);
     else renderList();
   }
 
