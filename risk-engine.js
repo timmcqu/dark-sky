@@ -1,5 +1,6 @@
 /* Dark Sky Systems — unauthorized-broadcast risk engine.
-   Scores what Fusion Sensor can hear (RID + RF energy). Silence on the radios does not mean the air is empty. */
+   Scores what Fusion Sensor can hear (RID + RF energy). Silence on the radios does not mean the air is empty.
+   Combinatorial analysis, not one sentence per dropdown. */
 (function (w) {
   "use strict";
   var LABELS = {
@@ -19,106 +20,393 @@
     vip: "VIP or executive movement",
     hours: "Hours",
     days: "One to three days",
-    ongoing: "Ongoing / year-round"
+    ongoing: "Ongoing / year-round",
+    controlled: "Controlled access, closed envelope",
+    road: "Line of sight from a public road",
+    roof: "Open roof or incomplete envelope",
+    both: "Public road view and open envelope"
   };
+
+  function add(factors, name, pts, why) {
+    factors.push({ name: name, pts: pts, why: why });
+  }
+
+  function topNames(factors, n) {
+    return factors.slice().sort(function (a, b) { return b.pts - a.pts; })
+      .slice(0, n).map(function (f) { return f.name; });
+  }
+
+  function airNoun(air) {
+    if (air === "tfr") return "a TFR or stadium TFR window";
+    if (air === "airport") return "airspace near a towered airport";
+    return "open / uncontrolled airspace";
+  }
+
+  function peopleNoun(people) {
+    if (people === "dense") return "dense occupancy (gates, seats, or a standing crowd)";
+    if (people === "public") return "the public on the property";
+    return "staff-only occupancy";
+  }
+
+  function recommend(input, score) {
+    var eventLike = input.span !== "ongoing" && (input.type === "venue" || input.people === "dense" || input.draw === "advertised" || input.draw === "vip");
+    var rec = {};
+    if (eventLike) {
+      rec.band = score >= 70 ? "High for this named event" : "Elevated for this named event";
+      rec.plan = "Single-Event Airspace Awareness — $2,495";
+      rec.sku = "event_package";
+      rec.title = "Single-Event Airspace Awareness";
+      rec.price = "$2,495";
+      rec.oneLiner = "Cover the named dates: pre-survey, live Fusion Sensor on the day, post-event map and observation file.";
+    } else if (score >= 72 && input.type === "campus") {
+      rec.band = "High — year-round site";
+      rec.plan = "Campus & Facility Assurance — $18,000 / year";
+      rec.sku = "campus";
+      rec.title = "Campus & Facility Assurance";
+      rec.price = "$18,000 / year";
+      rec.oneLiner = "Year-round Pro monitoring, four flown visits, one observation file the emergency plan can keep.";
+    } else if (score >= 60 && input.type === "build") {
+      rec.band = "Elevated — open job";
+      rec.plan = "Construction Progress — $2,500 / month";
+      rec.sku = "build";
+      rec.title = "Construction Progress";
+      rec.price = "$2,500 / month";
+      rec.oneLiner = "Weekly or bi-weekly progress flights while the job is open; thermal as needed.";
+    } else if (score >= 58 && input.span === "ongoing") {
+      rec.band = "Elevated — long occupancy";
+      rec.plan = "Monitoring · Pro — $750 / month";
+      rec.sku = "pro_m";
+      rec.title = "Monitoring · Pro";
+      rec.price = "$750 / month";
+      rec.oneLiner = "Multiple sites or a demanding year-round occupancy on one map, two-year archive.";
+    } else if (score >= 40) {
+      rec.band = "Moderate to elevated";
+      rec.plan = "Monitoring · Basic — $250 / month";
+      rec.sku = "basic_m";
+      rec.title = "Monitoring · Basic";
+      rec.price = "$250 / month";
+      rec.oneLiner = "One named site, live map, unauthorized-aircraft alerts, ninety days of records.";
+    } else {
+      rec.band = "Lower relative score — still document it";
+      rec.plan = "Monitoring · Basic — $250 / month";
+      rec.sku = "basic_m";
+      rec.title = "Monitoring · Basic";
+      rec.price = "$250 / month";
+      rec.oneLiner = "Quieter occupancy and airspace. A live log is still how you stop arguing the first time something broadcasts.";
+    }
+    return rec;
+  }
+
+  function interpret(score, band, input) {
+    var scale = score >= 72 ? "This is a high relative score for an unauthorized-broadcast assessment."
+      : score >= 58 ? "This is an elevated score. The site is not a quiet background problem."
+      : score >= 40 ? "This is a moderate-to-elevated score. A named aircraft over this place is already a record problem."
+      : "This is a lower relative score. It is not a clearance. It means occupancy and airspace are quieter than peer sites in this model.";
+    var sensor = "The score measures consequence and opportunity for cooperative Remote ID and radio energy on 2.4 / 5.8 GHz. It does not claim the air is empty of dark or RID-off aircraft.";
+    var window = input.span === "ongoing"
+      ? "The window is year-round. A one-day listen does not create the record this occupancy needs."
+      : input.span === "days"
+        ? "The window is one to three days. Treat it as a named event with a start, a live period, and a close-out."
+        : "The window is hours. Pre-brief, watch the map, close the file the same day.";
+    return scale + " Band: " + band + ". " + window + " " + sensor;
+  }
+
+  function article(word) {
+    if (/^one\b/i.test(word)) return "a ";
+    return /^[aeiou]/i.test(word) ? "an " : "a ";
+  }
+
+  function execSummary(input, score, rec, drivers) {
+    var typeL = LABELS[input.type].toLowerCase();
+    var spanL = LABELS[input.span].toLowerCase();
+    var s = input.place + " is " + article(typeL) + typeL
+      + " with " + peopleNoun(input.people)
+      + ", in " + airNoun(input.air)
+      + ", over " + article(spanL) + spanL + " window. ";
+    s += "Unauthorized-broadcast risk scores " + score + " of 100 (" + rec.band + "). ";
+    s += "The score is driven by " + drivers.join(", ") + ". ";
+    if (input.prior === "yes") s += "Prior drone incidents are already on the record, so the next contact is a repeat, not a first. ";
+    if (input.draw === "vip") s += "A VIP or executive movement is on the ground; an unknown aircraft is no longer a curiosity. ";
+    if (input.draw === "advertised") s += "The gathering is publicized; overhead cameras are invited whether operations asked for them or not. ";
+    s += "Recommended response: " + rec.title + " (" + rec.price + "). " + rec.oneLiner;
+    return s;
+  }
+
+  function buildFindings(input, score) {
+    var p = input.place;
+    var out = [];
+
+    /* Ground consequence — people × type × under */
+    if (input.people === "dense" && input.under === "yes") {
+      out.push({
+        title: "People under the orbit are the dominant consequence",
+        body: p + " puts a dense occupancy under likely flight paths. If an aircraft comes down or a pack vents, the problem is the queue, the seats, or the assembly — not the airframe. 14 CFR 107.39 constrains a legal PIC. It does not constrain a hobby or hostile flyer. First-in will ask who was under the orbit and whether a lithium pack is in the crowd."
+      });
+    } else if (input.people === "dense") {
+      out.push({
+        title: "Dense occupancy raises the cost of a downed aircraft",
+        body: p + " concentrates people at gates, seats, or standing room. A small UAS over that density is a crowd-management problem before it is an aviation problem. Size-up should name the assembly point, the pinch at the gates, and who owns the 911 sentence if a pack fire starts in the open."
+      });
+    } else if (input.people === "public" && input.type === "campus") {
+      out.push({
+        title: "Uninvolved people are on a predictable campus pattern",
+        body: p + " has the public on the property on a schedule security already understands: class change, athletics, visitors, rooftops. An unknown aircraft over that pattern is a security question, not a rumor. The record has to show who was transmitting and who was authorized."
+      });
+    } else if (input.people === "public") {
+      out.push({
+        title: "The public is on the property",
+        body: p + " is not a closed workplace. Uninvolved people do not brief, do not wear PPE, and do not know the abort. A transmitting aircraft over them is already a liability file. Keep the log with the emergency action plan, not in a text thread."
+      });
+    } else if (input.type === "plant") {
+      out.push({
+        title: "Staff-only does not lower industrial consequence",
+        body: p + " is industrial or process. Fewer people does not mean a downed aircraft is cheap. Chemicals, rotating equipment, and first-in access dominate. 29 CFR 1910.38 still wants a written emergency action plan. This assessment does not write that plan; it tells you the air is part of the size-up."
+      });
+    } else {
+      out.push({
+        title: "Workplace occupancy still needs a record",
+        body: p + " is staff-only. That lowers uninvolved-person count. It does not remove the employer’s emergency action plan, and it does not make a transmitting aircraft imaginary. The first time someone asks what was overhead, a log beats a recollection."
+      });
+    }
+
+    /* Launch opportunity — access × draw × type */
+    if (input.access === "both" || (input.access === "road" && input.access === "roof")) {
+      out.push({
+        title: "Launch is easy from the public side and the envelope is open",
+        body: "A flyer on a public road or lot can see the box, and the building is not closed. That is a short setup: park, launch, orbit. Most nuisance flights start that way. Controlled-access policy on the property does not stop a shoulder launch with line of sight."
+      });
+    } else if (input.access === "both") {
+      out.push({
+        title: "Public line of sight and an open envelope",
+        body: p + " can be seen from a public road, and the roof or envelope is open. That combination is how curiosity flights and media cameras actually start — not from inside the fence."
+      });
+    } else if (input.access === "road" && input.draw !== "none") {
+      out.push({
+        title: "A public view plus a reason to point a camera",
+        body: p + " is visible from a public road, and something on the ground draws a camera (" + LABELS[input.draw].toLowerCase() + "). You do not need a sophisticated operator. You need a parking space and a reason. Monitoring is how you prove who showed up."
+      });
+    } else if (input.access === "roof") {
+      out.push({
+        title: "An open roof is both a target and a crash surface",
+        body: "An unfinished or open roof at " + p + " is a picture people want and a hard surface if the aircraft comes down. Construction and plant roofs also hide people from a grade count. Put the roof in the observation file: hatches, walkways, who is up there."
+      });
+    } else if (input.access === "road") {
+      out.push({
+        title: "Line of sight from a public road is the usual launch",
+        body: "Most unauthorized flights over a named site start from a lot or a shoulder with a view of " + p + ". You will not catch that with a gate log. You catch the broadcast — Remote ID and radio energy — if you are listening."
+      });
+    } else if (input.draw === "advertised" || input.draw === "vip") {
+      out.push({
+        title: "The ground is advertising itself to overhead cameras",
+        body: input.draw === "vip"
+          ? "A VIP or executive movement at " + p + " raises the cost of an unknown aircraft. Protective details will ask who was in the air. A live map and a close-out file are the answer."
+          : "Publicizing the gathering at " + p + " is an invitation. Hobby and media flights follow advertised crowds. Assume someone will launch unless you are watching."
+      });
+    }
+
+    /* Airspace law / ops — air × type × night */
+    if (input.air === "tfr" && input.type === "venue") {
+      out.push({
+        title: "A stadium or event TFR is already a legal box",
+        body: "Temporary flight restrictions on event days mean ATC and the FAA have already marked " + p + " as sensitive. The operational question is who is still transmitting inside that box. Fusion Sensor does not enforce the TFR. It gives operations a log of cooperative Remote ID and radio energy so the argument is evidence, not a video on someone’s phone."
+      });
+    } else if (input.air === "tfr") {
+      out.push({
+        title: "A TFR is in play — still listen",
+        body: "A TFR over or near " + p + " tells legal flyers to stay out. It does not turn radios off. Hobby, lost-link, and non-cooperative traffic still happen at the edge of a box. Continuous monitoring is how you see who is broadcasting anyway."
+      });
+    } else if (input.air === "airport") {
+      out.push({
+        title: "Crewed traffic is close enough to share the picture",
+        body: p + " sits near a towered airport. ADS-B 1090 for airliners, GA, and military belongs on the same map as drone contacts. Night operations make visual acquisition worse; radio and ADS-B become the primary picture. A rumor that “something was near the approach” is not a file."
+      });
+    } else if (input.night === "yes") {
+      out.push({
+        title: "Low light shifts the problem onto the radios",
+        body: "Night or low-light operations at " + p + " reduce visual acquisition. Security and first-in will not see a small UAS against a dark roof. Remote ID and 2.4 / 5.8 GHz energy are how you know something is transmitting. That is not optional at night."
+      });
+    } else {
+      out.push({
+        title: "Open airspace is not a backstop",
+        body: "No TFR was indicated for " + p + ". That does not mean fewer drones. It means ATC has not boxed the window for you. Hobby flights, lost-link, and RID-off aircraft remain possible. Open airspace is a reason to listen, not a reason to wait."
+      });
+    }
+
+    /* History */
+    if (input.prior === "yes") {
+      out.push({
+        title: "Prior incidents make the next contact a repeat",
+        body: "History is the strongest predictor at " + p + ". If a drone has already been a problem here, the next broadcast is not a hypothetical. Stand the log up before the next window. Counsel and operations will ask what changed. A dated export is the only clean answer."
+      });
+    }
+
+    /* Duration × type */
+    if (input.span === "ongoing" && input.type === "campus") {
+      out.push({
+        title: "Year-round campus occupancy is a monitoring problem, not a one-day sit",
+        body: p + " does not go quiet after a Saturday. Predictable crowds, media days, and rooftops continue. A one-day session creates a souvenir. Year-round monitoring creates the archive security actually uses."
+      });
+    } else if (input.span === "ongoing" && input.type === "plant") {
+      out.push({
+        title: "The plant is occupied whether or not an event is on the calendar",
+        body: "Ongoing industrial occupancy at " + p + " means the air question does not expire. First-in still needs the layout. A live map between shifts is how you know a transmitting aircraft was not a one-off rumor at shift change."
+      });
+    } else if (input.span === "ongoing" && input.type === "build") {
+      out.push({
+        title: "An open job lasts longer than a weekend",
+        body: "Construction at " + p + " stays open: decks, incomplete envelope, new sight lines every week. Weekly stills document the ground. The air still needs a listener if the curiosity flights keep coming between photo days."
+      });
+    } else if (input.type === "build") {
+      out.push({
+        title: "Open construction invites curiosity flights and job-site crashes",
+        body: "Incomplete envelopes and open decks at " + p + " are photogenic and unprotected. A downed aircraft is a 1926 problem: people, holes, access. Progress stills and an observation file belong with the construction EAP. This assessment is not an OSHA inspection."
+      });
+    } else if (input.span === "days" || input.type === "venue") {
+      out.push({
+        title: "A named window needs a start, a live period, and a close-out",
+        body: p + " is being treated as a dated event. Score it before gates, watch the map while people are in the seats, and close with a file operations can keep. That is a single-event package, not a monthly subscription — unless the site then stays occupied."
+      });
+    }
+
+    /* First-in / EAP */
+    if (input.type === "plant" || input.type === "build") {
+      out.push({
+        title: "First-in companies need the layout before they arrive",
+        body: "If something comes down or a pack vents at " + p + ", first-in will ask: people, ways out, the hole, confined space, medical access, the path apparatus uses. Write that while the site is calm. Keep it with the emergency action plan. Dark Sky observation files are operations use — not a PE stamp and not the employer’s written plan."
+      });
+    } else if (input.people === "dense") {
+      out.push({
+        title: "Gates and assembly belong in the written file",
+        body: "Dense occupancy at " + p + " means egress and assembly are already a 1910.38 / 1926.35 problem. Add the air: last heading, last band, who was told. The observation file is what first-in can hold."
+      });
+    }
+
+    /* Deduplicate by title, cap at 6, keep order */
+    var seen = {};
+    var uniq = [];
+    out.forEach(function (f) {
+      if (seen[f.title]) return;
+      seen[f.title] = 1;
+      uniq.push(f);
+    });
+    if (uniq.length > 6) uniq = uniq.slice(0, 6);
+    return uniq;
+  }
+
+  function rationale(input, rec, score, drivers) {
+    var r = rec.title + " is the fit for " + input.place + " because ";
+    if (rec.sku === "event_package") {
+      r += "the window is a named event (or behaves like one: dense occupancy, advertised gathering, or VIP movement) rather than year-round occupancy. Score " + score + "/100. Pre-survey, live coverage on the day(s), and a close-out file match that window.";
+    } else if (rec.sku === "campus") {
+      r += "this is a year-round campus-class site at high relative score (" + score + "/100). Security needs the map between events, and the emergency plan needs a dated observation file. Four flown visits cover the ground; Pro monitoring covers the air.";
+    } else if (rec.sku === "build") {
+      r += "this is an open job. The ground changes weekly. Progress stills (and thermal when the deck or the hole needs heat) document that change. Score " + score + "/100. Add continuous monitoring if unauthorized broadcasts keep appearing between photo days.";
+    } else if (rec.sku === "pro_m") {
+      r += "occupancy is ongoing and the score is elevated (" + score + "/100). One site on a 90-day Basic log will not be enough for a campus system, a multi-job GC, or a plant that never goes quiet.";
+    } else if (score < 40) {
+      r += "the relative score is lower (" + score + "/100): quieter occupancy and airspace. Basic monitoring is still the way to hold a record the first time something transmits. The score is not a clearance.";
+    } else {
+      r += "the site is a single named place at moderate-to-elevated score (" + score + "/100). One live map, unauthorized-aircraft alerts, and a 90-day archive match that profile. Drivers: " + drivers.join(", ") + ".";
+    }
+    r += " Fusion Sensor is receive-only. It identifies what is transmitting; it does not jam, spoof, or intercept.";
+    return r;
+  }
+
+  function steps(input, rec) {
+    var s = [];
+    s.push("Keep this assessment with the site emergency action plan. Date it. Name who holds it.");
+    if (rec.sku === "event_package") {
+      s.push("Lock the dates for " + input.place + ". Brief PIC and operations on the TFR/NOTAM picture if one applies. Stand Fusion Sensor before gates, not after the first phone video.");
+      s.push("Close the window with an air map and a written observation file. That is the record for the venue and for first-in.");
+    } else if (rec.sku === "campus") {
+      s.push("Stand year-round monitoring at " + input.place + ". Load the authorized-aircraft list before you go live.");
+      s.push("Schedule four flown visits (stills and thermal) and keep one observation file current for the emergency action plan.");
+    } else if (rec.sku === "build") {
+      s.push("Start weekly or bi-weekly progress flights while the job is open. Photograph people, ways out, the hole, and medical access — not just the pretty deck.");
+      s.push("If unauthorized broadcasts appear between photo days, add Fusion Sensor on the named site rather than arguing from stills.");
+    } else {
+      s.push("Stand Fusion Sensor on the named site. Authorized aircraft marked as authorized. Other transmitting aircraft flagged. Export the log.");
+    }
+    if (input.prior === "yes") s.push("Treat the next contact as a repeat. Do not auto-clear. Write time, band, and who you told.");
+    if (input.air === "tfr") s.push("Print the TFR/NOTAM window and keep it with the operations file. A TFR is not a listener.");
+    if (input.under === "yes" || input.people === "dense") s.push("Name who is under likely flight paths in the observation file: gates, seats, roof, assembly.");
+    if (input.night === "yes") s.push("Do not rely on eyeballs after dark. Keep ADS-B and the 2.4 / 5.8 GHz radios on.");
+    s.push("Remember the sensor limit: cooperative Remote ID and radio energy only. Quiet radios are not a clearance that the air is empty of drones.");
+    return s;
+  }
+
+  function residual(input) {
+    var r = [];
+    r.push("Sensors in this model are cooperative Remote ID and radio energy on 2.4 / 5.8 GHz, plus ADS-B for crewed traffic when monitoring is on.");
+    r.push("Aircraft that are not broadcasting do not appear as cooperative Remote ID contacts. Silence on the radios does not mean the air is empty of drones.");
+    if (input.air !== "tfr") r.push("No TFR was indicated. That does not reduce hobby traffic; it only means ATC has not boxed the window.");
+    else r.push("A TFR was indicated. It constrains legal flyers. It does not turn radios off.");
+    if (input.under === "yes") r.push("People under the likely orbit remain the dominant consequence after monitoring is on.");
+    r.push("This file is an assessment from the facts you entered. It is not an OSHA inspection, not a PE stamp, not live monitoring of the site, and not a licensed security service. Dark Sky Systems LLC.");
+    return r;
+  }
 
   function assess(input) {
     var factors = [];
-    function add(name, pts, why) {
-      factors.push({ name: name, pts: pts, why: why });
-    }
 
-    if (input.people === "dense") add("People density", 28, "A dense crowd or gate queue is the consequence if an aircraft comes down or draws attention.");
-    else if (input.people === "public") add("Public on the ground", 18, "Uninvolved people are on the property. 14 CFR 107.39 limits flight over people; a rogue aircraft does not care.");
-    else add("Staff-only occupancy", 8, "Fewer uninvolved people, still a workplace. The employer still owes an emergency action plan.");
+    if (input.people === "dense") add(factors, "People density", 28, "A dense crowd or gate queue is the consequence if an aircraft comes down or a pack vents in the open.");
+    else if (input.people === "public") add(factors, "Public on the ground", 18, "Uninvolved people are on the property. 14 CFR 107.39 limits a legal PIC; a rogue aircraft does not care.");
+    else add(factors, "Staff-only occupancy", 8, "Fewer uninvolved people, still a workplace. The employer still owes an emergency action plan.");
 
-    if (input.type === "venue") add("Venue / assembly", 16, "Stadiums, festivals, and large outdoor assemblies attract cameras and hobby flights.");
-    else if (input.type === "plant") add("Industrial / plant", 14, "Consequence is higher: process, chemicals, or critical kit. First-in companies need the site layout before they arrive.");
-    else if (input.type === "build") add("Open construction", 12, "Open decks and incomplete envelopes invite curiosity flights and make a downed aircraft a job-site problem.");
-    else if (input.type === "campus") add("Campus / facility", 10, "Predictable crowds, rooftops, and media days. Security owns the question of who is in the air.");
-    else add("Site type", 4, "A named place still needs a record if something broadcasts over it.");
+    if (input.type === "venue") add(factors, "Venue / assembly", 16, "Stadiums, festivals, and large outdoor assemblies attract cameras and hobby flights.");
+    else if (input.type === "plant") add(factors, "Industrial / plant", 14, "Consequence is higher: process, chemicals, or critical kit. First-in needs the layout before they arrive.");
+    else if (input.type === "build") add(factors, "Open construction", 12, "Open decks and incomplete envelopes invite curiosity flights and make a downed aircraft a job-site problem.");
+    else if (input.type === "campus") add(factors, "Campus / facility", 10, "Predictable crowds, rooftops, and media days. Security owns the question of who is in the air.");
+    else add(factors, "Site type", 4, "A named place still needs a record if something broadcasts over it.");
 
-    if (input.air === "tfr") add("TFR / stadium TFR", 26, "Temporary flight restrictions already say the window is sensitive. Continuous monitoring shows who is still transmitting inside it.");
-    else if (input.air === "airport") add("Near a towered airport", 16, "Crewed traffic is close. ADS-B on the same display as drone contacts is the difference between a rumor and a record.");
-    else add("Open airspace", 6, "No TFR does not mean no drones. It means you have not been handed a NOTAM as a backstop.");
+    if (input.air === "tfr") add(factors, "TFR / stadium TFR", 26, "Temporary flight restrictions already mark the window as sensitive. Monitoring shows who is still transmitting inside it.");
+    else if (input.air === "airport") add(factors, "Near a towered airport", 16, "Crewed traffic is close. ADS-B on the same display as drone contacts is the difference between a rumor and a record.");
+    else add(factors, "Open airspace", 6, "No TFR does not mean no drones. It means you have not been handed a NOTAM as a backstop.");
 
-    if (input.prior === "yes") add("Prior drone incidents", 18, "History is the strongest predictor. A monitoring log is how you stop arguing about whether it happened again.");
+    if (input.prior === "yes") add(factors, "Prior drone incidents", 18, "History is the strongest predictor. A monitoring log is how you stop arguing about whether it happened again.");
 
-    if (input.draw === "advertised") add("Publicized event", 12, "Advertising a gathering is an invitation for overhead cameras.");
-    else if (input.draw === "vip") add("VIP / executive movement", 10, "A named person on the ground raises the cost of an unknown aircraft.");
+    if (input.draw === "advertised") add(factors, "Publicized event", 12, "Advertising a gathering is an invitation for overhead cameras.");
+    else if (input.draw === "vip") add(factors, "VIP / executive movement", 10, "A named person on the ground raises the cost of an unknown aircraft.");
 
-    if (input.access === "both") add("Public line of sight and open envelope", 14, "A flyer on the public road can see the box, and the building is not closed. That is an easy launch.");
-    else if (input.access === "roof") add("Open roof or incomplete envelope", 10, "An unfinished or open roof is a target and a crash surface.");
-    else if (input.access === "road") add("Line of sight from a public road", 8, "Most nuisance flights start from a parking lot or a shoulder with a view.");
-    else add("Controlled ground access", 2, "Harder launch, not zero. Radio energy does not need a parking lot.");
+    if (input.access === "both") add(factors, "Public line of sight and open envelope", 14, "A flyer on the public road can see the box, and the building is not closed. That is an easy launch.");
+    else if (input.access === "roof") add(factors, "Open roof or incomplete envelope", 10, "An unfinished or open roof is a target and a crash surface.");
+    else if (input.access === "road") add(factors, "Line of sight from a public road", 8, "Most nuisance flights start from a parking lot or a shoulder with a view.");
+    else add(factors, "Controlled ground access", 2, "Harder launch, not zero. Radio energy does not need a parking lot.");
 
-    if (input.span === "ongoing") add("Ongoing occupancy", 12, "Year-round occupancy means a one-day session is not enough. Continuous monitoring is.");
-    else if (input.span === "days") add("Multi-day period", 8, "A weekend or a three-day job is a named event. Single-event coverage fits.");
-    else add("Hours-long window", 4, "A short window still needs a pre-brief and a close-out file.");
+    if (input.span === "ongoing") add(factors, "Ongoing occupancy", 12, "Year-round occupancy means a one-day session is not the product. Continuous monitoring is.");
+    else if (input.span === "days") add(factors, "Multi-day period", 8, "A weekend or a three-day job is a named event. Single-event coverage fits.");
+    else add(factors, "Hours-long window", 4, "A short window still needs a pre-brief and a close-out file.");
 
-    if (input.night === "yes") add("Night or low-light ops", 6, "Visual acquisition is worse. Radio contacts matter more.");
+    if (input.night === "yes") add(factors, "Night or low-light ops", 6, "Visual acquisition is worse. Radio contacts matter more.");
 
-    if (input.under === "yes") add("People under likely flight paths", 10, "If the likely orbit is over uninvolved people, residual risk stays high even with monitoring in place.");
+    if (input.under === "yes") add(factors, "People under likely flight paths", 10, "If the likely orbit is over uninvolved people, residual risk stays high even with monitoring in place.");
 
     var score = 0;
     factors.forEach(function (f) { score += f.pts; });
     if (score > 100) score = 100;
 
-    var band, plan, sku, next;
-    if (input.span !== "ongoing" && (input.type === "venue" || input.people === "dense" || input.draw === "advertised" || input.draw === "vip")) {
-      band = score >= 70 ? "High for this named event" : "Elevated for this named event";
-      plan = "Single-Event Airspace Awareness — $2,495";
-      sku = "event_package";
-      next = "Lock the dates. Pre-survey, live Fusion Sensor coverage on the day, post air map, written file. Then decide if the site needs monthly monitoring.";
-    } else if (score >= 72 && input.type === "campus") {
-      band = "High — year-round site";
-      plan = "Campus & Facility Assurance — $18,000 / year";
-      sku = "campus";
-      next = "Pro monitoring all year plus four flown visits and an observation file the emergency action plan can keep.";
-    } else if (score >= 60 && input.type === "build") {
-      band = "Elevated — open job";
-      plan = "Construction Progress — $2,500 / month";
-      sku = "build";
-      next = "Weekly stills while the job is open. Add monitoring if the air question keeps coming up between visits.";
-    } else if (score >= 58 && input.span === "ongoing") {
-      band = "Elevated — several sites or a long occupancy";
-      plan = "Monitoring · Pro — $750 / month";
-      sku = "pro_m";
-      next = "Multiple sites on one map, alerts, two-year archive. The operations team keeps the map.";
-    } else if (score >= 40) {
-      band = "Moderate to elevated";
-      plan = "Monitoring · Basic — $250 / month";
-      sku = "basic_m";
-      next = "One named site on a live map. Authorized aircraft are marked as authorized. Other transmitting aircraft are flagged. Ninety days of records.";
-    } else {
-      band = "Lower relative score — still document it";
-      plan = "Monitoring · Basic — $250 / month";
-      sku = "basic_m";
-      next = "The score is lower because occupancy and airspace are quieter. Monitoring is still how you get a record the first time something broadcasts.";
-    }
-
-    var residual = [];
-    residual.push("Remote ID and RF energy only. Aircraft that are not broadcasting do not appear as cooperative Remote ID contacts.");
-    residual.push("Silence on the radios does not mean the air is empty of drones.");
-    if (input.air !== "tfr") residual.push("No TFR was indicated. That does not reduce the chance of a hobby flight; it only means ATC has not boxed the window.");
-    if (input.under === "yes") residual.push("People under the likely orbit remain the dominant consequence even after monitoring is on.");
-    residual.push("This file is an assessment from the facts you entered. It is not an OSHA inspection and not live monitoring of the site until Fusion Sensor is running there.");
-
-    var findings = factors
-      .filter(function (f) { return f.pts >= 8; })
-      .sort(function (a, b) { return b.pts - a.pts; })
-      .map(function (f) { return f.name + " (+" + f.pts + "): " + f.why; });
+    var rec = recommend(input, score);
+    var drivers = topNames(factors, 3);
+    var findings = buildFindings(input, score);
+    var next = rec.oneLiner;
 
     return {
       place: input.place,
       score: score,
-      band: band,
+      band: rec.band,
       factors: factors,
       findings: findings,
-      residual: residual,
-      plan: plan,
-      sku: sku,
+      findingLines: findings.map(function (f) { return f.title + ": " + f.body; }),
+      residual: residual(input),
+      plan: rec.plan,
+      sku: rec.sku,
       next: next,
+      exec: execSummary(input, score, rec, drivers),
+      interpretation: interpret(score, rec.band, input),
+      rationale: rationale(input, rec, score, drivers),
+      steps: steps(input, rec),
+      rec: rec,
+      drivers: drivers,
       type: input.type,
       people: input.people,
       air: input.air,

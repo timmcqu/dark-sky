@@ -802,6 +802,26 @@ a.card:focus-visible h3 { color: var(--gold); }
   text-transform: uppercase;
   color: #5c5346;
 }
+.report-wrap { padding: 2rem 0 3rem; }
+.report-doc .survey-kicker { margin: 1.15rem 0 0.35rem; }
+.report-findings,
+.report-steps {
+  margin: 0.2rem 0 0.4rem;
+  padding-left: 1.2rem;
+}
+.report-findings li,
+.report-steps li {
+  margin: 0 0 0.55rem;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: #1c1914;
+}
+@media print {
+  .mast, .foot, .no-print, .skip, .plans-cta { display: none !important; }
+  body { background: #fff; }
+  .report-wrap { padding: 0; }
+  .survey-doc { box-shadow: none; max-width: none; margin: 0; }
+}
 
 .plan {
   padding: 1.35rem 1.25rem 1.4rem;

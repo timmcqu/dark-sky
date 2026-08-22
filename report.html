@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Risk report — Dark Sky Systems</title>
-  <link rel="stylesheet" href="style.css?v=93" />
+  <link rel="stylesheet" href="style.css?v=96" />
 </head>
 <body>
   <header class="mast">
@@ -13,42 +13,66 @@
       <a class="brand" href="index.html">Dark Sky Systems</a>
       <nav class="rail" aria-label="Primary">
         <a href="index.html#plans">Plans</a>
-        <a href="software.html?v=102#top">Detect Drones</a>
+        <a href="index.html#fusion">Detect Drones</a>
         <a href="index.html#request">Talk to us</a>
       </nav>
     </div>
   </header>
-  <section class="wrap" style="padding:2rem 0 3rem">
-    <p class="eyebrow">Your file</p>
-    <article class="survey-doc" id="sheet">
+  <section class="wrap report-wrap">
+    <p class="eyebrow no-print">Your file</p>
+    <article class="survey-doc report-doc" id="sheet">
       <header class="survey-head">
-        <p>Dark Sky Systems LLC</p>
-        <p id="rKind">Unauthorized-broadcast risk assessment</p>
+        <p>Dark Sky Systems LLC · Operations use</p>
+        <p id="rDocId">DS-RA-ASSESS</p>
       </header>
+      <p class="survey-kicker" id="rKind">Unauthorized-broadcast risk assessment</p>
       <h3 id="rPlace">Named location</h3>
+      <p class="survey-lede" id="rDateLine"></p>
       <dl class="survey-id">
         <div><dt>Score</dt><dd id="rScore">—</dd></div>
         <div><dt>Band</dt><dd id="rBand">—</dd></div>
         <div><dt>Type</dt><dd id="rType">—</dd></div>
         <div><dt>People</dt><dd id="rPeople">—</dd></div>
+        <div><dt>Airspace</dt><dd id="rAir">—</dd></div>
+        <div><dt>Window</dt><dd id="rSpan">—</dd></div>
       </dl>
-      <p class="survey-kicker">Factor table — what moved the score</p>
+
+      <p class="survey-kicker">1 · Executive summary</p>
+      <p class="survey-lede" id="rExec"></p>
+
+      <p class="survey-kicker">2 · Score and interpretation</p>
+      <p class="survey-lede" id="rInterp"></p>
       <table class="survey-find">
+        <caption>What moved the score</caption>
         <thead><tr><th>Factor</th><th>Pts</th><th>Why it matters here</th></tr></thead>
         <tbody id="rRows"></tbody>
       </table>
-      <p class="survey-doc-obs" id="rRes"></p>
+
+      <p class="survey-kicker">3 · Key findings</p>
+      <ol class="report-findings" id="rFindings"></ol>
+
+      <p class="survey-kicker">4 · Recommended monitoring</p>
       <p class="survey-doc-obs" id="rRec"></p>
-      <p class="survey-doc-obs" id="rNext"></p>
-      <p class="survey-doc-obs">Sensors: cooperative Remote ID and radio energy on 2.4 / 5.8 GHz, plus ADS-B for crewed traffic when monitoring is on. This report is scored from the facts you entered. It is not live monitoring of that site until Fusion Sensor is running there. Dark Sky Systems LLC.</p>
+
+      <p class="survey-kicker">5 · Practical next steps</p>
+      <ol class="report-steps" id="rSteps"></ol>
+
+      <p class="survey-kicker">Residual risk and limits</p>
+      <p class="survey-doc-obs" id="rRes"></p>
+      <p class="survey-doc-foot"><span>Dark Sky Systems LLC · Receive-only</span><span id="rFootPage">Page 1</span></p>
     </article>
-    <p class="plans-cta">
+    <p class="plans-cta no-print">
       <button type="button" class="cta" id="printBtn">Save as PDF</button>
       <a class="cta cta-ghost" id="buyNext" href="pay.html?sku=basic_m">Start monitoring</a>
     </p>
   </section>
-  <script src="risk-engine.js?v=3"></script>
+  <script src="risk-engine.js?v=4"></script>
   <script>
+    function esc(s) {
+      return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+        return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c];
+      });
+    }
     var L = DSSRisk.LABELS;
     var data = {};
     try { data = JSON.parse(sessionStorage.getItem("dssRisk") || sessionStorage.getItem("dssAir") || "{}"); } catch (e) {}
@@ -60,25 +84,56 @@
         prior: data.prior || "no", draw: data.draw || "none", access: data.access || "controlled",
         span: data.span || "hours", night: data.night || "no", under: data.under || "no"
       });
+    } else if (data.place && data.input && !data.exec) {
+      data = DSSRisk.assess(data.input);
     }
+    var inn = data.input || data;
+    var when = new Date();
+    var whenStr = when.toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric" });
+    document.getElementById("rDocId").textContent = "DS-RA-ASSESS · " + whenStr;
+    document.getElementById("rDateLine").textContent = "Scored " + whenStr + " from the facts entered for this named place. Not live monitoring until Fusion Sensor is running on site.";
     document.getElementById("rPlace").textContent = data.place || "Named location";
+    document.title = (data.place || "Risk report") + " — Dark Sky Systems";
     document.getElementById("rScore").textContent = (data.score != null ? data.score : "—") + " / 100";
     document.getElementById("rBand").textContent = data.band || "—";
     document.getElementById("rType").textContent = L[data.type] || data.type || "—";
     document.getElementById("rPeople").textContent = L[data.people] || data.people || "—";
+    document.getElementById("rAir").textContent = L[inn.air] || inn.air || "—";
+    document.getElementById("rSpan").textContent = L[inn.span] || inn.span || "—";
+    document.getElementById("rExec").textContent = data.exec || "";
+    document.getElementById("rInterp").textContent = data.interpretation || "";
     var tb = document.getElementById("rRows");
     (data.factors || []).slice().sort(function (a, b) { return b.pts - a.pts; }).forEach(function (f) {
       var tr = document.createElement("tr");
-      tr.innerHTML = "<td>" + f.name + "</td><td>" + f.pts + "</td><td>" + f.why + "</td>";
+      tr.innerHTML = "<td>" + esc(f.name) + "</td><td>" + esc(f.pts) + "</td><td>" + esc(f.why) + "</td>";
       tb.appendChild(tr);
     });
     if (!data.factors) {
       tb.innerHTML = "<tr><td colspan='3'>Score the site at risk.html in this browser, then pay, so the factor table can fill.</td></tr>";
     }
-    document.getElementById("rRes").innerHTML = "<strong>Residual risk.</strong> " + (data.residual ? data.residual.join(" ") : "Remote ID and radio energy only. Silence on the radios does not mean the air is empty of drones.");
-    document.getElementById("rRec").innerHTML = "<strong>Recommended next step.</strong> " + (data.plan || "Monitoring · Basic.");
-    document.getElementById("rNext").innerHTML = "<strong>Guidance.</strong> " + (data.next || "");
-    if (data.sku) document.getElementById("buyNext").href = "pay.html?sku=" + data.sku;
+    var fl = document.getElementById("rFindings");
+    (data.findings || []).forEach(function (f) {
+      var li = document.createElement("li");
+      if (f && f.title) {
+        li.innerHTML = "<strong>" + esc(f.title) + ".</strong> " + esc(f.body);
+      } else {
+        li.textContent = String(f);
+      }
+      fl.appendChild(li);
+    });
+    document.getElementById("rRec").innerHTML = "<strong>" + esc((data.rec && data.rec.title) || data.plan || "Monitoring · Basic") + ".</strong> " + esc(data.rationale || data.next || "");
+    var sl = document.getElementById("rSteps");
+    (data.steps || []).forEach(function (step) {
+      var li = document.createElement("li");
+      li.textContent = step;
+      sl.appendChild(li);
+    });
+    document.getElementById("rRes").innerHTML = "<strong>Limits.</strong> " + esc((data.residual || []).join(" "));
+    if (data.sku) {
+      document.getElementById("buyNext").href = "pay.html?sku=" + encodeURIComponent(data.sku);
+      var recTitle = (data.rec && data.rec.title) || "Start that plan";
+      document.getElementById("buyNext").textContent = recTitle;
+    }
     document.getElementById("printBtn").onclick = function () { window.print(); };
   </script>
 </body>
