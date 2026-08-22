@@ -206,24 +206,16 @@
     </details>
 
     <details class="fold" id="requirements">
-      <summary>Requirements <span class="hint">What you bring · what we send</span></summary>
+      <summary>Requirements <span class="hint">Hardware to run it</span></summary>
       <div class="fold-body">
-        <div class="grid plans-grid">
-          <article class="card plan">
-            <h3>Software SKU</h3>
-            <p>You supply listen radios that feed the console:</p>
-            <p>ESP32-S3 OpenDroneID receiver. ADS-B 1090 receiver. SDR on 2.4 GHz and 5.8 GHz. USB cables. Antennas for those bands. Power. A laptop that meets the host spec.</p>
-          </article>
-          <article class="card plan">
-            <h3>Software + radios SKU</h3>
-            <p>We kit, flash, test, and ship the listen radio pack with the license:</p>
-            <p>ESP32-S3 RID listen. ADS-B 1090. SDR for 2.4 GHz and 5.8 GHz analog FPV. Antennas. USB. First-listen setup with you.</p>
-          </article>
-          <article class="card plan">
-            <h3>Every job</h3>
-            <p>Named place and dates. Friendly list for the window. Operator on the laptop. Power and USB on site.</p>
-          </article>
-        </div>
+        <table class="spec">
+          <tr><th>Host</th><td>Laptop. macOS 13+ or Linux. Python 3.10+. Browser. USB 2.0.</td></tr>
+          <tr><th>Remote ID</th><td>ESP32-S3 OpenDroneID receiver. Bluetooth LE 1M, coded S8, extended advertisements.</td></tr>
+          <tr><th>ADS-B</th><td>1090 MHz receiver.</td></tr>
+          <tr><th>SDR</th><td>Receive on 2.4 GHz and 5.8 GHz.</td></tr>
+          <tr><th>Antennas</th><td>Matched to those bands.</td></tr>
+          <tr><th>Cables / power</th><td>USB. Site power for the laptop and the radios.</td></tr>
+        </table>
       </div>
     </details>
 
