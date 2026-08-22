@@ -113,7 +113,7 @@ img { height: auto; }
 .rail a:hover,
 .rail a:focus-visible { color: var(--gold); }
 
-#services, #survey, #plans, #picture, #method, #about, #request {
+#top, #detect, #services, #survey, #plans, #picture, #method, #about, #request {
   scroll-margin-top: 4.5rem;
 }
 
