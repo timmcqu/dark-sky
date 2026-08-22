@@ -42,14 +42,18 @@
       risk_report: "Unauthorized Drone Risk Assessment Report",
       obs_templates: "Observation File Template Pack",
       training_pack: "Airspace Awareness Essentials",
-      airspace_report: "Named Location Airspace Awareness Report"
+      airspace_report: "Named Location Airspace Awareness Report",
+      eap_pack: "Emergency Action Plan Pack"
     };
     var sku = new URLSearchParams(location.search).get("sku") || "";
     var label = names[sku];
     var lede = document.getElementById("paidLede");
     var box = document.getElementById("deliver");
     if (label) lede.textContent = label + ". Deposit lands in Dark Sky Systems LLC.";
-    if (sku === "obs_templates") {
+    if (sku === "eap_pack") {
+      lede.textContent = "Your Emergency Action Plan Pack is ready. Download the PDF and the editable file. Keep them with the written EAP.";
+      box.innerHTML = '<a class="cta" href="deliver/eap-pack.pdf">Download the EAP Pack PDF</a><a class="cta cta-ghost" href="deliver/eap-pack-editable.html">Open the editable file</a>';
+    } else if (sku === "obs_templates") {
       lede.textContent = "Your templates are ready. Click download. Keep the pack with the site plan.";
       box.innerHTML = '<a class="cta" id="goFile" href="deliver/obs-pack.pdf">Download Templates Now</a>';
     } else if (sku === "training_pack") {

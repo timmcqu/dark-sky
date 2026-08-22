@@ -14,6 +14,7 @@ window.DSS_STRIPE = {
   obs_templates: "https://buy.stripe.com/14A4gz1bkbRf1rGfrxfIs0b",
   training_pack: "https://buy.stripe.com/4gM4gz07gdZngmA3IPfIs0c",
   airspace_report: "https://buy.stripe.com/9B614n07gf3reesentfIs0d",
+  eap_pack: "https://buy.stripe.com/bJe00jcU21cB4DS0wDfIs0e",
   ra: "",
   cards: "",
   eventpack: ""

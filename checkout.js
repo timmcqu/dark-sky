@@ -176,6 +176,22 @@
         "PDF download on the thank-you page — print and keep with the abort board"
       ]
     },
+    eap_pack: {
+      title: "Emergency Action Plan Pack",
+      lede: "Give first-in companies and your ops desk the site picture the Emergency Action Plan needs: reporting, ways out, assembly, medical, the path apparatus uses. Built to sit with 29 CFR 1910.38 and 1926.35.",
+      price: "$149",
+      amount: "149",
+      chase: "",
+      stripe: "",
+      gets: [
+        "Cover sheet: site ID, plan keeper, how emergencies are reported (1910.38(c)(1))",
+        "Exit routes, gates, and assembly / accounting locations (1910.38(c)(2)–(4) · 1926.35)",
+        "Rescue, medical, ambulance in, patient out, first-in path (1910.38(c)(5))",
+        "Excavation, confined space, and fall observations where they apply",
+        "How-to so operations keep the file with the written EAP",
+        "PDF plus an editable HTML copy — download on the thank-you page"
+      ]
+    },
     airspace_report: {
       title: "Named Location Airspace Awareness Report",
       lede: "One named place. A written summary from your risk inputs and airspace context, delivered after payment.",
@@ -272,6 +288,7 @@
   if (lead) {
     if (key === "risk_report") lead.textContent = "Pay $79. On the next page you open the scored report for the place you just named. Save it as PDF.";
     else if (key === "obs_templates") lead.textContent = "Pay $49. The thank-you page gives you the PDF immediately. No waiting on email.";
+    else if (key === "eap_pack") lead.textContent = "Pay $149. The thank-you page gives you the PDF and the editable file immediately.";
     else if (key === "training_pack") lead.textContent = "Pay $99. Download the pack on the next page and print the checklists.";
     else if (key === "airspace_report") lead.textContent = "Pay $149. Open the named-location report on the next page and save it as PDF.";
     else if (payOnStripe) lead.textContent = "Name and email if you want a kickoff note. Pay with Stripe next. Deposit lands in Dark Sky Systems LLC.";
@@ -281,7 +298,7 @@
   if (trust) {
     if (key === "risk_report" || key === "airspace_report") {
       trust.textContent = "Use the same browser you scored or named the place in. After Stripe, the report opens. Print or Save as PDF. No card data is stored on darksky.systems.";
-    } else if (key === "obs_templates" || key === "training_pack") {
+    } else if (key === "obs_templates" || key === "training_pack" || key === "eap_pack") {
       trust.textContent = "After Stripe, the thank-you page has a Download button. Click it. That is the whole delivery. No card data is stored on darksky.systems.";
     }
   }
