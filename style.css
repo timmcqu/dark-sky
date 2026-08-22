@@ -114,7 +114,7 @@ img { height: auto; }
 .rail a:focus-visible { color: var(--gold); }
 
 #top, #why, #detect, #services, #survey, #plans, #tools, #picture, #method, #about, #request,
-#flight-packages, #score {
+#flight-packages, #score, #fusion {
   scroll-margin-top: 4.5rem;
 }
 
