@@ -177,7 +177,7 @@
     addMsg("bot", "Ask about monitoring, Fusion Sensor, flown jobs, disaster coverage, or a price. If people are in danger, call 911 first.");
     var chips = [
       ["$79 report", "What is the $79 risk report?"],
-      ["Monitoring", "What does Monitoring Basic include?"],
+      ["Campus", "What is the campus package?"],
       ["One event", "I have a stadium date this weekend."],
       ["Detect", "Difference between $2,000 software and $4,500 with radios?"],
       ["Emergency", "Can you cover a search or a wreck?"]

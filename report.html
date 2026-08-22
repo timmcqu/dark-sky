@@ -81,7 +81,7 @@
       <a class="cta cta-ghost" id="buyNext" href="index.html#request">Talk to us</a>
     </p>
   </section>
-  <script src="risk-engine.js?v=5"></script>
+  <script src="risk-engine.js?v=6"></script>
   <script>
     function esc(s) {
       return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
@@ -132,7 +132,7 @@
         fl.appendChild(li);
       });
       document.getElementById("rExec").textContent = rep.exec || "";
-      document.getElementById("rRec").innerHTML = "<strong>" + esc((rep.rec && recTitleFix(rep)) || rep.plan || "Monitoring · Basic") + ".</strong> " + esc(rep.rationale || rep.next || "");
+      document.getElementById("rRec").innerHTML = "<strong>" + esc((rep.rec && recTitleFix(rep)) || rep.plan || "Flights and on-site detection") + ".</strong> " + esc(rep.rationale || rep.next || "");
       var sl = document.getElementById("rSteps");
       sl.innerHTML = "";
       (rep.steps || []).forEach(function (step) {

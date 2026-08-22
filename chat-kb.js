@@ -7,7 +7,7 @@ window.DSS_KB = {
   "limits": [
     "Detection is receive-only. Fusion Sensor identifies what is transmitting; it does not jam, spoof, intercept, or take over aircraft.",
     "CyberReaper is a restricted capability. It is not a public product and is not on Stripe. Qualified entities only, briefing, TX unlock \u2014 not thermal.",
-    "Monitoring is software-based continuous listening. It is not a person watching a screen 24/7, not licensed security, and not 911.",
+    "We fly and we run detection on site. We do not sell unattended 24/7 monitoring. Not licensed security, not 911.",
     "Cooperative Remote ID and radio energy on 2.4 / 5.8 GHz, plus ADS-B for crewed traffic. Silence on the radios does not mean the air is empty of drones. RID-off / dark aircraft do not appear as cooperative Remote ID contacts.",
     "Flown jobs are request. On an active scene, incident command owns launch, hold, and abort. We do not self-dispatch.",
     "If people are in danger, call 911 first. Dark Sky Systems LLC is not emergency dispatch.",

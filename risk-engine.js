@@ -74,23 +74,23 @@
       rec.oneLiner = "Weekly or bi-weekly progress flights while the job is open; thermal as needed.";
     } else if (score >= 58 && input.span === "ongoing") {
       rec.band = "Elevated — long occupancy";
-      rec.plan = "Monitoring · Pro — $750 / month";
-      rec.sku = "pro_m";
-      rec.title = "Monitoring · Pro";
+      rec.plan = "Campus & Facility Assurance — $18,000 / year";
+      rec.sku = "campus";
+      rec.title = "Campus & Facility Assurance";
       rec.price = "$750 / month";
       rec.oneLiner = "Multiple sites or a demanding year-round occupancy on one map, two-year archive.";
     } else if (score >= 40) {
       rec.band = "Moderate to elevated";
-      rec.plan = "Monitoring · Basic — $250 / month";
-      rec.sku = "basic_m";
-      rec.title = "Monitoring · Basic";
-      rec.price = "$250 / month";
-      rec.oneLiner = "One named site, live map, unauthorized-aircraft alerts, ninety days of records.";
+      rec.plan = "Single-Event Airspace Awareness — $2,495";
+      rec.sku = "event_package";
+      rec.title = "Single-Event Airspace Awareness";
+      rec.price = "$2,495";
+      rec.oneLiner = "We fly and run detection on the dates you book. Not unattended 24/7.";
     } else {
       rec.band = "Lower relative score — still document it";
-      rec.plan = "Monitoring · Basic — $250 / month";
-      rec.sku = "basic_m";
-      rec.title = "Monitoring · Basic";
+      rec.plan = "Talk to us — flights and on-site detection";
+      rec.sku = "event_package";
+      rec.title = "Flights and on-site detection";
       rec.price = "$250 / month";
       rec.oneLiner = "Quieter occupancy and airspace. A live log is still how you stop arguing the first time something broadcasts.";
     }
@@ -213,7 +213,7 @@
     } else if (input.air === "tfr") {
       out.push({
         title: "A TFR is in play — still listen",
-        body: "A TFR over or near " + p + " tells legal flyers to stay out. It does not turn radios off. Hobby, lost-link, and non-cooperative traffic still happen at the edge of a box. Continuous monitoring is how you see who is broadcasting anyway."
+        body: "A TFR over or near " + p + " tells legal flyers to stay out. It does not turn radios off. Hobby, lost-link, and non-cooperative traffic still happen at the edge of a box. Detection on the dates we are on site is how you get a record."
       });
     } else if (input.air === "airport") {
       out.push({
@@ -300,7 +300,7 @@
     } else if (rec.sku === "campus") {
       r += "this is a year-round campus-class site at high relative score (" + score + "/100). Security needs the map between events, and the emergency plan needs a dated observation file. Four flown visits cover the ground; Pro monitoring covers the air.";
     } else if (rec.sku === "build") {
-      r += "this is an open job. The ground changes weekly. Progress stills (and thermal when the deck or the hole needs heat) document that change. Score " + score + "/100. Add continuous monitoring if unauthorized broadcasts keep appearing between photo days.";
+      r += "this is an open job. The ground changes weekly. Progress stills (and thermal when the deck or the hole needs heat) document that change. Score " + score + "/100. Book detection on the days we fly if unauthorized aircraft keep showing up between photo days.";
     } else if (rec.sku === "pro_m") {
       r += "occupancy is ongoing and the score is elevated (" + score + "/100). One site on a 90-day Basic log will not be enough for a campus system, a multi-job GC, or a plant that never goes quiet.";
     } else if (score < 40) {
@@ -373,7 +373,7 @@
     else if (input.access === "road") add(factors, "Line of sight from a public road", 8, "Most nuisance flights start from a parking lot or a shoulder with a view.");
     else add(factors, "Controlled ground access", 2, "Harder launch, not zero. Radio energy does not need a parking lot.");
 
-    if (input.span === "ongoing") add(factors, "Ongoing occupancy", 12, "Year-round occupancy means a one-day session is not the product. Continuous monitoring is.");
+    if (input.span === "ongoing") add(factors, "Ongoing occupancy", 12, "Year-round occupancy means one flight is not enough. Book visits and detection while we are on site.");
     else if (input.span === "days") add(factors, "Multi-day period", 8, "A weekend or a three-day job is a named event. Single-event coverage fits.");
     else add(factors, "Hours-long window", 4, "A short window still needs a pre-brief and a close-out file.");
 
