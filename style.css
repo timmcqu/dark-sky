@@ -114,7 +114,7 @@ img { height: auto; }
 .rail a:focus-visible { color: var(--gold); }
 
 #top, #why, #detect, #services, #survey, #plans, #tools, #picture, #method, #about, #request,
-#flight-packages, #score, #fusion, #emergency {
+#flight-packages, #score, #fusion, #emergency, #event-security {
   scroll-margin-top: 4.5rem;
 }
 
@@ -503,6 +503,9 @@ a.card:focus-visible h3 { color: var(--gold); }
   color: var(--mute);
   max-width: 40rem;
 }
+.callout a { color: var(--gold); text-decoration: none; }
+.callout a:hover,
+.callout a:focus-visible { text-decoration: underline; }
 
 .survey { border-block: 1px solid var(--line); background: #0e0d0b; }
 

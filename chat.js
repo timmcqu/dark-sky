@@ -53,8 +53,11 @@
     if (/empty sky|rid.?off|dark aircraft|what can.?t you see|limit/.test(t)) {
       return "Sensors are cooperative Remote ID and radio energy on 2.4 / 5.8 GHz, plus ADS-B for crewed traffic when monitoring is on. Aircraft that are not broadcasting do not appear as cooperative Remote ID contacts. Silence on the radios does not mean the air is empty of drones.";
     }
-    if (/disaster|search|missing person|wreck|fire ground|first.?in|thermal mapping/.test(t)) {
-      return "Disaster &amp; emergency: color and thermal on the same pass, a listener if the scene stays open, a file command can keep. Incident command owns launch and abort. We do not self-dispatch. If people are in danger, call 911 first. Full page: <a href=\"disaster.html\">Disaster &amp; Emergency</a>. Rapid named window: " + pack("event_package");
+    if (/\bevent security|vip movement|rally|high-profile event|gates are open/.test(t) && !/disaster|wreck|hurricane|wildfire/.test(t)) {
+      return "Events / High-Profile Security is for organizers, security details, and private clients — rallies, VIP movements, large outdoor gatherings. Unauthorized transmitting aircraft are flagged during the named window. Not disaster response and not photography. Page: <a href=\"events.html\">Events</a>. Package: " + pack("event_package");
+    }
+    if (/disaster|search|missing person|wreck|fire ground|first.?in|thermal mapping|hurricane|wildfire|flood/.test(t)) {
+      return "Disaster &amp; Emergency Rapid Coverage is for first-in companies — fire, EMS, law enforcement — on hurricanes, floods, wrecks, and wildfires. Color and thermal on the same pass. If the scene stays open, continuous airspace monitoring can stay on. Incident Command owns launch and abort. If people are in danger, call 911 first. This is not event security. Page: <a href=\"disaster.html\">Disaster &amp; Emergency</a>. Package: Rapid Coverage · $2,495.";
     }
     if (/\b79\b|risk report|score (the |this )?site|assessment report/.test(t)) {
       return pack("risk_report", "Score the place first (free preview), then pay. Same browser to open the file.");
