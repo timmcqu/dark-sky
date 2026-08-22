@@ -94,13 +94,13 @@
         <details class="fold fold-sub">
           <summary>RF packs <span class="hint">7</span></summary>
           <div class="grid plans-grid fold-body">
-            <article class="card plan"><h3>Field missions</h3><p>Thousands of hours of real-world missions. Enhanced by the AI neural-net training pipeline.</p></article>
-            <article class="card plan"><h3>RFUAV</h3><p>Thirty-five airframe types. Detect and ID on the RF picture.</p></article>
-            <article class="card plan"><h3>CageDroneRF</h3><p>Drone RF detect and ID. Lab and range captures in the pack.</p></article>
-            <article class="card plan"><h3>CardRF</h3><p>Outdoor UAV RF with Bluetooth and Wi-Fi on the same scene.</p></article>
-            <article class="card plan"><h3>AirID</h3><p>IQ-imbalance fingerprints. SigMF. Device-level RF identity.</p></article>
-            <article class="card plan"><h3>DroneRF</h3><p>Consumer airframe RF. Detect and class on the job bands.</p></article>
-            <article class="card plan"><h3>Analog FPV IQ</h3><p>5.8 GHz analog video energy. HackRF-native IQ. Time, band, and energy.</p></article>
+            <article class="card plan"><h3>Field missions</h3><p>Thousands of hours of labeled RF IQ and visual from real-world missions. Supervised and semi-supervised passes through the AI neural-net training pipeline. Soft-vote fusion into Fusion Sensor class heads.</p></article>
+            <article class="card plan"><h3>RFUAV</h3><p>Thirty-five airframe types. Wideband RF detect and ID on raw IQ and spectrograms. OcuSync-class dual-band, hop-set occupancy, and family-level ID. Priority weights on high-volume consumer airframes. In-pack extract for the neural-net pipeline.</p></article>
+            <article class="card plan"><h3>CageDroneRF</h3><p>Drone RF detect and ID. Lab chamber and outdoor range captures. Spectral-scan features, burst timing, and ID toolkit aligned to the same class heads Fusion Sensor votes at runtime.</p></article>
+            <article class="card plan"><h3>CardRF</h3><p>Outdoor UAV RF with Bluetooth and Wi-Fi co-channel on the same scene. IEEE scene corpus. Multi-RAT occupancy so a hopping control link is not confused with nearby BLE or 802.11 energy.</p></article>
+            <article class="card plan"><h3>AirID</h3><p>UAV IQ-imbalance fingerprints in SigMF. Device-level RF identity past airframe family. Transmitter front-end signatures — DAC imbalance, LO leakage, I/Q offset — trained as RFFI features in the neural-net pipeline.</p></article>
+            <article class="card plan"><h3>DroneRF</h3><p>Classic consumer-airframe RF ML corpus plus few-shot IQ on later DJI-class and toy frames. Background-class negatives. Detect and class on 2.4 GHz and 5.8 GHz job bands before fusion with RFUAV and field missions.</p></article>
+            <article class="card plan"><h3>Analog FPV IQ</h3><p>HackRF-native analog FPV video IQ. 5.8 GHz analog downlink energy, 10 MHz-class spans, spectrogram CFAR, and time-band-energy logs. Trains the analog-video HOLD path the console shows as red drone contacts.</p></article>
           </div>
         </details>
         <details class="fold fold-sub">
