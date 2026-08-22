@@ -118,6 +118,20 @@
       stripe: "",
       gets: ["Pre-survey", "Coverage days", "Air map and post file"]
     },
+    event_package: {
+      title: "Single-Event Airspace Awareness",
+      lede: "Know what is in the air before the gates open, while the event is running, and after it closes. You leave with a written record.",
+      price: "$2,195",
+      amount: "2195",
+      chase: "",
+      stripe: "",
+      gets: [
+        "Pre-event risk survey for the named place and dates",
+        "Live Fusion Sensor coverage on the event day(s)",
+        "Post-event air map",
+        "Written observation file"
+      ]
+    },
     radio: {
       title: "Fusion Sensor + radios",
       lede: "Same console. We kit, flash, ship the listen radios, and walk the first listen with you.",
@@ -162,18 +176,22 @@
   var isPack = key === "ra" || key === "cards" || key === "eventpack";
   var eyebrow = document.getElementById("sku-eyebrow");
   var fine = document.getElementById("sku-fine");
-  if (eyebrow) eyebrow.textContent = isPack ? "Digital packs · Checkout" : "Detect Drones · Checkout";
+  if (eyebrow) {
+    eyebrow.textContent = key === "event_package"
+      ? "Event coverage · Checkout"
+      : (isPack ? "Digital packs · Checkout" : (key === "soft" || key === "radio" ? "Detect Drones · Checkout" : "Plans · Checkout"));
+  }
   var payHref = sku.stripe || sku.chase || "";
   var payOnStripe = !!sku.stripe;
   if (fine) {
-    if (isPack) {
+    if (key === "soft" || key === "radio") {
       fine.textContent = payOnStripe
-        ? "You save details here. Pay with Stripe next. Deposit lands in Dark Sky Systems LLC."
-        : "You save details here. Deposit lands in Dark Sky Systems LLC.";
+        ? "It detects. It does not jam. Pay with Stripe next. Deposit lands in Dark Sky Systems LLC."
+        : "It detects. It does not jam. Deposit lands in Dark Sky Systems LLC.";
     } else {
       fine.textContent = payOnStripe
-        ? "It detects. It does not jam. You save details here. Pay with Stripe next. Deposit lands in Dark Sky Systems LLC."
-        : "It detects. It does not jam. You save details here. Deposit lands in Dark Sky Systems LLC.";
+        ? "Pay with Stripe next. Deposit lands in Dark Sky Systems LLC."
+        : "Deposit lands in Dark Sky Systems LLC.";
     }
   }
   var lead = document.getElementById("order-lead");

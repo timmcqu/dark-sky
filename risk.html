@@ -72,7 +72,7 @@
         <p class="lead" id="outScore">Fill the form. We will name a plan you can start today.</p>
         <p id="outPlan"></p>
         <p class="plans-cta" id="outCta" hidden>
-          <a class="cta" href="index.html#request">Start that plan</a>
+          <a class="cta" href="pay.html?sku=event_package">Secure event coverage</a>
           <a class="cta cta-ghost" href="index.html#plans">See all plans</a>
         </p>
       </div>
@@ -103,7 +103,11 @@
       var plan = "Monitoring · Basic — $250 / month";
       var why = "One site, live map, off-list alerts.";
       var sku = "basic_m";
-      if (score >= 70 && type === "venue") {
+      if (type === "venue" || people === "dense") {
+        plan = "Single-Event Airspace Awareness — $2,195";
+        why = "One named window: survey before, live coverage during, air map and written file after.";
+        sku = "event_package";
+      } else if (score >= 70 && type === "venue") {
         plan = "Venue & Event Season — $8,500 / season";
         why = "Named dates, coverage days, and the air map while gates are open.";
         sku = "venue";

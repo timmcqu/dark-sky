@@ -9,6 +9,7 @@ window.DSS_STRIPE = {
   campus: "https://buy.stripe.com/14A4gzcU2f3r2vK3IPfIs06",
   build: "https://buy.stripe.com/bJefZh7zI9J7b2g1AHfIs07",
   venue: "https://buy.stripe.com/3cIaEX2fog7vdao0wDfIs08",
+  event_package: "https://buy.stripe.com/dRm28r4nw8F34DSdjpfIs09",
   ra: "",
   cards: "",
   eventpack: ""

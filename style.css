@@ -812,6 +812,12 @@ a.card:focus-visible h3 { color: var(--gold); }
   text-transform: uppercase;
   color: var(--gold);
 }
+.plan-feature {
+  border-color: var(--gold);
+}
+@media (min-width: 1040px) {
+  .plan-feature { grid-column: 1 / -1; }
+}
 .value-grid { grid-template-columns: 1fr; }
 
 .plans-cta { margin: 2rem 0 0; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
@@ -1085,6 +1091,7 @@ a.card:focus-visible h3 { color: var(--gold); }
   .grid { grid-template-columns: 1fr 1fr 1fr; }
   .plans-grid { grid-template-columns: 1fr 1fr 1fr; }
   .value-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .plan-feature { grid-column: 1 / -1; }
 }
 
 @media (max-width: 639px) {
