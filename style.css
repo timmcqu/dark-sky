@@ -172,13 +172,15 @@ h1, h2, h3 {
 }
 
 .soft-hero h1 {
-  max-width: 16ch;
+  max-width: 18ch;
   font-size: clamp(2rem, 5vw, 3.1rem);
 }
+.soft-hero .lede { max-width: 42rem; }
 .soft-hero .fine {
   max-width: 42rem;
   margin: 0.35rem 0 1.1rem;
 }
+.soft-hero .hero-actions + .fine { margin-top: 1rem; }
 
 .status {
   display: flex;
@@ -785,6 +787,9 @@ a.card:focus-visible h3 { color: var(--gold); }
   object-fit: cover;
   object-position: 50% 62%;
 }
+
+.pair-block { margin-top: 3rem; }
+.pair-block .sec-head { margin-bottom: 1.1rem; }
 
 .pair {
   display: grid;
