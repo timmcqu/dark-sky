@@ -4,7 +4,7 @@
   var SKUS = {
     ra: {
       title: "Site survey pack",
-      lede: "A written picture you keep with the emergency action plan — people, ways out, holes, confined space, medical access.",
+      lede: "A written observation file you keep with the emergency action plan — people, ways out, holes, confined space, medical access.",
       price: "$500",
       amount: "500",
       chase: "",
@@ -26,7 +26,7 @@
       gets: [
         "Flyaway, lost link, crash, battery fire, medical",
         "Abort, 911, and the 10-day FAA report if the crash qualifies",
-        "Print, laminate, keep them on the abort board"
+        "Print, laminate, and keep them with the crew’s emergency kit"
       ]
     },
     eventpack: {
@@ -39,7 +39,7 @@
       gets: [
         "Risk matrix before the event — crowd, TFR, packs, EMS access",
         "Live assessment while you are there",
-        "After-action, abort card, and sample language for the venue ops file"
+        "After-action, contingency procedures, and sample language for the venue operations file"
       ]
     },
     soft: {
@@ -51,7 +51,7 @@
       stripe: "",
       gets: [
         "Fusion Sensor console on a laptop you already own",
-        "Live map: your list in green, off-list broadcasts in red",
+        "Live map: authorized aircraft marked as authorized, other transmitting aircraft flagged",
         "Spectrum on 2.4 and 5.8 GHz, ADS-B for manned traffic",
         "Fingerprints for Avata, Autel, Mini, and the rest",
         "Exportable log when someone asks what was in the air",
@@ -60,17 +60,17 @@
     },
     basic_m: {
       title: "Monitoring · Basic",
-      lede: "One site. Live map. Your list in green. Off-list in red. Alerts. 90-day archive.",
+      lede: "One site on a live map. Authorized aircraft are marked as authorized. Other transmitting aircraft are flagged. Alerts. Ninety days of records.",
       price: "$250 / month",
       amount: "250",
       chase: "",
       stripe: "",
       gets: [
-        "One named site on a live map your ops desk can keep",
-        "Authorized aircraft in green, off-list broadcasts in red",
-        "Alerts when something off-list is on the air",
+        "One named site on a live map your operations team can keep",
+        "Authorized aircraft marked as authorized; other transmitting aircraft flagged",
+        "Alerts when an unauthorized aircraft is transmitting",
         "Ninety days of archive when counsel asks what happened",
-        "Kickoff email after the first payment posts"
+        "Setup email after the first payment posts"
       ]
     },
     basic_y: {
@@ -81,9 +81,9 @@
       chase: "",
       stripe: "",
       gets: [
-        "One named site on a live map your ops desk can keep",
-        "Authorized aircraft in green, off-list broadcasts in red",
-        "Alerts when something off-list is on the air",
+        "One named site on a live map your operations team can keep",
+        "Authorized aircraft marked as authorized; other transmitting aircraft flagged",
+        "Alerts when an unauthorized aircraft is transmitting",
         "Ninety days of archive",
         "One invoice for the year"
       ]
@@ -164,21 +164,21 @@
     },
     training_pack: {
       title: "Airspace Awareness Essentials",
-      lede: "Remote ID, how to run a listen, and a first-responder checklist. Print it. Keep it with the abort board.",
+      lede: "Remote ID, how to run a monitoring session, and a first-responder checklist. Print it and keep it with the crew’s emergency kit.",
       price: "$99",
       amount: "99",
       chase: "",
       stripe: "",
       gets: [
         "Remote ID in language a crew can brief",
-        "How to run a listen: friendly list, hold red contacts, export the log",
+        "How to run a monitoring session: authorized list, hold unknown contacts, export the log",
         "First-responder size-up checklist: scene, abort, 911, battery",
-        "PDF download on the thank-you page — print and keep with the abort board"
+        "PDF download on the thank-you page — print and keep with the crew’s emergency kit"
       ]
     },
     eap_pack: {
       title: "Emergency Action Plan Pack",
-      lede: "Give first-in companies and your ops desk the site picture the Emergency Action Plan needs: reporting, ways out, assembly, medical, the path apparatus uses. Built to sit with 29 CFR 1910.38 and 1926.35.",
+      lede: "Give first-in companies and your operations team the site information the Emergency Action Plan needs: reporting, ways out, assembly, medical, the path apparatus uses. Built to sit with 29 CFR 1910.38 and 1926.35.",
       price: "$149",
       amount: "149",
       chase: "",
@@ -216,15 +216,15 @@
       stripe: "",
       gets: [
         "Pre-event risk survey for the named place and dates",
-        "Live Fusion Sensor coverage on the event day(s) — your list green, off-list red",
+        "Live Fusion Sensor coverage on the event day(s): authorized aircraft marked as authorized, other transmitting aircraft flagged",
         "Post-event air map you can keep",
         "Written observation file for ops and first-in",
-        "Kickoff email after payment so we lock the dates"
+        "Setup email after payment so we lock the dates"
       ]
     },
     radio: {
       title: "Fusion Sensor + radios",
-      lede: "Same console. We kit, flash, ship the listen radios, and walk the first listen with you.",
+      lede: "Same console. We kit, flash, and ship the radios, then complete initial setup and a first monitoring session with you.",
       price: "$4,500",
       amount: "4500",
       chase: "",
@@ -236,7 +236,7 @@
         "SDR receive on 2.4 GHz and 5.8 GHz",
         "Antennas and USB",
         "Kit, test, ship",
-        "First-listen setup with you"
+        "Initial setup and first monitoring session with you"
       ]
     }
   };
@@ -276,8 +276,8 @@
   if (fine) {
     if (key === "soft" || key === "radio") {
       fine.textContent = payOnStripe
-        ? "It detects. It does not jam. Pay with Stripe next. Deposit lands in Dark Sky Systems LLC."
-        : "It detects. It does not jam. Deposit lands in Dark Sky Systems LLC.";
+        ? "Fusion Sensor is receive-only. It identifies what is transmitting; it does not jam, spoof, or intercept aircraft. Pay with Stripe next. Deposit lands in Dark Sky Systems LLC."
+        : "Fusion Sensor is receive-only. It identifies what is transmitting; it does not jam, spoof, or intercept aircraft. Deposit lands in Dark Sky Systems LLC.";
     } else {
       fine.textContent = payOnStripe
         ? "Pay with Stripe next. Deposit lands in Dark Sky Systems LLC."
@@ -291,7 +291,7 @@
     else if (key === "eap_pack") lead.textContent = "Pay $149. The thank-you page gives you the PDF and the editable file immediately.";
     else if (key === "training_pack") lead.textContent = "Pay $99. Download the pack on the next page and print the checklists.";
     else if (key === "airspace_report") lead.textContent = "Pay $149. Open the named-location report on the next page and save it as PDF.";
-    else if (payOnStripe) lead.textContent = "Name and email if you want a kickoff note. Pay with Stripe next. Deposit lands in Dark Sky Systems LLC.";
+    else if (payOnStripe) lead.textContent = "Name and email if you want a setup note. Pay with Stripe next. Deposit lands in Dark Sky Systems LLC.";
     else lead.textContent = "Name and email. After the deposit posts, we send next steps.";
   }
   var trust = document.getElementById("payTrust");

@@ -108,7 +108,7 @@
     lines.push("Chair: " + (seats.length ? seats.join("; ") : "(none marked)"));
     if (val("pWhen")) lines.push("When: " + val("pWhen"));
     if (val("pNote")) lines.push("Note: " + val("pNote"));
-    lines.push("Ack: listen-only, not security, not a hire.");
+    lines.push("Ack: receive-only observation, not security, not a hire.");
     return lines.join("\n");
   }
 

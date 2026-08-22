@@ -190,7 +190,7 @@
     if (!shown.length) {
       var empty = document.createElement("li");
       empty.className = "quiet";
-      empty.textContent = "No UAS on this listen";
+      empty.textContent = "No drones transmitting in this session";
       list.appendChild(empty);
     }
     shown.forEach(function (tr) {
@@ -230,7 +230,7 @@
         ["Hop set", tr.freq]
       ];
     } else {
-      rows = [["Layer", tr.kind], ["Place", "This listen"]];
+      rows = [["Layer", tr.kind], ["Place", "This session"]];
       if (tr.heading != null) rows.push(["Heading", String(Math.round(tr.heading)).padStart(3, "0")]);
       if (tr.alt) rows.push(["Alt / FL", tr.alt]);
     }
@@ -255,7 +255,7 @@
     selected = null;
     document.getElementById("detail-k").textContent = "Track";
     document.getElementById("detail-id").textContent = "Click a contact";
-    document.getElementById("detail-dl").innerHTML = "<dt>Listen</dt><dd>No UAS on this listen. Airliners are ADS-B. Quiet is not a clearance. This is a demo replay.</dd>";
+    document.getElementById("detail-dl").innerHTML = "<dt>Status</dt><dd>No drones on this demonstration. Crewed aircraft are ADS-B. Silence on the radios does not mean the air is empty. This is a demo replay.</dd>";
     var extra = document.getElementById("detail-extra");
     if (extra) extra.innerHTML = "";
     renderList();
@@ -381,7 +381,7 @@
     if (meta) {
       meta.textContent = rfLive()
         ? "SPECTRUM · dual-band hop · Avata / Autel / Mini"
-        : "SPECTRUM · 2.4 / 5.8 GHz · listening";
+        : "SPECTRUM · 2.4 / 5.8 GHz · receiving";
     }
     drawSpec(now);
     requestAnimationFrame(tick);

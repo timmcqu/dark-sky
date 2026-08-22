@@ -15,17 +15,17 @@
 <body>
   <div class="pad" id="pad">
     <header class="chips" aria-label="Status">
-      <a class="chip brand" href="software.html?v=100#top" target="_top">Fusion Sensor</a>
-      <p class="chip live"><span class="dot"></span> Listening</p>
+      <a class="chip brand" href="software.html?v=102#top" target="_top">Fusion Sensor</a>
+      <p class="chip live"><span class="dot"></span> Receiving</p>
       <p class="chip" id="chip-air">Aircraft · 2 live</p>
       <p class="chip" id="chip-rf">UAS · quiet</p>
-      <p class="chip" id="chip-rid">RID · listening</p>
+      <p class="chip" id="chip-rid">RID · receiving</p>
       <p class="chip mute">Demo replay</p>
       <button type="button" class="chip" id="clear-uas">Clear UAS</button>
     </header>
-    <aside class="list" aria-label="Listen">
-      <p class="k">RID listen</p>
-      <p class="stat"><span class="ok">Listening</span> Bluetooth LE · coded S8 · extended ads</p>
+    <aside class="list" aria-label="Contacts">
+      <p class="k">Remote ID</p>
+      <p class="stat"><span class="ok">Receiving</span> Bluetooth LE · coded S8 · extended ads</p>
       <p class="k">Fingerprints</p>
       <p class="stat">RFUAV · CageDroneRF · field missions · DroneRF</p>
       <p class="k">Tracks</p>
@@ -45,19 +45,19 @@
       <p class="k" id="detail-k">Track</p>
       <h2 id="detail-id">Click a contact</h2>
       <dl id="detail-dl">
-        <dt>Listen</dt>
-        <dd>No UAS on this listen. Airliners are ADS-B. Quiet is not a clearance. This is a demo replay.</dd>
+        <dt>Status</dt>
+        <dd>No drones on this demonstration. Crewed aircraft are ADS-B. Silence on the radios does not mean the air is empty. This is a demo replay.</dd>
       </dl>
       <div id="detail-extra"></div>
       <button type="button" class="close" id="detail-close">Clear</button>
     </aside>
     <footer class="spec-bar">
-      <p class="spec-live"><span class="dot"></span> Listening</p>
+      <p class="spec-live"><span class="dot"></span> Receiving</p>
       <canvas id="spec" width="1200" height="110" aria-label="Spectrum. 2.4 GHz scan."></canvas>
       <p class="spec-meta" id="spec-meta">SPECTRUM · 2.4 / 5.8 GHz · Avata / Autel / Mini</p>
     </footer>
   </div>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="console.js?v=12"></script>
+  <script src="console.js?v=13"></script>
 </body>
 </html>

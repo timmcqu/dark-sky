@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Risk report — Dark Sky Systems</title>
-  <link rel="stylesheet" href="style.css?v=92" />
+  <link rel="stylesheet" href="style.css?v=93" />
 </head>
 <body>
   <header class="mast">
@@ -12,7 +12,7 @@
       <a class="brand" href="index.html">Dark Sky Systems</a>
       <nav class="rail" aria-label="Primary">
         <a href="index.html#plans">Plans</a>
-        <a href="software.html?v=101#top">Detect Drones</a>
+        <a href="software.html?v=102#top">Detect Drones</a>
         <a href="index.html#request">Talk to us</a>
       </nav>
     </div>
@@ -39,14 +39,14 @@
       <p class="survey-doc-obs" id="rRes"></p>
       <p class="survey-doc-obs" id="rRec"></p>
       <p class="survey-doc-obs" id="rNext"></p>
-      <p class="survey-doc-obs">Sensors: cooperative Remote ID and radio energy on 2.4 / 5.8 GHz, plus ADS-B for manned traffic when monitoring is on. This report is scored from the facts you entered. It is not a live listen until Fusion Sensor is running on that site. Dark Sky Systems LLC.</p>
+      <p class="survey-doc-obs">Sensors: cooperative Remote ID and radio energy on 2.4 / 5.8 GHz, plus ADS-B for crewed traffic when monitoring is on. This report is scored from the facts you entered. It is not live monitoring of that site until Fusion Sensor is running there. Dark Sky Systems LLC.</p>
     </article>
     <p class="plans-cta">
       <button type="button" class="cta" id="printBtn">Save as PDF</button>
       <a class="cta cta-ghost" id="buyNext" href="pay.html?sku=basic_m">Start monitoring</a>
     </p>
   </section>
-  <script src="risk-engine.js?v=1"></script>
+  <script src="risk-engine.js?v=2"></script>
   <script>
     var L = DSSRisk.LABELS;
     var data = {};
@@ -74,7 +74,7 @@
     if (!data.factors) {
       tb.innerHTML = "<tr><td colspan='3'>Score the site at risk.html in this browser, then pay, so the factor table can fill.</td></tr>";
     }
-    document.getElementById("rRes").innerHTML = "<strong>Residual risk.</strong> " + (data.residual ? data.residual.join(" ") : "Remote ID and RF energy only. Quiet is not a clearance.");
+    document.getElementById("rRes").innerHTML = "<strong>Residual risk.</strong> " + (data.residual ? data.residual.join(" ") : "Remote ID and radio energy only. Silence on the radios does not mean the air is empty of drones.");
     document.getElementById("rRec").innerHTML = "<strong>Recommended next step.</strong> " + (data.plan || "Monitoring · Basic.");
     document.getElementById("rNext").innerHTML = "<strong>Guidance.</strong> " + (data.next || "");
     if (data.sku) document.getElementById("buyNext").href = "pay.html?sku=" + data.sku;

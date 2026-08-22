@@ -23,7 +23,7 @@
     <h1>Remote ID, in plain language</h1>
     <p>Remote ID is a broadcast. A cooperative aircraft tells nearby receivers who it is and where it is. Fusion Sensor puts that broadcast on a map. Aircraft that are not broadcasting, or that have Remote ID off, do not appear as Remote ID contacts.</p>
     <h2>What you can say</h2>
-    <p>You can say what the sensors heard: a Remote ID track, radio energy on 2.4 or 5.8 GHz, ADS-B for manned traffic. Green is the client’s friendly list. Red is broadcasting off that list.</p>
+    <p>You can say what the sensors heard: a Remote ID track, radio energy on 2.4 or 5.8 GHz, ADS-B for crewed traffic. Authorized aircraft are marked as authorized. Other transmitting aircraft are flagged.</p>
     <h2>What you cannot say</h2>
     <p>You cannot say the air is empty of drones from Remote ID alone. Quiet is not a clearance. Analog FPV and some RID-off aircraft will not give you a cooperative identity.</p>
     <h2>If something goes wrong</h2>
@@ -32,16 +32,16 @@
   </section>
   <section class="page">
     <p class="k">Module 2 · Monitoring fundamentals</p>
-    <h1>How to run a listen</h1>
+    <h1>How to run a monitoring session</h1>
     <ol>
-      <li>Name the place and the hours. Put the laptop where it can see the sky and hear 2.4 / 5.8.</li>
-      <li>Load the friendly list before you go live. Anything not on that list that broadcasts is red.</li>
-      <li>Keep ADS-B on so manned traffic is on the same picture.</li>
-      <li>When a red contact appears, hold it. Do not auto-clear. Write time, band, and who you told.</li>
+      <li>Name the place and the hours. Put the laptop where it can see the sky and receive 2.4 / 5.8 GHz.</li>
+      <li>Load the authorized-aircraft list before you go live. Any other transmitting aircraft is flagged.</li>
+      <li>Keep ADS-B on so crewed traffic is on the same map.</li>
+      <li>When an unauthorized contact appears, hold it. Do not auto-clear. Write time, band, and who you told.</li>
       <li>Export the log at close. That is the record.</li>
     </ol>
     <h2>Hardware for Fusion Sensor</h2>
-    <p>Laptop. ESP32-S3 Remote ID receiver. ADS-B 1090. SDR on 2.4 and 5.8 GHz. Antennas, USB, power. It detects. It does not jam.</p>
+    <p>Laptop. ESP32-S3 Remote ID receiver. ADS-B 1090. SDR on 2.4 and 5.8 GHz. Antennas, USB, power. Fusion Sensor is receive-only. It identifies what is transmitting; it does not jam, spoof, or intercept aircraft.</p>
     <p class="foot">Page 2 of 3</p>
   </section>
   <section class="page">
@@ -57,7 +57,7 @@
       <tr><td>Do not chase a flyaway into a TFR or into people</td><td>☐</td></tr>
     </table>
     <p>This pack is awareness training. It is not a Part 107 course and it is not a license to transmit. CyberReaper TX unlock is briefing-only for qualified entities.</p>
-    <p class="foot">Page 3 of 3 · Print and keep with the abort board</p>
+    <p class="foot">Page 3 of 3 · Print and keep with the crew’s emergency kit</p>
   </section>
 </body>
 </html>
