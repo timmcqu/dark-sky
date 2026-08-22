@@ -46,7 +46,7 @@
       lede: "Console and license. You already have listen radios. One named window, up to 72 hours.",
       price: "$2,000",
       amount: "2000",
-      chase: "https://payments.chase.com?invid=KV92XF7K6T0X",
+      chase: "",
       gets: [
         "Fusion Sensor license and console",
         "Named window, up to 72 hours",
@@ -60,7 +60,7 @@
       lede: "Same console. We kit, flash, ship the listen radios, and walk the first listen with you.",
       price: "$4,500",
       amount: "4500",
-      chase: "https://payments.chase.com?invid=KV93YPSCQNF5",
+      chase: "",
       gets: [
         "Everything in Software",
         "ESP32-S3 OpenDroneID receiver, flashed",
@@ -139,7 +139,7 @@
         "Email: " + val("oEmail"),
         "Org: " + (val("oOrg") || "(none)"),
         "Window: " + (val("oWindow") || "(none)"),
-        "Next: Chase payment link"
+        "Next: mint a Chase payment link for this customer and amount. Do not reuse a public invid."
       ];
       var wrap = document.getElementById("payWrap");
       var payNow = document.getElementById("payNow");
