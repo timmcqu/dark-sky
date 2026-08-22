@@ -4,41 +4,38 @@
   var SKUS = {
     ra: {
       title: "Site survey pack",
-      lede: "Digital observation templates for a named property. Not an OSHA inspection. Not a PE stamp. Emailed after the deposit posts.",
+      lede: "A written picture of a named property: people, ways out, holes, confined space, medical access.",
       price: "$500",
       amount: "500",
       chase: "",
       gets: [
-        "DS-RA observation file template",
-        "OSHA / first-in annex map for operations use",
-        "People, egress, excavation, confined space, medical rows",
-        "Emailed after deposit. Editable copy."
+        "Observation template you fill for that property",
+        "First-in annex: people, egress, excavation, confined space, medical",
+        "Editable file you keep with the site plan"
       ]
     },
     cards: {
       title: "Field cards pack",
-      lede: "Digital abort and emergency observation cards. Pocket size. Emailed after the deposit posts.",
+      lede: "When a drone flies off, crashes, the battery vents, or someone goes down — one card per problem.",
       price: "$250",
       amount: "250",
       chase: "",
       gets: [
         "Flyaway, crash, battery fire, medical, loss of link",
-        "Scene / life safety / abort / handoff language",
-        "Emailed after deposit. Printable."
+        "What you look at, when you abort, who you call",
+        "Print, laminate, keep them on the abort board"
       ]
     },
     eventpack: {
       title: "Event window pack",
-      lede: "Digital paper for a named venue and window. Emailed after the deposit posts.",
+      lede: "The risk file for a venue and a date. Score it before you show up. Update it on site. Close it after.",
       price: "$750",
       amount: "750",
       chase: "",
       gets: [
-        "Pre-window risk matrix",
-        "In-window DRA",
-        "Post-window review",
-        "Abort card and sample event language",
-        "Emailed after deposit. Editable copy."
+        "Risk matrix before the event",
+        "Live assessment while you are there",
+        "After-action review, abort card, and sample report language"
       ]
     },
     soft: {
@@ -89,6 +86,15 @@
   if (title) title.textContent = sku.title;
   if (lede) lede.textContent = sku.lede;
   if (price) price.textContent = sku.price;
+  var isPack = key === "ra" || key === "cards" || key === "eventpack";
+  var eyebrow = document.getElementById("sku-eyebrow");
+  var fine = document.getElementById("sku-fine");
+  if (eyebrow) eyebrow.textContent = isPack ? "Digital packs · Checkout" : "Detect Drones · Checkout";
+  if (fine) {
+    fine.textContent = isPack
+      ? "You save details here. We email a Chase pay link for this order. Deposit lands in Dark Sky Systems LLC."
+      : "It detects. It does not jam. You save details here. We email a Chase pay link for this order. Deposit lands in Dark Sky Systems LLC.";
+  }
   if (btn) btn.textContent = "Save details";
   document.querySelectorAll(".sku-switch a").forEach(function (a) {
     if (a.getAttribute("data-sku") === key) a.setAttribute("aria-current", "page");
