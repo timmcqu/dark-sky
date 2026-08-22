@@ -2,6 +2,45 @@
   "use strict";
   var RELAY = "https://formsubmit.co/ajax/9e30fb114bdd52baca9ba3fc044fe19b";
   var SKUS = {
+    ra: {
+      title: "Site survey pack",
+      lede: "Digital observation templates for a named property. Not an OSHA inspection. Not a PE stamp. Emailed after the deposit posts.",
+      price: "$500",
+      amount: "500",
+      chase: "",
+      gets: [
+        "DS-RA observation file template",
+        "OSHA / first-in annex map for operations use",
+        "People, egress, excavation, confined space, medical rows",
+        "Emailed after deposit. Editable copy."
+      ]
+    },
+    cards: {
+      title: "Field cards pack",
+      lede: "Digital abort and emergency observation cards. Pocket size. Emailed after the deposit posts.",
+      price: "$250",
+      amount: "250",
+      chase: "",
+      gets: [
+        "Flyaway, crash, battery fire, medical, loss of link",
+        "Scene / life safety / abort / handoff language",
+        "Emailed after deposit. Printable."
+      ]
+    },
+    eventpack: {
+      title: "Event window pack",
+      lede: "Digital paper for a named venue and window. Emailed after the deposit posts.",
+      price: "$750",
+      amount: "750",
+      chase: "",
+      gets: [
+        "Pre-window risk matrix",
+        "In-window DRA",
+        "Post-window review",
+        "Abort card and sample event language",
+        "Emailed after deposit. Editable copy."
+      ]
+    },
     soft: {
       title: "Fusion Sensor",
       lede: "Console and license. You already have listen radios. One named window, up to 72 hours.",
@@ -35,7 +74,8 @@
   };
 
   var params = new URLSearchParams(location.search);
-  var key = params.get("sku") === "radio" ? "radio" : "soft";
+  var key = params.get("sku") || "soft";
+  if (!SKUS[key]) key = "soft";
   var sku = SKUS[key];
 
   var title = document.getElementById("sku-title");
@@ -103,14 +143,20 @@
       ];
       var wrap = document.getElementById("payWrap");
       var payNow = document.getElementById("payNow");
-      if (payNow) {
+      if (payNow && sku.chase) {
         payNow.href = sku.chase;
         payNow.textContent = "Pay on Chase";
-      }
-      if (wrap) wrap.hidden = false;
-      if (status) {
-        status.hidden = false;
-        status.textContent = "Details saved. Pay on Chase next. We do not store your card.";
+        if (wrap) wrap.hidden = false;
+        if (status) {
+          status.hidden = false;
+          status.textContent = "Details saved. Pay on Chase next. We do not store your card.";
+        }
+      } else {
+        if (wrap) wrap.hidden = true;
+        if (status) {
+          status.hidden = false;
+          status.textContent = "Details saved. We email a Chase pay link to this address.";
+        }
       }
       sendNotice(lines.join("\n"));
     });
