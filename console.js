@@ -213,11 +213,11 @@
       rows = [
         ["Contact", tr.id],
         ["Family", tr.family],
-        ["Class vote", tr.vote],
+        ["Match", tr.vote],
         ["Hop set", tr.freq]
       ];
     } else {
-      rows = [["Layer", tr.kind], ["Place", "Named window"]];
+      rows = [["Layer", tr.kind], ["Place", "This listen"]];
       if (tr.heading != null) rows.push(["Heading", String(Math.round(tr.heading)).padStart(3, "0")]);
       if (tr.alt) rows.push(["Alt / FL", tr.alt]);
     }
@@ -226,7 +226,7 @@
     }).join("");
     var extra = document.getElementById("detail-extra");
     if (tr.packs) {
-      extra.innerHTML = "<p class=\"k\">Class heads</p><dl class=\"votes\">" +
+      extra.innerHTML = "<p class=\"k\">Fingerprints</p><dl class=\"votes\">" +
         tr.packs.map(function (p) {
           return "<dt>" + p[0] + "</dt><dd>" + p[1] + "</dd>";
         }).join("") +
@@ -367,8 +367,8 @@
     var meta = document.getElementById("spec-meta");
     if (meta) {
       meta.textContent = rfLive()
-        ? "SPECTRUM · dual-band hop · Avata / Autel / Mini class heads"
-        : "SPECTRUM · 2.4 / 5.8 GHz · hop-set listen · class heads armed";
+        ? "SPECTRUM · dual-band hop · Avata / Autel / Mini"
+        : "SPECTRUM · 2.4 / 5.8 GHz · listening";
     }
     drawSpec(now);
     requestAnimationFrame(tick);

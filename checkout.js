@@ -40,13 +40,13 @@
     },
     soft: {
       title: "Fusion Sensor",
-      lede: "Fusion Sensor on your laptop. You already have the radios. One site, up to three days.",
+      lede: "Fusion Sensor on your laptop. You already have the radios.",
       price: "$2,000",
       amount: "2000",
       chase: "",
       gets: [
         "Fusion Sensor on your laptop",
-        "One site, up to three days",
+        "Map, spectrum, friendly list, log",
         "Fingerprints: Avata, Autel, Mini, and the rest",
         "You bring the laptop and the radios"
       ]

@@ -28,7 +28,7 @@
       <a class="brand" href="index.html">Dark Sky Systems</a>
       <nav class="rail" aria-label="Primary">
         <a href="index.html#services">Hire a Drone</a>
-        <a href="software.html?v=91" aria-current="page">Detect Drones</a>
+        <a href="software.html?v=92" aria-current="page">Detect Drones</a>
         <a href="fly.html">Fly Drones</a>
         <a href="index.html#request">Contact Us</a>
       </nav>
@@ -48,7 +48,7 @@
       <p class="fine">CyberReaper is not this product. Government, military, and other qualified entities: request a briefing. Not a checkout.</p>
     </div>
     <div class="pad-frame" id="explore">
-      <iframe src="console.html?v=9" title="Fusion Sensor console. Avata, Autel, Mini fingerprints. Stay until cleared." loading="eager"></iframe>
+      <iframe src="console.html?v=10" title="Fusion Sensor console. Avata, Autel, Mini fingerprints. Stay until cleared." loading="eager"></iframe>
     </div>
   </section>
 
@@ -61,7 +61,7 @@
       <div class="grid plans-grid">
         <article class="card plan">
           <h3>Drone / UAV awareness</h3>
-          <p>Remote ID and RF energy fused into one UAV picture. Class heads from RFUAV, CageDroneRF, CardRF, DroneRF, and field missions vote at runtime.</p>
+          <p>Remote ID and RF energy on one picture. Avata, Autel, Mini, and the rest.</p>
         </article>
         <article class="card plan">
           <h3>Analog FPV awareness</h3>
@@ -81,7 +81,7 @@
         </article>
         <article class="card plan">
           <h3>Friendly-list awareness</h3>
-          <p>Green is your list. Red is everyone else on the air. Same console, one named window.</p>
+          <p>Green is your list. Red is everyone else on the air.</p>
         </article>
         <article class="card plan">
           <h3>How: sensor fusion</h3>
@@ -89,7 +89,7 @@
         </article>
         <article class="card plan">
           <h3>How: training pipeline</h3>
-          <p>Twenty backend packs — IQ, spectrograms, RFFI, visual track — feed supervised and semi-supervised nets. Fusion Sensor ships with those class heads already trained.</p>
+          <p>Twenty backend packs train the console to name what it hears. They ship with Fusion Sensor.</p>
         </article>
       </div>
     </div>
@@ -104,11 +104,11 @@
       <div class="grid plans-grid">
         <a class="card plan" href="pay.html?sku=soft">
           <h3>Software</h3>
-          <p class="plan-price">$2,000 <small>one site, up to three days</small></p>
+          <p class="plan-price">$2,000 <small>you have the radios</small></p>
           <p class="k">What's included</p>
           <ul class="include">
             <li>Fusion Sensor on your laptop</li>
-            <li>One site, up to three days</li>
+            <li>Map, spectrum, friendly list, log</li>
             <li>Fingerprints: Avata, Autel, Mini, and the rest</li>
             <li>You bring the laptop and the radios</li>
           </ul>
@@ -193,9 +193,9 @@
         <details class="fold fold-sub">
           <summary>RF packs <span class="hint">7</span></summary>
           <div class="grid plans-grid fold-body">
-            <article class="card plan"><h3>Field missions</h3><p>Thousands of hours of labeled RF IQ and visual from real-world missions. Supervised and semi-supervised passes through the AI neural-net training pipeline. Soft-vote fusion into Fusion Sensor class heads.</p></article>
+            <article class="card plan"><h3>Field missions</h3><p>Thousands of hours of labeled RF IQ and visual from real-world missions. They train the console to name what it hears.</p></article>
             <article class="card plan"><h3>RFUAV</h3><p>Thirty-five airframe types. Wideband RF detect and ID on raw IQ and spectrograms. OcuSync-class dual-band, hop-set occupancy, and family-level ID. Priority weights on high-volume consumer airframes. In-pack extract for the neural-net pipeline.</p></article>
-            <article class="card plan"><h3>CageDroneRF</h3><p>Drone RF detect and ID. Lab chamber and outdoor range captures. Spectral-scan features, burst timing, and ID toolkit aligned to the same class heads Fusion Sensor votes at runtime.</p></article>
+            <article class="card plan"><h3>CageDroneRF</h3><p>Drone RF detect and ID. Lab chamber and outdoor range captures. Burst timing and spectral features the console uses at runtime.</p></article>
             <article class="card plan"><h3>CardRF</h3><p>Outdoor UAV RF with Bluetooth and Wi-Fi co-channel on the same scene. IEEE scene corpus. Multi-RAT occupancy so a hopping control link is not confused with nearby BLE or 802.11 energy.</p></article>
             <article class="card plan"><h3>AirID</h3><p>UAV IQ-imbalance fingerprints in SigMF. Device-level RF identity past airframe family. Transmitter front-end signatures — DAC imbalance, LO leakage, I/Q offset — trained as RFFI features in the neural-net pipeline.</p></article>
             <article class="card plan"><h3>DroneRF</h3><p>Classic consumer-airframe RF ML corpus plus few-shot IQ on later DJI-class and toy frames. Background-class negatives. Detect and class on 2.4 GHz and 5.8 GHz job bands before fusion with RFUAV and field missions.</p></article>
@@ -235,7 +235,7 @@
           <tr><th>OcuSync-class</th><td>Digital control and video links. Dual-band pattern across 2.4 GHz and 5.8 GHz.</td></tr>
           <tr><th>Frequency hopping</th><td>Hop-set occupancy and cadence on the job bands.</td></tr>
           <tr><th>Pattern analysis</th><td>Energy, bandwidth, hop timing, dual-band correlation. Named classes on the glass.</td></tr>
-          <tr><th>Log</th><td>Time, band, energy, class. Export after the sit.</td></tr>
+          <tr><th>Log</th><td>Time, band, energy, class. Export the listen.</td></tr>
         </table>
       </div>
     </details>
@@ -252,8 +252,7 @@
           <tr><th>Fusion packs</th><td>Thousands of hours of real-world missions, enhanced by an AI neural-net training pipeline. Included in both SKUs.</td></tr>
           <tr><th>Host</th><td>Laptop on the job. macOS 13+ or Linux. Python 3.10+. Browser. USB 2.0. Local network.</td></tr>
           <tr><th>Bind</th><td>Local console. Default port 8788.</td></tr>
-          <tr><th>Window</th><td>Named place. Named dates. Software SKU covers one window up to 72 hours.</td></tr>
-          <tr><th>Log</th><td>Time, band, energy, RID, ADS-B. Export after the sit.</td></tr>
+          <tr><th>Log</th><td>Time, band, energy, RID, ADS-B. Export the listen.</td></tr>
         </table>
       </div>
     </details>
@@ -307,7 +306,7 @@
               </figure>
             </div>
             <table class="survey-find survey-find-num">
-              <caption>Findings — named window</caption>
+              <caption>Findings</caption>
               <thead>
                 <tr><th>No.</th><th>Domain</th><th>Observation</th><th>Hook</th></tr>
               </thead>
