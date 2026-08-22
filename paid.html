@@ -77,7 +77,7 @@
       box.innerHTML = '<a class="cta" href="report.html?sku=airspace_report">Open Your Location Report now</a>';
       window.location.replace("report.html?sku=airspace_report");
     } else if (sku === "rid" || sku === "listen" || sku === "ant1090" || sku === "case" || sku === "starter") {
-      lede.textContent = (label || "Field attach") + ". We order this today to the address on the Stripe receipt. Tracking by email. Receive only.";
+      lede.textContent = (label || "Field attach") + ". Ships from Dark Sky Systems to the address on the receipt. Tracking by email.";
     } else {
       lede.textContent = (label || "This order") + ". We email next steps to the address on the Stripe receipt. Deposit is in Dark Sky Systems LLC.";
     }
