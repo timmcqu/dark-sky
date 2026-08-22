@@ -10,13 +10,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=90" />
+  <link rel="stylesheet" href="style.css?v=92" />
 </head>
 <body>
   <header class="mast">
     <div class="wrap mast-inner">
       <a class="brand" href="index.html">Dark Sky Systems</a>
       <nav class="rail" aria-label="Primary">
+        <a href="index.html#tools">$79 report</a>
         <a href="index.html#plans">Plans</a>
         <a href="software.html?v=101#top">Detect Drones</a>
         <a href="index.html#services">Hire a Drone</a>
@@ -26,9 +27,9 @@
     </div>
   </header>
   <section class="page-hero wrap">
-    <p class="eyebrow">Before you buy</p>
-    <h1>Score this place in two minutes.</h1>
-    <p class="lede">Name the campus, the job, or the venue. We return a risk score and the plan that matches it. The score uses what Fusion Sensor can hear: Remote ID and radio energy.</p>
+    <p class="eyebrow">$79 · keep the file</p>
+    <h1>Walk into the next meeting with a scored report, not a guess.</h1>
+    <p class="lede">Name the campus, the job, or the venue. In two minutes you get a risk score. For $79 you keep a written report: the score, what drove it, the monitoring level we recommend, and the next step. Pay online. Open the report immediately.</p>
   </section>
   <section class="request">
     <div class="wrap request-grid">
@@ -65,15 +66,21 @@
             <option value="yes">Yes</option>
           </select>
         </label>
-        <button type="submit" class="cta">Get my recommendation</button>
+        <button type="submit" class="cta">Score this place</button>
       </form>
       <div>
-        <h2 id="outTitle">Your recommendation</h2>
-        <p class="lead" id="outScore">Fill the form. We will name a plan you can start today.</p>
+        <h2 id="outTitle">What the $79 report contains</h2>
+        <p class="lead" id="outScore">Score the place first. The full report is a one-page file you can print and send upstairs.</p>
+        <ul class="include">
+          <li>The risk score for the named location, out of 100</li>
+          <li>What drove the score: people on the ground, airspace, prior incidents</li>
+          <li>The monitoring or event package we recommend</li>
+          <li>Plain-language next steps you can keep with the site file</li>
+        </ul>
         <p id="outPlan"></p>
         <p class="plans-cta" id="outCta" hidden>
-          <a class="cta" href="pay.html?sku=risk_report">Get the Full Report · $79</a>
-          <a class="cta cta-ghost" href="pay.html?sku=event_package">Secure event coverage</a>
+          <a class="cta" id="buyReport" href="pay.html?sku=risk_report">Get the Full Report · $79</a>
+          <a class="cta cta-ghost" id="buyNext" href="pay.html?sku=basic_m">Start monitoring after that</a>
         </p>
       </div>
     </div>
@@ -124,11 +131,13 @@
         why = "Multi-site picture and alerts your ops can keep.";
         sku = "pro_m";
       }
-      document.getElementById("outTitle").textContent = document.getElementById("rPlace").value;
+      document.getElementById("outTitle").textContent = "Score for " + document.getElementById("rPlace").value;
       document.getElementById("outScore").textContent = "Risk score " + score + " / 100. " + why;
-      document.getElementById("outPlan").textContent = "Recommended: " + plan;
+      document.getElementById("outPlan").textContent = "The full $79 report names this score, what drove it, and the next step: " + plan + " Keep the file. Then decide on monitoring or event coverage.";
       document.getElementById("outCta").hidden = false;
-      document.querySelector("#outCta .cta").href = "pay.html?sku=" + sku;
+      document.getElementById("buyReport").href = "pay.html?sku=risk_report";
+      document.getElementById("buyNext").href = "pay.html?sku=" + sku;
+      document.getElementById("buyNext").textContent = sku === "event_package" ? "Or secure event coverage · $2,195" : "Or start that plan";
       var findings = "Place type " + type + ", people " + people + ", airspace " + air + (prior === "yes" ? ", prior drone incidents reported." : ".");
       sessionStorage.setItem("dssRisk", JSON.stringify({
         place: document.getElementById("rPlace").value,

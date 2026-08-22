@@ -71,7 +71,7 @@
           <input type="text" id="oWindow" name="oWindow" placeholder="Where you'll run it" />
         </label>
         <button type="submit" class="cta" id="btnPay">Save details</button>
-        <p class="fine">We take name and email here. Card is on the next step.</p>
+        <p class="fine" id="payTrust">After Stripe confirms, you land on a thank-you page. Digital files open there. Subscriptions and flown jobs get a kickoff email. Card is processed by Stripe. We do not store it.</p>
         <p class="copied" id="orderStatus" role="status" aria-live="polite" hidden></p>
         <p id="payWrap" hidden>
           <a class="cta" id="payNow" href="#">Pay</a>
@@ -87,6 +87,6 @@
     </div>
   </footer>
   <script src="stripe-links.js?v=4"></script>
-  <script src="checkout.js?v=15"></script>
+  <script src="checkout.js?v=16"></script>
 </body>
 </html>

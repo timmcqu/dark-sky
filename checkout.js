@@ -10,9 +10,10 @@
       chase: "",
       stripe: "",
       gets: [
-        "Observation template for that property",
-        "First-in annex: egress, excavation, confined space, medical, apparatus path",
-        "Editable file for the site EAP"
+        "A fillable observation template for one named property",
+        "First-in annex: people, ways out, excavation, confined space, medical, apparatus path",
+        "How to keep the file with the emergency action plan",
+        "Emailed after the deposit posts"
       ]
     },
     cards: {
@@ -49,10 +50,12 @@
       chase: "",
       stripe: "",
       gets: [
-        "Fusion Sensor on your laptop",
-        "Map, spectrum, friendly list, log",
-        "Fingerprints: Avata, Autel, Mini, and the rest",
-        "You bring the laptop and the radios"
+        "Fusion Sensor console on a laptop you already own",
+        "Live map: your list in green, off-list broadcasts in red",
+        "Spectrum on 2.4 and 5.8 GHz, ADS-B for manned traffic",
+        "Fingerprints for Avata, Autel, Mini, and the rest",
+        "Exportable log when someone asks what was in the air",
+        "You supply the radios. We send the license after payment."
       ]
     },
     basic_m: {
@@ -62,16 +65,28 @@
       amount: "250",
       chase: "",
       stripe: "",
-      gets: ["One named site", "Live map and off-list alerts", "90-day archive"]
+      gets: [
+        "One named site on a live map your ops desk can keep",
+        "Authorized aircraft in green, off-list broadcasts in red",
+        "Alerts when something off-list is on the air",
+        "Ninety days of archive when counsel asks what happened",
+        "Kickoff email after the first payment posts"
+      ]
     },
     basic_y: {
       title: "Monitoring · Basic (year)",
-      lede: "Same as Basic. One year, paid once.",
+      lede: "Same as Basic. One year, paid once. You save two months versus paying monthly.",
       price: "$2,500 / year",
       amount: "2500",
       chase: "",
       stripe: "",
-      gets: ["One named site", "Live map and off-list alerts", "90-day archive"]
+      gets: [
+        "One named site on a live map your ops desk can keep",
+        "Authorized aircraft in green, off-list broadcasts in red",
+        "Alerts when something off-list is on the air",
+        "Ninety days of archive",
+        "One invoice for the year"
+      ]
     },
     pro_m: {
       title: "Monitoring · Pro",
@@ -125,7 +140,13 @@
       amount: "79",
       chase: "",
       stripe: "",
-      gets: ["Risk score for the named location", "Key findings from what you entered", "Recommended monitoring level", "Next-step guidance you can keep"]
+      gets: [
+        "A written risk score for the named location, out of 100",
+        "What drove the score: people, airspace, prior incidents",
+        "The monitoring or event package we recommend",
+        "Plain-language next steps you can print and send upstairs",
+        "Open the report on the next page immediately after payment"
+      ]
     },
     obs_templates: {
       title: "Observation File Template Pack",
@@ -134,7 +155,12 @@
       amount: "49",
       chase: "",
       stripe: "",
-      gets: ["Site observation template", "Event / first-in annex", "How-to guide", "Instant PDF download after payment"]
+      gets: [
+        "Site observation template you fill for a named property",
+        "Event and first-in annex: gates, pinch, apparatus, medical",
+        "How-to guide so the file actually gets used",
+        "PDF download on the thank-you page — no waiting on email"
+      ]
     },
     training_pack: {
       title: "Airspace Awareness Essentials",
@@ -143,7 +169,12 @@
       amount: "99",
       chase: "",
       stripe: "",
-      gets: ["Remote ID in plain language", "Monitoring fundamentals", "First-responder size-up checklist", "Instant PDF download after payment"]
+      gets: [
+        "Remote ID in language a crew can brief",
+        "How to run a listen: friendly list, hold red contacts, export the log",
+        "First-responder size-up checklist: scene, abort, 911, battery",
+        "PDF download on the thank-you page — print and keep with the abort board"
+      ]
     },
     airspace_report: {
       title: "Named Location Airspace Awareness Report",
@@ -152,7 +183,13 @@
       amount: "149",
       chase: "",
       stripe: "",
-      gets: ["Risk scoring for the named place", "Airspace context from what you submitted", "Written summary", "Open the report after payment"]
+      gets: [
+        "Written summary for one named campus, job, or venue",
+        "Risk score from the facts you submit",
+        "Airspace context in plain language",
+        "Recommended next step (monitoring or a single-event package)",
+        "Open the report on the thank-you page and save as PDF"
+      ]
     },
     event_package: {
       title: "Single-Event Airspace Awareness",
@@ -163,9 +200,10 @@
       stripe: "",
       gets: [
         "Pre-event risk survey for the named place and dates",
-        "Live Fusion Sensor coverage on the event day(s)",
-        "Post-event air map",
-        "Written observation file"
+        "Live Fusion Sensor coverage on the event day(s) — your list green, off-list red",
+        "Post-event air map you can keep",
+        "Written observation file for ops and first-in",
+        "Kickoff email after payment so we lock the dates"
       ]
     },
     radio: {
@@ -232,9 +270,20 @@
   }
   var lead = document.getElementById("order-lead");
   if (lead) {
-    lead.textContent = payOnStripe
-      ? "Name and email. Pay with Stripe on the next step. After the deposit posts, we send the license or pack."
-      : "Name and email. After the deposit posts, we send the license or pack.";
+    if (key === "risk_report") lead.textContent = "Pay $79. On the next page you open the scored report for the place you just named. Save it as PDF.";
+    else if (key === "obs_templates") lead.textContent = "Pay $49. The thank-you page gives you the PDF immediately. No waiting on email.";
+    else if (key === "training_pack") lead.textContent = "Pay $99. Download the pack on the next page and print the checklists.";
+    else if (key === "airspace_report") lead.textContent = "Pay $149. Open the named-location report on the next page and save it as PDF.";
+    else if (payOnStripe) lead.textContent = "Name and email if you want a kickoff note. Pay with Stripe next. Deposit lands in Dark Sky Systems LLC.";
+    else lead.textContent = "Name and email. After the deposit posts, we send next steps.";
+  }
+  var trust = document.getElementById("payTrust");
+  if (trust) {
+    if (key === "risk_report" || key === "airspace_report") {
+      trust.textContent = "Use the same browser you scored or named the place in. After Stripe, the report opens. Print or Save as PDF. No card data is stored on darksky.systems.";
+    } else if (key === "obs_templates" || key === "training_pack") {
+      trust.textContent = "After Stripe, the thank-you page has a Download button. Click it. That is the whole delivery. No card data is stored on darksky.systems.";
+    }
   }
   if (params.get("paid") === "1") {
     location.replace("paid.html?sku=" + encodeURIComponent(key));

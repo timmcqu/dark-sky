@@ -50,19 +50,21 @@
     var box = document.getElementById("deliver");
     if (label) lede.textContent = label + ". Deposit lands in Dark Sky Systems LLC.";
     if (sku === "obs_templates") {
-      lede.textContent = "Your templates are ready. Download the pack and keep it with the site plan.";
-      box.innerHTML = '<a class="cta" href="deliver/obs-pack.pdf">Download Templates Now</a>';
+      lede.textContent = "Your templates are ready. Click download. Keep the pack with the site plan.";
+      box.innerHTML = '<a class="cta" id="goFile" href="deliver/obs-pack.pdf">Download Templates Now</a>';
     } else if (sku === "training_pack") {
-      lede.textContent = "Your training pack is ready. Print the checklists and keep them with the abort board.";
-      box.innerHTML = '<a class="cta" href="deliver/training-pack.pdf">Get the Training Pack PDF</a>';
+      lede.textContent = "Your training pack is ready. Click download, print the checklists, keep them with the abort board.";
+      box.innerHTML = '<a class="cta" id="goFile" href="deliver/training-pack.pdf">Download the Training Pack</a>';
     } else if (sku === "risk_report") {
-      lede.textContent = "Your risk assessment report is ready for the location you scored.";
-      box.innerHTML = '<a class="cta" href="report.html?sku=risk_report">Open the Full Report</a>';
+      lede.textContent = "Your risk report is ready. It opens next. Use Save as PDF in the print dialog.";
+      box.innerHTML = '<a class="cta" href="report.html?sku=risk_report">Open the Full Report now</a>';
+      window.location.replace("report.html?sku=risk_report");
     } else if (sku === "airspace_report") {
-      lede.textContent = "Your named-location report is ready. Open it, then save as PDF.";
-      box.innerHTML = '<a class="cta" href="report.html?sku=airspace_report">Open Your Location Report</a>';
+      lede.textContent = "Your named-location report is ready. It opens next. Use Save as PDF in the print dialog.";
+      box.innerHTML = '<a class="cta" href="report.html?sku=airspace_report">Open Your Location Report now</a>';
+      window.location.replace("report.html?sku=airspace_report");
     } else {
-      lede.textContent = (label || "This order") + ". We email next steps to the address on the Stripe receipt.";
+      lede.textContent = (label || "This order") + ". We email next steps to the address on the Stripe receipt. Deposit is in Dark Sky Systems LLC.";
     }
   </script>
 </body>
