@@ -114,7 +114,7 @@ img { height: auto; }
 .rail a:focus-visible { color: var(--gold); }
 
 #top, #why, #detect, #services, #survey, #plans, #tools, #picture, #method, #about, #request,
-#flight-packages, #score, #fusion {
+#flight-packages, #score, #fusion, #emergency {
   scroll-margin-top: 4.5rem;
 }
 
@@ -471,6 +471,20 @@ a.card:focus-visible h3 { color: var(--gold); }
 }
 .page-hero .pair { margin-top: 1.35rem; }
 .page-hero .pair img { margin: 0; height: min(42svh, 22rem); }
+.page-hero .hero-actions { margin: 1.1rem 0 0; }
+
+.use-grid {
+  display: grid;
+  gap: 1.25rem 1.35rem;
+}
+.emerg-strip {
+  display: grid;
+  gap: 1.25rem 2rem;
+}
+.emerg-strip h2 {
+  margin: 0 0 0.45rem;
+  font-size: clamp(1.55rem, 2.8vw, 2.15rem);
+}
 
 .job { padding-block: 2rem 4.5rem; }
 .job h2 {
@@ -850,6 +864,7 @@ a.card:focus-visible h3 { color: var(--gold); }
   padding-top: 0;
   border-top: 0;
 }
+.group-k,
 .plan-group .group-k {
   margin: 0 0 0.35rem;
   font-size: 0.62rem;
@@ -1161,6 +1176,8 @@ a.card:focus-visible h3 { color: var(--gold); }
 
 @media (min-width: 760px) {
   .grid { grid-template-columns: 1fr 1fr; }
+  .use-grid { grid-template-columns: 1fr 1fr; }
+  .emerg-strip { grid-template-columns: 1.35fr 0.85fr; align-items: end; }
   .card img,
   .card .loop { height: 16.5rem; }
   .steps { grid-template-columns: repeat(3, 1fr); }
