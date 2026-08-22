@@ -1260,3 +1260,16 @@ a.card:focus-visible h3 { color: var(--gold); }
   .pair video,
   .spectrum-strip video { display: none; }
 }
+
+.plan { overflow: hidden; }
+.sku-photo {
+  display: block;
+  width: calc(100% + 2.5rem);
+  max-width: none;
+  height: 11.5rem;
+  margin: -1.35rem -1.25rem 1rem;
+  object-fit: contain;
+  object-position: center;
+  background: #0c0b0a;
+  border-bottom: 1px solid var(--line);
+}
