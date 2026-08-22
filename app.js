@@ -76,18 +76,43 @@
     fallbackCopy(text);
   }
 
-  function sendBrief(text) {
-    var payload = {
-      _subject: "Dark Sky Systems — request",
-      _template: "box",
-      _captcha: "false",
-      name: val("fromName"),
-      phone: val("fromPhone"),
-      organization: val("org") || "(none)",
-      place: val("venue"),
-      when: val("window"),
-      message: text
-    };
+  function checkedValues(name) {
+    var out = [];
+    var boxes = document.querySelectorAll('input[name="' + name + '"]:checked');
+    for (var i = 0; i < boxes.length; i += 1) out.push(boxes[i].value);
+    return out;
+  }
+
+  function radioValue(name) {
+    var el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? trimText(el.value) : "";
+  }
+
+  function composePilot() {
+    var lines = ["Dark Sky Systems — PILOT APPLICATION"];
+    lines.push("Name: " + val("pName"));
+    lines.push("Callback: " + val("pPhone"));
+    lines.push("Email: " + val("pEmail"));
+    lines.push("City: " + val("pCity"));
+    lines.push("Part 107: " + (radioValue("p107") || "(none)"));
+    if (val("pCert")) lines.push("Certificate: " + val("pCert"));
+    if (val("pCertDate")) lines.push("Cert date: " + val("pCertDate"));
+    var extras = checkedValues("pNight").concat(checkedValues("pWaiver"));
+    if (extras.length) lines.push("Ratings: " + extras.join("; "));
+    if (val("pHours")) lines.push("PIC hours (stated): " + val("pHours"));
+    if (val("pAir")) lines.push("Aircraft: " + val("pAir"));
+    if (val("pIns")) lines.push("Insurance: " + val("pIns"));
+    var bg = checkedValues("pBg");
+    lines.push("Background: " + (bg.length ? bg.join("; ") : "(none marked)"));
+    var seats = checkedValues("pSeat");
+    lines.push("Chair: " + (seats.length ? seats.join("; ") : "(none marked)"));
+    if (val("pWhen")) lines.push("When: " + val("pWhen"));
+    if (val("pNote")) lines.push("Note: " + val("pNote"));
+    lines.push("Ack: listen-only, not security, not a hire.");
+    return lines.join("\n");
+  }
+
+  function sendPayload(payload) {
     return fetch(RELAY, {
       method: "POST",
       headers: {
@@ -103,6 +128,77 @@
       }).catch(function () {
         return { ok: res.ok, data: null };
       });
+    });
+  }
+
+  function sendBrief(text) {
+    return sendPayload({
+      _subject: "Dark Sky Systems — request",
+      _template: "box",
+      _captcha: "false",
+      name: val("fromName"),
+      phone: val("fromPhone"),
+      organization: val("org") || "(none)",
+      place: val("venue"),
+      when: val("window"),
+      message: text
+    });
+  }
+
+  function sendPilot(text) {
+    return sendPayload({
+      _subject: "Dark Sky Systems — PILOT",
+      _template: "box",
+      _captcha: "false",
+      kind: "PILOT",
+      name: val("pName"),
+      phone: val("pPhone"),
+      email: val("pEmail"),
+      city: val("pCity"),
+      part107: radioValue("p107"),
+      certificate: val("pCert") || "(none)",
+      background: checkedValues("pBg").join("; ") || "(none)",
+      chair: checkedValues("pSeat").join("; ") || "(none)",
+      message: text
+    });
+  }
+
+  function wireForm(formEl, buttonEl, statusEl, composeFn, sendFn) {
+    if (!formEl) return;
+    formEl.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      if (typeof formEl.reportValidity === "function" && !formEl.reportValidity()) return;
+      var hp = formEl.querySelector('input[name="botcheck"]');
+      if (hp && hp.checked) return;
+      var text = composeFn();
+      copyText(text);
+      if (buttonEl) buttonEl.disabled = true;
+      if (statusEl) {
+        statusEl.hidden = false;
+        statusEl.textContent = "Sending…";
+      }
+      sendFn(text)
+        .then(function (result) {
+          var msg = result.data && result.data.message ? String(result.data.message) : "";
+          var line;
+          if (/activat/i.test(msg)) {
+            line = "Check Outlook (and junk) for a one-time confirm. After you click it, this form is live.";
+          } else if (result.ok) {
+            line = "Sent. Tagged PILOT in the inbox. Brief also copied.";
+          } else {
+            line = "Copy saved on this device. Send did not go through — try again.";
+          }
+          if (statusEl) statusEl.textContent = line;
+        })
+        .catch(function () {
+          if (statusEl) {
+            statusEl.hidden = false;
+            statusEl.textContent = "Copy saved on this device. Send did not go through — try again.";
+          }
+        })
+        .then(function () {
+          if (buttonEl) buttonEl.disabled = false;
+        });
     });
   }
 
@@ -135,6 +231,14 @@
         });
     });
   }
+
+  wireForm(
+    document.getElementById("pilot"),
+    document.getElementById("btnPilot"),
+    document.getElementById("pilotStatus"),
+    composePilot,
+    sendPilot
+  );
 
   var loops = document.querySelectorAll(".hero-loop, .ground-loop, .svc-loop");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;

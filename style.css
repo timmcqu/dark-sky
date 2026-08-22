@@ -93,11 +93,12 @@ img { height: auto; }
 
 .rail {
   display: flex;
-  gap: 1.35rem;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.15rem;
   margin-left: auto;
   font-size: 0.72rem;
   font-weight: 400;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
