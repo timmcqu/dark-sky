@@ -55,6 +55,69 @@
         "You bring the laptop and the radios"
       ]
     },
+    basic_m: {
+      title: "Monitoring · Basic",
+      lede: "One site. Live map. Your list in green. Off-list in red. Alerts. 90-day archive.",
+      price: "$250 / month",
+      amount: "250",
+      chase: "",
+      stripe: "",
+      gets: ["One named site", "Live map and off-list alerts", "90-day archive"]
+    },
+    basic_y: {
+      title: "Monitoring · Basic (year)",
+      lede: "Same as Basic. One year, paid once.",
+      price: "$2,500 / year",
+      amount: "2500",
+      chase: "",
+      stripe: "",
+      gets: ["One named site", "Live map and off-list alerts", "90-day archive"]
+    },
+    pro_m: {
+      title: "Monitoring · Pro",
+      lede: "Multi-site. API. Webhooks. Two-year archive.",
+      price: "$750 / month",
+      amount: "750",
+      chase: "",
+      stripe: "",
+      gets: ["Multi-site", "API and webhooks", "Two-year archive"]
+    },
+    pro_y: {
+      title: "Monitoring · Pro (year)",
+      lede: "Same as Pro. One year, paid once.",
+      price: "$7,500 / year",
+      amount: "7500",
+      chase: "",
+      stripe: "",
+      gets: ["Multi-site", "API and webhooks", "Two-year archive"]
+    },
+    campus: {
+      title: "Campus & Facility Assurance",
+      lede: "Pro monitoring, four flown visits with stills and thermal, one observation file.",
+      price: "$18,000 / year",
+      amount: "18000",
+      chase: "",
+      stripe: "",
+      gets: ["Pro monitoring", "Four flown visits", "One observation file"]
+    },
+    build: {
+      title: "Construction Progress",
+      lede: "Weekly or bi-weekly stills while the job is open. Thermal as needed.",
+      price: "$2,500 / month",
+      amount: "2500",
+      chase: "",
+      stripe: "",
+      gets: ["Weekly or bi-weekly stills", "Thermal as needed", "Air map on request"]
+    },
+    venue: {
+      title: "Venue & Event Season",
+      lede: "Named dates: pre-survey, coverage days, air map, post file.",
+      price: "$8,500 / season",
+      amount: "8500",
+      chase: "",
+      stripe: "",
+      gets: ["Pre-survey", "Coverage days", "Air map and post file"]
+    },
     radio: {
       title: "Fusion Sensor + radios",
       lede: "Same console. We kit, flash, ship the listen radios, and walk the first listen with you.",
@@ -73,6 +136,11 @@
       ]
     }
   };
+
+  var LINKS = window.DSS_STRIPE || {};
+  Object.keys(SKUS).forEach(function (k) {
+    if (LINKS[k]) SKUS[k].stripe = LINKS[k];
+  });
 
   var params = new URLSearchParams(location.search);
   var key = params.get("sku") || "soft";
@@ -115,12 +183,17 @@
       : "Name and email. After the deposit posts, we send the license or pack.";
   }
   if (params.get("paid") === "1") {
-    if (status) {
-      status.hidden = false;
-      status.textContent = "Payment received. We email the license or pack to this address.";
-    }
+    location.replace("paid.html?sku=" + encodeURIComponent(key));
+    return;
   }
-  if (btn) btn.textContent = "Save details";
+  if (btn) btn.textContent = sku.stripe ? "Continue to Stripe" : "Save details";
+  var wrapEarly = document.getElementById("payWrap");
+  var payEarly = document.getElementById("payNow");
+  if (payEarly && sku.stripe) {
+    payEarly.href = sku.stripe;
+    payEarly.textContent = "Pay with Stripe";
+    if (wrapEarly) wrapEarly.hidden = false;
+  }
   document.querySelectorAll(".sku-switch a").forEach(function (a) {
     if (a.getAttribute("data-sku") === key) a.setAttribute("aria-current", "page");
   });

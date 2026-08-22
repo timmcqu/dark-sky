@@ -102,23 +102,29 @@
       if (score > 100) score = 100;
       var plan = "Monitoring · Basic — $250 / month";
       var why = "One site, live map, off-list alerts.";
+      var sku = "basic_m";
       if (score >= 70 && type === "venue") {
         plan = "Venue & Event Season — $8,500 / season";
         why = "Named dates, coverage days, and the air map while gates are open.";
+        sku = "venue";
       } else if (score >= 65 && type === "campus") {
         plan = "Campus & Facility Assurance — $18,000 / year";
         why = "Year-round monitoring plus four flown visits and an observation file.";
+        sku = "campus";
       } else if (score >= 55 && type === "build") {
         plan = "Construction Progress — $2,500 / month";
         why = "Weekly stills while the job is open, thermal when the deck needs it.";
+        sku = "build";
       } else if (score >= 55) {
         plan = "Monitoring · Pro — $750 / month";
         why = "Multi-site picture and alerts your ops can keep.";
+        sku = "pro_m";
       }
       document.getElementById("outTitle").textContent = document.getElementById("rPlace").value;
       document.getElementById("outScore").textContent = "Risk score " + score + " / 100. " + why;
       document.getElementById("outPlan").textContent = "Recommended: " + plan;
       document.getElementById("outCta").hidden = false;
+      document.querySelector("#outCta .cta").href = "pay.html?sku=" + sku;
     });
   </script>
 </body>
