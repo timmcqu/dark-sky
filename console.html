@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="console.css?v=1" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="console.css?v=3" />
 </head>
 <body>
   <div class="pad" id="pad">
@@ -29,7 +30,7 @@
         <button type="button" class="on" data-layer="apt">Airports</button>
         <button type="button" class="on" data-layer="rid">RID</button>
       </div>
-      <canvas id="radar" width="900" height="620" aria-label="Air picture. Click a track."></canvas>
+      <div id="map" class="map" role="img" aria-label="Tactical map. Click a track."></div>
     </main>
     <aside class="detail" id="detail">
       <p class="k" id="detail-k">Track</p>
@@ -45,6 +46,7 @@
       <p class="spec-meta">SPECTRUM · 2.4 GHz · 10 MHz span · OcuSync-class hop · analog FPV on 5.8</p>
     </footer>
   </div>
-  <script src="console.js?v=2"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="console.js?v=3"></script>
 </body>
 </html>

@@ -71,11 +71,33 @@ html, body { margin: 0; height: 100%; background: var(--ink); color: var(--paper
 .list button:hover, .list button.on { border-color: var(--gold); color: var(--gold); }
 .list .sub { display: block; color: var(--mute); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.15rem; }
 .glass { position: relative; min-height: 0; background: #050505; }
+.map { position: absolute; inset: 0; z-index: 0; background: #050505; }
+.map .leaflet-container { background: #050505; font-family: var(--sans); }
+.icon-plane, .icon-drone, .icon-apt {
+  background: none !important;
+  border: none !important;
+}
+.icon-plane span, .icon-drone span {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: #ece6d8;
+  text-align: center;
+  margin-top: 2px;
+  text-shadow: 0 1px 2px #000;
+}
+.icon-drone span { color: #e24b4b; }
+.icon-apt {
+  color: #9e9586;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-shadow: 0 1px 2px #000;
+}
 .layers {
   position: absolute;
   top: 0.65rem;
   left: 0.65rem;
-  z-index: 2;
+  z-index: 650;
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;

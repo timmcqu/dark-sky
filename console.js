@@ -1,233 +1,122 @@
 (function () {
+  var CENTER = [39.98, -82.99];
   var AIRPORTS = [
-    { id: "KAUS", name: "Austin-Bergstrom", r: 0.62, a: 3.4 },
-    { id: "KGTU", name: "Georgetown", r: 0.38, a: -0.2 },
-    { id: "KHYI", name: "San Marcos", r: 0.7, a: 2.7 },
-    { id: "KILE", name: "Killeen", r: 0.72, a: -0.55 },
-    { id: "KTPL", name: "Temple", r: 0.78, a: -0.85 },
-    { id: "KGRK", name: "Robert Gray", r: 0.68, a: -0.7 },
-    { id: "KSEQ", name: "Randolph", r: 0.82, a: 2.2 },
-    { id: "KBAZ", name: "New Braunfels", r: 0.74, a: 2.45 }
+    { id: "KCMH", lat: 39.998, lng: -82.892 },
+    { id: "KOSU", lat: 40.080, lng: -83.073 },
+    { id: "KLCK", lat: 39.814, lng: -82.928 },
+    { id: "KTZR", lat: 39.901, lng: -83.137 },
+    { id: "KMRT", lat: 40.225, lng: -83.352 },
+    { id: "KLHQ", lat: 39.756, lng: -82.657 }
   ];
-
   var TRACKS = [
-    { id: "N9411T", layer: "adsb", kind: "ADS-B 1090", heading: 30, alt: "10", r: 0.28, a: -0.35, color: "#d8d2c4" },
-    { id: "A67BA2", layer: "adsb", kind: "ADS-B 1090", heading: 58, alt: "18", r: 0.42, a: 0.85, color: "#d8d2c4" },
-    { id: "A7", layer: "rf", kind: "RF · analog FPV energy", freq: "5.8 GHz · 2.4 GHz hop", snr: "energy on glass", r: 0.08, a: 0.4, color: "#e24b4b" },
-    { id: "A4", layer: "rf", kind: "RF · OcuSync-class", freq: "2.4 / 5.8 GHz dual-band", snr: "hop set in the log", r: 0.18, a: 1.1, color: "#e24b4b" }
+    { id: "N441CM", layer: "adsb", kind: "ADS-B 1090", heading: 42, alt: "FL120", lat: 40.04, lng: -82.95 },
+    { id: "N882PA", layer: "adsb", kind: "ADS-B 1090", heading: 268, alt: "FL080", lat: 39.93, lng: -82.88 },
+    { id: "R7", layer: "rf", kind: "RF · analog FPV energy", freq: "5.8 GHz · 2.4 GHz hop", snr: "energy on glass", lat: 39.99, lng: -83.02, heading: 15 },
+    { id: "R3", layer: "rf", kind: "RF · OcuSync-class", freq: "2.4 / 5.8 GHz dual-band", snr: "hop set in the log", lat: 40.01, lng: -82.97, heading: 200 }
   ];
-
-  TRACKS.forEach(function (tr) {
-    tr.nx = Math.sin(tr.a) * tr.r;
-    tr.ny = -Math.cos(tr.a) * tr.r;
-  });
 
   var layers = { adsb: true, rf: true, apt: true, rid: true };
   var selected = null;
-  var t0 = performance.now();
-  var radar = document.getElementById("radar");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var spec = document.getElementById("spec");
   var list = document.getElementById("track-list");
-  var detail = document.getElementById("detail");
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var map = L.map("map", {
+    center: CENTER,
+    zoom: 11,
+    zoomControl: false,
+    attributionControl: false,
+    minZoom: 9,
+    maxZoom: 14
+  });
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+    attribution: "CARTO · OSM",
+    subdomains: "abcd",
+    maxZoom: 19
+  }).addTo(map);
+  L.control.attribution({ prefix: false, position: "bottomleft" }).addTo(map);
 
-  function visible(tr) {
-    return !!layers[tr.layer];
+  var rings = L.layerGroup();
+  [8000, 16000, 24000, 32000].forEach(function (m) {
+    L.circle(CENTER, {
+      radius: m,
+      color: "#c4a35a",
+      weight: 1,
+      opacity: 0.35,
+      fill: false
+    }).addTo(rings);
+  });
+  rings.addTo(map);
+
+  var aptGroup = L.layerGroup();
+  AIRPORTS.forEach(function (ap) {
+    L.marker([ap.lat, ap.lng], {
+      interactive: false,
+      icon: L.divIcon({
+        className: "icon-apt",
+        html: ap.id,
+        iconSize: [48, 16],
+        iconAnchor: [24, 8]
+      })
+    }).addTo(aptGroup);
+  });
+  aptGroup.addTo(map);
+
+  function planeSvg(rot) {
+    return '<svg width="36" height="36" viewBox="-24 -24 48 48" style="transform:rotate(' + rot + 'deg)"><path fill="#cfc8ba" d="M0-20 C2.8-18 3.1-8 2.8 6 L2.2 18 0 15 -2.2 18 -2.8 6 C-3.1-8-2.8-18 0-20Z"/><path fill="#cfc8ba" d="M2.6-1 L24 9 22 12 2.4 6Z"/><path fill="#cfc8ba" d="M-2.6-1 L-24 9 -22 12 -2.4 6Z"/><path fill="#cfc8ba" d="M2 11 L9 17 1.8 14.5Z"/><path fill="#cfc8ba" d="M-2 11 L-9 17 -1.8 14.5Z"/></svg>';
+  }
+  function droneSvg() {
+    return '<svg width="34" height="34" viewBox="-22 -22 44 44"><g stroke="#e24b4b" fill="#e24b4b" stroke-width="3" stroke-linecap="round"><line x1="-15" y1="-15" x2="15" y2="15"/><line x1="15" y1="-15" x2="-15" y2="15"/><circle cx="-15" cy="-15" r="4.2"/><circle cx="15" cy="-15" r="4.2"/><circle cx="-15" cy="15" r="4.2"/><circle cx="15" cy="15" r="4.2"/><rect x="-6.2" y="-4.8" width="12.4" height="9.6" rx="2"/></g></svg>';
   }
 
-  function polar(cx, cy, rMax, r, a) {
-    return { x: cx + Math.sin(a) * r * rMax, y: cy - Math.cos(a) * r * rMax };
+  TRACKS.forEach(function (tr) {
+    var html = tr.layer === "adsb"
+      ? planeSvg(tr.heading) + "<span>" + tr.id + "</span>"
+      : droneSvg() + "<span>" + tr.id + "</span>";
+    tr.marker = L.marker([tr.lat, tr.lng], {
+      icon: L.divIcon({
+        className: tr.layer === "adsb" ? "icon-plane" : "icon-drone",
+        html: html,
+        iconSize: [48, 48],
+        iconAnchor: [24, 24]
+      })
+    }).on("click", function () { openTrack(tr.id); });
+    tr.marker.addTo(map);
+  });
+
+  function dest(lat, lng, heading, meters) {
+    var R = 6371000;
+    var brng = (heading * Math.PI) / 180;
+    var p1 = (lat * Math.PI) / 180;
+    var l1 = (lng * Math.PI) / 180;
+    var p2 = Math.asin(Math.sin(p1) * Math.cos(meters / R) + Math.cos(p1) * Math.sin(meters / R) * Math.cos(brng));
+    var l2 = l1 + Math.atan2(Math.sin(brng) * Math.sin(meters / R) * Math.cos(p1), Math.cos(meters / R) - Math.sin(p1) * Math.sin(p2));
+    return [p2 * 180 / Math.PI, ((l2 * 180 / Math.PI + 540) % 360) - 180];
   }
 
-  function drawAirplane(ctx) {
-    ctx.fillStyle = "#cfc8ba";
-    ctx.beginPath();
-    ctx.moveTo(0, -20);
-    ctx.bezierCurveTo(2.8, -18, 3.1, -8, 2.8, 6);
-    ctx.lineTo(2.2, 18);
-    ctx.lineTo(0, 15);
-    ctx.lineTo(-2.2, 18);
-    ctx.lineTo(-2.8, 6);
-    ctx.bezierCurveTo(-3.1, -8, -2.8, -18, 0, -20);
-    ctx.closePath();
-    ctx.fill();
-    ctx.beginPath();
-    ctx.moveTo(2.6, -1);
-    ctx.lineTo(24, 9);
-    ctx.lineTo(22, 12);
-    ctx.lineTo(2.4, 6);
-    ctx.closePath();
-    ctx.fill();
-    ctx.beginPath();
-    ctx.moveTo(-2.6, -1);
-    ctx.lineTo(-24, 9);
-    ctx.lineTo(-22, 12);
-    ctx.lineTo(-2.4, 6);
-    ctx.closePath();
-    ctx.fill();
-    ctx.beginPath();
-    ctx.moveTo(2, 11);
-    ctx.lineTo(9, 17);
-    ctx.lineTo(1.8, 14.5);
-    ctx.closePath();
-    ctx.fill();
-    ctx.beginPath();
-    ctx.moveTo(-2, 11);
-    ctx.lineTo(-9, 17);
-    ctx.lineTo(-1.8, 14.5);
-    ctx.closePath();
-    ctx.fill();
+  function refreshIcon(tr) {
+    var html = tr.layer === "adsb"
+      ? planeSvg(tr.heading) + "<span>" + tr.id + "</span>"
+      : droneSvg() + "<span>" + tr.id + "</span>";
+    tr.marker.setIcon(L.divIcon({
+      className: tr.layer === "adsb" ? "icon-plane" : "icon-drone",
+      html: html,
+      iconSize: [48, 48],
+      iconAnchor: [24, 24]
+    }));
   }
 
-  function drawDrone(ctx) {
-    var arm = 15;
-    ctx.strokeStyle = "#e24b4b";
-    ctx.fillStyle = "#e24b4b";
-    ctx.lineWidth = 3.2;
-    ctx.lineCap = "round";
-    ctx.beginPath();
-    ctx.moveTo(-arm, -arm);
-    ctx.lineTo(arm, arm);
-    ctx.moveTo(arm, -arm);
-    ctx.lineTo(-arm, arm);
-    ctx.stroke();
-    [[-arm, -arm], [arm, -arm], [-arm, arm], [arm, arm]].forEach(function (p) {
-      ctx.beginPath();
-      ctx.arc(p[0], p[1], 4.4, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.arc(p[0], p[1], 7.2, 0, Math.PI * 2);
-      ctx.lineWidth = 1.4;
-      ctx.stroke();
-    });
-    ctx.beginPath();
-    if (ctx.roundRect) ctx.roundRect(-6.5, -5, 13, 10, 2.5);
-    else ctx.rect(-6.5, -5, 13, 10);
-    ctx.fill();
-  }
+  function visible(tr) { return !!layers[tr.layer]; }
 
-  function drawRadar(now) {
-    var w = radar.width = radar.clientWidth * 2;
-    var h = radar.height = radar.clientHeight * 2;
-    var ctx = radar.getContext("2d");
-    var cx = w * 0.5;
-    var cy = h * 0.52;
-    var rMax = Math.min(w, h) * 0.42;
-    var dt = reduce ? 0 : Math.min(32, now - (drawRadar._last || now));
-    drawRadar._last = now;
-
-    ctx.fillStyle = "#050505";
-    ctx.fillRect(0, 0, w, h);
-    ctx.strokeStyle = "rgba(196,163,90,0.28)";
-    ctx.lineWidth = 2;
-    for (var i = 1; i <= 4; i++) {
-      ctx.beginPath();
-      ctx.ellipse(cx, cy, rMax * (i / 4) * 1.15, rMax * (i / 4), 0, 0, Math.PI * 2);
-      ctx.stroke();
-    }
-    ctx.beginPath();
-    ctx.moveTo(cx, cy - rMax * 1.05);
-    ctx.lineTo(cx, cy + rMax * 1.05);
-    ctx.moveTo(cx - rMax * 1.2, cy);
-    ctx.lineTo(cx + rMax * 1.2, cy);
-    ctx.stroke();
-    ctx.fillStyle = "#c4a35a";
-    ctx.font = "20px Outfit, sans-serif";
-    ctx.textAlign = "center";
-    ctx.fillText("N", cx, cy - rMax * 1.08);
-
-    if (layers.apt) {
-      ctx.fillStyle = "#9e9586";
-      ctx.font = "16px Outfit, sans-serif";
-      AIRPORTS.forEach(function (ap) {
-        var p = polar(cx, cy, rMax, ap.r, ap.a, 0);
-        ctx.fillText(ap.id, p.x, p.y);
-      });
-    }
-
+  function syncLayers() {
     TRACKS.forEach(function (tr) {
-      if (!visible(tr)) return;
-      if (tr.layer === "adsb" && dt) {
-        var rad = (tr.heading * Math.PI) / 180;
-        tr.nx += Math.sin(rad) * 0.000028 * dt;
-        tr.ny -= Math.cos(rad) * 0.000028 * dt;
-        var dist = Math.hypot(tr.nx, tr.ny);
-        if (dist > 0.78) {
-          tr.heading = (tr.heading + 160) % 360;
-        }
-      }
-      var px = cx + tr.nx * rMax * 1.15;
-      var py = cy + tr.ny * rMax;
-      if (tr.layer === "rf" && !reduce) {
-        py += Math.sin(now / 420 + tr.a) * 3;
-      }
-      tr._x = px;
-      tr._y = py;
-      ctx.save();
-      ctx.translate(px, py);
-      if (tr.layer === "adsb") {
-        ctx.rotate((tr.heading * Math.PI) / 180);
-        ctx.scale(1.15, 1.15);
-        drawAirplane(ctx);
-      } else {
-        ctx.rotate(reduce ? 0 : now / 2800);
-        ctx.scale(1.05, 1.05);
-        drawDrone(ctx);
-      }
-      ctx.restore();
-      ctx.fillStyle = selected === tr.id ? "#c4a35a" : tr.color;
-      ctx.font = "18px Outfit, sans-serif";
-      ctx.textAlign = "left";
-      ctx.fillText(tr.id, px + 18, py - 10);
+      if (visible(tr)) {
+        if (!map.hasLayer(tr.marker)) tr.marker.addTo(map);
+      } else if (map.hasLayer(tr.marker)) map.removeLayer(tr.marker);
     });
-
-    if (layers.rid) {
-      ctx.fillStyle = "#3dcf8a";
-      ctx.font = "15px Outfit, sans-serif";
-      ctx.textAlign = "left";
-      ctx.fillText("RID · listening", 24, h - 28);
-    }
-  }
-
-  var specHist = [];
-  function drawSpec(now) {
-    var w = spec.width = spec.clientWidth * 2;
-    var h = spec.height = spec.clientHeight * 2;
-    var ctx = spec.getContext("2d");
-    var peak = 0.62 + Math.sin(now / 700) * 0.04;
-    var row = [];
-    var i;
-    for (i = 0; i < 160; i++) {
-      var x = i / 160;
-      var n = Math.abs(Math.sin(x * 18 + now / 900)) * 0.08;
-      var v = Math.max(0, 1 - Math.abs(x - peak) * 14) * 0.85 + n;
-      row.push(v);
-    }
-    if (!reduce) {
-      specHist.unshift(row);
-      if (specHist.length > 28) specHist.pop();
-    } else if (!specHist.length) specHist = [row];
-
-    ctx.fillStyle = "#050505";
-    ctx.fillRect(0, 0, w, h);
-    var wf = h * 0.55;
-    specHist.forEach(function (r, yi) {
-      for (i = 0; i < r.length; i++) {
-        var g = Math.floor(20 + r[i] * 180);
-        ctx.fillStyle = "rgb(" + g + "," + Math.floor(g * 0.12) + "," + Math.floor(g * 0.12) + ")";
-        ctx.fillRect((i / r.length) * w, wf + yi * ((h - wf) / 28), w / r.length + 1, (h - wf) / 28 + 1);
-      }
-    });
-    ctx.beginPath();
-    ctx.strokeStyle = "#ece6d8";
-    ctx.lineWidth = 2;
-    for (i = 0; i < row.length; i++) {
-      var px = (i / (row.length - 1)) * w;
-      var py = wf - row[i] * (wf - 8);
-      if (i === 0) ctx.moveTo(px, py);
-      else ctx.lineTo(px, py);
-    }
-    ctx.stroke();
+    if (layers.apt) {
+      if (!map.hasLayer(aptGroup)) aptGroup.addTo(map);
+    } else if (map.hasLayer(aptGroup)) map.removeLayer(aptGroup);
+    renderList();
   }
 
   function renderList() {
@@ -251,34 +140,24 @@
     selected = id;
     document.getElementById("detail-k").textContent = tr.layer === "rf" ? "RF contact" : "ADS-B";
     document.getElementById("detail-id").textContent = tr.id;
-    var rows = [
-      ["Layer", tr.kind],
-      ["Place", "Named window"]
-    ];
-    if (tr.heading) rows.push(["Heading", tr.heading]);
+    var rows = [["Layer", tr.kind], ["Place", "Named window"]];
+    if (tr.heading != null && tr.layer === "adsb") rows.push(["Heading", String(Math.round(tr.heading)).padStart(3, "0")]);
     if (tr.alt) rows.push(["Alt / FL", tr.alt]);
     if (tr.freq) rows.push(["RF", tr.freq]);
     if (tr.snr) rows.push(["Picture", tr.snr]);
-    var dl = document.getElementById("detail-dl");
-    dl.innerHTML = rows.map(function (r) {
+    document.getElementById("detail-dl").innerHTML = rows.map(function (r) {
       return "<dt>" + r[0] + "</dt><dd>" + r[1] + "</dd>";
     }).join("");
-    detail.hidden = false;
+    map.panTo([tr.lat, tr.lng], { animate: true, duration: 0.4 });
     renderList();
   }
 
-  function hit(ev) {
-    var rect = radar.getBoundingClientRect();
-    var sx = (ev.clientX - rect.left) * (radar.width / rect.width);
-    var sy = (ev.clientY - rect.top) * (radar.height / rect.height);
-    var best = null;
-    var bestD = 36 * (radar.width / rect.width);
-    TRACKS.forEach(function (tr) {
-      if (!visible(tr) || tr._x == null) return;
-      var d = Math.hypot(tr._x - sx, tr._y - sy);
-      if (d < bestD) { bestD = d; best = tr; }
-    });
-    if (best) openTrack(best.id);
+  function clearDetail() {
+    selected = null;
+    document.getElementById("detail-k").textContent = "Track";
+    document.getElementById("detail-id").textContent = "Click a contact";
+    document.getElementById("detail-dl").innerHTML = "<dt>Hint</dt><dd>ADS-B airframes, RF energy, airports, RID listen. Demo replay of a named window.</dd>";
+    renderList();
   }
 
   document.querySelectorAll(".layers button").forEach(function (btn) {
@@ -288,35 +167,73 @@
       btn.classList.toggle("on", layers[key]);
       if (selected) {
         var cur = TRACKS.filter(function (t) { return t.id === selected; })[0];
-        if (cur && !visible(cur)) {
-          selected = null;
-          clearDetail();
-        }
+        if (cur && !visible(cur)) clearDetail();
       }
-      renderList();
+      syncLayers();
     });
   });
+  document.getElementById("detail-close").addEventListener("click", clearDetail);
 
-  function clearDetail() {
-    document.getElementById("detail-k").textContent = "Track";
-    document.getElementById("detail-id").textContent = "Click a contact";
-    document.getElementById("detail-dl").innerHTML = "<dt>Hint</dt><dd>ADS-B airframes, RF energy, airports, RID listen. Demo replay of a named window.</dd>";
+  var specHist = [];
+  function drawSpec(now) {
+    var w = spec.width = spec.clientWidth * 2;
+    var h = spec.height = spec.clientHeight * 2;
+    var ctx = spec.getContext("2d");
+    var peak = 0.62 + Math.sin(now / 700) * 0.04;
+    var row = [];
+    var i;
+    for (i = 0; i < 160; i++) {
+      var x = i / 160;
+      var n = Math.abs(Math.sin(x * 18 + now / 900)) * 0.08;
+      row.push(Math.max(0, 1 - Math.abs(x - peak) * 14) * 0.85 + n);
+    }
+    if (!reduce) {
+      specHist.unshift(row);
+      if (specHist.length > 28) specHist.pop();
+    } else if (!specHist.length) specHist = [row];
+    ctx.fillStyle = "#050505";
+    ctx.fillRect(0, 0, w, h);
+    var wf = h * 0.55;
+    specHist.forEach(function (r, yi) {
+      for (i = 0; i < r.length; i++) {
+        var g = Math.floor(20 + r[i] * 180);
+        ctx.fillStyle = "rgb(" + g + "," + Math.floor(g * 0.12) + "," + Math.floor(g * 0.12) + ")";
+        ctx.fillRect((i / r.length) * w, wf + yi * ((h - wf) / 28), w / r.length + 1, (h - wf) / 28 + 1);
+      }
+    });
+    ctx.beginPath();
+    ctx.strokeStyle = "#ece6d8";
+    ctx.lineWidth = 2;
+    for (i = 0; i < row.length; i++) {
+      var px = (i / (row.length - 1)) * w;
+      var py = wf - row[i] * (wf - 8);
+      if (i === 0) ctx.moveTo(px, py);
+      else ctx.lineTo(px, py);
+    }
+    ctx.stroke();
   }
 
-  document.getElementById("detail-close").addEventListener("click", function () {
-    selected = null;
-    clearDetail();
-    renderList();
-  });
-
-  radar.addEventListener("click", hit);
-
-  function frame(now) {
-    drawRadar(now);
+  var last = performance.now();
+  function tick(now) {
+    var dt = Math.min(48, now - last);
+    last = now;
+    if (!reduce) {
+      TRACKS.forEach(function (tr) {
+        if (!visible(tr)) return;
+        var speed = tr.layer === "adsb" ? 18 : 4;
+        var next = dest(tr.lat, tr.lng, tr.heading, speed * (dt / 1000));
+        tr.lat = next[0];
+        tr.lng = next[1];
+        if (map.distance(CENTER, [tr.lat, tr.lng]) > 38000) tr.heading = (tr.heading + 155) % 360;
+        tr.marker.setLatLng([tr.lat, tr.lng]);
+        if (tr.layer === "adsb") refreshIcon(tr);
+      });
+    }
     drawSpec(now);
-    if (!reduce) requestAnimationFrame(frame);
+    requestAnimationFrame(tick);
   }
 
   renderList();
-  requestAnimationFrame(frame);
+  setTimeout(function () { map.invalidateSize(); }, 80);
+  requestAnimationFrame(tick);
 })();
