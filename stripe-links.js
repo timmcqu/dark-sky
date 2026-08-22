@@ -24,5 +24,10 @@ window.DSS_STRIPE = {
   job: "https://buy.stripe.com/8x2cN59HQ1cB8U87Z5fIs0m",
   school: "https://buy.stripe.com/aFa4gzbPY7AZdaoentfIs0n",
   incident: "https://buy.stripe.com/eVq28r07gbRf9YcentfIs0o",
-  crew: "https://buy.stripe.com/5kQ9AT9HQ3kJ5HW939fIs0p"
+  crew: "https://buy.stripe.com/5kQ9AT9HQ3kJ5HW939fIs0p",
+  rid: "https://buy.stripe.com/3cI14n9HQg7vb2g939fIs0q",
+  listen: "https://buy.stripe.com/4gMaEX8DM8F39YccflfIs0r",
+  ant1090: "https://buy.stripe.com/fZufZh07g2gF0nC7Z5fIs0s",
+  case: "https://buy.stripe.com/7sYbJ16vE8F39YcgvBfIs0t",
+  starter: "https://buy.stripe.com/8x2cN57zI4oN4DSgvBfIs0u"
 };
