@@ -1,0 +1,129 @@
+/* Dark Sky product assistant */
+.dss-chat-btn {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 40;
+  min-height: 48px;
+  padding: 0.7rem 1.15rem;
+  border: 1px solid var(--gold);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.dss-chat-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.dss-chat-panel {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: calc(max(1rem, env(safe-area-inset-bottom)) + 3.4rem);
+  z-index: 41;
+  width: min(22.5rem, calc(100vw - 2rem));
+  height: min(32rem, calc(100svh - 7rem));
+  display: flex;
+  flex-direction: column;
+  background: var(--lift);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+}
+.dss-chat-panel[hidden] { display: none; }
+.dss-chat-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+.dss-chat-head strong {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+.dss-chat-x {
+  background: none;
+  border: 0;
+  color: var(--mute);
+  font-size: 1.2rem;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+}
+.dss-chat-log {
+  flex: 1;
+  overflow: auto;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.dss-chat-msg {
+  max-width: 95%;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--paper);
+}
+.dss-chat-msg.bot { color: #d8d0c0; }
+.dss-chat-msg.me {
+  align-self: flex-end;
+  background: #1c1914;
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.65rem;
+}
+.dss-chat-msg a { color: var(--gold); }
+.dss-chat-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0 1rem 0.5rem;
+}
+.dss-chat-chips button {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--mute);
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.55rem;
+  cursor: pointer;
+  min-height: 36px;
+}
+.dss-chat-form {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.65rem 0.75rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--line);
+}
+.dss-chat-form input {
+  flex: 1;
+  min-width: 0;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--line);
+  padding: 0.55rem 0.7rem;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+}
+.dss-chat-form button {
+  background: var(--paper);
+  color: var(--ink);
+  border: 0;
+  padding: 0 0.9rem;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+@media (max-width: 639px) {
+  .dss-chat-panel {
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: min(70svh, 34rem);
+  }
+}
