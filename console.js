@@ -39,7 +39,7 @@
   [8000, 16000, 24000, 32000].forEach(function (m) {
     L.circle(CENTER, {
       radius: m,
-      color: "#c4a35a",
+      color: "#e24b4b",
       weight: 1,
       opacity: 0.35,
       fill: false
@@ -132,6 +132,12 @@
       li.appendChild(b);
       list.appendChild(li);
     });
+    var air = TRACKS.filter(function (t) { return t.layer === "adsb" && visible(t); }).length;
+    var rf = TRACKS.filter(function (t) { return t.layer === "rf" && visible(t); }).length;
+    var airEl = document.getElementById("chip-air");
+    var rfEl = document.getElementById("chip-rf");
+    if (airEl) airEl.textContent = "Aircraft · " + air + " live";
+    if (rfEl) rfEl.textContent = rf ? "Analog FPV · energy" : "Analog FPV";
   }
 
   function openTrack(id) {

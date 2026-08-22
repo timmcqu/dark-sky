@@ -10,16 +10,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="console.css?v=3" />
+  <link rel="stylesheet" href="console.css?v=5" />
 </head>
 <body>
   <div class="pad" id="pad">
-    <header class="pad-top">
-      <p class="brand"><a href="software.html" target="_top">Fusion Sensor</a></p>
-      <p class="status"><span class="dot"></span> Demo replay · Listening</p>
-      <p class="place">Named window</p>
+    <header class="chips" aria-label="Status">
+      <a class="chip brand" href="software.html" target="_top">Fusion Sensor</a>
+      <p class="chip live"><span class="dot"></span> Listening</p>
+      <p class="chip" id="chip-air">Aircraft · 2 live</p>
+      <p class="chip" id="chip-rf">Analog FPV · energy</p>
+      <p class="chip" id="chip-rid">RID · listening</p>
+      <p class="chip mute">Demo replay</p>
     </header>
-    <aside class="list" aria-label="Tracks">
+    <aside class="list" aria-label="Listen">
+      <p class="k">RID listen</p>
+      <p class="stat"><span class="ok">Listening</span> Bluetooth LE · coded S8 · extended ads</p>
+      <p class="k">Analog FPV</p>
+      <p class="stat">5.8 GHz energy · 2.4 GHz hop</p>
       <p class="k">Tracks</p>
       <ul id="track-list"></ul>
     </aside>
@@ -30,6 +37,7 @@
         <button type="button" class="on" data-layer="apt">Airports</button>
         <button type="button" class="on" data-layer="rid">RID</button>
       </div>
+      <p class="class-key" aria-hidden="true">COM · GA · MIL · UAS</p>
       <div id="map" class="map" role="img" aria-label="Tactical map. Click a track."></div>
     </main>
     <aside class="detail" id="detail">
@@ -37,16 +45,17 @@
       <h2 id="detail-id">Click a contact</h2>
       <dl id="detail-dl">
         <dt>Hint</dt>
-        <dd>ADS-B airframes, RF energy, airports, RID listen. Demo replay of a named window.</dd>
+        <dd>White airliners are ADS-B. Red drones are radio energy. Airport codes are the overlay. This is a demo replay.</dd>
       </dl>
       <button type="button" class="close" id="detail-close">Clear</button>
     </aside>
     <footer class="spec-bar">
-      <canvas id="spec" width="1200" height="88" aria-label="Spectrum. 2.4 GHz scan."></canvas>
+      <p class="spec-live"><span class="dot"></span> Listening</p>
+      <canvas id="spec" width="1200" height="110" aria-label="Spectrum. 2.4 GHz scan."></canvas>
       <p class="spec-meta">SPECTRUM · 2.4 GHz · 10 MHz span · OcuSync-class hop · analog FPV on 5.8</p>
     </footer>
   </div>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="console.js?v=4"></script>
+  <script src="console.js?v=5"></script>
 </body>
 </html>
