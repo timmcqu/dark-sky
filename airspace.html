@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Named location report — Dark Sky Systems</title>
+  <link rel="stylesheet" href="style.css?v=91" />
+</head>
+<body>
+  <header class="mast">
+    <div class="wrap mast-inner">
+      <a class="brand" href="index.html">Dark Sky Systems</a>
+      <nav class="rail" aria-label="Primary">
+        <a href="digital.html">Instant tools</a>
+        <a href="index.html#plans">Plans</a>
+        <a href="index.html#request">Talk to us</a>
+      </nav>
+    </div>
+  </header>
+  <section class="page-hero wrap">
+    <p class="eyebrow">$149 · one-time</p>
+    <h1>Order a report for one named place.</h1>
+    <p class="lede">Tell us the campus, the job, or the venue. After payment you open a written summary — risk score, airspace context from what you entered, and recommended next steps.</p>
+  </section>
+  <section class="request">
+    <div class="wrap request-grid">
+      <form class="ask" id="air">
+        <label>Named location <span class="req">required</span>
+          <input type="text" id="aPlace" required placeholder="Campus, plant, stadium, job" />
+        </label>
+        <label>What it is
+          <select id="aType">
+            <option value="campus">Campus / facility</option>
+            <option value="build">Construction</option>
+            <option value="venue">Stadium / event</option>
+            <option value="plant">Industrial / plant</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+        <label>People on the ground
+          <select id="aPeople">
+            <option value="staff">Staff only</option>
+            <option value="public">Public on site</option>
+            <option value="dense">Dense event / gates</option>
+          </select>
+        </label>
+        <label>Airspace
+          <select id="aAir">
+            <option value="open">Open / uncontrolled</option>
+            <option value="airport">Near a towered airport</option>
+            <option value="tfr">TFR or stadium TFRs on event days</option>
+          </select>
+        </label>
+        <label>Note
+          <textarea id="aNote" rows="3" placeholder="Hours, VIP, construction phase"></textarea>
+        </label>
+        <button type="submit" class="cta">Order Your Location Report · $149</button>
+      </form>
+      <div>
+        <p class="lead">This report is generated from what you submit. It does not claim a live listen of that site until you buy monitoring.</p>
+      </div>
+    </div>
+  </section>
+  <script>
+    document.getElementById("air").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var type = document.getElementById("aType").value;
+      var people = document.getElementById("aPeople").value;
+      var air = document.getElementById("aAir").value;
+      var score = 20;
+      if (type === "venue") score += 15;
+      if (type === "plant") score += 10;
+      if (people === "public") score += 10;
+      if (people === "dense") score += 22;
+      if (air === "airport") score += 12;
+      if (air === "tfr") score += 24;
+      if (score > 100) score = 100;
+      var plan = "Monitoring · Basic — $250 / month";
+      if (type === "venue" || people === "dense") plan = "Single-Event Airspace Awareness — $2,195";
+      else if (type === "campus" && score >= 65) plan = "Campus & Facility Assurance — $18,000 / year";
+      var findings = "You described a " + type + " with " + people + " on the ground and " + air + " airspace. Fusion Sensor would listen for Remote ID and radio energy at this place. Authorized traffic would show green. Off-list broadcasts would show red.";
+      var note = document.getElementById("aNote").value;
+      if (note) findings += " Your note: " + note;
+      sessionStorage.setItem("dssAir", JSON.stringify({
+        place: document.getElementById("aPlace").value,
+        type: type, people: people, air: air, score: score,
+        plan: plan, findings: findings,
+        why: "Open monitoring after this snapshot if you need a live map. This file is a one-time written summary, not a 24-hour listen."
+      }));
+      location.href = "pay.html?sku=airspace_report";
+    });
+  </script>
+</body>
+</html>

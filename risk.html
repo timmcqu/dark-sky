@@ -72,8 +72,8 @@
         <p class="lead" id="outScore">Fill the form. We will name a plan you can start today.</p>
         <p id="outPlan"></p>
         <p class="plans-cta" id="outCta" hidden>
-          <a class="cta" href="pay.html?sku=event_package">Secure event coverage</a>
-          <a class="cta cta-ghost" href="index.html#plans">See all plans</a>
+          <a class="cta" href="pay.html?sku=risk_report">Get the Full Report · $79</a>
+          <a class="cta cta-ghost" href="pay.html?sku=event_package">Secure event coverage</a>
         </p>
       </div>
     </div>
@@ -129,6 +129,12 @@
       document.getElementById("outPlan").textContent = "Recommended: " + plan;
       document.getElementById("outCta").hidden = false;
       document.querySelector("#outCta .cta").href = "pay.html?sku=" + sku;
+      var findings = "Place type " + type + ", people " + people + ", airspace " + air + (prior === "yes" ? ", prior drone incidents reported." : ".");
+      sessionStorage.setItem("dssRisk", JSON.stringify({
+        place: document.getElementById("rPlace").value,
+        type: type, people: people, air: air, prior: prior, score: score,
+        plan: plan, findings: findings, why: why
+      }));
     });
   </script>
 </body>

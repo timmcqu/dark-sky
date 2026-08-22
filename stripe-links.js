@@ -10,6 +10,10 @@ window.DSS_STRIPE = {
   build: "https://buy.stripe.com/bJefZh7zI9J7b2g1AHfIs07",
   venue: "https://buy.stripe.com/3cIaEX2fog7vdao0wDfIs08",
   event_package: "https://buy.stripe.com/dRm28r4nw8F34DSdjpfIs09",
+  risk_report: "https://buy.stripe.com/dRmaEX6vE2gF2vKbbhfIs0a",
+  obs_templates: "https://buy.stripe.com/14A4gz1bkbRf1rGfrxfIs0b",
+  training_pack: "https://buy.stripe.com/4gM4gz07gdZngmA3IPfIs0c",
+  airspace_report: "https://buy.stripe.com/9B614n07gf3reesentfIs0d",
   ra: "",
   cards: "",
   eventpack: ""

@@ -4,26 +4,27 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Payment received — Dark Sky Systems</title>
-  <link rel="stylesheet" href="style.css?v=89" />
+  <link rel="stylesheet" href="style.css?v=91" />
 </head>
 <body>
   <header class="mast">
     <div class="wrap mast-inner">
       <a class="brand" href="index.html">Dark Sky Systems</a>
       <nav class="rail" aria-label="Primary">
+        <a href="index.html#tools">Instant tools</a>
         <a href="index.html#plans">Plans</a>
-        <a href="software.html?v=100#top">Detect Drones</a>
-        <a href="index.html#request">Contact Us</a>
+        <a href="index.html#request">Talk to us</a>
       </nav>
     </div>
   </header>
   <section class="page-hero wrap">
     <p class="eyebrow">Checkout</p>
     <h1>Payment received.</h1>
-    <p class="lede" id="paidLede">Deposit lands in Dark Sky Systems LLC. We email the license, pack, or kickoff for this plan.</p>
+    <p class="lede" id="paidLede">Deposit lands in Dark Sky Systems LLC.</p>
+    <div id="deliver" class="plans-cta"></div>
     <p class="plans-cta">
-      <a class="cta" href="index.html">Home</a>
-      <a class="cta cta-ghost" href="index.html#request">Send site details</a>
+      <a class="cta cta-ghost" href="pay.html?sku=basic_m">Start monitoring</a>
+      <a class="cta cta-ghost" href="index.html">Home</a>
     </p>
   </section>
   <footer class="foot">
@@ -34,23 +35,35 @@
   </footer>
   <script>
     var names = {
-      "soft": "Detect Drones",
-      "FS-SOFT": "Detect Drones",
-      "radio": "Detect Drones + Radios",
-      "FS-RADIO": "Detect Drones + Radios",
-      "basic_m": "Monitoring · Basic",
-      "FS-CLOUD-BASIC-M": "Monitoring · Basic",
-      "basic_y": "Monitoring · Basic (year)",
-      "pro_m": "Monitoring · Pro",
-      "campus": "Campus & Facility Assurance",
-      "build": "Construction Progress",
-      "venue": "Venue & Event Season",
-      "event_package": "Single-Event Airspace Awareness"
+      soft: "Detect Drones", radio: "Detect Drones + Radios",
+      basic_m: "Monitoring · Basic", pro_m: "Monitoring · Pro",
+      campus: "Campus & Facility Assurance", build: "Construction Progress",
+      venue: "Venue & Event Season", event_package: "Single-Event Airspace Awareness",
+      risk_report: "Unauthorized Drone Risk Assessment Report",
+      obs_templates: "Observation File Template Pack",
+      training_pack: "Airspace Awareness Essentials",
+      airspace_report: "Named Location Airspace Awareness Report"
     };
     var sku = new URLSearchParams(location.search).get("sku") || "";
     var label = names[sku];
-    if (label) document.getElementById("paidLede").textContent =
-      label + ". Deposit lands in Dark Sky Systems LLC. We email next steps to the address on the receipt.";
+    var lede = document.getElementById("paidLede");
+    var box = document.getElementById("deliver");
+    if (label) lede.textContent = label + ". Deposit lands in Dark Sky Systems LLC.";
+    if (sku === "obs_templates") {
+      lede.textContent = "Your templates are ready. Download the pack and keep it with the site plan.";
+      box.innerHTML = '<a class="cta" href="deliver/obs-pack.pdf">Download Templates Now</a>';
+    } else if (sku === "training_pack") {
+      lede.textContent = "Your training pack is ready. Print the checklists and keep them with the abort board.";
+      box.innerHTML = '<a class="cta" href="deliver/training-pack.pdf">Get the Training Pack PDF</a>';
+    } else if (sku === "risk_report") {
+      lede.textContent = "Your risk assessment report is ready for the location you scored.";
+      box.innerHTML = '<a class="cta" href="report.html?sku=risk_report">Open the Full Report</a>';
+    } else if (sku === "airspace_report") {
+      lede.textContent = "Your named-location report is ready. Open it, then save as PDF.";
+      box.innerHTML = '<a class="cta" href="report.html?sku=airspace_report">Open Your Location Report</a>';
+    } else {
+      lede.textContent = (label || "This order") + ". We email next steps to the address on the Stripe receipt.";
+    }
   </script>
 </body>
 </html>

@@ -118,6 +118,42 @@
       stripe: "",
       gets: ["Pre-survey", "Coverage days", "Air map and post file"]
     },
+    risk_report: {
+      title: "Unauthorized Drone Risk Assessment Report",
+      lede: "A written score for the place you named: findings, recommended monitoring level, and what to do next. Instant after payment.",
+      price: "$79",
+      amount: "79",
+      chase: "",
+      stripe: "",
+      gets: ["Risk score for the named location", "Key findings from what you entered", "Recommended monitoring level", "Next-step guidance you can keep"]
+    },
+    obs_templates: {
+      title: "Observation File Template Pack",
+      lede: "Professional templates and a how-to so your site, event, or emergency plan has a file first-in can actually use.",
+      price: "$49",
+      amount: "49",
+      chase: "",
+      stripe: "",
+      gets: ["Site observation template", "Event / first-in annex", "How-to guide", "Instant PDF download after payment"]
+    },
+    training_pack: {
+      title: "Airspace Awareness Essentials",
+      lede: "Remote ID, how to run a listen, and a first-responder checklist. Print it. Keep it with the abort board.",
+      price: "$99",
+      amount: "99",
+      chase: "",
+      stripe: "",
+      gets: ["Remote ID in plain language", "Monitoring fundamentals", "First-responder size-up checklist", "Instant PDF download after payment"]
+    },
+    airspace_report: {
+      title: "Named Location Airspace Awareness Report",
+      lede: "One named place. A written summary from your risk inputs and airspace context, delivered after payment.",
+      price: "$149",
+      amount: "149",
+      chase: "",
+      stripe: "",
+      gets: ["Risk scoring for the named place", "Airspace context from what you submitted", "Written summary", "Open the report after payment"]
+    },
     event_package: {
       title: "Single-Event Airspace Awareness",
       lede: "Know what is in the air before the gates open, while the event is running, and after it closes. You leave with a written record.",

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Risk report — Dark Sky Systems</title>
+  <link rel="stylesheet" href="style.css?v=91" />
+</head>
+<body>
+  <header class="mast">
+    <div class="wrap mast-inner">
+      <a class="brand" href="index.html">Dark Sky Systems</a>
+    </div>
+  </header>
+  <section class="wrap" style="padding:2rem 0 3rem">
+    <p class="eyebrow">Your file</p>
+    <article class="survey-doc" id="sheet">
+      <header class="survey-head">
+        <p>Dark Sky Systems LLC</p>
+        <p id="rKind">Risk assessment report</p>
+      </header>
+      <h3 id="rPlace">Named location</h3>
+      <dl class="survey-id">
+        <div><dt>Score</dt><dd id="rScore">—</dd></div>
+        <div><dt>Type</dt><dd id="rType">—</dd></div>
+        <div><dt>People</dt><dd id="rPeople">—</dd></div>
+        <div><dt>Airspace</dt><dd id="rAir">—</dd></div>
+      </dl>
+      <p class="survey-doc-obs" id="rFind"></p>
+      <p class="survey-doc-obs" id="rRec"></p>
+      <p class="survey-doc-obs" id="rNext"></p>
+      <p class="survey-doc-obs">This report uses what you entered and what Fusion Sensor can hear: Remote ID and radio energy. Quiet is not a clearance. Dark Sky Systems LLC.</p>
+    </article>
+    <p class="plans-cta">
+      <button type="button" class="cta" id="printBtn">Save as PDF</button>
+      <a class="cta cta-ghost" href="pay.html?sku=basic_m">Start monitoring</a>
+      <a class="cta cta-ghost" href="pay.html?sku=event_package">Secure event coverage</a>
+    </p>
+  </section>
+  <script>
+    var labels = {
+      campus: "Campus / facility", build: "Construction", venue: "Stadium / event",
+      plant: "Industrial / plant", other: "Other",
+      staff: "Staff only", public: "Public on site", dense: "Dense event / gates",
+      open: "Open / uncontrolled", airport: "Near a towered airport", tfr: "TFR / event TFR"
+    };
+    var data = {};
+    try { data = JSON.parse(sessionStorage.getItem("dssRisk") || sessionStorage.getItem("dssAir") || "{}"); } catch (e) {}
+    var sku = new URLSearchParams(location.search).get("sku") || "";
+    if (sku === "airspace_report") document.getElementById("rKind").textContent = "Named location airspace awareness report";
+    document.getElementById("rPlace").textContent = data.place || "Named location";
+    document.getElementById("rScore").textContent = (data.score != null ? data.score : "—") + " / 100";
+    document.getElementById("rType").textContent = labels[data.type] || data.type || "—";
+    document.getElementById("rPeople").textContent = labels[data.people] || data.people || "—";
+    document.getElementById("rAir").textContent = labels[data.air] || data.air || "—";
+    document.getElementById("rFind").innerHTML = "<strong>Findings.</strong> " + (data.findings || "Complete the calculator or location form so this report can name the site.");
+    document.getElementById("rRec").innerHTML = "<strong>Recommended next step.</strong> " + (data.plan || "Monitoring · Basic.");
+    document.getElementById("rNext").innerHTML = "<strong>Guidance.</strong> " + (data.why || "Start monitoring so the ops desk has a live map. Add a flown survey if the ground file is empty.");
+    document.getElementById("printBtn").onclick = function () { window.print(); };
+  </script>
+</body>
+</html>
