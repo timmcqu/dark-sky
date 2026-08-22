@@ -53,6 +53,8 @@ button.chip:hover, button.chip:focus-visible { color: var(--paper); border-color
 }
 .chip.live { color: var(--cyan); border-color: #1a4a40; }
 .chip.mute { border-color: transparent; }
+body.embed .chips { display: none; }
+body.embed .pad { grid-template-rows: 1fr auto; }
 .dot {
   display: inline-block;
   width: 0.42rem; height: 0.42rem;

@@ -1,4 +1,5 @@
 (function () {
+  if (/embed=1/.test(location.search)) document.body.classList.add("embed");
   var CENTER = [39.98, -82.99];
   var AIRPORTS = [
     { id: "KCMH", lat: 39.998, lng: -82.892 },
