@@ -5,9 +5,7 @@
   var KB = window.DSS_KB || { products: [], limits: [], contact: "index.html#request" };
   var CFG = window.DSS_CHAT || { api: "" };
   function chatApi() {
-    if (CFG.api) return CFG.api;
-    if (/^(127\.0\.0\.1|localhost)$/.test(location.hostname)) return "http://127.0.0.1:8091/chat";
-    return "";
+    return (CFG && CFG.api) || "";
   }
   var hist = [];
 
@@ -34,6 +32,9 @@
 
   function localAnswer(q) {
     var t = String(q || "").toLowerCase();
+    if (/wedding|bride|groom|engagement photo|portrait|real.?estate listing|birthday party|grad party|prom |music video|influencer|cinematic|family photos|headshot/.test(t)) {
+      return "No. We do not shoot wedding photos, portraits, or marketing stills. Dark Sky is airspace monitoring, observation files, and emergency overhead — not a photographer. If the question is unauthorized drones over a named venue, that is <a href=\"pay.html?sku=event_package\">Single-Event Airspace Awareness — $2,495</a>. If you wanted a photographer, this is the wrong company.";
+    }
     if (/911|hurt|injured|dying|someone is down|life.?threat/.test(t)) {
       return "If people are in danger, call 911 first. Dark Sky Systems LLC is not emergency dispatch and not a licensed security company. After the scene is owned by command, we can fly color and thermal when they say so, or listen on the box. Start at <a href=\"disaster.html\">Disaster &amp; Emergency</a>.";
     }
@@ -88,7 +89,7 @@
     if (/9,?995|five dates|5 dates/.test(t)) {
       return pack("events_5");
     }
-    if (/2,?495|single-event|one event|weekend|vip|named window/.test(t)) {
+    if (/2,?495|single-event|vip movement|named window|stadium date|unauthorized drone over/.test(t)) {
       return pack("event_package");
     }
     if (/pro\b|750|several sites|multi-site/.test(t) && /monitor/.test(t)) {
