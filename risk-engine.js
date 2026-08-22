@@ -67,7 +67,7 @@
     var band, plan, sku, next;
     if (input.span !== "ongoing" && (input.type === "venue" || input.people === "dense" || input.draw === "advertised" || input.draw === "vip")) {
       band = score >= 70 ? "High for this named event" : "Elevated for this named event";
-      plan = "Single-Event Airspace Awareness — $2,195";
+      plan = "Single-Event Airspace Awareness — $2,495";
       sku = "event_package";
       next = "Lock the dates. Pre-survey, live Fusion Sensor coverage on the day, post air map, written file. Then decide if the site needs monthly monitoring.";
     } else if (score >= 72 && input.type === "campus") {

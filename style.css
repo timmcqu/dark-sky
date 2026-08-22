@@ -818,6 +818,37 @@ a.card:focus-visible h3 { color: var(--gold); }
 @media (min-width: 1040px) {
   .plan-feature { grid-column: 1 / -1; }
 }
+.plan-group {
+  margin-top: 2.65rem;
+  padding-top: 2.15rem;
+  border-top: 1px solid var(--line);
+}
+.plan-group:first-of-type {
+  margin-top: 0.35rem;
+  padding-top: 0;
+  border-top: 0;
+}
+.plan-group .group-k {
+  margin: 0 0 0.35rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.plan-group .group-title {
+  font-family: var(--serif);
+  font-size: clamp(1.65rem, 2.8vw, 2.2rem);
+  font-weight: 500;
+  margin: 0 0 0.45rem;
+}
+.plan-group .group-lede {
+  margin: 0 0 1.35rem;
+  max-width: 44rem;
+  color: var(--mute);
+}
+.plan-group .plans-grid {
+  margin-top: 0;
+}
 .value-grid { grid-template-columns: 1fr; }
 
 .plans-cta { margin: 2rem 0 0; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
@@ -1092,6 +1123,7 @@ a.card:focus-visible h3 { color: var(--gold); }
   .plans-grid { grid-template-columns: 1fr 1fr 1fr; }
   .value-grid { grid-template-columns: 1fr 1fr 1fr; }
   .plan-feature { grid-column: 1 / -1; }
+  .plan-group .plans-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 639px) {

@@ -108,30 +108,45 @@
     },
     campus: {
       title: "Campus & Facility Assurance",
-      lede: "Pro monitoring, four flown visits with stills and thermal, one observation file.",
+      lede: "Pro monitoring all year, four flown visits with stills and thermal, and one observation file the emergency plan can keep.",
       price: "$18,000 / year",
       amount: "18000",
       chase: "",
       stripe: "",
-      gets: ["Pro monitoring", "Four flown visits", "One observation file"]
+      gets: [
+        "Pro monitoring on the named site all year",
+        "Four flown visits with stills and thermal",
+        "One observation file the emergency action plan can keep",
+        "Setup email after payment so we lock the site and visit windows"
+      ]
     },
     build: {
       title: "Construction Progress",
-      lede: "Weekly or bi-weekly stills while the job is open. Thermal as needed.",
+      lede: "Weekly or bi-weekly progress flights while the job is open. Thermal as needed. Air map on request.",
       price: "$2,500 / month",
       amount: "2500",
       chase: "",
       stripe: "",
-      gets: ["Weekly or bi-weekly stills", "Thermal as needed", "Air map on request"]
+      gets: [
+        "Weekly or bi-weekly progress flights while the job is open",
+        "Thermal when the deck or the hole needs heat",
+        "Air map on request",
+        "Setup email after the first payment posts"
+      ]
     },
     venue: {
       title: "Venue & Event Season",
-      lede: "Named dates: pre-survey, coverage days, air map, post file.",
+      lede: "Named dates: pre-survey, coverage while gates are open, air map, and close-out file.",
       price: "$8,500 / season",
       amount: "8500",
       chase: "",
       stripe: "",
-      gets: ["Pre-survey", "Coverage days", "Air map and post file"]
+      gets: [
+        "Pre-survey before the first named date",
+        "Coverage while gates are open",
+        "Air map and close-out file",
+        "Setup email after payment so we lock the season dates"
+      ]
     },
     risk_report: {
       title: "Unauthorized Drone Risk Assessment Report",
@@ -208,17 +223,48 @@
       ]
     },
     event_package: {
-      title: "Single-Event Airspace Awareness",
+      title: "Single-Event Airspace Awareness Package",
       lede: "Know what is in the air before the gates open, while the event is running, and after it closes. You leave with a written record.",
-      price: "$2,195",
-      amount: "2195",
+      price: "$2,495",
+      amount: "2495",
       chase: "",
       stripe: "",
       gets: [
         "Pre-event risk survey for the named place and dates",
-        "Live Fusion Sensor coverage on the event day(s): authorized aircraft marked as authorized, other transmitting aircraft flagged",
-        "Post-event air map you can keep",
-        "Written observation file for ops and first-in",
+        "Live coverage on the event day(s): authorized aircraft marked as authorized, other transmitting aircraft flagged",
+        "Post-event air map and observation file",
+        "Setup email after payment so we lock the dates"
+      ]
+    },
+    events_3: {
+      title: "Multi-Event Airspace Package · 3 Events",
+      lede: "Coordinated coverage for three named dates — tours, campus series, VIP movements. Each stop gets a survey, live coverage, and a post-event file.",
+      price: "$6,495",
+      amount: "6495",
+      chase: "",
+      stripe: "",
+      gets: [
+        "Three named dates in one package",
+        "Pre-event risk survey at each stop",
+        "Live coverage on each event day",
+        "Post-event air map and observation file at each stop",
+        "One operations contact for the series",
+        "Setup email after payment so we lock the dates"
+      ]
+    },
+    events_5: {
+      title: "Multi-Event Airspace Package · 5 Events",
+      lede: "Coordinated coverage for five named dates — tours, campus series, VIP movements. Same deliverable at every stop.",
+      price: "$9,995",
+      amount: "9995",
+      chase: "",
+      stripe: "",
+      gets: [
+        "Five named dates in one package",
+        "Pre-event risk survey at each stop",
+        "Live coverage on each event day",
+        "Post-event air map and observation file at each stop",
+        "One operations contact for the series",
         "Setup email after payment so we lock the dates"
       ]
     },
@@ -267,7 +313,7 @@
   var eyebrow = document.getElementById("sku-eyebrow");
   var fine = document.getElementById("sku-fine");
   if (eyebrow) {
-    eyebrow.textContent = key === "event_package"
+    eyebrow.textContent = (key === "event_package" || key === "events_3" || key === "events_5")
       ? "Event coverage · Checkout"
       : (isPack ? "Digital packs · Checkout" : (key === "soft" || key === "radio" ? "Detect Drones · Checkout" : "Plans · Checkout"));
   }
