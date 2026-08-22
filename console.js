@@ -9,10 +9,9 @@
     { id: "KLHQ", lat: 39.756, lng: -82.657 }
   ];
   var TRACKS = [
-    { id: "N441CM", layer: "adsb", kind: "ADS-B 1090", heading: 42, alt: "FL120", lat: 40.04, lng: -82.95 },
-    { id: "N882PA", layer: "adsb", kind: "ADS-B 1090", heading: 268, alt: "FL080", lat: 39.93, lng: -82.88 },
-    { id: "R7", layer: "rf", kind: "RF · analog FPV energy", freq: "5.8 GHz · 2.4 GHz hop", snr: "energy on glass", lat: 39.99, lng: -83.02, heading: 15 },
-    { id: "R3", layer: "rf", kind: "RF · OcuSync-class", freq: "2.4 / 5.8 GHz dual-band", snr: "hop set in the log", lat: 40.01, lng: -82.97, heading: 200 }
+    { id: "N441CM", layer: "adsb", kind: "ADS-B 1090", heading: 42, alt: "FL120", lat: 40.04, lng: -82.95, online: true },
+    { id: "N882PA", layer: "adsb", kind: "ADS-B 1090", heading: 268, alt: "FL080", lat: 39.93, lng: -82.88, online: true },
+    { id: "R7", layer: "rf", kind: "RF · analog FPV", freq: "5.8 GHz · 2.4 GHz hop", snr: "energy on glass", lat: 39.99, lng: -83.02, heading: 15, online: false }
   ];
 
   var layers = { adsb: true, rf: true, apt: true, rid: true };
@@ -68,19 +67,25 @@
     return '<svg width="34" height="34" viewBox="-22 -22 44 44"><g stroke="#e24b4b" fill="#e24b4b" stroke-width="3" stroke-linecap="round"><line x1="-15" y1="-15" x2="15" y2="15"/><line x1="15" y1="-15" x2="-15" y2="15"/><circle cx="-15" cy="-15" r="4.2"/><circle cx="15" cy="-15" r="4.2"/><circle cx="-15" cy="15" r="4.2"/><circle cx="15" cy="15" r="4.2"/><rect x="-6.2" y="-4.8" width="12.4" height="9.6" rx="2"/></g></svg>';
   }
 
-  TRACKS.forEach(function (tr) {
+  function makeMarker(tr, born) {
+    var cls = tr.layer === "adsb" ? "icon-plane" : "icon-drone";
+    if (born) cls += " born";
     var html = tr.layer === "adsb"
       ? planeSvg(tr.heading) + "<span>" + tr.id + "</span>"
       : droneSvg() + "<span>" + tr.id + "</span>";
     tr.marker = L.marker([tr.lat, tr.lng], {
       icon: L.divIcon({
-        className: tr.layer === "adsb" ? "icon-plane" : "icon-drone",
+        className: cls,
         html: html,
         iconSize: [48, 48],
         iconAnchor: [24, 24]
       })
     }).on("click", function () { openTrack(tr.id); });
-    tr.marker.addTo(map);
+  }
+
+  TRACKS.forEach(function (tr) {
+    makeMarker(tr, false);
+    if (tr.online) tr.marker.addTo(map);
   });
 
   function dest(lat, lng, heading, meters) {
@@ -105,7 +110,7 @@
     }));
   }
 
-  function visible(tr) { return !!layers[tr.layer]; }
+  function visible(tr) { return !!tr.online && !!layers[tr.layer]; }
 
   function syncLayers() {
     TRACKS.forEach(function (tr) {
@@ -121,13 +126,20 @@
 
   function renderList() {
     list.innerHTML = "";
-    TRACKS.forEach(function (tr) {
-      if (!visible(tr)) return;
+    var shown = TRACKS.filter(visible);
+    if (!shown.length) {
+      var empty = document.createElement("li");
+      empty.className = "quiet";
+      empty.textContent = "No UAS on this listen";
+      list.appendChild(empty);
+    }
+    shown.forEach(function (tr) {
       var li = document.createElement("li");
       var b = document.createElement("button");
       b.type = "button";
       if (selected === tr.id) b.className = "on";
-      b.innerHTML = tr.id + '<span class="sub">' + tr.kind + "</span>";
+      var tag = tr.layer === "rf" ? '<span class="hit">Detected</span>' : "";
+      b.innerHTML = tr.id + tag + '<span class="sub">' + tr.kind + "</span>";
       b.addEventListener("click", function () { openTrack(tr.id); });
       li.appendChild(b);
       list.appendChild(li);
@@ -137,14 +149,17 @@
     var airEl = document.getElementById("chip-air");
     var rfEl = document.getElementById("chip-rf");
     if (airEl) airEl.textContent = "Aircraft · " + air + " live";
-    if (rfEl) rfEl.textContent = rf ? "Analog FPV · energy" : "Analog FPV";
+    if (rfEl) {
+      rfEl.textContent = rf ? "UAS · detected" : "UAS · quiet";
+      rfEl.classList.toggle("alert", !!rf);
+    }
   }
 
   function openTrack(id) {
     var tr = TRACKS.filter(function (t) { return t.id === id; })[0];
     if (!tr) return;
     selected = id;
-    document.getElementById("detail-k").textContent = tr.layer === "rf" ? "RF contact" : "ADS-B";
+    document.getElementById("detail-k").textContent = tr.layer === "rf" ? "Detected" : "ADS-B";
     document.getElementById("detail-id").textContent = tr.id;
     var rows = [["Layer", tr.kind], ["Place", "Named window"]];
     if (tr.heading != null && tr.layer === "adsb") rows.push(["Heading", String(Math.round(tr.heading)).padStart(3, "0")]);
@@ -162,7 +177,7 @@
     selected = null;
     document.getElementById("detail-k").textContent = "Track";
     document.getElementById("detail-id").textContent = "Click a contact";
-    document.getElementById("detail-dl").innerHTML = "<dt>Hint</dt><dd>White airliners are ADS-B. Red drones are radio energy. Airport codes are the overlay. This is a demo replay.</dd>";
+    document.getElementById("detail-dl").innerHTML = "<dt>Listen</dt><dd>No UAS on this listen. Airliners are ADS-B. Quiet is not a clearance. This is a demo replay.</dd>";
     renderList();
   }
 
@@ -180,12 +195,34 @@
   });
   document.getElementById("detail-close").addEventListener("click", clearDetail);
 
+  var uasOn = false;
+  var uasClock = 0;
+
+  function setUas(on) {
+    uasOn = on;
+    TRACKS.forEach(function (tr) {
+      if (tr.layer !== "rf") return;
+      tr.online = on;
+      if (on) {
+        makeMarker(tr, true);
+        if (layers.rf) tr.marker.addTo(map);
+      } else if (tr.marker && map.hasLayer(tr.marker)) {
+        map.removeLayer(tr.marker);
+      }
+    });
+    if (on && layers.rf) openTrack("R7");
+    else if (!on && selected === "R7") clearDetail();
+    else renderList();
+  }
+
   var specHist = [];
   function drawSpec(now) {
     var w = spec.width = spec.clientWidth * 2;
     var h = spec.height = spec.clientHeight * 2;
     var ctx = spec.getContext("2d");
-    var peak = 0.62 + Math.sin(now / 700) * 0.04;
+    var peak = uasOn
+      ? 0.62 + Math.sin(now / 700) * 0.04
+      : 0.48 + Math.sin(now / 1800) * 0.015;
     var row = [];
     var i;
     for (i = 0; i < 160; i++) {
@@ -223,6 +260,14 @@
   function tick(now) {
     var dt = Math.min(48, now - last);
     last = now;
+    uasClock += dt;
+    if (!uasOn && uasClock > 3800) {
+      uasClock = 0;
+      setUas(true);
+    } else if (uasOn && uasClock > 9000) {
+      uasClock = 0;
+      setUas(false);
+    }
     if (!reduce) {
       TRACKS.forEach(function (tr) {
         if (!visible(tr)) return;

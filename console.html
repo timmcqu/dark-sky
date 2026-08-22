@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="console.css?v=5" />
+  <link rel="stylesheet" href="console.css?v=6" />
 </head>
 <body>
   <div class="pad" id="pad">
@@ -18,7 +18,7 @@
       <a class="chip brand" href="software.html" target="_top">Fusion Sensor</a>
       <p class="chip live"><span class="dot"></span> Listening</p>
       <p class="chip" id="chip-air">Aircraft · 2 live</p>
-      <p class="chip" id="chip-rf">Analog FPV · energy</p>
+      <p class="chip" id="chip-rf">UAS · quiet</p>
       <p class="chip" id="chip-rid">RID · listening</p>
       <p class="chip mute">Demo replay</p>
     </header>
@@ -44,8 +44,8 @@
       <p class="k" id="detail-k">Track</p>
       <h2 id="detail-id">Click a contact</h2>
       <dl id="detail-dl">
-        <dt>Hint</dt>
-        <dd>White airliners are ADS-B. Red drones are radio energy. Airport codes are the overlay. This is a demo replay.</dd>
+        <dt>Listen</dt>
+        <dd>No UAS on this listen. Airliners are ADS-B. Quiet is not a clearance. This is a demo replay.</dd>
       </dl>
       <button type="button" class="close" id="detail-close">Clear</button>
     </aside>
@@ -56,6 +56,6 @@
     </footer>
   </div>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="console.js?v=5"></script>
+  <script src="console.js?v=6"></script>
 </body>
 </html>
