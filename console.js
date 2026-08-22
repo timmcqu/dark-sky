@@ -11,7 +11,24 @@
   var TRACKS = [
     { id: "N441CM", layer: "adsb", kind: "ADS-B 1090", heading: 42, alt: "FL120", lat: 40.04, lng: -82.95, online: true },
     { id: "N882PA", layer: "adsb", kind: "ADS-B 1090", heading: 268, alt: "FL080", lat: 39.93, lng: -82.88, online: true },
-    { id: "R7", layer: "rf", kind: "RF · analog FPV", freq: "5.8 GHz · 2.4 GHz hop", snr: "energy on glass", lat: 39.99, lng: -83.02, heading: 15, online: false }
+    {
+      id: "UAS-04",
+      layer: "rf",
+      kind: "OcuSync-class",
+      family: "Consumer digital link",
+      freq: "2.412 / 5.745 GHz · hop set",
+      vote: "0.91",
+      packs: [
+        ["RFUAV", "0.91 · 35-airframe family"],
+        ["CageDroneRF", "0.87 · burst timing"],
+        ["Field missions", "0.84 · live IQ"],
+        ["DroneRF", "0.79 · 2.4 / 5.8 class"]
+      ],
+      lat: 39.99,
+      lng: -83.02,
+      heading: 15,
+      online: false
+    }
   ];
 
   var layers = { adsb: true, rf: true, apt: true, rid: true };
@@ -150,7 +167,7 @@
     var rfEl = document.getElementById("chip-rf");
     if (airEl) airEl.textContent = "Aircraft · " + air + " live";
     if (rfEl) {
-      rfEl.textContent = rf ? "UAS · detected" : "UAS · quiet";
+      rfEl.textContent = rf ? "UAS · fingerprint" : "UAS · quiet";
       rfEl.classList.toggle("alert", !!rf);
     }
   }
@@ -159,16 +176,34 @@
     var tr = TRACKS.filter(function (t) { return t.id === id; })[0];
     if (!tr) return;
     selected = id;
-    document.getElementById("detail-k").textContent = tr.layer === "rf" ? "Detected" : "ADS-B";
-    document.getElementById("detail-id").textContent = tr.id;
-    var rows = [["Layer", tr.kind], ["Place", "Named window"]];
-    if (tr.heading != null && tr.layer === "adsb") rows.push(["Heading", String(Math.round(tr.heading)).padStart(3, "0")]);
-    if (tr.alt) rows.push(["Alt / FL", tr.alt]);
-    if (tr.freq) rows.push(["RF", tr.freq]);
-    if (tr.snr) rows.push(["Picture", tr.snr]);
+    document.getElementById("detail-k").textContent = tr.layer === "rf" ? "Fingerprint" : "ADS-B";
+    document.getElementById("detail-id").textContent = tr.layer === "rf" ? tr.kind : tr.id;
+    var rows;
+    if (tr.layer === "rf") {
+      rows = [
+        ["Contact", tr.id],
+        ["Family", tr.family],
+        ["Class vote", tr.vote],
+        ["Hop set", tr.freq]
+      ];
+    } else {
+      rows = [["Layer", tr.kind], ["Place", "Named window"]];
+      if (tr.heading != null) rows.push(["Heading", String(Math.round(tr.heading)).padStart(3, "0")]);
+      if (tr.alt) rows.push(["Alt / FL", tr.alt]);
+    }
     document.getElementById("detail-dl").innerHTML = rows.map(function (r) {
       return "<dt>" + r[0] + "</dt><dd>" + r[1] + "</dd>";
     }).join("");
+    var extra = document.getElementById("detail-extra");
+    if (tr.packs) {
+      extra.innerHTML = "<p class=\"k\">Class heads</p><dl class=\"votes\">" +
+        tr.packs.map(function (p) {
+          return "<dt>" + p[0] + "</dt><dd>" + p[1] + "</dd>";
+        }).join("") +
+        "</dl><p class=\"stat sku\">This fingerprint ships in both SKUs.</p>";
+    } else {
+      extra.innerHTML = "";
+    }
     map.panTo([tr.lat, tr.lng], { animate: true, duration: 0.4 });
     renderList();
   }
@@ -178,6 +213,8 @@
     document.getElementById("detail-k").textContent = "Track";
     document.getElementById("detail-id").textContent = "Click a contact";
     document.getElementById("detail-dl").innerHTML = "<dt>Listen</dt><dd>No UAS on this listen. Airliners are ADS-B. Quiet is not a clearance. This is a demo replay.</dd>";
+    var extra = document.getElementById("detail-extra");
+    if (extra) extra.innerHTML = "";
     renderList();
   }
 
@@ -210,8 +247,8 @@
         map.removeLayer(tr.marker);
       }
     });
-    if (on && layers.rf) openTrack("R7");
-    else if (!on && selected === "R7") clearDetail();
+    if (on && layers.rf) openTrack("UAS-04");
+    else if (!on && selected === "UAS-04") clearDetail();
     else renderList();
   }
 
@@ -220,15 +257,16 @@
     var w = spec.width = spec.clientWidth * 2;
     var h = spec.height = spec.clientHeight * 2;
     var ctx = spec.getContext("2d");
-    var peak = uasOn
-      ? 0.62 + Math.sin(now / 700) * 0.04
-      : 0.48 + Math.sin(now / 1800) * 0.015;
+    var peakA = uasOn ? 0.28 + Math.sin(now / 620) * 0.02 : 0.42 + Math.sin(now / 1800) * 0.012;
+    var peakB = uasOn ? 0.72 + Math.sin(now / 740) * 0.02 : 0.58;
     var row = [];
     var i;
     for (i = 0; i < 160; i++) {
       var x = i / 160;
-      var n = Math.abs(Math.sin(x * 18 + now / 900)) * 0.08;
-      row.push(Math.max(0, 1 - Math.abs(x - peak) * 14) * 0.85 + n);
+      var n = Math.abs(Math.sin(x * 18 + now / 900)) * (uasOn ? 0.1 : 0.05);
+      var a = Math.max(0, 1 - Math.abs(x - peakA) * (uasOn ? 16 : 10));
+      var b = uasOn ? Math.max(0, 1 - Math.abs(x - peakB) * 16) : 0;
+      row.push(Math.min(1, a * (uasOn ? 0.95 : 0.35) + b * 0.9 + n));
     }
     if (!reduce) {
       specHist.unshift(row);
@@ -279,6 +317,12 @@
         tr.marker.setLatLng([tr.lat, tr.lng]);
         if (tr.layer === "adsb") refreshIcon(tr);
       });
+    }
+    var meta = document.getElementById("spec-meta");
+    if (meta) {
+      meta.textContent = uasOn
+        ? "SPECTRUM · dual-band hop · 2.412 / 5.745 · OcuSync-class match"
+        : "SPECTRUM · 2.4 / 5.8 GHz · hop-set listen · class heads armed";
     }
     drawSpec(now);
     requestAnimationFrame(tick);

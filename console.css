@@ -104,6 +104,16 @@ html, body { margin: 0; height: 100%; background: var(--ink); color: var(--paper
   text-transform: uppercase;
 }
 .chip.alert { color: var(--red); border-color: #5a2020; }
+.votes { margin: 0 0 0.55rem; }
+.votes dt {
+  margin: 0.45rem 0 0;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.votes dd { margin: 0.1rem 0 0; font-size: 0.8rem; color: var(--paper); }
+.stat.sku { color: var(--gold); }
 .icon-drone.born svg {
   animation: born 1.1s ease-out 1;
 }
