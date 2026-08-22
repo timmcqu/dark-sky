@@ -4,38 +4,41 @@
   var SKUS = {
     ra: {
       title: "Site survey pack",
-      lede: "A written picture of a named property: people, ways out, holes, confined space, medical access.",
+      lede: "A written picture you keep with the emergency action plan — people, ways out, holes, confined space, medical access.",
       price: "$500",
       amount: "500",
       chase: "",
+      stripe: "",
       gets: [
-        "Observation template you fill for that property",
-        "First-in annex: people, egress, excavation, confined space, medical",
-        "Editable file you keep with the site plan"
+        "Observation template for that property",
+        "First-in annex: egress, excavation, confined space, medical, apparatus path",
+        "Editable file for the site EAP"
       ]
     },
     cards: {
       title: "Field cards pack",
-      lede: "When a drone flies off, crashes, the battery vents, or someone goes down — one card per problem.",
+      lede: "Emergency and contingency procedures the PIC briefs the crew before launch — one card per problem.",
       price: "$250",
       amount: "250",
       chase: "",
+      stripe: "",
       gets: [
-        "Flyaway, crash, battery fire, medical, loss of link",
-        "What you look at, when you abort, who you call",
+        "Flyaway, lost link, crash, battery fire, medical",
+        "Abort, 911, and the 10-day FAA report if the crash qualifies",
         "Print, laminate, keep them on the abort board"
       ]
     },
     eventpack: {
       title: "Event window pack",
-      lede: "The risk file for a venue and a date. Score it before you show up. Update it on site. Close it after.",
+      lede: "The risk file for a venue and a date. Score people, air, and ground before gates. Update it when conditions change. Close it with an after-action.",
       price: "$750",
       amount: "750",
       chase: "",
+      stripe: "",
       gets: [
-        "Risk matrix before the event",
+        "Risk matrix before the event — crowd, TFR, packs, EMS access",
         "Live assessment while you are there",
-        "After-action review, abort card, and sample report language"
+        "After-action, abort card, and sample language for the venue ops file"
       ]
     },
     soft: {
@@ -44,6 +47,7 @@
       price: "$2,000",
       amount: "2000",
       chase: "",
+      stripe: "",
       gets: [
         "Fusion Sensor on your laptop",
         "Map, spectrum, friendly list, log",
@@ -57,6 +61,7 @@
       price: "$4,500",
       amount: "4500",
       chase: "",
+      stripe: "",
       gets: [
         "Everything in Software",
         "ESP32-S3 OpenDroneID receiver, flashed",
@@ -90,10 +95,30 @@
   var eyebrow = document.getElementById("sku-eyebrow");
   var fine = document.getElementById("sku-fine");
   if (eyebrow) eyebrow.textContent = isPack ? "Digital packs · Checkout" : "Detect Drones · Checkout";
+  var payHref = sku.stripe || sku.chase || "";
+  var payOnStripe = !!sku.stripe;
   if (fine) {
-    fine.textContent = isPack
-      ? "You save details here. We email a Chase pay link for this order. Deposit lands in Dark Sky Systems LLC."
-      : "It detects. It does not jam. You save details here. We email a Chase pay link for this order. Deposit lands in Dark Sky Systems LLC.";
+    if (isPack) {
+      fine.textContent = payOnStripe
+        ? "You save details here. Pay with Stripe next. Deposit lands in Dark Sky Systems LLC."
+        : "You save details here. We email a Chase pay link for this order. Deposit lands in Dark Sky Systems LLC.";
+    } else {
+      fine.textContent = payOnStripe
+        ? "It detects. It does not jam. You save details here. Pay with Stripe next. Deposit lands in Dark Sky Systems LLC."
+        : "It detects. It does not jam. You save details here. We email a Chase pay link for this order. Deposit lands in Dark Sky Systems LLC.";
+    }
+  }
+  var lead = document.getElementById("order-lead");
+  if (lead) {
+    lead.textContent = payOnStripe
+      ? "Name and email. Pay with Stripe on the next step. After the deposit posts, we send the license or pack."
+      : "Name and email. We send a Chase pay link for this order. After the deposit posts, we send the license or pack.";
+  }
+  if (params.get("paid") === "1") {
+    if (status) {
+      status.hidden = false;
+      status.textContent = "Payment received. We email the license or pack to this address.";
+    }
   }
   if (btn) btn.textContent = "Save details";
   document.querySelectorAll(".sku-switch a").forEach(function (a) {
@@ -144,17 +169,25 @@
         "Email: " + val("oEmail"),
         "Org: " + (val("oOrg") || "(none)"),
         "Window: " + (val("oWindow") || "(none)"),
-        "Next: mint a Chase payment link for this customer and amount. Do not reuse a public invid."
+        payOnStripe
+          ? "Next: customer pays the Stripe Payment Link. Do not mint Chase for this order."
+          : "Next: mint a Chase payment link for this customer and amount. Do not reuse a public invid."
       ];
       var wrap = document.getElementById("payWrap");
       var payNow = document.getElementById("payNow");
-      if (payNow && sku.chase) {
-        payNow.href = sku.chase;
-        payNow.textContent = "Pay on Chase";
+      var href = sku.stripe || sku.chase || "";
+      if (payNow && href) {
+        if (sku.stripe && val("oEmail")) {
+          href += (href.indexOf("?") >= 0 ? "&" : "?") + "prefilled_email=" + encodeURIComponent(val("oEmail"));
+        }
+        payNow.href = href;
+        payNow.textContent = sku.stripe ? "Pay with Stripe" : "Pay on Chase";
         if (wrap) wrap.hidden = false;
         if (status) {
           status.hidden = false;
-          status.textContent = "Details saved. Pay on Chase next. We do not store your card.";
+          status.textContent = sku.stripe
+            ? "Details saved. Pay with Stripe next. We do not store your card."
+            : "Details saved. Pay on Chase next. We do not store your card.";
         }
       } else {
         if (wrap) wrap.hidden = true;
