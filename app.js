@@ -1,6 +1,6 @@
 (function () {
   /* Opaque form relay (hashed inbox). Not a mailto. Address is not on the plate. */
-  var RELAY = "https://formsubmit.co/ajax/8472f6f7779aa9c99a032ed075782772";
+  var RELAY = "https://formsubmit.co/ajax/timmcqu@outlook.com";
 
   function trimText(s) {
     return String(s || "").replace(/^\s+|\s+$/g, "");
