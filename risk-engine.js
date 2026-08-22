@@ -414,5 +414,304 @@
     };
   }
 
-  w.DSSRisk = { assess: assess, LABELS: LABELS };
+  var WMO = {
+    0: "Clear", 1: "Mainly clear", 2: "Partly cloudy", 3: "Overcast",
+    45: "Fog", 48: "Icy fog",
+    51: "Light drizzle", 53: "Drizzle", 55: "Dense drizzle",
+    56: "Freezing drizzle", 57: "Freezing drizzle",
+    61: "Light rain", 63: "Rain", 65: "Heavy rain",
+    66: "Freezing rain", 67: "Freezing rain",
+    71: "Light snow", 73: "Snow", 75: "Heavy snow", 77: "Snow grains",
+    80: "Rain showers", 81: "Rain showers", 82: "Heavy rain showers",
+    85: "Snow showers", 86: "Heavy snow showers",
+    95: "Thunderstorm", 96: "Thunderstorm with hail", 99: "Severe thunderstorm with hail"
+  };
+
+  function wmoText(code) {
+    return WMO[code] || ("Code " + code);
+  }
+
+  function compass(deg) {
+    var dirs = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+    if (deg == null || isNaN(deg)) return "—";
+    return dirs[Math.round(((Number(deg) % 360) + 360) % 360 / 22.5) % 16];
+  }
+
+  function mToMiles(m) {
+    if (m == null || isNaN(m)) return null;
+    return Math.round((Number(m) / 1609.34) * 10) / 10;
+  }
+
+  function timedFetch(url, ms, headers) {
+    var ctrl = typeof AbortController !== "undefined" ? new AbortController() : null;
+    var t = setTimeout(function () { if (ctrl) ctrl.abort(); }, ms || 6000);
+    var opts = { headers: headers || { Accept: "application/json" } };
+    if (ctrl) opts.signal = ctrl.signal;
+    return fetch(url, opts).then(function (res) {
+      clearTimeout(t);
+      if (!res.ok) throw new Error("http " + res.status);
+      return res.json();
+    }).catch(function () {
+      clearTimeout(t);
+      return null;
+    });
+  }
+
+  function pickGeo(results) {
+    if (!results || !results.length) return null;
+    var us = results.filter(function (r) { return r.country_code === "US"; });
+    return (us[0] || results[0]);
+  }
+
+  function parseHours(fc) {
+    var hours = [];
+    if (!fc || !fc.hourly || !fc.hourly.time) return hours;
+    var now = Date.now();
+    var t = fc.hourly.time;
+    for (var i = 0; i < t.length && hours.length < 24; i++) {
+      var ts = Date.parse(t[i]);
+      if (isNaN(ts) || ts < now - 30 * 60 * 1000) continue;
+      hours.push({
+        time: t[i],
+        tempF: fc.hourly.temperature_2m[i],
+        windMph: fc.hourly.wind_speed_10m[i],
+        gustMph: fc.hourly.wind_gusts_10m[i],
+        precipIn: fc.hourly.precipitation[i],
+        precipProb: fc.hourly.precipitation_probability[i],
+        visMiles: mToMiles(fc.hourly.visibility[i]),
+        code: fc.hourly.weather_code[i],
+        text: wmoText(fc.hourly.weather_code[i])
+      });
+    }
+    return hours;
+  }
+
+  function weatherOps(wx) {
+    var c = wx.current || {};
+    var hours = wx.hours || [];
+    var maxWind = c.windMph || 0;
+    var maxGust = c.windGust || 0;
+    var minVis = c.visMiles == null ? 10 : c.visMiles;
+    var maxPrecipProb = 0;
+    var thunder = /thunder/i.test(c.text || "");
+    var precipNow = (c.precipIn && c.precipIn > 0.01) || /rain|snow|drizzle|shower|thunder|fog/i.test(c.text || "");
+    hours.slice(0, 24).forEach(function (h) {
+      if (h.windMph > maxWind) maxWind = h.windMph;
+      if (h.gustMph > maxGust) maxGust = h.gustMph;
+      if (h.visMiles != null && h.visMiles < minVis) minVis = h.visMiles;
+      if (h.precipProb > maxPrecipProb) maxPrecipProb = h.precipProb;
+      if (/thunder/i.test(h.text || "")) thunder = true;
+    });
+    var alerts = wx.alerts || [];
+    var severeAlert = alerts.some(function (a) {
+      return /thunder|tornado|high wind|blizzard|hurricane|flood|ice storm|winter storm|dust/i.test(a.event || "");
+    });
+    var fly = "go";
+    if (thunder || severeAlert || maxGust >= 30 || maxWind >= 25 || minVis < 1) fly = "hold";
+    else if (maxGust >= 22 || maxWind >= 18 || minVis < 3 || precipNow || maxPrecipProb >= 60 || alerts.length) fly = "caution";
+    return {
+      fly: fly,
+      maxWind: Math.round(maxWind),
+      maxGust: Math.round(maxGust),
+      minVis: minVis,
+      thunder: thunder,
+      precipNow: precipNow,
+      maxPrecipProb: maxPrecipProb,
+      alerts: alerts.length > 0,
+      severeAlert: severeAlert
+    };
+  }
+
+  function applyWeather(report, wx) {
+    if (!report) return report;
+    if (!report._base) {
+      report._base = {
+        findings: (report.findings || []).slice(),
+        steps: (report.steps || []).slice(),
+        exec: report.exec,
+        rationale: report.rationale,
+        residual: (report.residual || []).slice()
+      };
+    } else {
+      report.findings = report._base.findings.slice();
+      report.steps = report._base.steps.slice();
+      report.exec = report._base.exec;
+      report.rationale = report._base.rationale;
+      report.residual = report._base.residual.slice();
+    }
+    if (!wx || !wx.ok) {
+      report.weather = { ok: false };
+      report.weatherApplied = false;
+      report.residual.push("Weather was not available at generation time. The occupancy and airspace score still stands.");
+      return report;
+    }
+    report.weatherApplied = true;
+    report.weather = wx;
+    var ops = weatherOps(wx);
+    wx.ops = ops;
+    var geo = wx.geo && wx.geo.label ? wx.geo.label : report.place;
+    var c = wx.current;
+    var nowLine = c
+      ? (Math.round(c.tempF) + "°F, wind " + c.windDir + " " + Math.round(c.windMph) + " mph gusting " + Math.round(c.windGust) + ", visibility " + (c.visMiles != null ? c.visMiles + " mi" : "—") + ", " + c.text + (c.precipIn > 0.01 ? (", " + c.precipIn + " in precip") : "") + ".")
+      : "";
+    report.exec = (report.exec || "") + " Weather at " + geo + " as of this pull: " + nowLine
+      + (ops.fly === "hold"
+        ? " Weather is a hold for flown work; it is not a reason to stop listening."
+        : ops.fly === "caution"
+          ? " Weather is a caution for flown work. Fusion Sensor does not wait on a ceiling."
+          : " Weather is not the driver of the occupancy/airspace score at this hour.");
+
+    var wxFindings = [];
+    if (ops.thunder || ops.severeAlert) {
+      var alertBit = (wx.alerts && wx.alerts[0]) ? (" Active alert: " + wx.alerts[0].event + ".") : "";
+      wxFindings.push({
+        title: "Weather is a hold for flown work",
+        body: "Thunderstorms or a severe weather alert are in the window at " + geo + "." + alertBit
+          + " Do not launch company flights into that. Keep Fusion Sensor on. Radio and Remote ID do not need a visual horizon. A pack in rain or a wet deck is a first-in problem if someone else is already up."
+      });
+    } else if (wx.alerts && wx.alerts.length) {
+      wxFindings.push({
+        title: "An official weather alert is in effect",
+        body: "NWS has " + wx.alerts[0].event + " at " + geo + ". That is a crew, battery, and duration constraint — not a reason the air is empty. Lithium packs run hotter. Flown visits get a shorter, cooler window. Keep listening."
+      });
+    } else if (ops.maxGust >= 22 || ops.maxWind >= 18) {
+      wxFindings.push({
+        title: "Wind limits a small UAS. It does not limit a listener",
+        body: "Near-term wind at " + geo + " reaches about " + ops.maxWind + " mph with gusts near " + ops.maxGust
+          + " mph. That is the usual abort for a light airframe (flyaway, unstable hover, no useful still). Unauthorized flyers still launch in it. Fusion Sensor still hears Remote ID and 2.4 / 5.8 GHz. Do not treat wind as an empty sky."
+      });
+    } else if (ops.minVis < 3 || /fog/i.test((c && c.text) || "")) {
+      wxFindings.push({
+        title: "Low visibility takes the eyes off the problem",
+        body: "Visibility at " + geo + " is about " + ops.minVis + " miles (" + ((c && c.text) || "reduced") + "). Security will not acquire a small UAS against a roof or a crowd. Radio contacts and Remote ID become the site picture. Night plus this weather is worse."
+      });
+    } else if (ops.precipNow || ops.maxPrecipProb >= 60) {
+      wxFindings.push({
+        title: "Precipitation is a flight call, not a listen call",
+        body: "Rain or a high precip chance is in the next day at " + geo + " (peak probability about " + Math.round(ops.maxPrecipProb)
+          + "%). Wet decks, holes, and lithium packs matter if an aircraft comes down. Progress flights and observation stills wait. The map does not."
+      });
+    } else {
+      wxFindings.push({
+        title: "Weather is not the driver at this hour",
+        body: "Current conditions at " + geo + " (" + nowLine + ") do not by themselves abort a small UAS or a listen. Occupancy, airspace, and launch access still set the score. Recheck wind and radar before any flown visit."
+      });
+    }
+    report.findings = (wxFindings.concat(report.findings || [])).slice(0, 7);
+    report.findingLines = report.findings.map(function (f) { return f.title + ": " + f.body; });
+
+    if (ops.fly === "hold") {
+      report.steps = (report.steps || []).slice();
+      report.steps.splice(1, 0, "Hold company flights until the storm or alert window closes. Leave Fusion Sensor running.");
+    } else if (ops.fly === "caution") {
+      report.steps = (report.steps || []).slice();
+      report.steps.splice(1, 0, "Treat flown visits as weather-dependent (wind, vis, precip). Monitoring on the named site does not wait on a ceiling.");
+    }
+    if (wx.alerts && wx.alerts[0]) {
+      report.steps = (report.steps || []).slice();
+      report.steps.splice(1, 0, "Honor the active alert: " + wx.alerts[0].event + ". It is a ground-truth constraint, not a score adjustment.");
+    }
+
+    if (ops.fly !== "go" && report.rationale) {
+      report.rationale += " Weather at pull time does not change the occupancy/airspace score. It does change flown work: " + (ops.fly === "hold" ? "hold launches;" : "caution on launches;") + " keep the listener on.";
+    }
+    return report;
+  }
+
+  function locFromPhoton(geo) {
+    var feat = geo && geo.features && geo.features[0];
+    if (!feat || !feat.geometry || !feat.geometry.coordinates) return null;
+    var p = feat.properties || {};
+    return {
+      lat: feat.geometry.coordinates[1],
+      lon: feat.geometry.coordinates[0],
+      countrycode: String(p.countrycode || p.country || "").toUpperCase(),
+      label: [p.name, p.city || p.state, p.countrycode || p.country].filter(Boolean).join(", ")
+    };
+  }
+
+  function locFromMeteo(geo) {
+    var hit = pickGeo(geo && geo.results);
+    if (!hit) return null;
+    return {
+      lat: hit.latitude,
+      lon: hit.longitude,
+      countrycode: String(hit.country_code || "").toUpperCase(),
+      label: [hit.name, hit.admin1, hit.country_code].filter(Boolean).join(", ")
+    };
+  }
+
+  function geocodePlace(q) {
+    var photon = "https://photon.komoot.io/api/?q=" + encodeURIComponent(q) + "&limit=3";
+    return timedFetch(photon, 5000).then(function (geo) {
+      var loc = locFromPhoton(geo);
+      if (loc) return loc;
+      return timedFetch("https://geocoding-api.open-meteo.com/v1/search?name=" + encodeURIComponent(q) + "&count=5&language=en&format=json", 4000)
+        .then(locFromMeteo);
+    });
+  }
+
+  function forecastAt(loc) {
+    if (!loc) return Promise.resolve(null);
+    var lat = loc.lat;
+    var lon = loc.lon;
+    var fcUrl = "https://api.open-meteo.com/v1/forecast?latitude=" + lat + "&longitude=" + lon
+      + "&current=temperature_2m,precipitation,weather_code,cloud_cover,wind_speed_10m,wind_direction_10m,wind_gusts_10m,visibility"
+      + "&hourly=temperature_2m,precipitation_probability,precipitation,weather_code,wind_speed_10m,wind_gusts_10m,visibility"
+      + "&forecast_days=2&timezone=auto&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch";
+    var nwsUrl = "https://api.weather.gov/alerts/active?point=" + lat + "," + lon;
+    var fcP = timedFetch(fcUrl, 6000);
+    var alP = loc.countrycode === "US" || loc.countrycode === "UNITED STATES"
+      ? timedFetch(nwsUrl, 5000, { Accept: "application/geo+json" })
+      : Promise.resolve(null);
+    return Promise.all([fcP, alP]).then(function (pair) {
+      var fc = pair[0];
+      if (!fc || !fc.current) return null;
+      var cur = fc.current;
+      var alerts = [];
+      if (pair[1] && pair[1].features) {
+        pair[1].features.slice(0, 4).forEach(function (f) {
+          var p = f.properties || {};
+          alerts.push({
+            event: p.event || "Alert",
+            severity: p.severity || "",
+            headline: p.headline || p.description || ""
+          });
+        });
+      }
+      return {
+        ok: true,
+        fetchedAt: new Date().toISOString(),
+        geo: {
+          name: loc.label,
+          lat: lat,
+          lon: lon,
+          label: loc.label
+        },
+        current: {
+          time: cur.time,
+          tempF: cur.temperature_2m,
+          windMph: cur.wind_speed_10m,
+          windGust: cur.wind_gusts_10m,
+          windDeg: cur.wind_direction_10m,
+          windDir: compass(cur.wind_direction_10m),
+          visMiles: mToMiles(cur.visibility),
+          precipIn: cur.precipitation,
+          cloud: cur.cloud_cover,
+          code: cur.weather_code,
+          text: wmoText(cur.weather_code)
+        },
+        hours: parseHours(fc),
+        alerts: alerts
+      };
+    });
+  }
+
+  function fetchWeather(place) {
+    var q = String(place || "").trim();
+    if (!q) return Promise.resolve(null);
+    return geocodePlace(q).then(forecastAt);
+  }
+
+  w.DSSRisk = { assess: assess, LABELS: LABELS, fetchWeather: fetchWeather, applyWeather: applyWeather };
 })(window);

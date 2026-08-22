@@ -125,7 +125,7 @@
       <p>Detection is receive-only. Fusion Sensor identifies what is transmitting; it does not jam, spoof, or intercept aircraft. Dark Sky Systems LLC is not a licensed security company.</p>
     </div>
   </footer>
-  <script src="risk-engine.js?v=4"></script>
+  <script src="risk-engine.js?v=5"></script>
   <script>
     document.getElementById("risk").addEventListener("submit", function (e) {
       e.preventDefault();
@@ -160,6 +160,15 @@
       document.getElementById("buyNext").href = "pay.html?sku=" + r.sku;
       document.getElementById("buyNext").textContent = r.sku === "event_package" ? "Or secure event coverage · $2,495" : "Or start that plan";
       sessionStorage.setItem("dssRisk", JSON.stringify(r));
+      DSSRisk.fetchWeather(r.place).then(function (wx) {
+        r = DSSRisk.applyWeather(r, wx);
+        sessionStorage.setItem("dssRisk", JSON.stringify(r));
+        if (wx && wx.ok && wx.current) {
+          var line = document.getElementById("outPlan");
+          var geo = (wx.geo && wx.geo.label) || r.place;
+          line.textContent = line.textContent + " Weather at " + geo + ": " + Math.round(wx.current.tempF) + "°F, " + wx.current.windDir + " " + Math.round(wx.current.windMph) + " mph, " + wx.current.text + ".";
+        }
+      });
     });
   </script>
 </body>
