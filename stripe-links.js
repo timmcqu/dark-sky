@@ -17,7 +17,7 @@ window.DSS_STRIPE = {
   training_pack: "https://buy.stripe.com/4gM4gz07gdZngmA3IPfIs0c",
   airspace_report: "https://buy.stripe.com/9B614n07gf3reesentfIs0d",
   eap_pack: "https://buy.stripe.com/bJe00jcU21cB4DS0wDfIs0e",
-  ra: "",
-  cards: "",
-  eventpack: ""
+  ra: "https://buy.stripe.com/4gM28rbPY2gFgmAdjpfIs0j",
+  cards: "https://buy.stripe.com/eVq14n8DM9J7fiwfrxfIs0i",
+  eventpack: "https://buy.stripe.com/4gMeVdg6e6wV5HW2ELfIs0k"
 };
