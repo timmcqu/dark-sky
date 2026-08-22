@@ -39,7 +39,7 @@
       return "If people are in danger, call 911 first. Dark Sky Systems LLC is not emergency dispatch and not a licensed security company. After the scene is owned by command, we can fly color and thermal when they say so, or listen on the box. Start at <a href=\"disaster.html\">Disaster &amp; Emergency</a>.";
     }
     if (/jam|spoof|neutraliz|take over|takeover|shoot.?down|kill the drone|intercept/.test(t)) {
-      return "Detection is receive-only. Fusion Sensor identifies what is transmitting; it does not jam, spoof, intercept, or take over aircraft. CyberReaper is not a public product. If you need a record of what is in the air, start with <a href=\"pay.html?sku=basic_m\">Monitoring · Basic — $250 / month</a> or <a href=\"pay.html?sku=soft\">Fusion Sensor — $2,000</a>.";
+      return "Detection is receive-only. We bring the radios and run it on your site. We do not jam, spoof, or intercept. CyberReaper is not a public product. For a campus or event, see <a href=\"index.html#plans\">flights and on-site detection</a>.";
     }
     if (/cyberreaper|reaper|tx unlock/.test(t)) {
       return "CyberReaper is a restricted capability. It is not sold on this site, not on Stripe, and it is not thermal. Qualified entities only — briefing, TX unlock. For public work we sell listen-only detection and flown observation. Use <a href=\"index.html#request\">Talk to us</a> and mark CyberReaper TX (qualified).";
@@ -48,7 +48,7 @@
       return "The legal name is Dark Sky Systems LLC, d/b/a Dark Sky. Never Dark Sky LLC.";
     }
     if (/24\/7|person watching|security guard|soc\b/.test(t)) {
-      return "Monitoring is software listening on a named site — a live map and alerts when an unauthorized aircraft is transmitting. It is not a person watching a screen 24/7, and we are not a licensed security company. " + pack("basic_m");
+      return "We do not sell unattended 24/7 monitoring. We fly, and we bring detection when we are on the site. Campus package is four flights a year plus detection on those visits. Event coverage is the dates you book. <a href=\"index.html#plans\">Flights and on-site detection</a>.";
     }
     if (/empty sky|rid.?off|dark aircraft|what can.?t you see|limit/.test(t)) {
       return "Sensors are cooperative Remote ID and radio energy on 2.4 / 5.8 GHz, plus ADS-B for crewed traffic when monitoring is on. Aircraft that are not broadcasting do not appear as cooperative Remote ID contacts. Silence on the radios does not mean the air is empty of drones.";
@@ -98,8 +98,8 @@
     if (/pro\b|750|several sites|multi-site/.test(t) && /monitor/.test(t)) {
       return pack("pro_m");
     }
-    if (/monitor|listening|alerts|live map|250/.test(t)) {
-      return pack("basic_m", "Need several sites or a two-year archive: " + link(bySku("pro_m")) + ". Monitoring is not the same as owning Fusion Sensor ($2,000 / $4,500) and not the same as a flown job.");
+    if (/monitor|listening|alerts|live map|250|24\/7|continuous/.test(t)) {
+      return "We do not sell unattended 24/7 monitoring. We fly drones and we run detection on site while we are there. See <a href=\"index.html#plans\">flights and on-site detection</a> or <a href=\"index.html#request\">talk to us</a>.";
     }
     if (/price|how much|cost|pricing/.test(t)) {
       return "Digital: Risk Report $79 · Templates $49 · Training $99 · EAP Pack $149. Monitoring: Basic $250/month (or $2,500/year) · Pro $750/month (or $7,500/year). Detect: Fusion Sensor $2,000 · with radios $4,500. Flown packages: Single-Event $2,495 · Multi-Event 3 / $6,495 · 5 / $9,995 · Construction $2,500/month · Venue season $8,500 · Campus $18,000/year. Checkout is Stripe on this site.";

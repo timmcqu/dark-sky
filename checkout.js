@@ -108,16 +108,16 @@
     },
     campus: {
       title: "Campus & Facility Assurance",
-      lede: "Pro monitoring all year, four flown visits with stills and thermal, and one observation file the emergency plan can keep.",
+      lede: "Four flown visits a year with stills and thermal, detection while we are on site, and one observation file. Not unattended 24/7 monitoring.",
       price: "$18,000 / year",
       amount: "18000",
       chase: "",
       stripe: "",
       gets: [
-        "Pro monitoring on the named site all year",
         "Four flown visits with stills and thermal",
+        "Detection while we are on site (we bring the radios)",
         "One observation file the emergency action plan can keep",
-        "Setup email after payment so we lock the site and visit windows"
+        "Setup email after payment so we lock the visit dates"
       ]
     },
     build: {

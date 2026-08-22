@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=100" />
+  <link rel="stylesheet" href="style.css?v=101" />
   <link rel="stylesheet" href="chat.css?v=1" />
 </head>
 <!-- Dark Sky Systems LLC -->
@@ -54,7 +54,7 @@
       <p class="lede">Know what is transmitting over your campus, venue, or job. When you need stills and thermal, we fly.</p>
       <div class="hero-actions">
         <a class="cta" href="risk.html">Get the $79 risk report</a>
-        <a class="cta cta-ghost" href="pay.html?sku=basic_m">Start monitoring</a>
+        <a class="cta cta-ghost" href="#request">Talk to us</a>
       </div>
     </div>
   </section>
@@ -95,50 +95,25 @@
   </section>
 
   <section class="plans band" id="plans" aria-labelledby="plans-heading">
-    <div class="wrap">
-      <header class="sec-head">
-        <h2 id="plans-heading">Continuous monitoring</h2>
-        <p>A live map for the people who already run the site. Alerts when an unauthorized aircraft is transmitting. A record you can produce when someone asks what happened.</p>
-      </header>
-      <div class="grid plans-grid monitor-grid">
-        <a class="card plan" href="pay.html?sku=basic_m">
-          <p class="plan-for">One site</p>
-          <h3>Monitoring · Basic</h3>
-          <p class="plan-price">$250 <small>/ month</small></p>
-          <p>Live map, unauthorized-aircraft alerts, ninety days of records. Or $2,500 / year.</p>
-        </a>
-        <a class="card plan" href="pay.html?sku=pro_m">
-          <p class="plan-for">Several sites</p>
-          <h3>Monitoring · Pro</h3>
-          <p class="plan-price">$750 <small>/ month</small></p>
-          <p>Multiple sites on one map, alerts, two-year archive. Or $7,500 / year.</p>
-        </a>
-      </div>
-      <p class="plans-cta">
-        <a class="cta" href="pay.html?sku=basic_m">Start monitoring · $250 / month</a>
-      </p>
-    </div>
-  </section>
-
-  <section class="plans band" id="flight-packages" aria-labelledby="flight-heading">
+    <span id="flight-packages" class="vh" aria-hidden="true"></span>
     <span id="services" class="vh" aria-hidden="true"></span>
     <div class="wrap">
       <header class="sec-head">
-        <h2 id="flight-heading">Flight + service packages</h2>
-        <p>Named dates and flown visits. Stills, thermal, and the written file operations keeps.</p>
+        <h2 id="plans-heading">Flights and on-site detection</h2>
+        <p>We fly stills and thermal. We bring detection when we are on the site. This is not an unattended 24/7 service.</p>
       </header>
       <div class="grid plans-grid flight-grid">
         <a class="card plan" href="pay.html?sku=campus">
           <p class="plan-for">Campus and plant</p>
           <h3>Campus &amp; Facility Assurance</h3>
           <p class="plan-price">$18,000 <small>/ year</small></p>
-          <p>Pro monitoring all year, four flown visits with stills and thermal, one observation file.</p>
+          <p>Four flown visits a year with stills and thermal, detection while we are on site, one observation file.</p>
         </a>
         <a class="card plan" href="pay.html?sku=build">
           <p class="plan-for">Construction</p>
           <h3>Construction Progress</h3>
           <p class="plan-price">$2,500 <small>/ month</small></p>
-          <p>Weekly or bi-weekly progress flights. Thermal as needed. Air map on request.</p>
+          <p>Weekly or bi-weekly progress flights. Thermal as needed. Detection when we are on the job.</p>
         </a>
         <a class="card plan" href="pay.html?sku=venue">
           <p class="plan-for">Stadiums and seasons</p>
@@ -176,20 +151,20 @@
     <div class="wrap">
       <header class="sec-head">
         <h2 id="fusion-heading">Detect Drones</h2>
-        <p>Fusion Sensor runs on a laptop you already own. It receives Remote ID and radio energy on 2.4 and 5.8 GHz, plus ADS-B for crewed aircraft. Receive-only. It does not interfere with aircraft.</p>
+        <p>We bring the radios and run detection on your site. Remote ID and radio energy on 2.4 and 5.8 GHz, plus ADS-B for crewed aircraft. Receive-only. It does not jam. This is not an unattended 24/7 service.</p>
       </header>
       <div class="grid plans-grid monitor-grid">
         <a class="card plan" href="pay.html?sku=soft">
           <p class="plan-for">Software</p>
           <h3>Fusion Sensor</h3>
           <p class="plan-price">$2,000 <small>one-time</small></p>
-          <p>Continuous detection on a laptop you already own. You supply the radios. Authorized aircraft marked as authorized. Other transmitting aircraft flagged.</p>
+          <p>Field kit we set up with you. You supply the radios. Authorized aircraft marked. Other transmitting aircraft flagged. We run it on site.</p>
         </a>
         <a class="card plan" href="pay.html?sku=radio">
           <p class="plan-for">Software + radios</p>
           <h3>Fusion Sensor + Radios</h3>
           <p class="plan-price">$4,500 <small>one-time</small></p>
-          <p>The same console plus the radio stack, kitted and shipped. Initial setup and first monitoring session with you.</p>
+          <p>The same kit plus the radio stack, kitted and shipped. We set it up with you on site. Not unattended 24/7.</p>
         </a>
       </div>
     </div>
@@ -230,7 +205,7 @@
     <div class="wrap request-grid">
       <div>
         <h2 id="request-heading">Tell us the site.</h2>
-        <p class="lead">Name, phone, place, and dates. Start monitoring, book a flown package, or both.</p>
+        <p class="lead">Name, phone, place, and dates. Book a flight or on-site detection.</p>
         <p class="fine">Dark Sky Systems LLC. Texas. Part 107 crews. If people are in danger, call 911 first.</p>
         <p class="fine"><a href="sample.html">See a sample observation file</a></p>
       </div>
@@ -253,7 +228,7 @@
         </label>
         <fieldset>
           <legend>What you need</legend>
-          <label class="check"><input type="checkbox" name="need" value="CyberRaptor Monitoring" /> Monitoring</label>
+          <label class="check"><input type="checkbox" name="need" value="Flights and on-site detection" /> Flights and on-site detection</label>
           <label class="check"><input type="checkbox" name="need" value="Campus and Facility Assurance" /> Campus &amp; Facility</label>
           <label class="check"><input type="checkbox" name="need" value="Construction Progress" /> Construction Progress</label>
           <label class="check"><input type="checkbox" name="need" value="Venue and Event Season" /> Venue &amp; Event Season</label>
@@ -286,6 +261,6 @@
   <script src="app.js?v=62"></script>
   <script src="chat-config.js?v=3"></script>
   <script src="chat-kb.js?v=1"></script>
-  <script src="chat.js?v=7"></script>
+  <script src="chat.js?v=8"></script>
 </body>
 </html>
