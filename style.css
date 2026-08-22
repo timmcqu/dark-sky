@@ -197,6 +197,32 @@ h1, h2, h3 {
 .sku-switch a { color: var(--mute); }
 .sku-switch a:hover,
 .sku-switch a:focus-visible { color: var(--paper); }
+.sku-switch a[aria-current="page"] { color: var(--paper); }
+.include {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.include li {
+  margin: 0;
+  padding: 0.4rem 0 0.4rem 1.1rem;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  color: var(--mute);
+  font-size: 0.92rem;
+}
+.include li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.card .include { margin-top: 0.35rem; }
+.card .k { margin: 0.7rem 0 0; }
 
 .status {
   display: flex;

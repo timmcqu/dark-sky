@@ -9,9 +9,11 @@
       amount: "2000",
       chase: "https://payments.chase.com?invid=KV92XF7K6T0X",
       gets: [
-        "Fusion Sensor console on your laptop",
-        "Class heads: Avata, Autel, Mini, and the rest of the packs",
-        "You supply ESP32-S3 RID, ADS-B 1090, SDR on 2.4 / 5.8"
+        "Fusion Sensor license and console",
+        "Named window, up to 72 hours",
+        "Class heads: Avata, Autel, Mini, RFUAV, CageDroneRF, field missions",
+        "Run card",
+        "You bring the laptop and listen radios"
       ]
     },
     radio: {
@@ -21,8 +23,12 @@
       amount: "4500",
       chase: "https://payments.chase.com?invid=KV93YPSCQNF5",
       gets: [
-        "Fusion Sensor console",
-        "ESP32-S3 RID, ADS-B 1090, SDR 2.4 / 5.8, antennas, USB",
+        "Everything in Software",
+        "ESP32-S3 OpenDroneID receiver, flashed",
+        "ADS-B 1090 receiver",
+        "SDR receive on 2.4 GHz and 5.8 GHz",
+        "Antennas and USB",
+        "Kit, test, ship",
         "First-listen setup with you"
       ]
     }
@@ -40,10 +46,14 @@
   var status = document.getElementById("orderStatus");
   var form = document.getElementById("order");
 
+  document.title = sku.title + " — Checkout — Dark Sky Systems";
   if (title) title.textContent = sku.title;
   if (lede) lede.textContent = sku.lede;
   if (price) price.textContent = sku.price;
   if (btn) btn.textContent = "Save details";
+  document.querySelectorAll(".sku-switch a").forEach(function (a) {
+    if (a.getAttribute("data-sku") === key) a.setAttribute("aria-current", "page");
+  });
   if (gets) {
     gets.innerHTML = sku.gets.map(function (line) {
       return "<li>" + line + "</li>";
