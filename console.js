@@ -64,6 +64,7 @@
 
   var layers = { adsb: true, rf: true, apt: true, rid: true };
   var selected = null;
+  var embed = document.body.classList.contains("embed");
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var spec = document.getElementById("spec");
   var list = document.getElementById("track-list");
@@ -72,9 +73,20 @@
     zoom: 11,
     zoomControl: false,
     attributionControl: false,
-    minZoom: 9,
-    maxZoom: 14
+    minZoom: 11,
+    maxZoom: 11,
+    scrollWheelZoom: false,
+    dragging: false,
+    doubleClickZoom: false,
+    boxZoom: false,
+    keyboard: false,
+    touchZoom: false,
+    bounceAtZoomLimits: false
   });
+  map.setMaxBounds([
+    [CENTER[0] - 0.42, CENTER[1] - 0.52],
+    [CENTER[0] + 0.42, CENTER[1] + 0.52]
+  ]);
   L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
     attribution: "CARTO · OSM",
     subdomains: "abcd",
@@ -356,11 +368,11 @@
     if (!reduce) {
       TRACKS.forEach(function (tr) {
         if (!visible(tr)) return;
-        var speed = tr.layer === "adsb" ? 18 : 4;
+        var speed = tr.layer === "adsb" ? 7 : 3;
         var next = dest(tr.lat, tr.lng, tr.heading, speed * (dt / 1000));
         tr.lat = next[0];
         tr.lng = next[1];
-        if (map.distance(CENTER, [tr.lat, tr.lng]) > 38000) tr.heading = (tr.heading + 155) % 360;
+        if (map.distance(CENTER, [tr.lat, tr.lng]) > 22000) tr.heading = (tr.heading + 155) % 360;
         tr.marker.setLatLng([tr.lat, tr.lng]);
         if (tr.layer === "adsb") refreshIcon(tr);
       });
