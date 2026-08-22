@@ -342,69 +342,69 @@
 
     rid: {
       title: "Remote ID receive board",
-      lede: "An ESP32-S3 board for Remote ID receive. We order it to your address the same day. Receive only.",
+      lede: "Remote ID receive board from Dark Sky Systems. Receive only. We ship after payment.",
       price: "$39",
       amount: "39",
       chase: "",
       stripe: "",
       gets: [
-        "Adafruit ESP32-S3 Feather, ordered to you the same day",
+        "Remote ID receive board, shipped by Dark Sky Systems",
         "Receive only. It does not jam or transmit a command",
-        "Tracking by email after we place the order",
+        "Tracking by email",
         "No battery in the box"
       ]
     },
     listen: {
       title: "Listen radio + dipole",
-      lede: "RTL-SDR V3 listen radio with a dipole. Receive only. We order it to your address the same day.",
+      lede: "Listen radio with dipole from Dark Sky Systems. Receive only. We ship after payment.",
       price: "$79",
       amount: "79",
       chase: "",
       stripe: "",
       gets: [
-        "Official RTL-SDR Blog V3 with dipole kit",
+        "Listen radio with dipole",
         "Receive only. It does not jam",
-        "Tracking by email after we place the order"
+        "Tracking by email"
       ]
     },
     ant1090: {
       title: "1090 MHz listen antenna",
-      lede: "SMA 1090 MHz listen antenna for crewed-aircraft broadcasts. We order it the same day.",
+      lede: "SMA 1090 MHz listen antenna from Dark Sky Systems. We ship after payment.",
       price: "$29",
       amount: "29",
       chase: "",
       stripe: "",
       gets: [
-        "Nooelec 5 dBi SMA 1090 MHz antenna",
+        "SMA 1090 MHz listen antenna",
         "Receive only",
-        "Tracking by email after we place the order"
+        "Tracking by email"
       ]
     },
     case: {
       title: "Small hard case",
-      lede: "Apache 1800 weatherproof case for the radios. We order it the same day.",
+      lede: "Small weatherproof case from Dark Sky Systems. We ship after payment.",
       price: "$29",
       amount: "29",
       chase: "",
       stripe: "",
       gets: [
-        "Harbor Freight Apache 1800, small, black",
-        "Ships from the supplier to you",
-        "Tracking by email after we place the order"
+        "Small weatherproof hard case",
+        "Ships from Dark Sky Systems",
+        "Tracking by email"
       ]
     },
     starter: {
       title: "Listen starter",
-      lede: "Remote ID board plus the listen radio. We order both to you the same day. Receive only.",
+      lede: "Remote ID board plus the listen radio, from Dark Sky Systems. Receive only. We ship after payment.",
       price: "$99",
       amount: "99",
       chase: "",
       stripe: "",
       gets: [
-        "ESP32-S3 Remote ID board",
-        "RTL-SDR V3 listen radio + dipole",
+        "Remote ID receive board",
+        "Listen radio + dipole",
         "Receive only. No Fusion Sensor license in this SKU",
-        "Tracking by email after we place the orders"
+        "Tracking by email"
       ]
     },
     radio: {
@@ -481,7 +481,7 @@
     else if (key === "scene" || key === "job") lead.textContent = "Pay $19. Instant file after payment. Print it and keep it with the crew.";
     else if (key === "school" || key === "incident") lead.textContent = "Pay $29. Instant file after payment. Print it and keep it with the site file.";
     else if (key === "crew") lead.textContent = "Pay $49. All four files after payment. Print them and keep them with the crew.";
-    else if (isAttach) lead.textContent = "Pay with Stripe. We order this today to the address on the receipt. Tracking by email. Receive only.";
+    else if (isAttach) lead.textContent = "Pay with Stripe. We ship to the address on the receipt. Tracking by email. Receive only.";
     else if (payOnStripe) lead.textContent = "Name and email if you want a setup note. Pay with Stripe next. Deposit lands in Dark Sky Systems LLC.";
     else lead.textContent = "Name and email. After the deposit posts, we send next steps.";
   }
@@ -492,7 +492,7 @@
     } else if (key === "obs_templates" || key === "training_pack" || key === "eap_pack") {
       trust.textContent = "After Stripe, the thank-you page has a Download button. Click it. That is the whole delivery. No card data is stored on darksky.systems.";
     } else if (isAttach) {
-      trust.textContent = "This is hardware we order the same day. Not a download. Tracking by email. Receive only. No card data is stored on darksky.systems.";
+      trust.textContent = "Hardware from Dark Sky Systems. Tracking by email. Receive only. No card data is stored on darksky.systems.";
     } else if (isVolume) {
       trust.textContent = "After payment we email the PDF. Print it and keep it. No card data is stored on darksky.systems.";
     }
