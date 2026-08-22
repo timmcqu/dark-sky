@@ -46,7 +46,13 @@
       obs_templates: "Observation File Template Pack",
       training_pack: "Airspace Awareness Essentials",
       airspace_report: "Named Location Airspace Awareness Report",
-      eap_pack: "Emergency Action Plan Pack"
+      eap_pack: "Emergency Action Plan Pack",
+      scene: "Drone over the scene", job: "Jobsite drone log",
+      school: "School and venue size-up", incident: "Unauthorized drone incident file",
+      crew: "Crew paper bundle",
+      rid: "Remote ID receive board", listen: "Listen radio + dipole",
+      ant1090: "1090 MHz listen antenna", case: "Small hard case",
+      starter: "Listen starter"
     };
     var sku = new URLSearchParams(location.search).get("sku") || "";
     var label = names[sku];
@@ -70,6 +76,8 @@
       lede.textContent = "Your named-location report is ready. It opens next. Use Save as PDF in the print dialog.";
       box.innerHTML = '<a class="cta" href="report.html?sku=airspace_report">Open Your Location Report now</a>';
       window.location.replace("report.html?sku=airspace_report");
+    } else if (sku === "rid" || sku === "listen" || sku === "ant1090" || sku === "case" || sku === "starter") {
+      lede.textContent = (label || "Field attach") + ". We order this today to the address on the Stripe receipt. Tracking by email. Receive only.";
     } else {
       lede.textContent = (label || "This order") + ". We email next steps to the address on the Stripe receipt. Deposit is in Dark Sky Systems LLC.";
     }
