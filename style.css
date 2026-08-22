@@ -459,6 +459,26 @@ a.card:focus-visible h3 { color: var(--gold); }
   object-fit: cover;
   margin: 1.25rem 0 0;
 }
+.page-hero .pair { margin-top: 1.35rem; }
+.page-hero .pair img { margin: 0; height: min(42svh, 22rem); }
+
+.job { padding-block: 2rem 4.5rem; }
+.job h2 {
+  margin: 0 0 0.7rem;
+  font-size: 1.45rem;
+}
+.job-grid {
+  display: grid;
+  gap: 2rem 3rem;
+  margin-bottom: 1.5rem;
+}
+.callout {
+  margin: 0 0 1.25rem;
+  padding: 0.85rem 0 0.85rem 1rem;
+  border-left: 3px solid var(--gold);
+  color: var(--mute);
+  max-width: 40rem;
+}
 
 .survey { border-block: 1px solid var(--line); background: #0e0d0b; }
 
@@ -1011,6 +1031,7 @@ a.card:focus-visible h3 { color: var(--gold); }
   .steps { grid-template-columns: repeat(3, 1fr); }
   .about-grid,
   .request-grid { grid-template-columns: 1.1fr 0.9fr; align-items: start; }
+  .job-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (min-width: 980px) {

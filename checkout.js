@@ -43,16 +43,15 @@
     },
     soft: {
       title: "Fusion Sensor",
-      lede: "Console and license. You already have listen radios. One named window, up to 72 hours.",
+      lede: "Fusion Sensor on your laptop. You already have the radios. One site, up to three days.",
       price: "$2,000",
       amount: "2000",
       chase: "",
       gets: [
-        "Fusion Sensor license and console",
-        "Named window, up to 72 hours",
-        "Class heads: Avata, Autel, Mini, RFUAV, CageDroneRF, field missions",
-        "Run card",
-        "You bring the laptop and listen radios"
+        "Fusion Sensor on your laptop",
+        "One site, up to three days",
+        "Fingerprints: Avata, Autel, Mini, and the rest",
+        "You bring the laptop and the radios"
       ]
     },
     radio: {
