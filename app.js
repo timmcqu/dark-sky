@@ -1,6 +1,6 @@
 (function () {
-  /* FormSubmit ajax to the company address. Namecheap forwards @darksky.systems to Outlook. Subject splits client vs PILOT. */
-  var RELAY = "https://formsubmit.co/ajax/tim@darksky.systems";
+  /* FormSubmit issued hash for the activated Outlook inbox. Subject splits client vs PILOT. */
+  var RELAY = "https://formsubmit.co/ajax/9e30fb114bdd52baca9ba3fc044fe19b";
 
   function trimText(s) {
     return String(s || "").replace(/^\s+|\s+$/g, "");
