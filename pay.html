@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <title>Checkout — Dark Sky Systems</title>
+  <meta name="description" content="Checkout Fusion Sensor. Dark Sky Systems LLC. Detects drones. Does not jam." />
+  <link rel="canonical" href="https://darksky.systems/pay.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=81" />
+</head>
+<body>
+  <a class="skip" href="#order">Skip to checkout</a>
+  <header class="mast">
+    <div class="wrap mast-inner">
+      <a class="brand" href="index.html">Dark Sky Systems</a>
+      <nav class="rail" aria-label="Primary">
+        <a href="index.html#services">Hire a Drone</a>
+        <a href="software.html?v=87">Detect Drones</a>
+        <a href="fly.html">Fly Drones</a>
+        <a href="index.html#request">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero wrap" id="top">
+    <p class="eyebrow">Detect Drones · Checkout</p>
+    <h1 id="sku-title">Fusion Sensor</h1>
+    <p class="lede" id="sku-lede">Console on a laptop you already use. You supply the listen radios.</p>
+    <p class="plan-price" id="sku-price">$2,000</p>
+    <p class="fine">It detects. It does not jam. Card is processed by Chase. Deposit lands in Dark Sky Systems LLC.</p>
+    <p class="fine"><a href="pay.html?sku=soft">Software · $2,000</a> · <a href="pay.html?sku=radio">Software + radios · $4,500</a></p>
+  </section>
+
+  <section class="request" aria-labelledby="order-heading">
+    <div class="wrap request-grid">
+      <div>
+        <h2 id="order-heading">Your details</h2>
+        <p class="lead">We need a name and email to send the license after the deposit posts. Then you pay on Chase.</p>
+        <ul class="hire-list" id="sku-gets"></ul>
+      </div>
+      <form class="ask" id="order" action="#" method="post">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <label>Your name <span class="req">required</span>
+          <input type="text" id="oName" name="oName" required autocomplete="name" />
+        </label>
+        <label>Email <span class="req">required</span>
+          <input type="email" id="oEmail" name="oEmail" required autocomplete="email" />
+        </label>
+        <label>Organization
+          <input type="text" id="oOrg" name="oOrg" autocomplete="organization" />
+        </label>
+        <label>Named place / window
+          <input type="text" id="oWindow" name="oWindow" placeholder="Place and dates" />
+        </label>
+        <button type="submit" class="cta" id="btnPay">Save details</button>
+        <p class="fine">We take name and email here. Card is on the next step.</p>
+        <p class="copied" id="orderStatus" role="status" aria-live="polite" hidden></p>
+        <p id="payWrap" hidden>
+          <a class="cta" id="payNow" href="#">Pay on Chase</a>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap">
+      <p><strong>Dark Sky Systems LLC</strong> · darksky.systems</p>
+      <p>We listen. We do not jam, spoof, or intercept. We are not a licensed security company. Detect Drones checkout is Chase. CyberReaper is not a checkout.</p>
+    </div>
+  </footer>
+  <script src="checkout.js?v=2"></script>
+</body>
+</html>

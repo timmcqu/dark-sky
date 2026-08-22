@@ -91,13 +91,18 @@
         "Window: " + (val("oWindow") || "(none)"),
         "Next: Chase payment link"
       ];
+      var wrap = document.getElementById("payWrap");
+      var payNow = document.getElementById("payNow");
+      if (payNow) {
+        payNow.href = sku.chase;
+        payNow.textContent = "Pay " + sku.price + " on Chase";
+      }
+      if (wrap) wrap.hidden = false;
       if (status) {
         status.hidden = false;
-        status.textContent = "Opening Chase…";
+        status.textContent = "Details saved. Pay on Chase next. We do not store your card.";
       }
-      sendNotice(lines.join("\n")).then(function () {
-        location.href = sku.chase;
-      });
+      sendNotice(lines.join("\n"));
     });
   }
 })();
