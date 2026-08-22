@@ -156,7 +156,7 @@
     selected = null;
     document.getElementById("detail-k").textContent = "Track";
     document.getElementById("detail-id").textContent = "Click a contact";
-    document.getElementById("detail-dl").innerHTML = "<dt>Hint</dt><dd>ADS-B airframes, RF energy, airports, RID listen. Demo replay of a named window.</dd>";
+    document.getElementById("detail-dl").innerHTML = "<dt>Hint</dt><dd>White airliners are ADS-B. Red drones are radio energy. Airport codes are the overlay. This is a demo replay.</dd>";
     renderList();
   }
 
