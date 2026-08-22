@@ -973,7 +973,8 @@ a.card:focus-visible h3 { color: var(--gold); }
 }
 
 .ask input,
-.ask textarea {
+.ask textarea,
+.ask select {
   display: block;
   width: 100%;
   margin-top: 0.4rem;
@@ -988,7 +989,8 @@ a.card:focus-visible h3 { color: var(--gold); }
 }
 
 .ask input:focus,
-.ask textarea:focus {
+.ask textarea:focus,
+.ask select:focus {
   outline: 2px solid var(--gold);
   outline-offset: 1px;
 }

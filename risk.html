@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <title>Unauthorized drone risk calculator — Dark Sky Systems</title>
+  <meta name="description" content="Score unauthorized-drone risk for a named place. Dark Sky Systems LLC." />
+  <link rel="canonical" href="https://darksky.systems/risk.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=89" />
+</head>
+<body>
+  <header class="mast">
+    <div class="wrap mast-inner">
+      <a class="brand" href="index.html">Dark Sky Systems</a>
+      <nav class="rail" aria-label="Primary">
+        <a href="index.html#services">Hire a Drone</a>
+        <a href="software.html?v=100#top">Detect Drones</a>
+        <a href="index.html#plans">Plans</a>
+        <a href="fly.html">Fly Drones</a>
+        <a href="index.html#request">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+  <section class="page-hero wrap">
+    <p class="eyebrow">Plans</p>
+    <h1>Unauthorized drone risk</h1>
+    <p class="lede">Score a named place. We recommend a monitoring plan. This scores broadcasts you can hear — Remote ID and RF energy — not dark aircraft.</p>
+  </section>
+  <section class="request">
+    <div class="wrap request-grid">
+      <form class="ask" id="risk">
+        <label>Place
+          <input type="text" id="rPlace" required placeholder="Campus, job, venue" />
+        </label>
+        <label>What it is
+          <select id="rType">
+            <option value="campus">Campus / facility</option>
+            <option value="build">Construction</option>
+            <option value="venue">Stadium / event</option>
+            <option value="plant">Industrial / plant</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+        <label>People on the ground
+          <select id="rPeople">
+            <option value="staff">Staff only</option>
+            <option value="public">Public on site</option>
+            <option value="dense">Dense event / gates</option>
+          </select>
+        </label>
+        <label>Airspace
+          <select id="rAir">
+            <option value="open">Open / uncontrolled</option>
+            <option value="airport">Near a towered airport</option>
+            <option value="tfr">TFR or stadium TFRs on event days</option>
+          </select>
+        </label>
+        <label>Prior drone incidents
+          <select id="rPrior">
+            <option value="no">None known</option>
+            <option value="yes">Yes</option>
+          </select>
+        </label>
+        <button type="submit" class="cta">Score this place</button>
+      </form>
+      <div>
+        <h2 id="outTitle">Recommendation</h2>
+        <p class="lead" id="outScore">Fill the form.</p>
+        <p id="outPlan"></p>
+        <p class="plans-cta" id="outCta" hidden>
+          <a class="cta" href="index.html#request">Start that plan</a>
+          <a class="cta cta-ghost" href="index.html#plans">See all plans</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <footer class="foot">
+    <div class="wrap">
+      <p><strong>Dark Sky Systems LLC</strong> · darksky.systems</p>
+      <p>We listen. We do not jam, spoof, or intercept.</p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("risk").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var score = 20;
+      var type = document.getElementById("rType").value;
+      var people = document.getElementById("rPeople").value;
+      var air = document.getElementById("rAir").value;
+      var prior = document.getElementById("rPrior").value;
+      if (type === "venue") score += 15;
+      if (type === "plant") score += 10;
+      if (people === "public") score += 10;
+      if (people === "dense") score += 22;
+      if (air === "airport") score += 12;
+      if (air === "tfr") score += 24;
+      if (prior === "yes") score += 18;
+      if (score > 100) score = 100;
+      var plan = "Monitoring · Basic — $250 / month";
+      var why = "One site, live map, off-list alerts.";
+      if (score >= 70 && type === "venue") {
+        plan = "Venue & Event Season — $8,500 / season";
+        why = "Named dates, coverage days, and the air map while gates are open.";
+      } else if (score >= 65 && type === "campus") {
+        plan = "Campus & Facility Assurance — $18,000 / year";
+        why = "Year-round monitoring plus four flown visits and an observation file.";
+      } else if (score >= 55 && type === "build") {
+        plan = "Construction Progress — $2,500 / month";
+        why = "Weekly stills while the job is open, thermal when the deck needs it.";
+      } else if (score >= 55) {
+        plan = "Monitoring · Pro — $750 / month";
+        why = "Multi-site picture and alerts your ops can keep.";
+      }
+      document.getElementById("outTitle").textContent = document.getElementById("rPlace").value;
+      document.getElementById("outScore").textContent = "Risk score " + score + " / 100. " + why;
+      document.getElementById("outPlan").textContent = "Recommended: " + plan;
+      document.getElementById("outCta").hidden = false;
+    });
+  </script>
+</body>
+</html>
