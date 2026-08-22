@@ -268,6 +268,77 @@
         "Setup email after payment so we lock the dates"
       ]
     },
+    scene: {
+      title: "Drone over the scene",
+      lede: "A first-in pocket card for fire and EMS when a drone is over the scene. Print it. Instant file after payment.",
+      price: "$19",
+      amount: "19",
+      chase: "",
+      stripe: "",
+      gets: [
+        "Firefighter size-up: clock, heading, height, what is under it",
+        "What to write and the one sentence to command",
+        "911 first if people are in danger",
+        "Printable PDF after payment"
+      ]
+    },
+    job: {
+      title: "Jobsite drone log",
+      lede: "A one-page log for an unauthorized drone over one named job. Superintendent fills it. Instant file after payment.",
+      price: "$19",
+      amount: "19",
+      chase: "",
+      stripe: "",
+      gets: [
+        "Log lines: time, clock, heading, photo, RID if visible, who you called",
+        "For one named job — keep it with the job file",
+        "911 first if people are in danger",
+        "Printable PDF after payment"
+      ]
+    },
+    school: {
+      title: "School and venue size-up",
+      lede: "Admin paper when a drone is over a crowd, campus, or venue. Print it. Instant file after payment.",
+      price: "$29",
+      amount: "29",
+      chase: "",
+      stripe: "",
+      gets: [
+        "Size-up: who has eyes, clock from a named door, what is under it",
+        "What to write and who your site already named to call",
+        "911 first if people are in danger",
+        "Printable PDF after payment"
+      ]
+    },
+    incident: {
+      title: "Unauthorized drone incident file",
+      lede: "The write-down: photos, time, direction, RID number if visible, who was called. Instant file after payment.",
+      price: "$29",
+      amount: "29",
+      chase: "",
+      stripe: "",
+      gets: [
+        "Incident file for one named place",
+        "Photos, time, direction, RID if a display showed one, who you called",
+        "911 first if people are in danger",
+        "Printable PDF after payment"
+      ]
+    },
+    crew: {
+      title: "Crew paper bundle",
+      lede: "All four files: scene card, jobsite log, school and venue size-up, incident file. Instant files after payment.",
+      price: "$49",
+      amount: "49",
+      chase: "",
+      stripe: "",
+      gets: [
+        "Drone over the scene — fire / EMS pocket card",
+        "Jobsite drone log — one named job",
+        "School and venue size-up — admin paper",
+        "Unauthorized drone incident file — photos, time, who was called",
+        "Four printable PDFs after payment"
+      ]
+    },
     radio: {
       title: "Fusion Sensor + radios",
       lede: "Same console. We kit, flash, and ship the radios, then complete initial setup and a first monitoring session with you.",
@@ -310,12 +381,13 @@
   if (lede) lede.textContent = sku.lede;
   if (price) price.textContent = sku.price;
   var isPack = key === "ra" || key === "cards" || key === "eventpack";
+  var isVolume = key === "scene" || key === "job" || key === "school" || key === "incident" || key === "crew";
   var eyebrow = document.getElementById("sku-eyebrow");
   var fine = document.getElementById("sku-fine");
   if (eyebrow) {
     eyebrow.textContent = (key === "event_package" || key === "events_3" || key === "events_5")
       ? "Event coverage · Checkout"
-      : (isPack ? "Digital packs · Checkout" : (key === "soft" || key === "radio" ? "Detect Drones · Checkout" : "Plans · Checkout"));
+      : (isVolume ? "Crew paper · Checkout" : (isPack ? "Digital packs · Checkout" : (key === "soft" || key === "radio" ? "Detect Drones · Checkout" : "Plans · Checkout")));
   }
   var payHref = sku.stripe || sku.chase || "";
   var payOnStripe = !!sku.stripe;
@@ -337,6 +409,9 @@
     else if (key === "eap_pack") lead.textContent = "Pay $149. The thank-you page gives you the PDF and the editable file immediately.";
     else if (key === "training_pack") lead.textContent = "Pay $99. Download the pack on the next page and print the checklists.";
     else if (key === "airspace_report") lead.textContent = "Pay $149. Open the named-location report on the next page and save it as PDF.";
+    else if (key === "scene" || key === "job") lead.textContent = "Pay $19. Instant file after payment. Print it and keep it with the crew.";
+    else if (key === "school" || key === "incident") lead.textContent = "Pay $29. Instant file after payment. Print it and keep it with the site file.";
+    else if (key === "crew") lead.textContent = "Pay $49. All four files after payment. Print them and keep them with the crew.";
     else if (payOnStripe) lead.textContent = "Name and email if you want a setup note. Pay with Stripe next. Deposit lands in Dark Sky Systems LLC.";
     else lead.textContent = "Name and email. After the deposit posts, we send next steps.";
   }
@@ -346,6 +421,8 @@
       trust.textContent = "Use the same browser you scored or named the place in. After Stripe, the report opens. Print or Save as PDF. No card data is stored on darksky.systems.";
     } else if (key === "obs_templates" || key === "training_pack" || key === "eap_pack") {
       trust.textContent = "After Stripe, the thank-you page has a Download button. Click it. That is the whole delivery. No card data is stored on darksky.systems.";
+    } else if (isVolume) {
+      trust.textContent = "After payment we email the PDF. Print it and keep it. No card data is stored on darksky.systems.";
     }
   }
   if (params.get("paid") === "1") {
