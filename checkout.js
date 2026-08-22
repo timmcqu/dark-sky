@@ -193,18 +193,18 @@
     },
     eap_pack: {
       title: "Emergency Action Plan Pack",
-      lede: "Give first-in companies and your operations team the site information the Emergency Action Plan needs: reporting, ways out, assembly, medical, the path apparatus uses. Built to sit with 29 CFR 1910.38 and 1926.35.",
+      lede: "Professional templates your company uses to build its Emergency Action Plan. Fill in your site: how people report an emergency, exits, assembly, medical, and how first-in companies get in. PDF and an editable file, immediately after payment.",
       price: "$149",
       amount: "149",
       chase: "",
       stripe: "",
       gets: [
-        "Cover sheet: site ID, plan keeper, how emergencies are reported (1910.38(c)(1))",
-        "Exit routes, gates, and assembly / accounting locations (1910.38(c)(2)–(4) · 1926.35)",
-        "Rescue, medical, ambulance in, patient out, first-in path (1910.38(c)(5))",
-        "Excavation, confined space, and fall observations where they apply",
-        "How-to so operations keep the file with the written EAP",
-        "PDF plus an editable HTML copy — download on the thank-you page"
+        "Professional templates you complete for your named site",
+        "Reporting, exit routes, assembly, medical, and first-in access",
+        "PDF plus an editable file for your operations team",
+        "Instant download on the thank-you page",
+        "Drafting aid covering the topics OSHA expects in an EAP (29 CFR 1910.38 / 1926.35)",
+        "You write the plan. This is not an inspection and not a PE stamp"
       ]
     },
     airspace_report: {

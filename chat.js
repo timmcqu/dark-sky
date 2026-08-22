@@ -63,7 +63,7 @@
       return pack("risk_report", "Score the place first (free preview), then pay. Same browser to open the file.");
     }
     if (/\b149\b|eap pack|emergency action plan/.test(t) && !/disaster/.test(t)) {
-      return pack("eap_pack", "Not an OSHA inspection and not the employer’s written plan.");
+      return pack("eap_pack", "Professional templates your company completes. Not an inspection and not a PE stamp.");
     }
     if (/template|observation file/.test(t)) {
       return pack("obs_templates") + " Sample: <a href=\"sample.html\">sample.html</a>.";

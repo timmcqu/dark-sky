@@ -43,7 +43,7 @@ window.DSS_KB = {
         "osha",
         "paper"
       ],
-      "blurb": "Observation templates for reporting, exits, assembly, medical, apparatus path. Aligns to 29 CFR 1910.38 / 1926.35 as observation, not an OSHA inspection and not the employer\u2019s written plan. Instant PDF + editable file after pay."
+      "blurb": "Professional templates your company uses to build its Emergency Action Plan. Reporting, exits, assembly, medical, first-in access. Instant PDF and editable file after pay. You write the plan; this is not an inspection."
     },
     {
       "sku": "obs_templates",
