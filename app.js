@@ -1,5 +1,5 @@
 (function () {
-  /* Opaque form relay (hashed inbox). Not a mailto. Address is not on the plate. */
+  /* FormSubmit ajax. Same Outlook inbox. Subject line splits client vs PILOT. */
   var RELAY = "https://formsubmit.co/ajax/timmcqu@outlook.com";
 
   function trimText(s) {
@@ -184,7 +184,7 @@
           if (/activat/i.test(msg)) {
             line = "Check Outlook (and junk) for a one-time confirm. After you click it, this form is live.";
           } else if (result.ok) {
-            line = "Sent. Tagged PILOT in the inbox. Brief also copied.";
+            line = "Sent. We have it.";
           } else {
             line = "Copy saved on this device. Send did not go through — try again.";
           }
