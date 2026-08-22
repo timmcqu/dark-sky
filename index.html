@@ -206,42 +206,37 @@
       <div>
         <h2 id="request-heading">Tell us the site.</h2>
         <p class="lead">Name, phone, place, and dates. Book a flight or on-site detection.</p>
-        <p class="fine">Dark Sky Systems LLC. Texas. Part 107 crews. If people are in danger, call 911 first.</p>
+        <p class="fine">Dark Sky Systems LLC. Texas. If people are in danger, call 911 first.</p>
         <p class="fine"><a href="sample.html">See a sample observation file</a></p>
       </div>
       <form class="ask" id="ask" action="#" method="post">
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <label class="hp" aria-hidden="true">Company website
+          <input type="text" id="companyUrl" name="companyUrl" tabindex="-1" autocomplete="off" />
+        </label>
         <label>Your name <span class="req">required</span>
-          <input type="text" id="fromName" name="fromName" required autocomplete="name" />
+          <input type="text" id="fromName" name="fromName" required minlength="4" autocomplete="name" />
         </label>
         <label>Callback number <span class="req">required</span>
-          <input type="tel" id="fromPhone" name="fromPhone" required autocomplete="tel" inputmode="tel" />
+          <input type="tel" id="fromPhone" name="fromPhone" required autocomplete="tel" inputmode="tel" placeholder="512-555-0100" />
         </label>
         <label>Organization
           <input type="text" id="org" name="org" autocomplete="organization" />
         </label>
         <label>Place <span class="req">required</span>
-          <input type="text" id="venue" name="venue" required autocomplete="off" />
+          <input type="text" id="venue" name="venue" required minlength="5" autocomplete="off" placeholder="Campus, job, or venue and city" />
         </label>
         <label>When <span class="req">required</span>
-          <input type="text" id="window" name="window" required placeholder="Date and hours" autocomplete="off" />
+          <input type="text" id="window" name="window" required minlength="6" placeholder="e.g. 12 Sep 2026, 0800–1600" autocomplete="off" />
         </label>
         <fieldset>
-          <legend>What you need</legend>
+          <legend>What you need <span class="req">pick up to three</span></legend>
           <label class="check"><input type="checkbox" name="need" value="Flights and on-site detection" /> Flights and on-site detection</label>
           <label class="check"><input type="checkbox" name="need" value="Campus and Facility Assurance" /> Campus &amp; Facility</label>
           <label class="check"><input type="checkbox" name="need" value="Construction Progress" /> Construction Progress</label>
-          <label class="check"><input type="checkbox" name="need" value="Venue and Event Season" /> Venue &amp; Event Season</label>
-          <label class="check"><input type="checkbox" name="need" value="Single-Event Airspace Awareness" /> Single-Event Airspace Awareness</label>
-          <label class="check"><input type="checkbox" name="need" value="Multi-Event Airspace Package" /> Multi-Event Airspace Package</label>
-          <label class="check"><input type="checkbox" name="need" value="Instant tools" /> Instant tools / digital files</label>
-          <label class="check"><input type="checkbox" name="need" value="Emergency Action Plan Pack" /> Emergency Action Plan Pack</label>
-          <label class="check"><input type="checkbox" name="need" value="Site survey" /> Site survey</label>
           <label class="check"><input type="checkbox" name="need" value="Events / high-profile security" /> Events / high-profile security</label>
           <label class="check"><input type="checkbox" name="need" value="Disaster and emergency Rapid Coverage" /> Disaster &amp; Emergency Rapid Coverage</label>
-          <label class="check"><input type="checkbox" name="need" value="Fusion Sensor software" /> Fusion Sensor</label>
-          <label class="check"><input type="checkbox" name="need" value="CyberReaper TX briefing" /> CyberReaper TX (qualified)</label>
-          <label class="check"><input type="checkbox" name="need" value="Pilot" /> Fly Drones</label>
+          <label class="check"><input type="checkbox" name="need" value="Digital files" /> Digital files (EAP, report, templates)</label>
         </fieldset>
         <label>Note
           <textarea id="note" name="note" rows="3"></textarea>
@@ -258,7 +253,7 @@
       <p>Detection is receive-only. Fusion Sensor identifies what is transmitting; it does not jam, spoof, or intercept aircraft. Dark Sky Systems LLC is not a licensed security company. Flown jobs are request.</p>
     </div>
   </footer>
-  <script src="app.js?v=62"></script>
+  <script src="app.js?v=63"></script>
   <script src="chat-config.js?v=3"></script>
   <script src="chat-kb.js?v=1"></script>
   <script src="chat.js?v=8"></script>

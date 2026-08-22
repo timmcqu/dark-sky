@@ -6,6 +6,55 @@
     return String(s || "").replace(/^\s+|\s+$/g, "");
   }
 
+  function digitsOnly(s) {
+    return String(s || "").replace(/\D/g, "");
+  }
+
+  function validPhone(raw) {
+    var d = digitsOnly(raw);
+    if (d.length === 11 && d.charAt(0) === "1") d = d.slice(1);
+    if (d.length !== 10) return false;
+    if (d.slice(0, 3) === "555") return false;
+    if (/^(\d)\1{9}$/.test(d)) return false;
+    if (d.slice(0, 3) === "000" || d.slice(0, 3) === "111") return false;
+    return true;
+  }
+
+  function looksPastWhen(raw) {
+    var s = trimText(raw);
+    var y = s.match(/\b(20\d{2})\b/);
+    if (y && Number(y[1]) < 2026) return true;
+    var t = Date.parse(s);
+    if (!isNaN(t) && t < Date.now() - 36 * 60 * 60 * 1000) return true;
+    return false;
+  }
+
+  function spamNote(raw) {
+    return /booking system|losing potential customers|reply and i.?ll send|increase (your )?traffic|web development|wordpress|seo service|rank on google/i.test(raw || "");
+  }
+
+  function validateRequest() {
+    var name = val("fromName");
+    var phone = val("fromPhone");
+    var venue = val("venue");
+    var win = val("window");
+    var note = val("note");
+    var urlTrap = val("companyUrl");
+    var needs = [];
+    var boxes = document.querySelectorAll('#ask input[name="need"]:checked');
+    for (var i = 0; i < boxes.length; i += 1) needs.push(boxes[i].value);
+    if (urlTrap) return "Not sent.";
+    if (name.length < 4) return "Use your full name.";
+    if (!validPhone(phone)) return "Use a real callback number.";
+    if (venue.length < 5) return "Name the actual place and city.";
+    if (venue.toLowerCase() === name.toLowerCase()) return "Place cannot be the same as your name.";
+    if (looksPastWhen(win)) return "Give a date that has not already passed.";
+    if (!needs.length) return "Pick what you need.";
+    if (needs.length > 3) return "Pick no more than three items.";
+    if (spamNote(note)) return "That note was not accepted.";
+    return "";
+  }
+
   function fallbackCopy(text) {
     var ta = document.createElement("textarea");
     ta.value = text;
@@ -170,6 +219,13 @@
       if (typeof formEl.reportValidity === "function" && !formEl.reportValidity()) return;
       var hp = formEl.querySelector('input[name="botcheck"]');
       if (hp && hp.checked) return;
+      if (formEl.id === "pilot" && !validPhone(val("pPhone"))) {
+        if (statusEl) {
+          statusEl.hidden = false;
+          statusEl.textContent = "Use a real callback number.";
+        }
+        return;
+      }
       var text = composeFn();
       copyText(text);
       if (buttonEl) buttonEl.disabled = true;
@@ -208,6 +264,11 @@
       if (typeof form.reportValidity === "function" && !form.reportValidity()) return;
       var hp = form.querySelector('input[name="botcheck"]');
       if (hp && hp.checked) return;
+      var bad = validateRequest();
+      if (bad) {
+        setStatus(bad, false);
+        return;
+      }
       var text = composeBrief();
       copyText(text);
       if (btn) btn.disabled = true;
