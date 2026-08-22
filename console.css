@@ -29,6 +29,13 @@ html, body { margin: 0; height: 100%; background: var(--ink); color: var(--paper
   border-bottom: 1px solid var(--line);
   background: #080a10;
 }
+button.chip {
+  font: inherit;
+  cursor: pointer;
+  background: transparent;
+  color: var(--mute);
+}
+button.chip:hover, button.chip:focus-visible { color: var(--paper); border-color: var(--paper); }
 .chip {
   margin: 0;
   padding: 0.32rem 0.65rem;

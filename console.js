@@ -13,21 +13,51 @@
     { id: "N882PA", layer: "adsb", kind: "ADS-B 1090", heading: 268, alt: "FL080", lat: 39.93, lng: -82.88, online: true },
     {
       id: "UAS-04",
+      label: "Avata",
       layer: "rf",
-      kind: "OcuSync-class",
-      family: "Consumer digital link",
+      kind: "Avata-class",
+      family: "DJI FPV · OcuSync",
       freq: "2.412 / 5.745 GHz · hop set",
-      vote: "0.91",
+      vote: "0.93",
       packs: [
-        ["RFUAV", "0.91 · 35-airframe family"],
-        ["CageDroneRF", "0.87 · burst timing"],
-        ["Field missions", "0.84 · live IQ"],
-        ["DroneRF", "0.79 · 2.4 / 5.8 class"]
+        ["RFUAV", "0.93 · Avata family"],
+        ["CageDroneRF", "0.88 · burst timing"],
+        ["Field missions", "0.86 · live IQ"],
+        ["DroneRF", "0.81 · 2.4 / 5.8 class"]
       ],
-      lat: 39.99,
-      lng: -83.02,
-      heading: 15,
-      online: false
+      lat: 39.99, lng: -83.02, heading: 18, online: false, appearAt: 3200
+    },
+    {
+      id: "UAS-11",
+      label: "Autel",
+      layer: "rf",
+      kind: "Autel-class",
+      family: "Autel digital link",
+      freq: "2.437 / 5.765 GHz · hop set",
+      vote: "0.89",
+      packs: [
+        ["RFUAV", "0.89 · Autel family"],
+        ["CageDroneRF", "0.84 · burst timing"],
+        ["Field missions", "0.82 · live IQ"],
+        ["DroneRF", "0.77 · 2.4 / 5.8 class"]
+      ],
+      lat: 40.02, lng: -82.96, heading: 210, online: false, appearAt: 6400
+    },
+    {
+      id: "UAS-19",
+      label: "Mini",
+      layer: "rf",
+      kind: "Mini-class",
+      family: "DJI Mini family",
+      freq: "2.427 / 5.725 GHz · hop set",
+      vote: "0.90",
+      packs: [
+        ["RFUAV", "0.90 · Mini family"],
+        ["CageDroneRF", "0.85 · burst timing"],
+        ["Field missions", "0.83 · live IQ"],
+        ["AirID", "0.76 · front-end RFFI"]
+      ],
+      lat: 39.96, lng: -83.01, heading: 95, online: false, appearAt: 9800
     }
   ];
 
@@ -89,7 +119,7 @@
     if (born) cls += " born";
     var html = tr.layer === "adsb"
       ? planeSvg(tr.heading) + "<span>" + tr.id + "</span>"
-      : droneSvg() + "<span>" + tr.id + "</span>";
+      : droneSvg() + "<span>" + (tr.label || tr.id) + "</span>";
     tr.marker = L.marker([tr.lat, tr.lng], {
       icon: L.divIcon({
         className: cls,
@@ -118,7 +148,7 @@
   function refreshIcon(tr) {
     var html = tr.layer === "adsb"
       ? planeSvg(tr.heading) + "<span>" + tr.id + "</span>"
-      : droneSvg() + "<span>" + tr.id + "</span>";
+      : droneSvg() + "<span>" + (tr.label || tr.id) + "</span>";
     tr.marker.setIcon(L.divIcon({
       className: tr.layer === "adsb" ? "icon-plane" : "icon-drone",
       html: html,
@@ -156,7 +186,7 @@
       b.type = "button";
       if (selected === tr.id) b.className = "on";
       var tag = tr.layer === "rf" ? '<span class="hit">Detected</span>' : "";
-      b.innerHTML = tr.id + tag + '<span class="sub">' + tr.kind + "</span>";
+      b.innerHTML = (tr.label || tr.id) + tag + '<span class="sub">' + tr.kind + "</span>";
       b.addEventListener("click", function () { openTrack(tr.id); });
       li.appendChild(b);
       list.appendChild(li);
@@ -167,7 +197,7 @@
     var rfEl = document.getElementById("chip-rf");
     if (airEl) airEl.textContent = "Aircraft · " + air + " live";
     if (rfEl) {
-      rfEl.textContent = rf ? "UAS · fingerprint" : "UAS · quiet";
+      rfEl.textContent = rf ? "UAS · " + rf + " live" : "UAS · quiet";
       rfEl.classList.toggle("alert", !!rf);
     }
   }
@@ -177,7 +207,7 @@
     if (!tr) return;
     selected = id;
     document.getElementById("detail-k").textContent = tr.layer === "rf" ? "Fingerprint" : "ADS-B";
-    document.getElementById("detail-id").textContent = tr.layer === "rf" ? tr.kind : tr.id;
+    document.getElementById("detail-id").textContent = tr.layer === "rf" ? tr.label : tr.id;
     var rows;
     if (tr.layer === "rf") {
       rows = [
@@ -232,41 +262,53 @@
   });
   document.getElementById("detail-close").addEventListener("click", clearDetail);
 
-  var uasOn = false;
-  var uasClock = 0;
+  var spawnClock = 0;
+  var hold = false;
 
-  function setUas(on) {
-    uasOn = on;
-    TRACKS.forEach(function (tr) {
-      if (tr.layer !== "rf") return;
-      tr.online = on;
-      if (on) {
-        makeMarker(tr, true);
-        if (layers.rf) tr.marker.addTo(map);
-      } else if (tr.marker && map.hasLayer(tr.marker)) {
-        map.removeLayer(tr.marker);
-      }
-    });
-    if (on && layers.rf) openTrack("UAS-04");
-    else if (!on && selected === "UAS-04") clearDetail();
+  function rfLive() {
+    return TRACKS.some(function (t) { return t.layer === "rf" && t.online; });
+  }
+
+  function bringOnline(tr) {
+    if (tr.online) return;
+    tr.online = true;
+    makeMarker(tr, true);
+    if (layers.rf) tr.marker.addTo(map);
+    if (layers.rf) openTrack(tr.id);
     else renderList();
   }
+
+  function clearUas() {
+    TRACKS.forEach(function (tr) {
+      if (tr.layer !== "rf") return;
+      tr.online = false;
+      if (tr.marker && map.hasLayer(tr.marker)) map.removeLayer(tr.marker);
+    });
+    spawnClock = 0;
+    hold = false;
+    if (selected && TRACKS.some(function (t) { return t.id === selected && t.layer === "rf"; })) clearDetail();
+    else renderList();
+  }
+
+  var clearBtn = document.getElementById("clear-uas");
+  if (clearBtn) clearBtn.addEventListener("click", clearUas);
 
   var specHist = [];
   function drawSpec(now) {
     var w = spec.width = spec.clientWidth * 2;
     var h = spec.height = spec.clientHeight * 2;
     var ctx = spec.getContext("2d");
-    var peakA = uasOn ? 0.28 + Math.sin(now / 620) * 0.02 : 0.42 + Math.sin(now / 1800) * 0.012;
-    var peakB = uasOn ? 0.72 + Math.sin(now / 740) * 0.02 : 0.58;
+    var hot = rfLive();
+    var peakA = hot ? 0.28 + Math.sin(now / 620) * 0.02 : 0.42 + Math.sin(now / 1800) * 0.012;
+    var peakB = hot ? 0.72 + Math.sin(now / 740) * 0.02 : 0.58;
     var row = [];
     var i;
     for (i = 0; i < 160; i++) {
       var x = i / 160;
-      var n = Math.abs(Math.sin(x * 18 + now / 900)) * (uasOn ? 0.1 : 0.05);
-      var a = Math.max(0, 1 - Math.abs(x - peakA) * (uasOn ? 16 : 10));
-      var b = uasOn ? Math.max(0, 1 - Math.abs(x - peakB) * 16) : 0;
-      row.push(Math.min(1, a * (uasOn ? 0.95 : 0.35) + b * 0.9 + n));
+      var n = Math.abs(Math.sin(x * 18 + now / 900)) * (hot ? 0.1 : 0.05);
+      var a = Math.max(0, 1 - Math.abs(x - peakA) * (hot ? 16 : 10));
+      var b = hot ? Math.max(0, 1 - Math.abs(x - peakB) * 16) : 0;
+      row.push(Math.min(1, a * (hot ? 0.95 : 0.35) + b * 0.9 + n));
     }
     if (!reduce) {
       specHist.unshift(row);
@@ -298,13 +340,16 @@
   function tick(now) {
     var dt = Math.min(48, now - last);
     last = now;
-    uasClock += dt;
-    if (!uasOn && uasClock > 3800) {
-      uasClock = 0;
-      setUas(true);
-    } else if (uasOn && uasClock > 9000) {
-      uasClock = 0;
-      setUas(false);
+    if (!hold) {
+      spawnClock += dt;
+      TRACKS.forEach(function (tr) {
+        if (tr.layer !== "rf" || tr.online) return;
+        if (spawnClock >= tr.appearAt) bringOnline(tr);
+      });
+      if (TRACKS.filter(function (t) { return t.layer === "rf" && t.online; }).length ===
+          TRACKS.filter(function (t) { return t.layer === "rf"; }).length) {
+        hold = true;
+      }
     }
     if (!reduce) {
       TRACKS.forEach(function (tr) {
@@ -320,8 +365,8 @@
     }
     var meta = document.getElementById("spec-meta");
     if (meta) {
-      meta.textContent = uasOn
-        ? "SPECTRUM · dual-band hop · 2.412 / 5.745 · OcuSync-class match"
+      meta.textContent = rfLive()
+        ? "SPECTRUM · dual-band hop · Avata / Autel / Mini class heads"
         : "SPECTRUM · 2.4 / 5.8 GHz · hop-set listen · class heads armed";
     }
     drawSpec(now);
