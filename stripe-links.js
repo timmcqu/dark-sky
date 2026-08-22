@@ -19,5 +19,10 @@ window.DSS_STRIPE = {
   eap_pack: "https://buy.stripe.com/bJe00jcU21cB4DS0wDfIs0e",
   ra: "https://buy.stripe.com/4gM28rbPY2gFgmAdjpfIs0j",
   cards: "https://buy.stripe.com/eVq14n8DM9J7fiwfrxfIs0i",
-  eventpack: "https://buy.stripe.com/4gMeVdg6e6wV5HW2ELfIs0k"
+  eventpack: "https://buy.stripe.com/4gMeVdg6e6wV5HW2ELfIs0k",
+  scene: "https://buy.stripe.com/00wcN57zI9J7daobbhfIs0l",
+  job: "https://buy.stripe.com/8x2cN59HQ1cB8U87Z5fIs0m",
+  school: "https://buy.stripe.com/aFa4gzbPY7AZdaoentfIs0n",
+  incident: "https://buy.stripe.com/eVq28r07gbRf9YcentfIs0o",
+  crew: "https://buy.stripe.com/5kQ9AT9HQ3kJ5HW939fIs0p"
 };
