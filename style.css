@@ -425,6 +425,36 @@ a.card:focus-visible h3 { color: var(--gold); }
   gap: 2.5rem;
 }
 
+.hire-list {
+  margin: 0.35rem 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: 40rem;
+}
+.hire-list li {
+  margin: 0;
+  padding: 0.85rem 0 0.85rem 1.15rem;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  color: var(--mute);
+  font-size: 1.02rem;
+}
+.hire-list li:first-child { border-top: 1px solid var(--line); }
+.hire-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.25rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.hire-list a { color: inherit; }
+.hire-list a:hover,
+.hire-list a:focus-visible { color: var(--paper); }
+.hire-list strong { color: var(--paper); font-weight: 500; }
+
 .survey-hooks {
   margin: 1.15rem 0 1rem;
   padding: 0;
