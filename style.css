@@ -441,8 +441,8 @@ a.card:focus-visible h3 { color: var(--gold); }
   margin: 0.35rem 0 0;
   padding: 0;
   list-style: none;
+  max-width: 40rem;
 }
-.hire-list > li:not(.hire-fold) { max-width: 40rem; }
 .hire-list li {
   margin: 0;
   padding: 0.85rem 0 0.85rem 1.15rem;
@@ -466,22 +466,6 @@ a.card:focus-visible h3 { color: var(--gold); }
 .hire-list a:hover,
 .hire-list a:focus-visible { color: var(--paper); }
 .hire-list strong { color: var(--paper); font-weight: 500; }
-.hire-fold { max-width: none; }
-.hire-fold details { margin: 0; }
-.hire-fold summary {
-  cursor: pointer;
-  list-style: none;
-  color: inherit;
-}
-.hire-fold summary::-webkit-details-marker { display: none; }
-.hire-fold summary:hover,
-.hire-fold summary:focus-visible { color: var(--paper); }
-.hire-fold .pair { margin: 0.9rem 0 0.6rem; }
-.hire-note {
-  margin: 0.4rem 0 0.2rem;
-  font-size: 0.88rem;
-  color: var(--mute);
-}
 
 .survey-hooks {
   margin: 1.15rem 0 1rem;

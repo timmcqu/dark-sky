@@ -150,13 +150,4 @@
       if (play && play.catch) play.catch(function () {});
     }
   }
-
-  function openHashDetails() {
-    var id = (location.hash || "").replace(/^#/, "");
-    if (!id) return;
-    var el = document.getElementById(id);
-    if (el && el.tagName === "DETAILS") el.open = true;
-  }
-  openHashDetails();
-  window.addEventListener("hashchange", openHashDetails);
 })();
