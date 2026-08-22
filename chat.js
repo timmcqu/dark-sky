@@ -57,7 +57,7 @@
       return "Events / High-Profile Security is for organizers, security details, and private clients — rallies, VIP movements, large outdoor gatherings. Unauthorized transmitting aircraft are flagged during the named window. Not disaster response and not photography. Page: <a href=\"events.html\">Events</a>. Package: " + pack("event_package");
     }
     if (/disaster|search|missing person|wreck|fire ground|first.?in|thermal mapping|hurricane|wildfire|flood/.test(t)) {
-      return "Disaster &amp; Emergency Rapid Coverage is for first-in companies — fire, EMS, law enforcement — on hurricanes, floods, wrecks, and wildfires. Color and thermal on the same pass. If the scene stays open, continuous airspace monitoring can stay on. Incident Command owns launch and abort. If people are in danger, call 911 first. This is not event security. Page: <a href=\"disaster.html\">Disaster &amp; Emergency</a>. Package: Rapid Coverage · $2,495.";
+      return "Air support for emergency and disaster scenes. For fire, EMS, and law enforcement responding to hurricanes, floods, wildfires, major wrecks, and other large incidents. <a href=\"disaster.html?v=2\">Disaster &amp; Emergency</a>. Rapid Coverage · $2,495.";
     }
     if (/\b79\b|risk report|score (the |this )?site|assessment report/.test(t)) {
       return pack("risk_report", "Score the place first (free preview), then pay. Same browser to open the file.");
