@@ -113,7 +113,7 @@ img { height: auto; }
 .rail a:hover,
 .rail a:focus-visible { color: var(--gold); }
 
-#top, #detect, #services, #survey, #plans, #picture, #method, #about, #request {
+#top, #why, #detect, #services, #survey, #plans, #picture, #method, #about, #request {
   scroll-margin-top: 4.5rem;
 }
 
@@ -156,7 +156,12 @@ img { height: auto; }
   position: relative;
   z-index: 2;
   padding-bottom: clamp(2.5rem, 7vw, 5rem);
-  max-width: 44rem;
+  max-width: 52rem;
+}
+.hero-copy h1 {
+  margin: 0 0 0.85rem;
+  font-size: clamp(2.15rem, 6.2vw, 3.85rem);
+  max-width: 18ch;
 }
 
 .eyebrow {
@@ -800,6 +805,14 @@ a.card:focus-visible h3 { color: var(--gold); }
 }
 
 .plan h3 { margin-top: 0; }
+.plan-for {
+  margin: 0 0 0.45rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.value-grid { grid-template-columns: 1fr; }
 
 .plans-cta { margin: 2rem 0 0; display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
 
@@ -1071,6 +1084,7 @@ a.card:focus-visible h3 { color: var(--gold); }
 @media (min-width: 1040px) {
   .grid { grid-template-columns: 1fr 1fr 1fr; }
   .plans-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .value-grid { grid-template-columns: 1fr 1fr 1fr; }
 }
 
 @media (max-width: 639px) {
@@ -1098,6 +1112,7 @@ a.card:focus-visible h3 { color: var(--gold); }
     padding: 1.4rem 0 2.2rem;
   }
   .cta { width: 100%; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
   .rail {
     flex-basis: 100%;
     margin-left: 0;
