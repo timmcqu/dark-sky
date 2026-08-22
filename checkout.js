@@ -101,18 +101,18 @@
     if (isPack) {
       fine.textContent = payOnStripe
         ? "You save details here. Pay with Stripe next. Deposit lands in Dark Sky Systems LLC."
-        : "You save details here. We email a Chase pay link for this order. Deposit lands in Dark Sky Systems LLC.";
+        : "You save details here. Deposit lands in Dark Sky Systems LLC.";
     } else {
       fine.textContent = payOnStripe
         ? "It detects. It does not jam. You save details here. Pay with Stripe next. Deposit lands in Dark Sky Systems LLC."
-        : "It detects. It does not jam. You save details here. We email a Chase pay link for this order. Deposit lands in Dark Sky Systems LLC.";
+        : "It detects. It does not jam. You save details here. Deposit lands in Dark Sky Systems LLC.";
     }
   }
   var lead = document.getElementById("order-lead");
   if (lead) {
     lead.textContent = payOnStripe
       ? "Name and email. Pay with Stripe on the next step. After the deposit posts, we send the license or pack."
-      : "Name and email. We send a Chase pay link for this order. After the deposit posts, we send the license or pack.";
+      : "Name and email. After the deposit posts, we send the license or pack.";
   }
   if (params.get("paid") === "1") {
     if (status) {
@@ -181,19 +181,19 @@
           href += (href.indexOf("?") >= 0 ? "&" : "?") + "prefilled_email=" + encodeURIComponent(val("oEmail"));
         }
         payNow.href = href;
-        payNow.textContent = sku.stripe ? "Pay with Stripe" : "Pay on Chase";
+        payNow.textContent = sku.stripe ? "Pay with Stripe" : "Pay";
         if (wrap) wrap.hidden = false;
         if (status) {
           status.hidden = false;
           status.textContent = sku.stripe
             ? "Details saved. Pay with Stripe next. We do not store your card."
-            : "Details saved. Pay on Chase next. We do not store your card.";
+            : "Details saved. Pay next. We do not store your card.";
         }
       } else {
         if (wrap) wrap.hidden = true;
         if (status) {
           status.hidden = false;
-          status.textContent = "Details saved. We email a Chase pay link to this address.";
+          status.textContent = "Details saved. We email a pay link to this address.";
         }
       }
       sendNotice(lines.join("\n"));
