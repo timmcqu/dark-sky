@@ -903,10 +903,34 @@ a.card:focus-visible h3 { color: var(--gold); }
   color: var(--gold);
 }
 
-.pair img {
+.pair img,
+.pair video {
   width: 100%;
   height: min(46svh, 24rem);
   object-fit: cover;
+  display: block;
+}
+
+.spectrum-strip {
+  margin: 2px 0 0;
+  position: relative;
+  background: #050505;
+}
+.spectrum-strip figcaption {
+  position: absolute;
+  z-index: 1;
+  left: 0.85rem;
+  top: 0.55rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.spectrum-strip video,
+.spectrum-strip img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .steps {
@@ -1083,11 +1107,14 @@ a.card:focus-visible h3 { color: var(--gold); }
   .card img,
   .card .loop { height: 12rem; }
   .bleed img { height: 52vw; max-height: 18rem; }
-  .pair img { height: 52vw; max-height: 18rem; }
+  .pair img,
+  .pair video { height: 52vw; max-height: 18rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .hero-loop,
-  .loop { display: none; }
+  .loop,
+  .pair video,
+  .spectrum-strip video { display: none; }
 }
