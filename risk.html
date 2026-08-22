@@ -17,7 +17,6 @@
     <div class="wrap mast-inner">
       <a class="brand" href="index.html">Dark Sky Systems</a>
       <nav class="rail" aria-label="Primary">
-        <a href="index.html#tools">$79 report</a>
         <a href="index.html#plans">Plans</a>
         <a href="software.html?v=101#top">Detect Drones</a>
         <a href="index.html#services">Hire a Drone</a>
@@ -66,16 +65,50 @@
             <option value="yes">Yes</option>
           </select>
         </label>
+        <label>What draws a camera
+          <select id="rDraw">
+            <option value="none">Neither</option>
+            <option value="advertised">Advertised / publicized event</option>
+            <option value="vip">VIP or executive movement</option>
+          </select>
+        </label>
+        <label>How easy is a launch
+          <select id="rAccess">
+            <option value="controlled">Controlled access, closed envelope</option>
+            <option value="road">Line of sight from a public road</option>
+            <option value="roof">Open roof or incomplete envelope</option>
+            <option value="both">Public road view and open envelope</option>
+          </select>
+        </label>
+        <label>How long is this window
+          <select id="rSpan">
+            <option value="hours">Hours</option>
+            <option value="days">One to three days</option>
+            <option value="ongoing">Ongoing / year-round</option>
+          </select>
+        </label>
+        <label>Night or low-light operations
+          <select id="rNight">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+          </select>
+        </label>
+        <label>People under likely flight paths
+          <select id="rUnder">
+            <option value="no">Not typically</option>
+            <option value="yes">Yes</option>
+          </select>
+        </label>
         <button type="submit" class="cta">Score this place</button>
       </form>
       <div>
-        <h2 id="outTitle">What the $79 report contains</h2>
-        <p class="lead" id="outScore">Score the place first. The full report is a one-page file you can print and send upstairs.</p>
-        <ul class="include">
-          <li>The risk score for the named location, out of 100</li>
-          <li>What drove the score: people on the ground, airspace, prior incidents</li>
-          <li>The monitoring or event package we recommend</li>
-          <li>Plain-language next steps you can keep with the site file</li>
+        <h2 id="outTitle">What the scored report contains</h2>
+        <p class="lead" id="outScore">Answer the size-up. The full report lists every factor that moved the score, what a listen still cannot see, and the next step.</p>
+        <ul class="include" id="outPreview">
+          <li>Weighted factors: occupancy, airspace, prior incidents, launch access, duration, night, people under the orbit</li>
+          <li>Residual risk: Remote ID and RF energy only — quiet is not a clearance</li>
+          <li>Recommended monitoring or named-event coverage</li>
+          <li>A file you can print and keep with the site plan</li>
         </ul>
         <p id="outPlan"></p>
         <p class="plans-cta" id="outCta" hidden>
@@ -91,59 +124,34 @@
       <p>We listen. We do not jam, spoof, or intercept.</p>
     </div>
   </footer>
+  <script src="risk-engine.js?v=1"></script>
   <script>
     document.getElementById("risk").addEventListener("submit", function (e) {
       e.preventDefault();
-      var score = 20;
-      var type = document.getElementById("rType").value;
-      var people = document.getElementById("rPeople").value;
-      var air = document.getElementById("rAir").value;
-      var prior = document.getElementById("rPrior").value;
-      if (type === "venue") score += 15;
-      if (type === "plant") score += 10;
-      if (people === "public") score += 10;
-      if (people === "dense") score += 22;
-      if (air === "airport") score += 12;
-      if (air === "tfr") score += 24;
-      if (prior === "yes") score += 18;
-      if (score > 100) score = 100;
-      var plan = "Monitoring · Basic — $250 / month";
-      var why = "One site, live map, off-list alerts.";
-      var sku = "basic_m";
-      if (type === "venue" || people === "dense") {
-        plan = "Single-Event Airspace Awareness — $2,195";
-        why = "One named window: survey before, live coverage during, air map and written file after.";
-        sku = "event_package";
-      } else if (score >= 70 && type === "venue") {
-        plan = "Venue & Event Season — $8,500 / season";
-        why = "Named dates, coverage days, and the air map while gates are open.";
-        sku = "venue";
-      } else if (score >= 65 && type === "campus") {
-        plan = "Campus & Facility Assurance — $18,000 / year";
-        why = "Year-round monitoring plus four flown visits and an observation file.";
-        sku = "campus";
-      } else if (score >= 55 && type === "build") {
-        plan = "Construction Progress — $2,500 / month";
-        why = "Weekly stills while the job is open, thermal when the deck needs it.";
-        sku = "build";
-      } else if (score >= 55) {
-        plan = "Monitoring · Pro — $750 / month";
-        why = "Multi-site picture and alerts your ops can keep.";
-        sku = "pro_m";
-      }
-      document.getElementById("outTitle").textContent = "Score for " + document.getElementById("rPlace").value;
-      document.getElementById("outScore").textContent = "Risk score " + score + " / 100. " + why;
-      document.getElementById("outPlan").textContent = "The full $79 report names this score, what drove it, and the next step: " + plan + " Keep the file. Then decide on monitoring or event coverage.";
+      var r = DSSRisk.assess({
+        place: document.getElementById("rPlace").value,
+        type: document.getElementById("rType").value,
+        people: document.getElementById("rPeople").value,
+        air: document.getElementById("rAir").value,
+        prior: document.getElementById("rPrior").value,
+        draw: document.getElementById("rDraw").value,
+        access: document.getElementById("rAccess").value,
+        span: document.getElementById("rSpan").value,
+        night: document.getElementById("rNight").value,
+        under: document.getElementById("rUnder").value
+      });
+      document.getElementById("outTitle").textContent = r.place + " — " + r.band;
+      document.getElementById("outScore").textContent = "Score " + r.score + " / 100. Top drivers: " + r.findings.slice(0, 2).join(" ");
+      var prev = document.getElementById("outPreview");
+      prev.innerHTML = r.factors.sort(function (a, b) { return b.pts - a.pts; }).slice(0, 5).map(function (f) {
+        return "<li>" + f.name + " (+" + f.pts + "). " + f.why + "</li>";
+      }).join("");
+      document.getElementById("outPlan").textContent = "The paid report keeps this full factor table, residual risk (what a listen still cannot see), and this next step: " + r.plan;
       document.getElementById("outCta").hidden = false;
       document.getElementById("buyReport").href = "pay.html?sku=risk_report";
-      document.getElementById("buyNext").href = "pay.html?sku=" + sku;
-      document.getElementById("buyNext").textContent = sku === "event_package" ? "Or secure event coverage · $2,195" : "Or start that plan";
-      var findings = "Place type " + type + ", people " + people + ", airspace " + air + (prior === "yes" ? ", prior drone incidents reported." : ".");
-      sessionStorage.setItem("dssRisk", JSON.stringify({
-        place: document.getElementById("rPlace").value,
-        type: type, people: people, air: air, prior: prior, score: score,
-        plan: plan, findings: findings, why: why
-      }));
+      document.getElementById("buyNext").href = "pay.html?sku=" + r.sku;
+      document.getElementById("buyNext").textContent = r.sku === "event_package" ? "Or secure event coverage · $2,195" : "Or start that plan";
+      sessionStorage.setItem("dssRisk", JSON.stringify(r));
     });
   </script>
 </body>

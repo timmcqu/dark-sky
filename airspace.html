@@ -61,32 +61,28 @@
       </div>
     </div>
   </section>
+  <script src="risk-engine.js?v=1"></script>
   <script>
     document.getElementById("air").addEventListener("submit", function (e) {
       e.preventDefault();
       var type = document.getElementById("aType").value;
       var people = document.getElementById("aPeople").value;
-      var air = document.getElementById("aAir").value;
-      var score = 20;
-      if (type === "venue") score += 15;
-      if (type === "plant") score += 10;
-      if (people === "public") score += 10;
-      if (people === "dense") score += 22;
-      if (air === "airport") score += 12;
-      if (air === "tfr") score += 24;
-      if (score > 100) score = 100;
-      var plan = "Monitoring · Basic — $250 / month";
-      if (type === "venue" || people === "dense") plan = "Single-Event Airspace Awareness — $2,195";
-      else if (type === "campus" && score >= 65) plan = "Campus & Facility Assurance — $18,000 / year";
-      var findings = "You described a " + type + " with " + people + " on the ground and " + air + " airspace. Fusion Sensor would listen for Remote ID and radio energy at this place. Authorized traffic would show green. Off-list broadcasts would show red.";
-      var note = document.getElementById("aNote").value;
-      if (note) findings += " Your note: " + note;
-      sessionStorage.setItem("dssAir", JSON.stringify({
+      var r = DSSRisk.assess({
         place: document.getElementById("aPlace").value,
-        type: type, people: people, air: air, score: score,
-        plan: plan, findings: findings,
-        why: "Open monitoring after this snapshot if you need a live map. This file is a one-time written summary, not a 24-hour listen."
-      }));
+        type: type,
+        people: people,
+        air: document.getElementById("aAir").value,
+        prior: "no",
+        draw: type === "venue" ? "advertised" : "none",
+        access: "road",
+        span: (type === "campus" || type === "plant") ? "ongoing" : "days",
+        night: "no",
+        under: people === "dense" ? "yes" : "no"
+      });
+      var note = document.getElementById("aNote").value;
+      if (note) r.next += " Your note: " + note;
+      sessionStorage.setItem("dssAir", JSON.stringify(r));
+      sessionStorage.setItem("dssRisk", JSON.stringify(r));
       location.href = "pay.html?sku=airspace_report";
     });
   </script>

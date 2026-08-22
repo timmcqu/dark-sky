@@ -4,12 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Risk report — Dark Sky Systems</title>
-  <link rel="stylesheet" href="style.css?v=91" />
+  <link rel="stylesheet" href="style.css?v=92" />
 </head>
 <body>
   <header class="mast">
     <div class="wrap mast-inner">
       <a class="brand" href="index.html">Dark Sky Systems</a>
+      <nav class="rail" aria-label="Primary">
+        <a href="index.html#plans">Plans</a>
+        <a href="software.html?v=101#top">Detect Drones</a>
+        <a href="index.html#request">Talk to us</a>
+      </nav>
     </div>
   </header>
   <section class="wrap" style="padding:2rem 0 3rem">
@@ -17,45 +22,62 @@
     <article class="survey-doc" id="sheet">
       <header class="survey-head">
         <p>Dark Sky Systems LLC</p>
-        <p id="rKind">Risk assessment report</p>
+        <p id="rKind">Unauthorized-broadcast risk assessment</p>
       </header>
       <h3 id="rPlace">Named location</h3>
       <dl class="survey-id">
         <div><dt>Score</dt><dd id="rScore">—</dd></div>
+        <div><dt>Band</dt><dd id="rBand">—</dd></div>
         <div><dt>Type</dt><dd id="rType">—</dd></div>
         <div><dt>People</dt><dd id="rPeople">—</dd></div>
-        <div><dt>Airspace</dt><dd id="rAir">—</dd></div>
       </dl>
-      <p class="survey-doc-obs" id="rFind"></p>
+      <p class="survey-kicker">Factor table — what moved the score</p>
+      <table class="survey-find">
+        <thead><tr><th>Factor</th><th>Pts</th><th>Why it matters here</th></tr></thead>
+        <tbody id="rRows"></tbody>
+      </table>
+      <p class="survey-doc-obs" id="rRes"></p>
       <p class="survey-doc-obs" id="rRec"></p>
       <p class="survey-doc-obs" id="rNext"></p>
-      <p class="survey-doc-obs">This report uses what you entered and what Fusion Sensor can hear: Remote ID and radio energy. Quiet is not a clearance. Dark Sky Systems LLC.</p>
+      <p class="survey-doc-obs">Sensors: cooperative Remote ID and radio energy on 2.4 / 5.8 GHz, plus ADS-B for manned traffic when monitoring is on. This report is scored from the facts you entered. It is not a live listen until Fusion Sensor is running on that site. Dark Sky Systems LLC.</p>
     </article>
     <p class="plans-cta">
       <button type="button" class="cta" id="printBtn">Save as PDF</button>
-      <a class="cta cta-ghost" href="pay.html?sku=basic_m">Start monitoring</a>
-      <a class="cta cta-ghost" href="pay.html?sku=event_package">Secure event coverage</a>
+      <a class="cta cta-ghost" id="buyNext" href="pay.html?sku=basic_m">Start monitoring</a>
     </p>
   </section>
+  <script src="risk-engine.js?v=1"></script>
   <script>
-    var labels = {
-      campus: "Campus / facility", build: "Construction", venue: "Stadium / event",
-      plant: "Industrial / plant", other: "Other",
-      staff: "Staff only", public: "Public on site", dense: "Dense event / gates",
-      open: "Open / uncontrolled", airport: "Near a towered airport", tfr: "TFR / event TFR"
-    };
+    var L = DSSRisk.LABELS;
     var data = {};
     try { data = JSON.parse(sessionStorage.getItem("dssRisk") || sessionStorage.getItem("dssAir") || "{}"); } catch (e) {}
     var sku = new URLSearchParams(location.search).get("sku") || "";
     if (sku === "airspace_report") document.getElementById("rKind").textContent = "Named location airspace awareness report";
+    if (!data.factors && data.place) {
+      data = DSSRisk.assess({
+        place: data.place, type: data.type, people: data.people, air: data.air,
+        prior: data.prior || "no", draw: data.draw || "none", access: data.access || "controlled",
+        span: data.span || "hours", night: data.night || "no", under: data.under || "no"
+      });
+    }
     document.getElementById("rPlace").textContent = data.place || "Named location";
     document.getElementById("rScore").textContent = (data.score != null ? data.score : "—") + " / 100";
-    document.getElementById("rType").textContent = labels[data.type] || data.type || "—";
-    document.getElementById("rPeople").textContent = labels[data.people] || data.people || "—";
-    document.getElementById("rAir").textContent = labels[data.air] || data.air || "—";
-    document.getElementById("rFind").innerHTML = "<strong>Findings.</strong> " + (data.findings || "Complete the calculator or location form so this report can name the site.");
+    document.getElementById("rBand").textContent = data.band || "—";
+    document.getElementById("rType").textContent = L[data.type] || data.type || "—";
+    document.getElementById("rPeople").textContent = L[data.people] || data.people || "—";
+    var tb = document.getElementById("rRows");
+    (data.factors || []).slice().sort(function (a, b) { return b.pts - a.pts; }).forEach(function (f) {
+      var tr = document.createElement("tr");
+      tr.innerHTML = "<td>" + f.name + "</td><td>" + f.pts + "</td><td>" + f.why + "</td>";
+      tb.appendChild(tr);
+    });
+    if (!data.factors) {
+      tb.innerHTML = "<tr><td colspan='3'>Score the site at risk.html in this browser, then pay, so the factor table can fill.</td></tr>";
+    }
+    document.getElementById("rRes").innerHTML = "<strong>Residual risk.</strong> " + (data.residual ? data.residual.join(" ") : "Remote ID and RF energy only. Quiet is not a clearance.");
     document.getElementById("rRec").innerHTML = "<strong>Recommended next step.</strong> " + (data.plan || "Monitoring · Basic.");
-    document.getElementById("rNext").innerHTML = "<strong>Guidance.</strong> " + (data.why || "Start monitoring so the ops desk has a live map. Add a flown survey if the ground file is empty.");
+    document.getElementById("rNext").innerHTML = "<strong>Guidance.</strong> " + (data.next || "");
+    if (data.sku) document.getElementById("buyNext").href = "pay.html?sku=" + data.sku;
     document.getElementById("printBtn").onclick = function () { window.print(); };
   </script>
 </body>
