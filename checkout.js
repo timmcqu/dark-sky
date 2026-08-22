@@ -43,7 +43,7 @@
   if (title) title.textContent = sku.title;
   if (lede) lede.textContent = sku.lede;
   if (price) price.textContent = sku.price;
-  if (btn) btn.textContent = "Continue to pay " + sku.price;
+  if (btn) btn.textContent = "Save details";
   if (gets) {
     gets.innerHTML = sku.gets.map(function (line) {
       return "<li>" + line + "</li>";
@@ -95,7 +95,7 @@
       var payNow = document.getElementById("payNow");
       if (payNow) {
         payNow.href = sku.chase;
-        payNow.textContent = "Pay " + sku.price + " on Chase";
+        payNow.textContent = "Pay on Chase";
       }
       if (wrap) wrap.hidden = false;
       if (status) {

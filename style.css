@@ -194,6 +194,9 @@ h1, h2, h3 {
   margin: 0.35rem 0 1.1rem;
 }
 .soft-hero .hero-actions + .fine { margin-top: 1rem; }
+.sku-switch a { color: var(--mute); }
+.sku-switch a:hover,
+.sku-switch a:focus-visible { color: var(--paper); }
 
 .status {
   display: flex;
