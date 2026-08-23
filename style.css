@@ -113,7 +113,7 @@ img { height: auto; }
 .rail a:hover,
 .rail a:focus-visible { color: var(--gold); }
 
-#top, #why, #detect, #services, #survey, #plans, #tools, #picture, #method, #about, #request,
+#top, #why, #detect, #services, #survey, #plans, #tools, #electronics, #picture, #method, #about, #request,
 #flight-packages, #score, #fusion, #emergency, #event-security {
   scroll-margin-top: 4.5rem;
 }

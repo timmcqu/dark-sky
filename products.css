@@ -1,0 +1,74 @@
+/* Detection Electronics product pages. Loaded only on /products/. Does not restyle the homepage. */
+.p-hero { padding-block: clamp(2.25rem, 6vw, 4rem); }
+.p-hero-grid {
+  display: grid;
+  gap: 1.75rem 2rem;
+  align-items: start;
+}
+@media (min-width: 860px) {
+  .p-hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); }
+}
+.p-gallery {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: 1fr 1fr;
+}
+.p-gallery .lead-shot {
+  grid-column: 1 / -1;
+}
+.p-gallery img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: #0c0b0a;
+  border: 1px solid var(--line);
+}
+.p-price {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  margin: 0.35rem 0 0.85rem;
+}
+.p-price small {
+  display: block;
+  margin-top: 0.3rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-weight: 400;
+}
+.p-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 0.4rem 0 1rem; }
+.p-crumb { margin: 0 0 1rem; font-size: 0.78rem; color: var(--mute); }
+.p-crumb a { color: var(--mute); text-decoration: none; }
+.p-crumb a:hover, .p-crumb a:focus-visible { color: var(--gold); }
+.p-copy { max-width: 42rem; }
+.p-copy .lede { max-width: 42rem; }
+.p-sec { padding-block: clamp(2.5rem, 6vw, 4.25rem); border-top: 1px solid var(--line); }
+.p-sec h2 { margin-bottom: 1rem; }
+.p-two { display: grid; gap: 1.5rem; }
+@media (min-width: 760px) { .p-two { grid-template-columns: 1fr 1fr; } }
+.p-faq details {
+  border-bottom: 1px solid var(--line);
+  padding: 0.85rem 0;
+}
+.p-faq summary {
+  cursor: pointer;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--paper);
+  list-style: none;
+}
+.p-faq summary::-webkit-details-marker { display: none; }
+.p-faq summary::after { content: " +"; color: var(--gold); }
+.p-faq details[open] summary::after { content: " –"; }
+.p-faq details p { margin: 0.65rem 0 0; color: var(--mute); max-width: 40rem; }
+.p-trust { color: var(--mute); font-size: 0.92rem; max-width: 40rem; }
+.p-related .card { text-decoration: none; color: inherit; border: 1px solid var(--line); padding: 1.1rem 1.15rem 1.2rem; background: var(--lift); }
+.p-related .card h3 { margin-top: 0.35rem; }
+.p-sku-pair { display: grid; gap: 1.25rem; margin: 1rem 0; }
+@media (min-width: 700px) { .p-sku-pair { grid-template-columns: 1fr 1fr; } }
+.p-sku-box { border: 1px solid var(--line); padding: 1.15rem 1.2rem 1.25rem; background: var(--lift); }
+.p-sku-box .plan-price { margin-top: 0.35rem; }
+.p-local img { width: 100%; height: auto; object-fit: contain; background: #0c0b0a; border: 1px solid var(--line); }

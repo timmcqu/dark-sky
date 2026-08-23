@@ -608,6 +608,127 @@
         "Tracking by email to the address on the receipt"
       ]
     },
+
+    pirecv: {
+      title: "Raspberry Pi Remote ID + ADS-B Receiver Kit",
+      lede: "Raspberry Pi 5 receive kit for Remote ID and ADS-B airspace awareness. Official power and case, receive board, listen radio + dipole, 1090 whip. No battery. Not Fusion Sensor. Not V4. Receive only.",
+      price: "$399",
+      amount: "399",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/raspberry-pi-5-remote-id-adsb-receiver.jpg?v=1",
+      gets: [
+        "Raspberry Pi 5, 4 GB",
+        "Official 27 W USB-C power supply",
+        "Official Raspberry Pi 5 case with fan — no battery",
+        "Remote ID receive board",
+        "Listen radio + dipole",
+        "1090 MHz SMA listen antenna",
+        "Not Fusion Sensor. Not V4. Receive only",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    scan: {
+      title: "TinySA Ultra portable spectrum scanner",
+      lede: "TinySA Ultra handheld spectrum scanner. Walk a site and see what is on the air. Receive / scan only. 32 GB card. Built-in cell ships with the unit. No spare pack. Not a 640 thermal.",
+      price: "$349",
+      amount: "349",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/tinysa-ultra-portable-spectrum-scanner.jpg?v=1",
+      gets: [
+        "TinySA Ultra Plus handheld spectrum scanner",
+        "32 GB microSD card",
+        "Built-in cell ships inside the unit. No spare pack",
+        "Receive / scan only — we do not sell a generator or a jammer",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    mlx32: {
+      title: "Thermal camera module, 32×24 I2C",
+      lede: "32×24 thermal camera module you wire to a host over I2C. A module, not a handheld camera, and not a medical thermometer. No cable, no host, no cell.",
+      price: "$149",
+      amount: "149",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/thermal-camera-module-32x24-i2c.jpg?v=1",
+      gets: [
+        "32×24 I2C thermal camera module only",
+        "No cable, no host, no cell",
+        "Not a handheld camera. Not medical",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    duck2458: {
+      title: "2.4 / 5.8 GHz omni listen antenna, RP-SMA",
+      lede: "Dual-band indoor omni listen antenna. Articulating RP-SMA whip — not SMA. Passive receive only.",
+      price: "$59",
+      amount: "59",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/24-58-omni-listen-antenna-rp-sma.jpg?v=1",
+      gets: [
+        "Dual-band 2.4 / 5.8 GHz indoor omni duck",
+        "RP-SMA male. Not SMA. No adapter in the box",
+        "Passive receive only — it does not transmit",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    omni2458: {
+      title: "2.4 / 5.8 GHz outdoor omni listen antenna",
+      lede: "Outdoor dual-band omni listen antenna. Fiberglass stick, N-Female. No mount in the box. Passive receive only.",
+      price: "$79",
+      amount: "79",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/24-58-outdoor-omni-listen-antenna.jpg?v=1",
+      gets: [
+        "Outdoor dual-band 2.4 / 5.8 GHz fiberglass omni",
+        "N-Female. Not SMA. No mount and no jumper in the box",
+        "Passive receive only — it does not transmit",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    sdradv: {
+      title: "Advanced listen radio kit with filter",
+      lede: "USB listen radio with dipole, a 1090 / 978 SAW filter, and a 1090 whip. The filter the $79 and $199 kits do not include. Receive only. Not V4.",
+      price: "$279",
+      amount: "279",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/listen-radio-dipole.jpg?v=1",
+      gets: [
+        "Listen radio + dipole",
+        "Dual-band 1090 / 978 SAW filter + LNA",
+        "1090 MHz SMA whip",
+        "Not V4. Not the $79 or $199 kits. Receive only. No battery",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    rfalert: {
+      title: "Remote ID Alert Board with Display",
+      lede: "USB-C Remote ID alert board with assembled OLED and weatherproof box. Buyer seats the board. More than the $39 bare board. No LiPo. Receive only.",
+      price: "$129",
+      amount: "129",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/remote-id-receive-board.jpg?v=1",
+      gets: [
+        "Remote ID receive board",
+        "Assembled 128×64 OLED with buttons — no solder",
+        "Weatherproof enclosure with clear lid",
+        "USB-C only. No LiPo. Buyer seats the board",
+        "More than the $39 bare board. Receive only",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
     radio: {
       title: "Fusion Sensor + radios",
       lede: "Same console. We kit, flash, and ship the radios, then complete initial setup and a first monitoring session with you.",

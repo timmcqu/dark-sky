@@ -61,7 +61,14 @@
       "batt-expro": "Extra battery for FLIR E5 Pro / E6 Pro / E8 Pro",
       case1200: "Pelican 1200 medium hard case",
       radiopouch: "Condor MOLLE radio pouch",
-      lightspeak: "Spotlight and loudspeaker payload"
+      lightspeak: "Spotlight and loudspeaker payload",
+      pirecv: "Raspberry Pi Remote ID + ADS-B Receiver Kit",
+      scan: "TinySA Ultra portable spectrum scanner",
+      mlx32: "Thermal camera module, 32×24 I2C",
+      duck2458: "2.4 / 5.8 GHz omni listen antenna, RP-SMA",
+      omni2458: "2.4 / 5.8 GHz outdoor omni listen antenna",
+      sdradv: "Advanced listen radio kit with filter",
+      rfalert: "Remote ID Alert Board with Display"
     };
     var sku = new URLSearchParams(location.search).get("sku") || "";
     var label = names[sku];
@@ -85,7 +92,7 @@
       lede.textContent = "Your named-location report is ready. It opens next. Use Save as PDF in the print dialog.";
       box.innerHTML = '<a class="cta" href="report.html?sku=airspace_report">Open Your Location Report now</a>';
       window.location.replace("report.html?sku=airspace_report");
-    } else if (sku === "rid" || sku === "listen" || sku === "ant1090" || sku === "case" || sku === "starter" || sku === "rider" || sku === "therm256" || sku === "therm320" || sku === "adsbkit" || sku === "ant2458" || sku === "r2kit" || sku === "r2mic" || sku === "batt-expro" || sku === "case1200" || sku === "radiopouch" || sku === "lightspeak") {
+    } else if (sku === "rid" || sku === "listen" || sku === "ant1090" || sku === "case" || sku === "starter" || sku === "rider" || sku === "therm256" || sku === "therm320" || sku === "adsbkit" || sku === "ant2458" || sku === "r2kit" || sku === "r2mic" || sku === "batt-expro" || sku === "case1200" || sku === "radiopouch" || sku === "lightspeak" || sku === "pirecv" || sku === "scan" || sku === "mlx32" || sku === "duck2458" || sku === "omni2458" || sku === "sdradv" || sku === "rfalert") {
       lede.textContent = (label || "Field attach") + ". Ships from Dark Sky Systems to the address on the receipt. Tracking by email.";
     } else {
       lede.textContent = (label || "This order") + ". We email next steps to the address on the Stripe receipt. Deposit is in Dark Sky Systems LLC.";
