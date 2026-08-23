@@ -52,7 +52,10 @@
       crew: "Crew paper bundle",
       rid: "Remote ID receive board", listen: "Listen radio + dipole",
       ant1090: "1090 MHz listen antenna", case: "Small hard case",
-      starter: "Listen starter"
+      starter: "Listen starter",
+      rider: "Portable Remote ID detector", therm256: "Handheld thermal camera, 256 class",
+      therm320: "Handheld thermal camera, 320 class", adsbkit: "ADS-B + Remote ID receiver kit",
+      ant2458: "2.4 / 5.8 GHz directional listen antenna"
     };
     var sku = new URLSearchParams(location.search).get("sku") || "";
     var label = names[sku];
@@ -76,7 +79,7 @@
       lede.textContent = "Your named-location report is ready. It opens next. Use Save as PDF in the print dialog.";
       box.innerHTML = '<a class="cta" href="report.html?sku=airspace_report">Open Your Location Report now</a>';
       window.location.replace("report.html?sku=airspace_report");
-    } else if (sku === "rid" || sku === "listen" || sku === "ant1090" || sku === "case" || sku === "starter") {
+    } else if (sku === "rid" || sku === "listen" || sku === "ant1090" || sku === "case" || sku === "starter" || sku === "rider" || sku === "therm256" || sku === "therm320" || sku === "adsbkit" || sku === "ant2458") {
       lede.textContent = (label || "Field attach") + ". Ships from Dark Sky Systems to the address on the receipt. Tracking by email.";
     } else {
       lede.textContent = (label || "This order") + ". We email next steps to the address on the Stripe receipt. Deposit is in Dark Sky Systems LLC.";

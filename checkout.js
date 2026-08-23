@@ -420,6 +420,93 @@
         "Tracking by email"
       ]
     },
+    rider: {
+      title: "Portable Remote ID detector",
+      lede: "Pocket Remote ID receiver for first responders and site crews. Listens for broadcast Remote ID up to about 3 miles. Maps the aircraft and, when it is sent, the pilot. Receive only.",
+      price: "$1,799",
+      amount: "1799",
+      chase: "",
+      stripe: "",
+      photo: "assets/attach/rider.jpg?v=1",
+      gets: [
+        "Dronetag RIDER portable Remote ID receiver",
+        "ASTM F3411 receive — 2.4 GHz Bluetooth and Wi-Fi",
+        "About 3 miles of broadcast Remote ID listen",
+        "Maps the aircraft and, when it is sent, the pilot",
+        "IP54, USB-C, 6–10 h. 134×53×20 mm, 64 g",
+        "Built-in cell ships with the unit. No spare pack",
+        "Receive only — it does not jam or transmit",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    therm256: {
+      title: "Handheld thermal camera, 256 class",
+      lede: "Handheld 256×192 thermal for site picture. Heat contrast, not a medical reading, not a firefighting helmet camera.",
+      price: "$549",
+      amount: "549",
+      chase: "",
+      stripe: "",
+      photo: "assets/attach/therm256.jpg?v=1",
+      gets: [
+        "Handheld 256×192 thermal camera",
+        "Heat contrast for site picture — not a medical reading",
+        "Not a firefighting helmet camera",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    therm320: {
+      title: "Handheld thermal camera, 320 class",
+      lede: "Handheld 320×240 thermal, IP67, for SAR / site picture. Heat contrast only.",
+      price: "$2,199",
+      amount: "2199",
+      chase: "",
+      stripe: "",
+      photo: "assets/attach/therm320.jpg?v=1",
+      gets: [
+        "Handheld 320×240 thermal camera — not 640",
+        "IP67 housing for SAR and site picture",
+        "Heat contrast only — not a medical reading, not a firefighting camera",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    adsbkit: {
+      title: "ADS-B + Remote ID receiver kit",
+      lede: "Board plus listen radio, 1090 and 978 antennas, and a small hard case. Receive only. Not Fusion Sensor.",
+      price: "$199",
+      amount: "199",
+      chase: "",
+      stripe: "",
+      photo: "assets/attach/adsbkit.jpg?v=1",
+      gets: [
+        "Remote ID receive board (USB-C, no battery)",
+        "Listen radio with dipole",
+        "1090 MHz and 978 MHz listen antennas",
+        "Small hard case",
+        "Receive only. Not Fusion Sensor",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email"
+      ]
+    },
+    ant2458: {
+      title: "2.4 / 5.8 GHz directional listen antenna",
+      lede: "Dual-band directional listen panel, 13 dBi, 2.4 and 5.8 GHz. Passive receive only. N-Female (buyer may need N-to-SMA).",
+      price: "$99",
+      amount: "99",
+      chase: "",
+      stripe: "",
+      photo: "assets/attach/ant2458.jpg?v=1",
+      gets: [
+        "Dual-band directional listen panel, 13 dBi",
+        "2.4 GHz and 5.8 GHz in one panel",
+        "Passive receive only — it does not transmit",
+        "N-Female jack (buyer may need N-to-SMA)",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email"
+      ]
+    },
     radio: {
       title: "Fusion Sensor + radios",
       lede: "Same console. We kit, flash, and ship the radios, then complete initial setup and a first monitoring session with you.",
@@ -475,7 +562,7 @@
   if (price) price.textContent = sku.price;
   var isPack = key === "ra" || key === "cards" || key === "eventpack";
   var isVolume = key === "scene" || key === "job" || key === "school" || key === "incident" || key === "crew";
-  var isAttach = key === "rid" || key === "listen" || key === "ant1090" || key === "case" || key === "starter";
+  var isAttach = key === "rid" || key === "listen" || key === "ant1090" || key === "case" || key === "starter" || key === "rider" || key === "therm256" || key === "therm320" || key === "adsbkit" || key === "ant2458";
   var eyebrow = document.getElementById("sku-eyebrow");
   var fine = document.getElementById("sku-fine");
   if (eyebrow) {

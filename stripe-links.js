@@ -29,5 +29,10 @@ window.DSS_STRIPE = {
   listen: "https://buy.stripe.com/4gMaEX8DM8F39YccflfIs0r",
   ant1090: "https://buy.stripe.com/fZufZh07g2gF0nC7Z5fIs0s",
   case: "https://buy.stripe.com/7sYbJ16vE8F39YcgvBfIs0t",
-  starter: "https://buy.stripe.com/8x2cN57zI4oN4DSgvBfIs0u"
+  starter: "https://buy.stripe.com/8x2cN57zI4oN4DSgvBfIs0u",
+  rider: "https://buy.stripe.com/00w7sL3js1cBdaocflfIs0v",
+  therm256: "https://buy.stripe.com/14A3cv5rA9J72vKfrxfIs0w",
+  therm320: "https://buy.stripe.com/bJe9AT6vEbRf5HW5QXfIs0x",
+  adsbkit: "https://buy.stripe.com/aFacN5bPY4oN5HW2ELfIs0y",
+  ant2458: "https://buy.stripe.com/dRm8wPf2acVj6M01AHfIs0z"
 };
