@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+<channel>
+<title>Dark Sky Systems product feed</title>
+<link>https://darksky.systems/products/</link>
+<description>Remote ID receivers, Raspberry Pi ADS-B receivers, ESP32 boards, thermal camera modules. Receive only.</description>
+<item>
+<g:id>adsbpair</g:id>
+<title>Dual-Band 1090 / 978 Receive Antenna Kit</title>
+<link>https://darksky.systems/products/1090-978-listen-antenna-kit/</link>
+<description>A 1090 and 978 ADS-B receive antenna kit. Two SMA whips plus a jumper for a Raspberry Pi ADS-B feeder or radio.</description>
+<g:image_link>https://darksky.systems/assets/products/1090-mhz-5dbi-sma-listen-whip-lock.png</g:image_link>
+<g:price>59.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>ant1090</g:id>
+<title>1090 MHz SMA Receive Antenna</title>
+<link>https://darksky.systems/products/1090-mhz-listen-antenna/</link>
+<description>A 1090 MHz ADS-B receive antenna. SMA whip for crewed-aircraft broadcasts on a Raspberry Pi ADS-B receiver or USB radio.</description>
+<g:image_link>https://darksky.systems/assets/products/1090-mhz-sma-listen-antenna-whip.webp</g:image_link>
+<g:price>29.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>ant2458</g:id>
+<title>2.4 / 5.8 GHz Directional Receive Antenna</title>
+<link>https://darksky.systems/products/24-58-directional-listen-antenna/</link>
+<description>A 2.4 / 5.8 GHz directional antenna. 13 dBi panel for a drone detection or Remote ID kit — point it where you need the airspace picture.</description>
+<g:image_link>https://darksky.systems/assets/products/24-58-directional-listen-antenna.jpg</g:image_link>
+<g:price>99.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>adsbkit</g:id>
+<title>ADS-B + Remote ID Receiver Kit</title>
+<link>https://darksky.systems/products/adsb-remote-id-receiver-kit/</link>
+<description>An ADS-B Remote ID receiver kit: Remote ID board, radio, 1090 and 978 antennas, hard case. Airspace radios without a Pi.</description>
+<g:image_link>https://darksky.systems/assets/products/adsb-remote-id-receiver-kit.jpg</g:image_link>
+<g:price>199.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>sdradv</g:id>
+<title>Advanced radio kit with filter</title>
+<link>https://darksky.systems/products/advanced-listen-radio-kit/</link>
+<description>An ADS-B radio kit with a 1090/978 filter and 1090 whip. Cleaner airspace receive on one radio.</description>
+<g:image_link>https://darksky.systems/assets/products/listen-radio-dipole.jpg</g:image_link>
+<g:price>279.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>training_pack</g:id>
+<title>Airspace Awareness Training</title>
+<link>https://darksky.systems/products/airspace-awareness-training/</link>
+<description>Airspace awareness training. Remote ID, a monitoring session, and a first-responder checklist. Instant download.</description>
+<g:image_link>https://darksky.systems/assets/products/airspace-awareness-training.png</g:image_link>
+<g:price>99.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>campus-facility-assurance</g:id>
+<title>Campus &amp; Facility Assurance</title>
+<link>https://darksky.systems/products/campus-facility-assurance/</link>
+<description>Campus airspace assurance. Four flown visits a year with detection on site for a named campus or plant.</description>
+<g:image_link>https://darksky.systems/assets/products/campus-facility-assurance.png</g:image_link>
+<g:price>18000.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>construction-progress</g:id>
+<title>Construction Progress</title>
+<link>https://darksky.systems/products/construction-progress/</link>
+<description>Construction progress flights. Weekly or bi-weekly overhead imaging while the job is open.</description>
+<g:image_link>https://darksky.systems/assets/products/construction-progress.png</g:image_link>
+<g:price>2500.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>crew</g:id>
+<title>Crew Paper Bundle</title>
+<link>https://darksky.systems/products/crew-paper-bundle/</link>
+<description>Crew drone paper bundle. Scene card, jobsite log, school size-up, incident file — four PDFs.</description>
+<g:image_link>https://darksky.systems/assets/products/crew-paper-bundle-four-pdfs.png</g:image_link>
+<g:price>49.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>scene</g:id>
+<title>Drone Over the Scene</title>
+<link>https://darksky.systems/products/drone-over-the-scene/</link>
+<description>Drone over the scene pocket card for fire and EMS. Clock, heading, what is under it.</description>
+<g:image_link>https://darksky.systems/assets/products/drone-over-the-scene-pocket-card.png</g:image_link>
+<g:price>19.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>adsbfeeder</g:id>
+<title>Pi ADS-B Feeder</title>
+<link>https://darksky.systems/products/dual-band-adsb-feeder-kit/</link>
+<description>A Raspberry Pi ADS-B feeder kit for 1090 and 978 aircraft broadcasts. Pi 4, radio, and both band whips — a dedicated ADS-B receiver.</description>
+<g:image_link>https://darksky.systems/assets/products/raspberry-pi-4-4gb-remote-id-adsb-listener.jpg</g:image_link>
+<g:price>299.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>eap_pack</g:id>
+<title>Emergency Action Plan Pack</title>
+<link>https://darksky.systems/products/emergency-action-plan-pack/</link>
+<description>Emergency action plan pack for drone operations. Templates you complete. Instant after payment.</description>
+<g:image_link>https://darksky.systems/assets/products/emergency-action-plan-pack.png</g:image_link>
+<g:price>149.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>ant24chain</g:id>
+<title>2.4 GHz Receive Whip Kit for w.FL Boards</title>
+<link>https://darksky.systems/products/esp32-24ghz-antenna-chain/</link>
+<description>A 2.4 GHz receive antenna chain for an ESP32 Remote ID board with a w.FL port: pigtail, adapter, and duck.</description>
+<g:image_link>https://darksky.systems/assets/products/24ghz-rpsma-listen-duck-945.jpg</g:image_link>
+<g:price>39.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>espmesh</g:id>
+<title>ESP32 Mesh-Capable Remote ID Receiver</title>
+<link>https://darksky.systems/products/esp32-mesh-listener/</link>
+<description>An ESP32 Remote ID mesh node. Drone detection board for Remote ID plus a mesh hop, with a flanged box.</description>
+<g:image_link>https://darksky.systems/assets/products/esp32-mesh-listener-board.jpg</g:image_link>
+<g:price>89.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>esprid</g:id>
+<title>Remote ID Receiver Display</title>
+<link>https://darksky.systems/products/esp32-remote-id-scanner/</link>
+<description>An ESP32 Remote ID scanner with a color display. USB-C drone detection board — IDs on the screen, not in a terminal.</description>
+<g:image_link>https://darksky.systems/assets/products/esp32-remote-id-scanner-color-display-front.jpg</g:image_link>
+<g:price>79.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>espridlisten</g:id>
+<title>ESP32 Color Remote ID Scanner + Radio</title>
+<link>https://darksky.systems/products/esp32-scanner-listen-radio-bundle/</link>
+<description>An ESP32 Remote ID scanner bundled with a radio. Drone detection board and wideband airspace radio in one order.</description>
+<g:image_link>https://darksky.systems/assets/products/esp32-remote-id-scanner-color-display-front.jpg</g:image_link>
+<g:price>139.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>espsite</g:id>
+<title>ESP32 Site Receiver Module</title>
+<link>https://darksky.systems/products/esp32-site-listener/</link>
+<description>An ESP32 Remote ID site receiver in a weatherproof box. Permanent airspace receiver with USB-C power and an external 2.4 GHz whip.</description>
+<g:image_link>https://darksky.systems/assets/products/esp32-site-listener-ip66-enclosure.jpg</g:image_link>
+<g:price>179.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>eventpack</g:id>
+<title>Event Window Pack</title>
+<link>https://darksky.systems/products/event-window-pack/</link>
+<description>An event window pack. Risk file for a named venue and date — score it, update it, close it.</description>
+<g:image_link>https://darksky.systems/assets/products/event-window-pack.png</g:image_link>
+<g:price>750.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>batt-expro</g:id>
+<title>Extra battery for FLIR E5 Pro / E6 Pro / E8 Pro</title>
+<link>https://darksky.systems/products/extra-battery-flir-ex-pro/</link>
+<description>Official extra battery for FLIR E5, E6, and E8 Pro handheld thermal cameras.</description>
+<g:image_link>https://darksky.systems/assets/products/batt-expro.jpg</g:image_link>
+<g:price>109.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>cards</g:id>
+<title>Field Cards Pack</title>
+<link>https://darksky.systems/products/field-cards-pack/</link>
+<description>Drone field cards the PIC briefs before launch. Flyaway, lost link, crash, battery, medical.</description>
+<g:image_link>https://darksky.systems/assets/products/field-cards-pack.png</g:image_link>
+<g:price>250.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>espbox</g:id>
+<title>Flanged Weatherproof Enclosure for ESP32 Boards</title>
+<link>https://darksky.systems/products/flanged-esp32-enclosure/</link>
+<description>A flanged weatherproof enclosure for an ESP32 Remote ID detection board. Small box with glands.</description>
+<g:image_link>https://darksky.systems/assets/products/flanged-weatherproof-esp32-enclosure-3931.jpg</g:image_link>
+<g:price>24.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>fusion-sensor</g:id>
+<title>Fusion Sensor drone detection</title>
+<link>https://darksky.systems/products/fusion-sensor/</link>
+<description>Fusion Sensor drone detection software on a laptop you already own. Live airspace map, Remote ID picture, alerts, and a log. You supply the radios.</description>
+<g:image_link>https://darksky.systems/assets/products/fusion-sensor.png</g:image_link>
+<g:price>2000.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>fusion-sensor-radios</g:id>
+<title>Fusion Sensor + Radios</title>
+<link>https://darksky.systems/products/fusion-sensor-radios/</link>
+<description>Fusion Sensor drone detection plus the radios. We kit the airspace radios, set it up, and walk the first session.</description>
+<g:image_link>https://darksky.systems/assets/products/fusion-sensor-radios.png</g:image_link>
+<g:price>4500.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>therm256</g:id>
+<title>Handheld Thermal Camera, 256×192 — TOPDON TC004</title>
+<link>https://darksky.systems/products/handheld-thermal-256/</link>
+<description>A 256-class handheld thermal camera. Heat contrast in the hand for a roof, a plant, or a dark lane — not a thermal camera module.</description>
+<g:image_link>https://darksky.systems/assets/products/handheld-thermal-256.jpg</g:image_link>
+<g:price>549.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>therm320</g:id>
+<title>Handheld Thermal Camera, 320×240 — Seek Reveal 300</title>
+<link>https://darksky.systems/products/handheld-thermal-320/</link>
+<description>A 320×240 handheld thermal camera. IP67 body with a 300-lumen work light — heat contrast for SAR and site picture.</description>
+<g:image_link>https://darksky.systems/assets/products/handheld-thermal-320.jpg</g:image_link>
+<g:price>2199.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>job</g:id>
+<title>Jobsite Drone Log</title>
+<link>https://darksky.systems/products/jobsite-drone-log/</link>
+<description>A jobsite drone log for one named job. Unauthorized drone write-down you print and keep.</description>
+<g:image_link>https://darksky.systems/assets/products/jobsite-drone-log-pdf.png</g:image_link>
+<g:price>19.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>listen</g:id>
+<title>USB Wideband Radio + Dipole</title>
+<link>https://darksky.systems/products/listen-radio-dipole/</link>
+<description>A USB radio with dipole for airspace monitoring. Wideband SMA radio that pairs with a Remote ID receiver or ADS-B antenna.</description>
+<g:image_link>https://darksky.systems/assets/products/usb-listen-radio-dipole.webp</g:image_link>
+<g:price>79.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>starter</g:id>
+<title>Radio starter Kit</title>
+<link>https://darksky.systems/products/listen-starter-kit/</link>
+<description>A Remote ID receiver and radio kit. Two airspace radios — drone detection board plus wideband radio — on one order.</description>
+<g:image_link>https://darksky.systems/assets/products/listen-starter-kit-board-radio.webp</g:image_link>
+<g:price>99.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>radiopouch</g:id>
+<title>Condor MOLLE radio pouch</title>
+<link>https://darksky.systems/products/molle-radio-pouch/</link>
+<description>A Condor MOLLE radio pouch in Olive Drab. Hook-and-loop flap and elastic retention for a field radio.</description>
+<g:image_link>https://darksky.systems/assets/products/radiopouch.jpg</g:image_link>
+<g:price>49.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>monitoring-basic-monthly</g:id>
+<title>Monitoring · Basic</title>
+<link>https://darksky.systems/products/monitoring-basic-monthly/</link>
+<description>Airspace monitoring for one named site. Live map, Remote ID alerts, ninety days of records.</description>
+<g:image_link>https://darksky.systems/assets/products/monitoring-basic-monthly.png</g:image_link>
+<g:price>250.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>monitoring-basic-year</g:id>
+<title>Monitoring · Basic (Year)</title>
+<link>https://darksky.systems/products/monitoring-basic-year/</link>
+<description>Airspace monitoring, Basic, paid yearly. One named site. Live map and Remote ID alerts. You save two months versus monthly.</description>
+<g:image_link>https://darksky.systems/assets/products/monitoring-basic-year.png</g:image_link>
+<g:price>2500.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>monitoring-pro-monthly</g:id>
+<title>Monitoring · Pro</title>
+<link>https://darksky.systems/products/monitoring-pro-monthly/</link>
+<description>Pro airspace monitoring. Multi-site live map, API, webhooks, two-year archive for Remote ID and receive events.</description>
+<g:image_link>https://darksky.systems/assets/products/monitoring-pro-monthly.png</g:image_link>
+<g:price>750.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>monitoring-pro-year</g:id>
+<title>Monitoring · Pro (Year)</title>
+<link>https://darksky.systems/products/monitoring-pro-year/</link>
+<description>Pro airspace monitoring, paid yearly. Multi-site live map, API, and webhooks for Remote ID events.</description>
+<g:image_link>https://darksky.systems/assets/products/monitoring-pro-year.png</g:image_link>
+<g:price>7500.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>r2mic</g:id>
+<title>Motorola speaker microphone</title>
+<link>https://darksky.systems/products/motorola-speaker-microphone/</link>
+<description>A Motorola speaker microphone for the locked two-way. Radio stays on the belt during an airspace receiver.</description>
+<g:image_link>https://darksky.systems/assets/products/r2mic.jpg</g:image_link>
+<g:price>179.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>r2kit</g:id>
+<title>Motorola two-way radio + acoustic-tube earpiece</title>
+<link>https://darksky.systems/products/motorola-two-way-radio-earpiece/</link>
+<description>A Motorola two-way radio with acoustic-tube earpiece. Crew comms for an airspace receiver. You license the radio.</description>
+<g:image_link>https://darksky.systems/assets/products/r2kit.jpg</g:image_link>
+<g:price>1199.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>multi-event-airspace-3</g:id>
+<title>Multi-Event Airspace · 3 Dates</title>
+<link>https://darksky.systems/products/multi-event-airspace-3/</link>
+<description>Airspace awareness for three named events. Survey, live coverage, and an observation file at each stop.</description>
+<g:image_link>https://darksky.systems/assets/products/multi-event-airspace-3.png</g:image_link>
+<g:price>6495.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>multi-event-airspace-5</g:id>
+<title>Multi-Event Airspace · 5 Dates</title>
+<link>https://darksky.systems/products/multi-event-airspace-5/</link>
+<description>Airspace awareness for five named events. Survey, live coverage, and a file at every stop. One operations contact.</description>
+<g:image_link>https://darksky.systems/assets/products/multi-event-airspace-5.png</g:image_link>
+<g:price>9995.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>airspace_report</g:id>
+<title>Named Location Airspace Report</title>
+<link>https://darksky.systems/products/named-location-airspace-report/</link>
+<description>A named location airspace report. Written summary for one campus, job, or venue — score and a recommended next step.</description>
+<g:image_link>https://darksky.systems/assets/products/named-location-airspace-report.png</g:image_link>
+<g:price>149.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>obs_templates</g:id>
+<title>Observation File Templates</title>
+<link>https://darksky.systems/products/observation-file-templates/</link>
+<description>Observation file templates for a named site. Fillable paper first-in can actually use.</description>
+<g:image_link>https://darksky.systems/assets/products/observation-file-templates.png</g:image_link>
+<g:price>49.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>ant1090x</g:id>
+<title>Outdoor 1090 MHz Receive Antenna (N-Female)</title>
+<link>https://darksky.systems/products/outdoor-1090-mhz-listen-antenna/</link>
+<description>An outdoor 1090 MHz ADS-B receive antenna. 9 dBi N-female mast mount plus the SMA jumper that reaches the radio.</description>
+<g:image_link>https://darksky.systems/assets/products/outdoor-1090-mhz-9dbi-n-female-listen-antenna.jpg</g:image_link>
+<g:price>329.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>case1200</g:id>
+<title>Pelican 1200 medium hard case</title>
+<link>https://darksky.systems/products/pelican-1200-hard-case/</link>
+<description>A Pelican 1200 watertight hard case with pick-and-pluck foam. Carry a Remote ID kit or handheld thermal.</description>
+<g:image_link>https://darksky.systems/assets/products/case1200.jpg</g:image_link>
+<g:price>139.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>rider</g:id>
+<title>Portable Remote ID Detector — Dronetag RIDER</title>
+<link>https://darksky.systems/products/portable-remote-id-detector/</link>
+<description>A portable Remote ID detector. Pocket receiver for broadcast Remote ID — about three miles of airspace receive when you walk the site.</description>
+<g:image_link>https://darksky.systems/assets/products/portable-remote-id-detector.jpg</g:image_link>
+<g:price>1799.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>pi27w</g:id>
+<title>Official Raspberry Pi 27W USB-C Power Supply</title>
+<link>https://darksky.systems/products/raspberry-pi-27w-usb-c-power-supply/</link>
+<description>Official Raspberry Pi 27W USB-C power supply. The brick a Raspberry Pi 5 ADS-B Remote ID receiver kits on.</description>
+<g:image_link>https://darksky.systems/assets/products/official-raspberry-pi-27w-usb-c-black.jpg</g:image_link>
+<g:price>29.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>piarmor</g:id>
+<title>Raspberry Pi 5 Aluminum Case with Fan</title>
+<link>https://darksky.systems/products/raspberry-pi-5-aluminum-case/</link>
+<description>A Raspberry Pi 5 aluminum case with a temperature-controlled blower. Indoor armor for a Pi ADS-B or Remote ID receiver. Pi not included.</description>
+<g:image_link>https://darksky.systems/assets/products/raspberry-pi-5-aluminum-case-fan.jpg</g:image_link>
+<g:price>29.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>sd64</g:id>
+<title>Official Raspberry Pi 64GB microSD Card (Blank)</title>
+<link>https://darksky.systems/products/raspberry-pi-64gb-microsd-blank/</link>
+<description>Official Raspberry Pi 64GB microSD, sold blank. Ready for a Raspberry Pi ADS-B or Remote ID receiver image.</description>
+<g:image_link>https://darksky.systems/assets/products/official-raspberry-pi-64gb-microsd-blank.jpg</g:image_link>
+<g:price>49.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>picam3</g:id>
+<title>Raspberry Pi Camera Module 3</title>
+<link>https://darksky.systems/products/raspberry-pi-camera-module-3/</link>
+<description>Raspberry Pi Camera Module 3. 12 MP CSI camera for a Raspberry Pi ADS-B or Remote ID receiver kit. 75° lens. Ribbon in the box.</description>
+<g:image_link>https://darksky.systems/assets/products/raspberry-pi-camera-module-3.jpg</g:image_link>
+<g:price>59.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>picam3w</g:id>
+<title>Raspberry Pi Camera Module 3 Wide</title>
+<link>https://darksky.systems/products/raspberry-pi-camera-module-3-wide/</link>
+<description>Raspberry Pi Camera Module 3 Wide. 12 MP, 120° CSI camera for a Raspberry Pi receiver kit that needs a wider visual.</description>
+<g:image_link>https://darksky.systems/assets/products/raspberry-pi-camera-module-3-wide.jpg</g:image_link>
+<g:price>89.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>pioutdoor</g:id>
+<title>Raspberry Pi Long-Range Outdoor Permanent Receiver</title>
+<link>https://darksky.systems/products/raspberry-pi-outdoor-permanent-listener/</link>
+<description>An outdoor Raspberry Pi airspace receiver for a mast: Remote ID receiver, radio, weather box, and a 9 dBi 1090 antenna.</description>
+<g:image_link>https://darksky.systems/assets/products/outdoor-1090-mhz-9dbi-n-female-base-antenna.jpg</g:image_link>
+<g:price>649.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>pipro</g:id>
+<title>Pi Receiver Dual-Band</title>
+<link>https://darksky.systems/products/raspberry-pi-professional-remote-id-dual-band-adsb/</link>
+<description>A Raspberry Pi ADS-B Remote ID kit for both 1090 and 978, with a dual-channel filter on the radio. Professional indoor airspace receiver.</description>
+<g:image_link>https://darksky.systems/assets/products/raspberry-pi-5-4gb-professional-listener.jpg</g:image_link>
+<g:price>549.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>pistarter</g:id>
+<title>Pi Receiver (Starter)</title>
+<link>https://darksky.systems/products/raspberry-pi-remote-id-adsb-listener-starter/</link>
+<description>A Raspberry Pi ADS-B and Remote ID receiver starter on Pi 4. Official power, a Remote ID receiver board, and a radio with dipole — one order.</description>
+<g:image_link>https://darksky.systems/assets/products/raspberry-pi-4-4gb-remote-id-adsb-listener.jpg</g:image_link>
+<g:price>279.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>pirecv</g:id>
+<title>Pi Receiver</title>
+<link>https://darksky.systems/products/raspberry-pi-remote-id-adsb-receiver/</link>
+<description>A Raspberry Pi ADS-B Remote ID receiver kit crews actually field: official power, official case, Remote ID board, radio, and a 1090 whip.</description>
+<g:image_link>https://darksky.systems/assets/products/raspberry-pi-5-remote-id-adsb-receiver.jpg</g:image_link>
+<g:price>399.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>rfalert</g:id>
+<title>Remote ID Receiver Alert Kit</title>
+<link>https://darksky.systems/products/remote-id-alert-board/</link>
+<description>A Remote ID alert board with an OLED and a weatherproof box. ESP32 drone detection kit for IDs on the desk.</description>
+<g:image_link>https://darksky.systems/assets/products/remote-id-receive-board.jpg</g:image_link>
+<g:price>129.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>rid</g:id>
+<title>USB-C Remote ID Receiver Board</title>
+<link>https://darksky.systems/products/remote-id-receive-board/</link>
+<description>A USB-C Remote ID receiver board. Plug in this ESP32 drone detection board, load the image — or buy Ready-to-Run — and IDs show up.</description>
+<g:image_link>https://darksky.systems/assets/products/usb-c-remote-id-receive-board.webp</g:image_link>
+<g:price>39.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>rfalertlisten</g:id>
+<title>Remote ID Alert Board + Radio</title>
+<link>https://darksky.systems/products/rid-display-listen-radio-bundle/</link>
+<description>A Remote ID receiver kit with OLED plus a USB radio. Drone detection board and airspace receiver radio, together.</description>
+<g:image_link>https://darksky.systems/assets/products/remote-id-receive-board.jpg</g:image_link>
+<g:price>179.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>school</g:id>
+<title>School and Venue Drone Size-Up</title>
+<link>https://darksky.systems/products/school-venue-drone-size-up/</link>
+<description>School and venue drone size-up. Admin paper when a drone is over a crowd, campus, or venue.</description>
+<g:image_link>https://darksky.systems/assets/products/school-venue-drone-size-up-card.png</g:image_link>
+<g:price>29.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>single-event-airspace</g:id>
+<title>Single-Event Airspace Awareness</title>
+<link>https://darksky.systems/products/single-event-airspace/</link>
+<description>Single-event airspace awareness for a named venue and date. Survey, live coverage, air map, and an observation file.</description>
+<g:image_link>https://darksky.systems/assets/products/single-event-airspace.png</g:image_link>
+<g:price>2495.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>ra</g:id>
+<title>Site Survey Pack</title>
+<link>https://darksky.systems/products/site-survey-pack/</link>
+<description>A site survey pack. Written observation file for one named property, with a first-in annex.</description>
+<g:image_link>https://darksky.systems/assets/products/site-survey-pack.png</g:image_link>
+<g:price>500.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>smajump</g:id>
+<title>SMA to SMA Jumper Cable (Unfiltered)</title>
+<link>https://darksky.systems/products/sma-interconnect-cable/</link>
+<description>An SMA to SMA jumper cable. Six-inch unfiltered interconnect for an ADS-B receive antenna and radio.</description>
+<g:image_link>https://darksky.systems/assets/products/sma-male-male-rg316-jumper-lock.png</g:image_link>
+<g:price>24.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>case</g:id>
+<title>Small Weatherproof Hard Case</title>
+<link>https://darksky.systems/products/small-hard-case/</link>
+<description>A small weatherproof hard case for a Remote ID receiver and radio. Pick-and-pluck foam. Fits the airspace radios.</description>
+<g:image_link>https://darksky.systems/assets/products/small-weatherproof-hard-case.webp</g:image_link>
+<g:price>29.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>lightspeak</g:id>
+<title>Spotlight and loudspeaker payload</title>
+<link>https://darksky.systems/products/spotlight-loudspeaker-payload/</link>
+<description>A spotlight and loudspeaker payload. Lights a lane and talks to the ground. You supply the airframe.</description>
+<g:image_link>https://darksky.systems/assets/products/lightspeak.jpg</g:image_link>
+<g:price>2999.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>pistart1090</g:id>
+<title>Raspberry Pi Starter Receiver + 1090 Antenna</title>
+<link>https://darksky.systems/products/starter-pi-listener-1090-bundle/</link>
+<description>A Raspberry Pi Remote ID receiver starter bundled with a 1090 MHz ADS-B antenna. One checkout. Save $19 versus buying the kit and whip apart.</description>
+<g:image_link>https://darksky.systems/assets/products/raspberry-pi-4-4gb-remote-id-adsb-listener.jpg</g:image_link>
+<g:price>289.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>lepton160</g:id>
+<title>Thermal camera module, 160×120 USB</title>
+<link>https://darksky.systems/products/thermal-camera-module-160x120/</link>
+<description>A 160×120 USB thermal camera module. Nineteen thousand heat points for a motor, a joint, or a person on an airspace or site kit.</description>
+<g:image_link>https://darksky.systems/assets/products/thermal-camera-module-160x120-usb.jpg</g:image_link>
+<g:price>649.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>mlx32</g:id>
+<title>Thermal camera module, 32×24 I2C</title>
+<link>https://darksky.systems/products/thermal-camera-module-32x24/</link>
+<description>A 32×24 thermal camera module on I2C. Compact heat-contrast board for a Raspberry Pi or MCU kit — a thermal module, not a handheld.</description>
+<g:image_link>https://darksky.systems/assets/products/thermal-camera-module-32x24-i2c.jpg</g:image_link>
+<g:price>149.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>scan</g:id>
+<title>TinySA Ultra portable spectrum scanner</title>
+<link>https://darksky.systems/products/tinysa-ultra-spectrum-scanner/</link>
+<description>A TinySA Ultra spectrum scanner for airspace and RF survey. Handheld scanner that kits beside an ESP32 Remote ID board or Raspberry Pi receiver.</description>
+<g:image_link>https://darksky.systems/assets/products/tinysa-ultra-portable-spectrum-scanner.jpg</g:image_link>
+<g:price>349.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>incident</g:id>
+<title>Unauthorized Drone Incident File</title>
+<link>https://darksky.systems/products/unauthorized-drone-incident-file/</link>
+<description>An unauthorized drone incident file. Photos, time, direction, Remote ID if visible, who was called.</description>
+<g:image_link>https://darksky.systems/assets/products/unauthorized-drone-incident-file.png</g:image_link>
+<g:price>29.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>risk_report</g:id>
+<title>Unauthorized Drone Risk Report</title>
+<link>https://darksky.systems/products/unauthorized-drone-risk-report/</link>
+<description>An unauthorized drone risk report for a named place. Written score, findings, and the next step — airspace monitoring or a kit.</description>
+<g:image_link>https://darksky.systems/assets/products/unauthorized-drone-risk-report.png</g:image_link>
+<g:price>79.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>usbll</g:id>
+<title>USB low-light camera module, 2MP</title>
+<link>https://darksky.systems/products/usb-low-light-camera-module/</link>
+<description>A USB low-light camera module. 2 MP UVC camera for a Raspberry Pi receiver or laptop — cable in the box.</description>
+<g:image_link>https://darksky.systems/assets/products/usb-low-light-camera-module-2mp.jpg</g:image_link>
+<g:price>89.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>venue-event-season</g:id>
+<title>Venue &amp; Event Season</title>
+<link>https://darksky.systems/products/venue-event-season/</link>
+<description>Venue event season airspace coverage. Named dates: pre-survey, live coverage, air map, close-out.</description>
+<g:image_link>https://darksky.systems/assets/products/venue-event-season.png</g:image_link>
+<g:price>8500.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+<item>
+<g:id>encl66</g:id>
+<title>Outdoor Weatherproof Project Enclosure (IP66)</title>
+<link>https://darksky.systems/products/weatherproof-ip66-enclosure/</link>
+<description>An IP66 weatherproof enclosure for an outdoor Raspberry Pi or ESP32 airspace receiver. Clear lid. You drill the glands.</description>
+<g:image_link>https://darksky.systems/assets/products/ip66-weatherproof-project-enclosure-905.jpg</g:image_link>
+<g:price>39.00 USD</g:price>
+<g:availability>in_stock</g:availability>
+<g:condition>new</g:condition>
+<g:brand>Dark Sky Systems</g:brand>
+<g:identifier_exists>no</g:identifier_exists>
+</item>
+</channel>
+</rss>

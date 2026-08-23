@@ -79,3 +79,92 @@
 .p-sku-box p { color: var(--mute); margin: 0 0 0.45rem; }
 .p-sku-box .p-actions { margin: 0.75rem 0 0; }
 .p-sku-box .cta { min-width: 12rem; text-align: center; }
+
+/* Store catalog */
+.shop-by {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1.15rem 0 0;
+}
+.shop-by a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.42rem 0.85rem;
+  border: 1px solid var(--line);
+  background: var(--lift);
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.shop-by a:hover, .shop-by a:focus-visible {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.store-hero .lede { max-width: 40rem; }
+.featured-grid {
+  display: grid;
+  gap: 1.15rem;
+}
+@media (min-width: 720px) {
+  .featured-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1080px) {
+  .featured-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.featured-grid .card.plan {
+  min-height: 100%;
+}
+.collection-row {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 860px) {
+  .collection-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.collection-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--line);
+  background: var(--lift);
+  min-height: 100%;
+}
+.collection-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: #0c0b0a;
+}
+.collection-card .pad {
+  padding: 1.05rem 1.15rem 1.25rem;
+}
+.collection-card h3 { margin: 0.2rem 0 0.4rem; }
+.collection-card p { color: var(--mute); margin: 0; }
+.choose-pair .p-sku-box:last-child {
+  border-color: var(--gold);
+}
+.choose-pair .p-sku-box:last-child .plan-for { color: var(--gold); }
+.p-buy-note {
+  font-size: 0.85rem;
+  color: var(--mute);
+  margin: 0.35rem 0 0;
+}
+.how-ship {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+@media (min-width: 700px) { .how-ship { grid-template-columns: 1fr 1fr; } }
+.how-ship article {
+  border: 1px solid var(--line);
+  padding: 1.1rem 1.15rem;
+  background: var(--lift);
+}
+.how-ship h3 { margin: 0 0 0.4rem; font-size: 1.25rem; }
+.seo-links { margin-top: 0.75rem; }
+.seo-links a { color: var(--gold); text-decoration: none; }
+.seo-links a:hover, .seo-links a:focus-visible { text-decoration: underline; }

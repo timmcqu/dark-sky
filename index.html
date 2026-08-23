@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="dark" />
   <meta name="theme-color" content="#0a0908" />
-  <title>Dark Sky Systems — Know what is in the air over your site</title>
-  <meta name="description" content="We fly drones and run detection on site for campuses, venues, and jobs. Dark Sky Systems LLC." />
+  <title>Remote ID Receivers | Dark Sky Systems</title>
+  <meta name="description" content="Texas LLC. Receive-only Remote ID and ADS-B receivers, instant files from $19, named-date coverage. Raspberry Pi and ESP32. No jam. Stripe checkout." />
   <link rel="canonical" href="https://darksky.systems/" />
-  <meta property="og:title" content="Dark Sky Systems — Know what is in the air over your site" />
-  <meta property="og:description" content="We fly drones and run detection on site. Dark Sky Systems LLC." />
+  <meta property="og:title" content="Remote ID Receivers | Dark Sky Systems" />
+  <meta property="og:description" content="Texas LLC. Receive-only Remote ID and ADS-B receivers, instant files from $19, named-date coverage. No jam. Stripe checkout." />
   <meta property="og:url" content="https://darksky.systems/" />
   <meta property="og:image" content="https://darksky.systems/assets/poster.jpg" />
   <meta property="og:type" content="website" />
@@ -19,8 +19,54 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=106" />
+  <link rel="stylesheet" href="style.css?v=108" />
   <link rel="stylesheet" href="chat.css?v=1" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": [
+    "Organization",
+    "ProfessionalService"
+  ],
+  "@id": "https://darksky.systems/#org",
+  "name": "Dark Sky Systems LLC",
+  "alternateName": [
+    "Dark Sky",
+    "Dark Sky Systems"
+  ],
+  "url": "https://darksky.systems",
+  "logo": "https://darksky.systems/assets/poster.jpg",
+  "description": "Texas company. Receive-only Remote ID and ADS-B receivers, instant files, and named-date coverage. No jam. No spoof.",
+  "areaServed": {
+    "@type": "State",
+    "name": "Texas"
+  },
+  "knowsAbout": [
+    "Remote ID",
+    "ADS-B",
+    "airspace monitoring",
+    "Raspberry Pi",
+    "ESP32"
+  ],
+  "brand": {
+    "@type": "Brand",
+    "name": "Dark Sky Systems"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://darksky.systems/#website",
+  "name": "Dark Sky Systems",
+  "url": "https://darksky.systems",
+  "publisher": {
+    "@id": "https://darksky.systems/#org"
+  },
+  "inLanguage": "en-US"
+}
+  </script>
 </head>
 <!-- Dark Sky Systems LLC -->
 <body>
@@ -30,15 +76,13 @@
     <div class="wrap mast-inner">
       <a class="brand" href="#top">Dark Sky Systems</a>
       <nav class="rail" aria-label="Primary">
-        <a href="products/">Electronics</a>
-        <a href="products/raspberry-pi-listeners/">Pi Listeners</a>
-        <a href="products/esp32-detection-boards/">ESP32 Boards</a>
+        <a href="products/">Shop</a>
+        <a href="products/raspberry-pi-listeners/">Pi Receivers</a>
+        <a href="products/esp32-detection-boards/">ESP32 Receivers</a>
         <a href="products/camera-modules/">Cameras</a>
-        <a href="#plans">Plans</a>
-        <a href="#attach">Attach</a>
-        <a href="#gear">Gear</a>
-        <a href="#fusion">Detect Drones</a>
-        <a href="disaster.html?v=2">Emergency</a>
+        <a href="digital.html">Digital</a>
+        <a href="guides/">Guides</a>
+        <a href="#fusion">Fusion Sensor</a>
         <a href="events.html">Events</a>
         <a href="#request">Talk to us</a>
       </nav>
@@ -56,12 +100,19 @@
     <div class="hero-veil" aria-hidden="true"></div>
     <div class="wrap hero-copy">
       <p class="eyebrow">Dark Sky Systems</p>
-      <h1>See the drones over your site before they become a problem.</h1>
-      <p class="lede">Know what is transmitting over your campus, venue, or job. When you need stills and thermal, we fly.</p>
+      <h1>Remote ID receivers for the air over your site.</h1>
+      <p class="lede">Cooperative Remote ID and ADS-B on a named campus, venue, or job. Hardware Only or Ready-to-Run. When you need stills and thermal, we fly.</p>
       <div class="hero-actions">
-        <a class="cta" href="risk.html">Get the $79 risk report</a>
-        <a class="cta cta-ghost" href="#request">Talk to us</a>
+        <a class="cta" href="products/drone-over-the-scene/">Buy the $19 scene card</a>
+        <a class="cta cta-ghost" href="products/">Shop receivers</a>
       </div>
+      <ul class="proof-bar">
+        <li>Texas LLC</li>
+        <li>Receive-only</li>
+        <li>Stripe checkout</li>
+        <li>Files from $19</li>
+        <li>Hardware from $39</li>
+      </ul>
     </div>
   </section>
 
@@ -69,7 +120,7 @@
     <div class="wrap">
       <header class="sec-head">
         <h2 id="crew-heading">Crew paper</h2>
-        <p>Pocket cards and one-page logs you print and keep. Pay online. Open the file after payment.</p>
+        <p>Pocket cards and one-page logs you print and keep. Pay online. Open the file after payment. When you want radios, start with an ESP32 Receiver or a Pi Receiver.</p>
       </header>
       <div class="grid plans-grid tools-grid">
         <a class="card plan" href="products/drone-over-the-scene/">
@@ -111,29 +162,29 @@
     <div class="wrap">
       <header class="sec-head">
         <h2 id="attach-heading">Field attach</h2>
-        <p>Listen radios and cases from Dark Sky Systems. Receive only. We ship after payment.</p>
+        <p>Radios, antennas, and cases. Add them to a kit you already have.</p>
       </header>
       <div class="grid plans-grid tools-grid">
         <a class="card plan" href="products/remote-id-receive-board/">
-          <img class="sku-photo" src="assets/attach/rid.webp?v=1" alt="Remote ID receive board" width="1000" height="720" />
+          <img class="sku-photo" src="assets/attach/rid.webp?v=1" alt="Remote ID Receiver Board" width="1000" height="720" />
           <p class="plan-for">Board</p>
-          <h3>Remote ID receive board</h3>
-          <p class="plan-price">$39 <small>ships from us</small></p>
-          <p>Remote ID receive board. Ships from Dark Sky Systems. No battery.</p>
+          <h3>Remote ID Receiver Board</h3>
+          <p class="plan-price">$39 / $79 <small>Hardware Only / Ready-to-Run</small></p>
+          <p>USB-C Remote ID board. Hardware Only or Ready-to-Run.</p>
         </a>
         <a class="card plan" href="products/listen-radio-dipole/">
-          <img class="sku-photo" src="assets/attach/listen.webp?v=1" alt="Listen radio and dipole" width="1000" height="720" />
+          <img class="sku-photo" src="assets/attach/listen.webp?v=1" alt="Radio and dipole" width="1000" height="720" />
           <p class="plan-for">Radio</p>
-          <h3>Listen radio + dipole</h3>
+          <h3>Radio + dipole</h3>
           <p class="plan-price">$79 <small>ships from us</small></p>
-          <p>Listen radio with dipole. Receive only. Ships from Dark Sky Systems.</p>
+          <p>USB radio with dipole. Wideband. SMA.</p>
         </a>
         <a class="card plan" href="products/1090-mhz-listen-antenna/">
-          <img class="sku-photo" src="assets/attach/ant1090.webp?v=1" alt="1090 MHz listen antenna" width="1000" height="720" />
+          <img class="sku-photo" src="assets/attach/ant1090.webp?v=1" alt="1090 MHz antenna" width="1000" height="720" />
           <p class="plan-for">Antenna</p>
-          <h3>1090 MHz listen antenna</h3>
+          <h3>1090 MHz antenna</h3>
           <p class="plan-price">$29 <small>ships from us</small></p>
-          <p>SMA 1090 MHz listen antenna for crewed-aircraft broadcasts.</p>
+          <p>SMA 1090 MHz antenna for crewed-aircraft broadcasts.</p>
         </a>
         <a class="card plan" href="products/small-hard-case/">
           <img class="sku-photo" src="assets/attach/case.webp?v=1" alt="Small hard case" width="1000" height="720" />
@@ -143,11 +194,11 @@
           <p>Small weatherproof case for the radios.</p>
         </a>
         <a class="card plan" href="products/listen-starter-kit/">
-          <img class="sku-photo" src="assets/attach/starter.webp?v=1" alt="Listen starter board and radio" width="1000" height="720" />
+          <img class="sku-photo" src="assets/attach/starter.webp?v=1" alt="Radio starter board and radio" width="1000" height="720" />
           <p class="plan-for">Both radios</p>
-          <h3>Listen starter</h3>
-          <p class="plan-price">$99 <small>ships from us</small></p>
-          <p>Board plus listen radio. Not Fusion Sensor. Ships from Dark Sky Systems.</p>
+          <h3>Radio starter</h3>
+          <p class="plan-price">$99 / $149 <small>Hardware Only / Ready-to-Run</small></p>
+          <p>Remote ID board plus radio. Hardware Only or Ready-to-Run.</p>
         </a>
       </div>
     </div>
@@ -158,7 +209,7 @@
     <div class="wrap">
       <header class="sec-head">
         <h2 id="gear-heading">Detection &amp; Field Gear</h2>
-        <p>Portable receivers, handheld thermal, two-way radios, cases, and a spotlight-loudspeaker payload. Detection gear is receive only. The two-way radio is comms — the buyer licenses their own use. We ship after payment.</p>
+        <p>Portable receivers, handheld thermal, radios, cases, and a spotlight-loudspeaker payload.</p>
       </header>
       <div class="grid plans-grid tools-grid">
         <a class="card plan" href="products/portable-remote-id-detector/">
@@ -166,14 +217,14 @@
           <p class="plan-for">Detector</p>
           <h3>Portable Remote ID detector</h3>
           <p class="plan-price">$1,799 <small>ships from us</small></p>
-          <p>Dronetag RIDER pocket receiver. Broadcast Remote ID up to about 3 miles. Receive only.</p>
+          <p>Pocket Remote ID receiver. About three miles of broadcast reception.</p>
         </a>
         <a class="card plan" href="products/handheld-thermal-256/">
           <img class="sku-photo" src="assets/attach/therm256.jpg?v=1" alt="Handheld thermal camera, 256 class" width="1000" height="720" />
           <p class="plan-for">256 class</p>
           <h3>Handheld thermal camera, 256 class</h3>
           <p class="plan-price">$549 <small>ships from us</small></p>
-          <p>Handheld 256×192 thermal for site picture. Heat contrast only. Not a medical reading.</p>
+          <p>Heat contrast in the hand for a roof, a plant, or a dark lane.</p>
         </a>
         <a class="card plan" href="products/handheld-thermal-320/">
           <img class="sku-photo" src="assets/attach/therm320.jpg?v=1" alt="Handheld thermal camera, 320 class" width="1000" height="720" />
@@ -187,14 +238,14 @@
           <p class="plan-for">Kit</p>
           <h3>ADS-B + Remote ID receiver kit</h3>
           <p class="plan-price">$199 <small>ships from us</small></p>
-          <p>Board, listen radio, 1090 and 978 antennas, hard case. Receive only. Not Fusion Sensor.</p>
+          <p>Board, radio, 1090 and 978 antennas, hard case. Receive only. Not Fusion Sensor.</p>
         </a>
         <a class="card plan" href="products/24-58-directional-listen-antenna/">
-          <img class="sku-photo" src="assets/attach/ant2458.jpg?v=1" alt="2.4 / 5.8 GHz directional listen antenna" width="1000" height="720" />
+          <img class="sku-photo" src="assets/attach/ant2458.jpg?v=1" alt="2.4 / 5.8 GHz directional antenna" width="1000" height="720" />
           <p class="plan-for">Antenna</p>
-          <h3>2.4 / 5.8 GHz directional listen antenna</h3>
+          <h3>2.4 / 5.8 GHz directional antenna</h3>
           <p class="plan-price">$99 <small>ships from us</small></p>
-          <p>Dual-band 13 dBi listen panel. Passive receive only. N-Female (buyer may need N-to-SMA).</p>
+          <p>Dual-band 13 dBi receive panel. Passive receive only. N-Female (buyer may need N-to-SMA).</p>
         </a>
         <a class="card plan" href="products/motorola-two-way-radio-earpiece/">
           <img class="sku-photo" src="assets/attach/r2kit.jpg?v=1" alt="Motorola two-way radio with acoustic-tube earpiece" width="1000" height="720" />
@@ -246,98 +297,98 @@
   <section class="plans" id="electronics" aria-labelledby="electronics-heading">
     <div class="wrap">
       <header class="sec-head">
-        <h2 id="electronics-heading">Detection Electronics</h2>
-        <p>Raspberry Pi Listeners, ESP32 Detection Boards, camera modules, TinySA scanner, thermal module, listen antennas, advanced radio, and a Remote ID alert board. Receive only. Product pages with photos, specs, and live Stripe checkout.</p>
+        <h2 id="electronics-heading">Dark Sky Receivers</h2>
+        <p>Raspberry Pi airspace receivers and ESP32 Remote ID receivers. Hardware Only or Ready-to-Run on every kit.</p>
       </header>
       <div class="grid plans-grid tools-grid">
         <a class="card plan" href="products/raspberry-pi-listeners/">
-          <img class="sku-photo" src="assets/products/raspberry-pi-5-4gb-professional-listener.jpg?v=1" alt="Raspberry Pi Listeners" width="1000" height="720" />
-          <p class="plan-for">Category</p>
-          <h3>Raspberry Pi Listeners</h3>
+          <img class="sku-photo" src="assets/products/raspberry-pi-5-4gb-professional-listener.jpg?v=1" alt="Raspberry Pi Receivers" width="1000" height="720" />
+          <p class="plan-for">Pi Receivers</p>
+          <h3>Raspberry Pi Receivers</h3>
           <p class="plan-price">$279–$729 <small>Hardware Only / Ready-to-Run</small></p>
-          <p>Starter, live $399 receiver, Pro, outdoor, plus a $299 feeder. Hardware Only or Ready-to-Run.</p>
+          <p>A computer kit you leave on. Remote ID and ADS-B. Starter through outdoor mast.</p>
         </a>
         <a class="card plan" href="products/esp32-detection-boards/">
-          <img class="sku-photo" src="assets/products/esp32-remote-id-scanner-color-display-front.jpg?v=1" alt="ESP32 Detection Boards" width="1000" height="720" />
-          <p class="plan-for">Category</p>
-          <h3>ESP32 Detection Boards</h3>
+          <img class="sku-photo" src="assets/products/esp32-remote-id-scanner-color-display-front.jpg?v=1" alt="ESP32 Receivers" width="1000" height="720" />
+          <p class="plan-for">ESP32 Receivers</p>
+          <h3>ESP32 Receivers</h3>
           <p class="plan-price">$39–$249 <small>Hardware Only / Ready-to-Run</small></p>
-          <p>Bare $39, color $79, mesh $89, alert kit $129, site $179. Hardware Only or Ready-to-Run.</p>
+          <p>USB-C Remote ID. IDs on a screen or a wall. Board, display, alert, mesh, or site.</p>
         </a>
         <a class="card plan" href="products/raspberry-pi-remote-id-adsb-receiver/">
-          <img class="sku-photo" src="assets/products/raspberry-pi-5-remote-id-adsb-receiver.jpg?v=1" alt="Raspberry Pi Remote ID + ADS-B Receiver Kit" width="1000" height="720" />
+          <img class="sku-photo" src="assets/products/raspberry-pi-5-remote-id-adsb-receiver.jpg?v=1" alt="Pi Receiver" width="1000" height="720" />
           <p class="plan-for">Kit</p>
-          <h3>Raspberry Pi Remote ID + ADS-B Receiver Kit</h3>
+          <h3>Pi Receiver</h3>
           <p class="plan-price">$399 / $479 <small>Hardware Only / Ready-to-Run</small></p>
-          <p>Pi 5 sit with receive board, listen radio, and 1090 whip. No battery. Not Fusion Sensor.</p>
+          <p>Pi 5 kit: official case, 27W, Remote ID, radio, 1090 whip.</p>
         </a>
         <a class="card plan" href="products/tinysa-ultra-spectrum-scanner/">
           <img class="sku-photo" src="assets/products/tinysa-ultra-portable-spectrum-scanner.jpg?v=1" alt="TinySA Ultra portable spectrum scanner" width="1000" height="720" />
           <p class="plan-for">Scanner</p>
           <h3>TinySA Ultra portable spectrum scanner</h3>
           <p class="plan-price">$349 <small>ships from us</small></p>
-          <p>Handheld spectrum scanner. Receive / scan only. 32 GB card. Built-in cell.</p>
+          <p>Handheld spectrum scanner. 32 GB card. Built-in cell.</p>
         </a>
         <a class="card plan" href="products/camera-modules/">
           <img class="sku-photo" src="assets/products/raspberry-pi-camera-module-3-wide.jpg?v=1" alt="Camera Modules" width="1000" height="720" />
           <p class="plan-for">Category</p>
           <h3>Camera Modules</h3>
           <p class="plan-price">$59–$649 <small>visual · thermal · USB</small></p>
-          <p>CSI $59 / $89, USB low-light $89, 32×24 I2C $149, 160×120 USB $649. Not HQ.</p>
+          <p>12 MP CSI, USB low-light, and thermal modules. Handhelds linked.</p>
         </a>
         <a class="card plan" href="products/raspberry-pi-camera-module-3/">
           <img class="sku-photo" src="assets/products/raspberry-pi-camera-module-3.jpg?v=1" alt="Raspberry Pi Camera Module 3" width="1000" height="720" />
           <p class="plan-for">Visual CSI · 75°</p>
           <h3>Raspberry Pi Camera Module 3</h3>
           <p class="plan-price">$59 <small>ships from us</small></p>
-          <p>12 MP visible CSI. 200 mm 15-pin ribbon. Pi 5 may need a 22-to-15 adapter. Not thermal.</p>
+          <p>12 MP stills and video. 75° lens. Ribbon in the box.</p>
         </a>
         <a class="card plan" href="products/raspberry-pi-camera-module-3-wide/">
           <img class="sku-photo" src="assets/products/raspberry-pi-camera-module-3-wide.jpg?v=1" alt="Raspberry Pi Camera Module 3 Wide" width="1000" height="720" />
           <p class="plan-for">Visual CSI · 120°</p>
           <h3>Raspberry Pi Camera Module 3 Wide</h3>
           <p class="plan-price">$89 <small>ships from us</small></p>
-          <p>12 MP visible CSI, 120° lens. Same honesty as the $59 — different glass.</p>
+          <p>12 MP, 120° glass. Same module family, wider view.</p>
         </a>
         <a class="card plan" href="products/usb-low-light-camera-module/">
           <img class="sku-photo" src="assets/products/usb-low-light-camera-module-2mp.jpg?v=1" alt="USB low-light camera module, 2MP" width="1000" height="720" />
           <p class="plan-for">USB visual</p>
           <h3>USB low-light camera module, 2MP</h3>
           <p class="plan-price">$89 <small>ships from us</small></p>
-          <p>Named 2 MP UVC board. Not CSI. Not thermal. Cable in the box.</p>
+          <p>2 MP USB camera for low light. Cable in the box.</p>
         </a>
         <a class="card plan" href="products/thermal-camera-module-160x120/">
           <img class="sku-photo" src="assets/products/thermal-camera-module-160x120-usb.jpg?v=1" alt="Thermal camera module, 160×120 USB" width="1000" height="720" />
           <p class="plan-for">Thermal USB</p>
           <h3>Thermal camera module, 160×120 USB</h3>
           <p class="plan-price">$649 <small>ships from us</small></p>
-          <p>19,200 heat points over USB. Module, not the $549 handheld. No cell.</p>
+          <p>160×120 thermal over USB. Nineteen thousand heat points.</p>
         </a>
         <a class="card plan" href="products/thermal-camera-module-32x24/">
           <img class="sku-photo" src="assets/products/thermal-camera-module-32x24-i2c.jpg?v=1" alt="Thermal camera module, 32 by 24 I2C" width="1000" height="720" />
           <p class="plan-for">Module</p>
           <h3>Thermal camera module, 32×24 I2C</h3>
           <p class="plan-price">$149 <small>ships from us</small></p>
-          <p>32×24 I2C module only. Not a handheld camera. Not medical.</p>
+          <p>Compact 32×24 thermal module for a Pi or MCU kit.</p>
         </a>
         <a class="card plan" href="products/24-58-listen-antennas/">
-          <img class="sku-photo" src="assets/products/24-58-omni-listen-antenna-rp-sma.jpg?v=1" alt="2.4 / 5.8 GHz listen antennas" width="1000" height="720" />
+          <img class="sku-photo" src="assets/products/24-58-omni-listen-antenna-rp-sma.jpg?v=1" alt="2.4 / 5.8 GHz antennas" width="1000" height="720" />
           <p class="plan-for">Antennas</p>
-          <h3>2.4 / 5.8 GHz listen antennas</h3>
+          <h3>2.4 / 5.8 GHz antennas</h3>
           <p class="plan-price">$59 / $79 <small>ships from us</small></p>
-          <p>Indoor RP-SMA duck $59. Outdoor N-Female omni $79. Passive receive. $99 directional also live.</p>
+          <p>Indoor duck $59. Outdoor omni $79. Dual-band 2.4 / 5.8 GHz.</p>
         </a>
         <a class="card plan" href="products/advanced-listen-radio-kit/">
-          <img class="sku-photo" src="assets/products/listen-radio-dipole.jpg?v=1" alt="Advanced listen radio kit with filter" width="1000" height="720" />
+          <img class="sku-photo" src="assets/products/listen-radio-dipole.jpg?v=1" alt="Advanced radio kit with filter" width="1000" height="720" />
           <p class="plan-for">Radio</p>
-          <h3>Advanced listen radio kit with filter</h3>
+          <h3>Advanced radio kit with filter</h3>
           <p class="plan-price">$279 <small>ships from us</small></p>
-          <p>Listen radio, 1090/978 filter, 1090 whip. Not the $79 or $199 kits.</p>
+          <p>Radio, dual-band filter, and 1090 whip.</p>
         </a>
         <a class="card plan" href="products/remote-id-alert-board/">
-          <img class="sku-photo" src="assets/products/remote-id-receive-board.jpg?v=1" alt="Remote ID Alert Board with Display" width="1000" height="720" />
+          <img class="sku-photo" src="assets/products/remote-id-receive-board.jpg?v=1" alt="Remote ID Receiver Alert Kit" width="1000" height="720" />
           <p class="plan-for">Board</p>
-          <h3>Remote ID Alert Board with Display</h3>
+          <h3>Remote ID Receiver Alert Kit</h3>
           <p class="plan-price">$129 / $179 <small>Hardware Only / Ready-to-Run</small></p>
           <p>Board + assembled OLED + weatherproof box. USB-C. No LiPo. More than the $39 board.</p>
         </a>
@@ -439,8 +490,8 @@
     <span id="detect" class="vh" aria-hidden="true"></span>
     <div class="wrap">
       <header class="sec-head">
-        <h2 id="fusion-heading">Detect Drones</h2>
-        <p>We bring the radios and run detection on your site. Remote ID and radio energy on 2.4 and 5.8 GHz, plus ADS-B for crewed aircraft. Receive-only. It does not jam. This is not an unattended 24/7 service.</p>
+        <h2 id="fusion-heading">Fusion Sensor</h2>
+        <p>You already have a receiver — or we kit the radios. Fusion Sensor is the live map on a laptop you own. Receive-only. Not unattended 24/7. Named-date coverage if you want us on the ground: $2,495.</p>
       </header>
       <div class="grid plans-grid monitor-grid">
         <a class="card plan" href="products/fusion-sensor/">
@@ -456,6 +507,7 @@
           <p>The same kit plus the radio stack, kitted and shipped. We set it up with you on site. Not unattended 24/7.</p>
         </a>
       </div>
+      <p class="p-trust" style="margin-top:1.25rem">Path: $19 paper → ESP32 or Pi Receiver → Fusion Sensor $2,000 → named-date coverage $2,495 (ground). Receive-only.</p>
     </div>
     <div class="pad-frame">
       <iframe src="console.html?v=15&amp;embed=1" title="Fusion Sensor. Avata, Autel, Mini on the map." loading="lazy"></iframe>
@@ -540,11 +592,12 @@
     <div class="wrap">
       <p><strong>Dark Sky Systems LLC</strong> · darksky.systems</p>
       <p>Detection is receive-only. Fusion Sensor identifies what is transmitting; it does not jam, spoof, or intercept aircraft. Dark Sky Systems LLC is not a licensed security company. Flown jobs are request.</p>
+      <p class="foot-nav"><a href="digital.html">Digital</a><a href="products/">Shop</a><a href="guides/">Guides</a><a href="trust.html">Trust</a><a href="faq.html">FAQ</a><a href="#request">Talk to us</a></p>
     </div>
   </footer>
   <script src="app.js?v=63"></script>
   <script src="chat-config.js?v=3"></script>
-  <script src="chat-kb.js?v=1"></script>
-  <script src="chat.js?v=8"></script>
+  <script src="chat-kb.js?v=2"></script>
+  <script src="chat.js?v=9"></script>
 </body>
 </html>

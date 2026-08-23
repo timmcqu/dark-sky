@@ -341,7 +341,7 @@
     },
 
     rid: {
-      title: "Remote ID receive board",
+      title: "Remote ID Receiver Board",
       lede: "USB-C ESP32-S3 board for Remote ID receive. We ship it after payment. Receive only. No battery in the box.",
       price: "$39",
       amount: "39",
@@ -349,7 +349,7 @@
       stripe: "",
       photo: "assets/attach/rid.webp?v=1",
       gets: [
-        "ESP32-S3 Remote ID receive board with USB-C",
+        "ESP32-S3 Remote ID Receiver Board with USB-C",
         "Receive only — it does not jam or send a command",
         "No battery or charger in the box",
         "Ships from Dark Sky Systems after Stripe clears",
@@ -357,15 +357,15 @@
       ]
     },
     listen: {
-      title: "Listen radio + dipole",
-      lede: "USB listen radio with a dipole kit. SMA. Receive only. We ship it after payment.",
+      title: "Radio + dipole",
+      lede: "USB radio with a dipole kit. SMA. Receive only. We ship it after payment.",
       price: "$79",
       amount: "79",
       chase: "",
       stripe: "",
       photo: "assets/attach/listen.webp?v=1",
       gets: [
-        "USB listen radio in a shielded enclosure, SMA connector",
+        "USB radio in a shielded enclosure, SMA connector",
         "Dipole kit: elements, base, extension, suction and mini-tripod mounts",
         "Receive only — it does not jam or transmit",
         "Ships from Dark Sky Systems after Stripe clears",
@@ -373,7 +373,7 @@
       ]
     },
     ant1090: {
-      title: "1090 MHz listen antenna",
+      title: "1090 MHz antenna",
       lede: "SMA whip tuned for 1090 MHz crewed-aircraft broadcasts. We ship it after payment.",
       price: "$29",
       amount: "29",
@@ -381,8 +381,8 @@
       stripe: "",
       photo: "assets/attach/ant1090.webp?v=1",
       gets: [
-        "SMA 1090 MHz listen antenna, about 7.5 inches",
-        "Hinged base so it sits next to a listen radio",
+        "SMA 1090 MHz antenna, about 7.5 inches",
+        "Hinged base so it stands next to a radio",
         "Receive only",
         "Ships from Dark Sky Systems after Stripe clears",
         "Tracking by email"
@@ -390,7 +390,7 @@
     },
     case: {
       title: "Small hard case",
-      lede: "Weatherproof hard case for the board and listen radio. Pick-and-pluck foam. We ship it after payment.",
+      lede: "Weatherproof hard case for the board and radio. Pick-and-pluck foam. We ship it after payment.",
       price: "$29",
       amount: "29",
       chase: "",
@@ -398,23 +398,23 @@
       photo: "assets/attach/case.webp?v=1",
       gets: [
         "Small weatherproof hard case with latches and a purge valve",
-        "Pick-and-pluck foam so the radios sit still",
+        "Pick-and-pluck foam so the radios stay still",
         "Interior about 8 × 5.5 × 3.75 inches",
         "Ships from Dark Sky Systems after Stripe clears",
         "Tracking by email"
       ]
     },
     starter: {
-      title: "Listen starter",
-      lede: "The board and the listen radio together. Receive only. Not Fusion Sensor. We ship both after payment.",
+      title: "Radio starter",
+      lede: "The board and the radio together. Receive only. Not Fusion Sensor. We ship both after payment.",
       price: "$99",
       amount: "99",
       chase: "",
       stripe: "",
       photo: "assets/attach/starter.webp?v=1",
       gets: [
-        "Remote ID receive board (USB-C, no battery)",
-        "Listen radio + dipole kit",
+        "Remote ID Receiver Board (USB-C, no battery)",
+        "Radio + dipole kit",
         "Receive only. No Fusion Sensor license in this SKU",
         "Ships from Dark Sky Systems after Stripe clears",
         "Tracking by email"
@@ -422,7 +422,7 @@
     },
     rider: {
       title: "Portable Remote ID detector",
-      lede: "Pocket Remote ID receiver for first responders and site crews. Listens for broadcast Remote ID up to about 3 miles. Maps the aircraft and, when it is sent, the pilot. Receive only.",
+      lede: "Pocket Remote ID receiver for first responders and site crews. Receives broadcast Remote ID up to about 3 miles. Maps the aircraft and, when it is sent, the pilot. Receive only.",
       price: "$1,799",
       amount: "1799",
       chase: "",
@@ -431,7 +431,7 @@
       gets: [
         "Dronetag RIDER portable Remote ID receiver",
         "ASTM F3411 receive — 2.4 GHz Bluetooth and Wi-Fi",
-        "About 3 miles of broadcast Remote ID listen",
+        "About 3 miles of broadcast Remote ID receive",
         "Maps the aircraft and, when it is sent, the pilot",
         "IP54, USB-C, 6–10 h. 134×53×20 mm, 64 g",
         "Built-in cell ships with the unit. No spare pack",
@@ -474,16 +474,16 @@
     },
     adsbkit: {
       title: "ADS-B + Remote ID receiver kit",
-      lede: "Board plus listen radio, 1090 and 978 antennas, and a small hard case. Receive only. Not Fusion Sensor.",
+      lede: "Board plus radio, 1090 and 978 antennas, and a small hard case. Receive only. Not Fusion Sensor.",
       price: "$199",
       amount: "199",
       chase: "",
       stripe: "",
       photo: "assets/attach/adsbkit.jpg?v=1",
       gets: [
-        "Remote ID receive board (USB-C, no battery)",
-        "Listen radio with dipole",
-        "1090 MHz and 978 MHz listen antennas",
+        "Remote ID Receiver Board (USB-C, no battery)",
+        "Radio with dipole",
+        "1090 MHz and 978 MHz receive antennas",
         "Small hard case",
         "Receive only. Not Fusion Sensor",
         "Ships from Dark Sky Systems after Stripe clears",
@@ -491,15 +491,15 @@
       ]
     },
     ant2458: {
-      title: "2.4 / 5.8 GHz directional listen antenna",
-      lede: "Dual-band directional listen panel, 13 dBi, 2.4 and 5.8 GHz. Passive receive only. N-Female (buyer may need N-to-SMA).",
+      title: "2.4 / 5.8 GHz directional antenna",
+      lede: "Dual-band directional receive panel, 13 dBi, 2.4 and 5.8 GHz. Passive receive only. N-Female (buyer may need N-to-SMA).",
       price: "$99",
       amount: "99",
       chase: "",
       stripe: "",
       photo: "assets/attach/ant2458.jpg?v=1",
       gets: [
-        "Dual-band directional listen panel, 13 dBi",
+        "Dual-band directional receive panel, 13 dBi",
         "2.4 GHz and 5.8 GHz in one panel",
         "Passive receive only — it does not transmit",
         "N-Female jack (buyer may need N-to-SMA)",
@@ -559,7 +559,7 @@
     },
     case1200: {
       title: "Pelican 1200 medium hard case",
-      lede: "A Pelican 1200 medium hard case for a listen radio, a receive board, and the small attach that does not fit the compact case. Watertight and crushproof, with pick-and-pluck foam.",
+      lede: "A Pelican 1200 medium hard case for a radio, a receive board, and the small attach that does not fit the compact case. Watertight and crushproof, with pick-and-pluck foam.",
       price: "$139",
       amount: "139",
       chase: "",
@@ -610,8 +610,8 @@
     },
 
     pirecv: {
-      title: "Raspberry Pi Remote ID + ADS-B Receiver Kit",
-      lede: "Raspberry Pi 5 receive kit for Remote ID and ADS-B airspace awareness. Official power and case, receive board, listen radio + dipole, 1090 whip. No battery. Not Fusion Sensor. Not V4. Receive only.",
+      title: "Pi Receiver",
+      lede: "Pi Receiver for Remote ID and ADS-B airspace awareness. Official power and case, receive board, radio + dipole, 1090 whip. No battery. Not Fusion Sensor. Not V4. Receive only.",
       price: "$399",
       amount: "399",
       chase: "",
@@ -621,9 +621,9 @@
         "Raspberry Pi 5, 4 GB",
         "Official 27 W USB-C power supply",
         "Official Raspberry Pi 5 case with fan — no battery",
-        "Remote ID receive board",
-        "Listen radio + dipole",
-        "1090 MHz SMA listen antenna",
+        "Remote ID Receiver Board",
+        "Radio + dipole",
+        "1090 MHz antenna",
         "Not Fusion Sensor. Not V4. Receive only",
         "Ships from Dark Sky Systems after Stripe clears",
         "Tracking by email to the address on the receipt"
@@ -663,8 +663,8 @@
       ]
     },
     duck2458: {
-      title: "2.4 / 5.8 GHz omni listen antenna, RP-SMA",
-      lede: "Dual-band indoor omni listen antenna. Articulating RP-SMA whip — not SMA. Passive receive only.",
+      title: "2.4 / 5.8 GHz omni receive antenna, RP-SMA",
+      lede: "Dual-band indoor omni receive antenna. Articulating RP-SMA whip — not SMA. Passive receive only.",
       price: "$59",
       amount: "59",
       chase: "",
@@ -679,8 +679,8 @@
       ]
     },
     omni2458: {
-      title: "2.4 / 5.8 GHz outdoor omni listen antenna",
-      lede: "Outdoor dual-band omni listen antenna. Fiberglass stick, N-Female. No mount in the box. Passive receive only.",
+      title: "2.4 / 5.8 GHz outdoor omni receive antenna",
+      lede: "Outdoor dual-band omni receive antenna. Fiberglass stick, N-Female. No mount in the box. Passive receive only.",
       price: "$79",
       amount: "79",
       chase: "",
@@ -695,15 +695,15 @@
       ]
     },
     sdradv: {
-      title: "Advanced listen radio kit with filter",
-      lede: "USB listen radio with dipole, a 1090 / 978 SAW filter, and a 1090 whip. The filter the $79 and $199 kits do not include. Receive only. Not V4.",
+      title: "Advanced radio kit with filter",
+      lede: "USB radio with dipole, a 1090 / 978 SAW filter, and a 1090 whip. The filter the $79 and $199 kits do not include. Receive only. Not V4.",
       price: "$279",
       amount: "279",
       chase: "",
       stripe: "",
       photo: "assets/products/listen-radio-dipole.jpg?v=1",
       gets: [
-        "Listen radio + dipole",
+        "Radio + dipole",
         "Dual-band 1090 / 978 SAW filter + LNA",
         "1090 MHz SMA whip",
         "Not V4. Not the $79 or $199 kits. Receive only. No battery",
@@ -712,7 +712,7 @@
       ]
     },
     rfalert: {
-      title: "Remote ID Alert Board with Display",
+      title: "Remote ID Receiver Alert Kit",
       lede: "USB-C Remote ID alert board with assembled OLED and weatherproof box. Buyer seats the board. More than the $39 bare board. No LiPo. Receive only.",
       price: "$129",
       amount: "129",
@@ -720,7 +720,7 @@
       stripe: "",
       photo: "assets/products/remote-id-receive-board.jpg?v=1",
       gets: [
-        "Remote ID receive board",
+        "Remote ID Receiver Board",
         "Assembled 128×64 OLED with buttons — no solder",
         "Weatherproof enclosure with clear lid",
         "USB-C only. No LiPo. Buyer seats the board",
@@ -731,8 +731,8 @@
     },
 
     pistarter: {
-      title: "Raspberry Pi Remote ID + ADS-B Listener Kit (Starter)",
-      lede: "Raspberry Pi 4 starter sit for Remote ID and a wideband listen radio. Official 15 W USB-C, receive board, listen radio + dipole. No case. No 1090 whip. Not the $399 Pi 5 kit. Not Fusion Sensor. Not V4. Receive only.",
+      title: "Pi Receiver Starter",
+      lede: "Raspberry Pi 4 starter kit for Remote ID and a wideband radio. Official 15 W USB-C, receive board, radio + dipole. No case. No 1090 whip. Not the $399 Pi 5 kit. Not Fusion Sensor. Not V4. Receive only.",
       price: "$279",
       amount: "279",
       chase: "",
@@ -741,8 +741,8 @@
       gets: [
         "Raspberry Pi 4, 4 GB",
         "Official 15 W USB-C power supply — not a 27 W Pi 5 brick",
-        "Remote ID receive board",
-        "Listen radio + dipole. No 1090 SMA whip in this kit",
+        "Remote ID Receiver Board",
+        "Radio + dipole. No 1090 SMA whip in this kit",
         "No official case. No battery. No pre-flashed microSD",
         "Not the $399 Pi 5 receiver. Not Fusion Sensor. Not V4. Receive only",
         "Ships from Dark Sky Systems after Stripe clears",
@@ -750,8 +750,8 @@
       ]
     },
     pipro: {
-      title: "Raspberry Pi Professional Remote ID + Dual-Band ADS-B",
-      lede: "Raspberry Pi 5 professional sit for Remote ID plus 1090 and 978. Official 27 W and official case. Dual-channel filter on the listen radio — that filter is why this kit costs more. Not Fusion Sensor. Not V4. Receive only.",
+      title: "Pi Receiver Dual-Band",
+      lede: "Raspberry Pi 5 professional kit for Remote ID plus 1090 and 978. Official 27 W and official case. Dual-channel filter on the radio — that filter is why this kit costs more. Not Fusion Sensor. Not V4. Receive only.",
       price: "$549",
       amount: "549",
       chase: "",
@@ -760,8 +760,8 @@
       gets: [
         "Raspberry Pi 5, 4 GB",
         "Official 27 W USB-C PD and official Pi 5 case with fan — no battery",
-        "Remote ID receive board",
-        "Listen radio + dipole",
+        "Remote ID Receiver Board",
+        "Radio + dipole",
         "1090 SMA whip and 978 SMA whip",
         "Dual-channel 1090 / 978 filter. The expensive line — about $95 of the kit",
         "Not Fusion Sensor. Not V4. Indoor case, not a weather box. Receive only",
@@ -770,8 +770,8 @@
       ]
     },
     pioutdoor: {
-      title: "Raspberry Pi Long-Range Outdoor Permanent Listener",
-      lede: "Raspberry Pi 5 outdoor sit: IP66 box, Remote ID board, listen radio, 9 dBi N-female 1090, SMA-to-N jumper. Indoor power brick. Outdoor stick does not screw onto the radio. No battery. Weekend orders ship Monday. Receive only.",
+      title: "Pi Receiver Outdoor",
+      lede: "Raspberry Pi 5 outdoor kit: IP66 box, Remote ID board, radio, 9 dBi N-female 1090, SMA-to-N jumper. Indoor power brick. Outdoor stick does not screw onto the radio. No battery. Weekend orders ship Monday. Receive only.",
       price: "$649",
       amount: "649",
       chase: "",
@@ -780,8 +780,8 @@
       gets: [
         "Raspberry Pi 5, 4 GB — no official indoor case",
         "Official 27 W USB-C — indoor brick, not weatherproof",
-        "Remote ID receive board",
-        "Listen radio + dipole (dipole is spare indoor)",
+        "Remote ID Receiver Board",
+        "Radio + dipole (dipole is spare indoor)",
         "IP66 weatherproof box, clear lid. Buyer drills. Not NEMA 4X",
         "Outdoor 1090, 9 dBi, N-female. SMA-male to N-male jumper included",
         "No battery. Not Fusion Sensor. Not V4. Weekend orders ship Monday",
@@ -790,8 +790,8 @@
       ]
     },
     adsbfeeder: {
-      title: "Dual-Band ADS-B Feeder Kit (Raspberry Pi)",
-      lede: "Raspberry Pi 4 feeder for 1090 and 978. Official 15 W, listen radio, both band whips. No Remote ID board. Not the $199 ADS-B + Remote ID kit. One radio — the two whips are not simultaneous. Not Fusion Sensor. Not V4. Receive only.",
+      title: "Pi ADS-B Feeder",
+      lede: "Raspberry Pi 4 feeder for 1090 and 978. Official 15 W, radio, both band whips. No Remote ID board. Not the $199 ADS-B + Remote ID kit. One radio — the two whips are not simultaneous. Not Fusion Sensor. Not V4. Receive only.",
       price: "$299",
       amount: "299",
       chase: "",
@@ -800,7 +800,7 @@
       gets: [
         "Raspberry Pi 4, 4 GB",
         "Official 15 W USB-C power supply",
-        "Listen radio + dipole",
+        "Radio + dipole",
         "1090 SMA whip and 978 SMA whip",
         "No Remote ID board. No hard case. Not the $199 kit",
         "One radio — two whips are not simultaneous without a switch you already have",
@@ -811,7 +811,7 @@
     },
 
     esprid: {
-      title: "ESP32 Remote ID Scanner with Color Display",
+      title: "Remote ID Receiver Display",
       lede: "Pocket ESP32 Remote ID scanner with a color display. USB-C only. Not the $39 bare board and not the $129 OLED kit. Not pre-flashed. No LiPo. Receive only.",
       price: "$79",
       amount: "79",
@@ -828,15 +828,15 @@
       ]
     },
     espmesh: {
-      title: "ESP32 Mesh-Capable Remote ID Listener",
-      lede: "ESP32 listener for Remote ID on Wi-Fi and Bluetooth, plus 802.15.4 mesh backhaul. Thread is not a Remote ID radio. Board + flanged box. Not pre-flashed. USB-C. No LiPo.",
+      title: "Remote ID Receiver Mesh",
+      lede: "ESP32 receiver for Remote ID on Wi-Fi and Bluetooth, plus 802.15.4 mesh backhaul. Thread is not a Remote ID radio. Board + flanged box. Not pre-flashed. USB-C. No LiPo.",
       price: "$89",
       amount: "89",
       chase: "",
       stripe: "",
       photo: "assets/products/esp32-mesh-listener-board.jpg?v=1",
       gets: [
-        "ESP32 listen board — Wi-Fi + BLE + 802.15.4 mesh backhaul",
+        "ESP32 receive board — Wi-Fi + BLE + 802.15.4 mesh backhaul",
         "Flanged weatherproof box with cable glands",
         "Thread / Zigbee is mesh only — Remote ID is Wi-Fi + BLE",
         "Not pre-flashed. USB-C only. No LiPo. PCB antenna, no external whip",
@@ -845,8 +845,8 @@
       ]
     },
     espsite: {
-      title: "ESP32 Site Listener Module",
-      lede: "Permanent-install ESP32 Remote ID listener in a large IP66 box. PoE is 5 V USB-C power only — the board has no Ethernet. w.FL antenna chain. Not pre-flashed. No LiPo.",
+      title: "Remote ID Receiver Site",
+      lede: "Permanent-install ESP32 Remote ID receiver in a large IP66 box. PoE is 5 V USB-C power only — the board has no Ethernet. w.FL antenna chain. Not pre-flashed. No LiPo.",
       price: "$179",
       amount: "179",
       chase: "",
@@ -864,7 +864,7 @@
 
     sd64: {
       title: "Official Raspberry Pi 64GB microSD Card (Blank)",
-      lede: "Official Raspberry Pi 64GB microSD, sold blank. No OS and no listener image. We do not flash it. Weekend orders ship Monday.",
+      lede: "Official Raspberry Pi 64GB microSD, sold blank. No OS and no receiver image. We do not flash it. Weekend orders ship Monday.",
       price: "$49",
       amount: "49",
       chase: "",
@@ -872,7 +872,7 @@
       photo: "assets/products/official-raspberry-pi-64gb-microsd-blank.jpg?v=1",
       gets: [
         "Official Raspberry Pi 64 GB microSD, blank as shipped",
-        "No OS. No listener image. Not pre-flashed",
+        "No OS. No receiver image. Not pre-flashed",
         "Not 32 / 128 / 256 GB",
         "Weekend orders ship Monday",
         "Ships from Dark Sky Systems after Stripe clears",
@@ -880,8 +880,8 @@
       ]
     },
     ant1090x: {
-      title: "Outdoor 1090 MHz Listen Antenna (N-Female)",
-      lede: "Outdoor 1090 listen antenna, N-female 9 dBi, plus SMA-male to N-male jumper. Does not screw onto the radio alone. Receive only. Weekend orders ship Monday.",
+      title: "Outdoor 1090 MHz Receive Antenna (N-Female)",
+      lede: "Outdoor 1090 receive antenna, N-female 9 dBi, plus SMA-male to N-male jumper. Does not screw onto the radio alone. Receive only. Weekend orders ship Monday.",
       price: "$329",
       amount: "329",
       chase: "",
@@ -897,7 +897,7 @@
       ]
     },
     adsbpair: {
-      title: "Dual-Band 1090 / 978 Listen Antenna Kit",
+      title: "Dual-Band 1090 / 978 Receive Antenna Kit",
       lede: "1090 and 978 SMA whips plus a short unfiltered jumper. One radio — not simultaneous. Receive only. Weekend orders ship Monday.",
       price: "$59",
       amount: "59",
@@ -981,7 +981,7 @@
       ]
     },
     ant24chain: {
-      title: "2.4 GHz Listen Whip Kit for w.FL Boards",
+      title: "2.4 GHz Receive Whip Kit for w.FL Boards",
       lede: "2.4 GHz chain for w.FL boards: w.FL→SMA pigtail, SMA↔RP-SMA adapter, RP-SMA duck. Not one cable. No board. Weekend orders ship Monday.",
       price: "$39",
       amount: "39",
@@ -1015,15 +1015,15 @@
       ]
     },
     pistart1090: {
-      title: "Raspberry Pi Starter Listener + 1090 Antenna",
-      lede: "Pi 4 starter sit plus the 1090 SMA whip it omits. $289 vs $308 separate — save $19. Not pre-flashed. Receive only. Weekend orders ship Monday.",
+      title: "Raspberry Pi Starter Receiver + 1090 Antenna",
+      lede: "Pi 4 starter kit plus the 1090 SMA whip it omits. $289 vs $308 separate — save $19. Not pre-flashed. Receive only. Weekend orders ship Monday.",
       price: "$289",
       amount: "289",
       chase: "",
       stripe: "",
       photo: "assets/products/raspberry-pi-4-4gb-remote-id-adsb-listener.jpg?v=1",
       gets: [
-        "Raspberry Pi 4 4 GB, official 15 W, Remote ID board, listen radio + dipole",
+        "Raspberry Pi 4 4 GB, official 15 W, Remote ID board, radio + dipole",
         "1090 SMA whip (the starter page does not include it)",
         "Live $308 → bundle $289. Save $19",
         "Not pre-flashed. No case. No battery. Not V4. Receive only",
@@ -1032,8 +1032,8 @@
       ]
     },
     espridlisten: {
-      title: "ESP32 Color Remote ID Scanner + Listen Radio",
-      lede: "Color-display ESP32 Remote ID board plus listen radio + dipole. $139 vs $158 separate — save $19. Not the $99 starter. Not pre-flashed. Weekend orders ship Monday.",
+      title: "ESP32 Color Remote ID Scanner + Radio",
+      lede: "Color-display ESP32 Remote ID board plus radio + dipole. $139 vs $158 separate — save $19. Not the $99 starter. Not pre-flashed. Weekend orders ship Monday.",
       price: "$139",
       amount: "139",
       chase: "",
@@ -1041,7 +1041,7 @@
       photo: "assets/products/esp32-remote-id-scanner-color-display-front.jpg?v=1",
       gets: [
         "ESP32 color-display Remote ID board",
-        "Listen radio + dipole",
+        "Radio + dipole",
         "Live $158 → bundle $139. Save $19",
         "Not the $99 starter. Not pre-flashed. No LiPo. Receive only",
         "Weekend orders ship Monday",
@@ -1049,8 +1049,8 @@
       ]
     },
     rfalertlisten: {
-      title: "Remote ID Alert Board + Listen Radio",
-      lede: "Alert board with OLED and box, plus listen radio + dipole. $179 vs $208 separate — save $29. Not the $99 starter. Not pre-flashed. Weekend orders ship Monday.",
+      title: "Remote ID Alert Board + Radio",
+      lede: "Alert board with OLED and box, plus radio + dipole. $179 vs $208 separate — save $29. Not the $99 starter. Not pre-flashed. Weekend orders ship Monday.",
       price: "$179",
       amount: "179",
       chase: "",
@@ -1058,7 +1058,7 @@
       photo: "assets/products/remote-id-receive-board.jpg?v=1",
       gets: [
         "Remote ID board + assembled OLED + small weatherproof box",
-        "Listen radio + dipole",
+        "Radio + dipole",
         "Live $208 → bundle $179. Save $29",
         "Not the $99 starter. Not pre-flashed. No LiPo. Receive only",
         "Weekend orders ship Monday",
@@ -1079,7 +1079,7 @@
         "One Raspberry Pi Camera Module 3 (standard 75°) + 200 mm 15-pin CSI ribbon",
         "Visual CSI only — not thermal, not medical, not a drone camera we fly",
         "A Raspberry Pi 5 needs a 22-pin to 15-pin adapter (about $3, not in this order)",
-        "No battery. Pairs with Pi listener kits",
+        "No battery. Pairs with Pi receiver kits",
         "Ships from Dark Sky Systems after Stripe clears",
         "Tracking by email to the address on the receipt"
       ]
@@ -1096,7 +1096,7 @@
         "One Raspberry Pi Camera Module 3 Wide (120°) + 200 mm 15-pin CSI ribbon",
         "Visual CSI only — not thermal, not medical, not a drone camera we fly",
         "A Raspberry Pi 5 needs a 22-pin to 15-pin adapter (about $3, not in this order)",
-        "No battery. Pairs with Pi listener kits",
+        "No battery. Pairs with Pi receiver kits",
         "Ships from Dark Sky Systems after Stripe clears",
         "Tracking by email to the address on the receipt"
       ]
@@ -1134,16 +1134,16 @@
       ]
     },
     ridrtr: {
-      title: "USB-C Remote ID Receive Board (Ready-to-Run)",
-      lede: "Same USB-C Remote ID receive board. We load the listener firmware on the board before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      title: "USB-C Remote ID Receiver Board (Ready-to-Run)",
+      lede: "Same USB-C Remote ID Receiver Board. We load the receiver firmware on the board before it ships. Extra business day. Ships from us after we load it. Receive only.",
       price: "$79",
       amount: "79",
       chase: "",
       stripe: "",
       photo: "assets/attach/rid.webp?v=1",
       gets: [
-        "Same USB-C Remote ID receive board",
-        "We load the listener firmware on the board before it ships",
+        "Same USB-C Remote ID Receiver Board",
+        "We load the receiver firmware on the board before it ships",
         "Extra business day. Ships from Dark Sky Systems after we load it",
         "No battery or charger in the box",
         "Receive only",
@@ -1151,8 +1151,8 @@
       ]
     },
     espridrtr: {
-      title: "ESP32 Remote ID Scanner with Color Display (Ready-to-Run)",
-      lede: "Same color-display ESP32 Remote ID scanner. We load the listener firmware on the board before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      title: "Remote ID Receiver Display (Ready-to-Run)",
+      lede: "Same color-display ESP32 Remote ID scanner. We load the receiver firmware on the board before it ships. Extra business day. Ships from us after we load it. Receive only.",
       price: "$129",
       amount: "129",
       chase: "",
@@ -1160,47 +1160,47 @@
       photo: "assets/products/esp32-remote-id-scanner-color-display-front.jpg?v=1",
       gets: [
         "Same ESP32 color-display receive board, USB-C, PCB antenna, three buttons",
-        "We load the listener firmware on the board before it ships",
+        "We load the receiver firmware on the board before it ships",
         "Extra business day. Ships from Dark Sky Systems after we load it",
         "USB-C only. No LiPo. Receive only",
         "Tracking by email to the address on the receipt"
       ]
     },
     rfalertrtr: {
-      title: "Remote ID Alert Board with Display (Ready-to-Run)",
-      lede: "Same Remote ID alert board with display. We load the listener firmware on the board before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      title: "Remote ID Receiver Alert Kit (Ready-to-Run)",
+      lede: "Same Remote ID alert board with display. We load the receiver firmware on the board before it ships. Extra business day. Ships from us after we load it. Receive only.",
       price: "$179",
       amount: "179",
       chase: "",
       stripe: "",
       photo: "assets/products/remote-id-receive-board.jpg?v=1",
       gets: [
-        "Same Remote ID receive board, assembled OLED, weatherproof enclosure",
-        "We load the listener firmware on the board before it ships",
+        "Same Remote ID Receiver Board, assembled OLED, weatherproof enclosure",
+        "We load the receiver firmware on the board before it ships",
         "Extra business day. Ships from Dark Sky Systems after we load it",
         "USB-C only. No LiPo. Receive only",
         "Tracking by email to the address on the receipt"
       ]
     },
     espmeshrtr: {
-      title: "ESP32 Mesh-Capable Remote ID Listener (Ready-to-Run)",
-      lede: "Same ESP32 mesh-capable Remote ID listener. We load the listener firmware on the board before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      title: "Remote ID Receiver Mesh (Ready-to-Run)",
+      lede: "Same ESP32 mesh-capable Remote ID receiver. We load the receiver firmware on the board before it ships. Extra business day. Ships from us after we load it. Receive only.",
       price: "$139",
       amount: "139",
       chase: "",
       stripe: "",
       photo: "assets/products/esp32-mesh-listener-board.jpg?v=1",
       gets: [
-        "Same ESP32 listen board and flanged weatherproof box",
-        "We load the listener firmware on the board before it ships",
+        "Same ESP32 receive board and flanged weatherproof box",
+        "We load the receiver firmware on the board before it ships",
         "Extra business day. Ships from Dark Sky Systems after we load it",
         "USB-C only. No LiPo. Receive only",
         "Tracking by email to the address on the receipt"
       ]
     },
     espsitertr: {
-      title: "ESP32 Site Listener Module (Ready-to-Run)",
-      lede: "Same ESP32 site listener module. We load the listener firmware on the board before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      title: "Remote ID Receiver Site (Ready-to-Run)",
+      lede: "Same ESP32 site receiver module. We load the receiver firmware on the board before it ships. Extra business day. Ships from us after we load it. Receive only.",
       price: "$249",
       amount: "249",
       chase: "",
@@ -1208,23 +1208,23 @@
       photo: "assets/products/esp32-site-listener-ip66-enclosure.jpg?v=1",
       gets: [
         "Same w.FL ESP32 receive board, IP66 box, PoE-to-USB-C power, antenna chain",
-        "We load the listener firmware on the board before it ships",
+        "We load the receiver firmware on the board before it ships",
         "Extra business day. Ships from Dark Sky Systems after we load it",
         "USB-C. No LiPo. Receive only",
         "Tracking by email to the address on the receipt"
       ]
     },
     starterrtr: {
-      title: "Listen Starter Kit (Ready-to-Run)",
-      lede: "Same listen starter kit. We load the listener firmware on the receive board before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      title: "Radio starter (Ready-to-Run)",
+      lede: "Same Radio starter. We load the receiver firmware on the receive board before it ships. Extra business day. Ships from us after we load it. Receive only.",
       price: "$149",
       amount: "149",
       chase: "",
       stripe: "",
       photo: "assets/attach/starter.webp?v=1",
       gets: [
-        "Same Remote ID receive board and listen radio + dipole",
-        "We load the listener firmware on the receive board before it ships",
+        "Same Remote ID Receiver Board and radio + dipole",
+        "We load the receiver firmware on the receive board before it ships",
         "Extra business day. Ships from Dark Sky Systems after we load it",
         "Receive only. No Fusion Sensor license in this SKU",
         "Tracking by email"
@@ -1232,31 +1232,31 @@
     },
     adsbkitrtr: {
       title: "ADS-B + Remote ID Receiver Kit (Ready-to-Run)",
-      lede: "Same ADS-B + Remote ID receiver kit. We load the listener firmware on the receive board before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      lede: "Same ADS-B + Remote ID receiver kit. We load the receiver firmware on the receive board before it ships. Extra business day. Ships from us after we load it. Receive only.",
       price: "$259",
       amount: "259",
       chase: "",
       stripe: "",
       photo: "assets/attach/adsbkit.jpg?v=1",
       gets: [
-        "Same Remote ID receive board, listen radio, 1090 and 978 antennas, hard case",
-        "We load the listener firmware on the receive board before it ships",
+        "Same Remote ID Receiver Board, radio, 1090 and 978 antennas, hard case",
+        "We load the receiver firmware on the receive board before it ships",
         "Extra business day. Ships from Dark Sky Systems after we load it",
         "Receive only. Not Fusion Sensor",
         "Tracking by email"
       ]
     },
     pistarterrtr: {
-      title: "Raspberry Pi Remote ID + ADS-B Listener Kit (Ready-to-Run)",
-      lede: "Same Raspberry Pi Remote ID + ADS-B listener kit. We load the listener image on a 64GB card before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      title: "Pi Receiver (Ready-to-Run)",
+      lede: "Same Raspberry Pi Remote ID + ADS-B receiver kit. We load the receiver image on a 64GB card before it ships. Extra business day. Ships from us after we load it. Receive only.",
       price: "$349",
       amount: "349",
       chase: "",
       stripe: "",
       photo: "assets/products/raspberry-pi-4-4gb-remote-id-adsb-listener.jpg?v=1",
       gets: [
-        "Same Raspberry Pi 4 4 GB sit — official 15 W, Remote ID board, listen radio + dipole",
-        "We load the listener image on a 64GB card before it ships",
+        "Same Raspberry Pi 4 4 GB kit — official 15 W, Remote ID board, radio + dipole",
+        "We load the receiver image on a 64GB card before it ships",
         "Extra business day. Ships from Dark Sky Systems after we load it",
         "No official case. No 1090 SMA whip. No battery",
         "Not Fusion Sensor. Not V4. Receive only",
@@ -1264,64 +1264,64 @@
       ]
     },
     pirecvrtr: {
-      title: "Raspberry Pi Remote ID + ADS-B Receiver Kit (Ready-to-Run)",
-      lede: "Same Raspberry Pi Remote ID + ADS-B receiver kit. We load the listener image on a 64GB card before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      title: "Pi Receiver (Ready-to-Run)",
+      lede: "Same Raspberry Pi Remote ID + ADS-B receiver kit. We load the receiver image on a 64GB card before it ships. Extra business day. Ships from us after we load it. Receive only.",
       price: "$479",
       amount: "479",
       chase: "",
       stripe: "",
       photo: "assets/products/raspberry-pi-5-remote-id-adsb-receiver.jpg?v=1",
       gets: [
-        "Same Raspberry Pi 5 4 GB sit — official 27 W, official case, Remote ID, listen radio, 1090 whip",
-        "We load the listener image on a 64GB card before it ships",
+        "Same Pi Receiver — official 27 W, official case, Remote ID, radio, 1090 whip",
+        "We load the receiver image on a 64GB card before it ships",
         "Extra business day. Ships from Dark Sky Systems after we load it",
         "No battery. Not Fusion Sensor. Not V4. Receive only",
         "Tracking by email to the address on the receipt"
       ]
     },
     piprortr: {
-      title: "Raspberry Pi Professional Remote ID + Dual-Band ADS-B (Ready-to-Run)",
-      lede: "Same Raspberry Pi professional Remote ID + dual-band ADS-B sit. We load the listener image on a 64GB card before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      title: "Pi Receiver Dual-Band (Ready-to-Run)",
+      lede: "Same Raspberry Pi professional Remote ID + dual-band ADS-B kit. We load the receiver image on a 64GB card before it ships. Extra business day. Ships from us after we load it. Receive only.",
       price: "$629",
       amount: "629",
       chase: "",
       stripe: "",
       photo: "assets/products/raspberry-pi-5-4gb-professional-listener.jpg?v=1",
       gets: [
-        "Same Pi 5 sit plus 1090, 978, and the dual-channel filter",
-        "We load the listener image on a 64GB card before it ships",
+        "Same Pi Receiver Dual-Band plus 1090, 978, and the dual-channel filter",
+        "We load the receiver image on a 64GB card before it ships",
         "Extra business day. Ships from Dark Sky Systems after we load it",
         "No battery. Not Fusion Sensor. Not V4. Receive only",
         "Weekend +1 day. Tracking by email"
       ]
     },
     pioutdoorrtr: {
-      title: "Raspberry Pi Long-Range Outdoor Permanent Listener (Ready-to-Run)",
-      lede: "Same Raspberry Pi outdoor permanent listener. We load the listener image on a 64GB card before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      title: "Pi Receiver Outdoor (Ready-to-Run)",
+      lede: "Same Raspberry Pi outdoor permanent receiver. We load the receiver image on a 64GB card before it ships. Extra business day. Ships from us after we load it. Receive only.",
       price: "$729",
       amount: "729",
       chase: "",
       stripe: "",
       photo: "assets/products/outdoor-1090-mhz-9dbi-n-female-base-antenna.jpg?v=1",
       gets: [
-        "Same Pi 5 outdoor sit — IP66 box, Remote ID, listen radio, 9 dBi N-female 1090, jumper",
-        "We load the listener image on a 64GB card before it ships",
+        "Same Pi 5 outdoor kit — IP66 box, Remote ID, radio, 9 dBi N-female 1090, jumper",
+        "We load the receiver image on a 64GB card before it ships",
         "Extra business day. Ships from Dark Sky Systems after we load it",
         "Indoor power brick. No battery. Not Fusion Sensor. Not V4. Receive only",
         "Weekend +1 day. Tracking by email"
       ]
     },
     adsbfeederrtr: {
-      title: "Dual-Band ADS-B Feeder Kit (Raspberry Pi) (Ready-to-Run)",
-      lede: "Same dual-band ADS-B feeder kit. We load the listener image on a 64GB card before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      title: "Pi ADS-B Feeder (Ready-to-Run)",
+      lede: "Same dual-band ADS-B feeder kit. We load the receiver image on a 64GB card before it ships. Extra business day. Ships from us after we load it. Receive only.",
       price: "$369",
       amount: "369",
       chase: "",
       stripe: "",
       photo: "assets/products/raspberry-pi-4-4gb-remote-id-adsb-listener.jpg?v=1",
       gets: [
-        "Same Pi 4 feeder — official 15 W, listen radio, 1090 and 978 whips",
-        "We load the listener image on a 64GB card before it ships",
+        "Same Pi 4 feeder — official 15 W, radio, 1090 and 978 whips",
+        "We load the receiver image on a 64GB card before it ships",
         "Extra business day. Ships from Dark Sky Systems after we load it",
         "No Remote ID board. Not the $199 kit. Not Fusion Sensor. Not V4. Receive only",
         "Weekend +1 day. Tracking by email"
@@ -1477,7 +1477,7 @@
   }
 
   if (form) {
-    form.addEventListener("submit", function (ev) {
+    form.addEventReceiver("submit", function (ev) {
       ev.preventDefault();
       if (typeof form.reportValidity === "function" && !form.reportValidity()) return;
       var hp = form.querySelector('input[name="botcheck"]');

@@ -104,7 +104,7 @@
       : "This is a lower relative score. It is not a clearance. It means occupancy and airspace are quieter than peer sites in this model.";
     var sensor = "The score measures consequence and opportunity for cooperative Remote ID and radio energy on 2.4 / 5.8 GHz. It does not claim the air is empty of dark or RID-off aircraft.";
     var window = input.span === "ongoing"
-      ? "The window is year-round. A one-day listen does not create the record this occupancy needs."
+      ? "The window is year-round. A one-day receive window does not create the record this occupancy needs."
       : input.span === "days"
         ? "The window is one to three days. Treat it as a named event with a start, a live period, and a close-out."
         : "The window is hours. Pre-brief, watch the map, close the file the same day.";
@@ -193,7 +193,7 @@
     } else if (input.access === "road") {
       out.push({
         title: "Line of sight from a public road is the usual launch",
-        body: "Most unauthorized flights over a named site start from a lot or a shoulder with a view of " + p + ". You will not catch that with a gate log. You catch the broadcast — Remote ID and radio energy — if you are listening."
+        body: "Most unauthorized flights over a named site start from a lot or a shoulder with a view of " + p + ". You will not catch that with a gate log. You catch the broadcast — Remote ID and radio energy — if you are receiving."
       });
     } else if (input.draw === "advertised" || input.draw === "vip") {
       out.push({
@@ -212,13 +212,13 @@
       });
     } else if (input.air === "tfr") {
       out.push({
-        title: "A TFR is in play — still listen",
+        title: "A TFR is in play — still receive",
         body: "A TFR over or near " + p + " tells legal flyers to stay out. It does not turn radios off. Hobby, lost-link, and non-cooperative traffic still happen at the edge of a box. Detection on the dates we are on site is how you get a record."
       });
     } else if (input.air === "airport") {
       out.push({
         title: "Crewed traffic is close enough to share the picture",
-        body: p + " sits near a towered airport. ADS-B 1090 for airliners, GA, and military belongs on the same map as drone contacts. Night operations make visual acquisition worse; radio and ADS-B become the primary picture. A rumor that “something was near the approach” is not a file."
+        body: p + " kits near a towered airport. ADS-B 1090 for airliners, GA, and military belongs on the same map as drone contacts. Night operations make visual acquisition worse; radio and ADS-B become the primary picture. A rumor that “something was near the approach” is not a file."
       });
     } else if (input.night === "yes") {
       out.push({
@@ -228,7 +228,7 @@
     } else {
       out.push({
         title: "Open airspace is not a backstop",
-        body: "No TFR was indicated for " + p + ". That does not mean fewer drones. It means ATC has not boxed the window for you. Hobby flights, lost-link, and RID-off aircraft remain possible. Open airspace is a reason to listen, not a reason to wait."
+        body: "No TFR was indicated for " + p + ". That does not mean fewer drones. It means ATC has not boxed the window for you. Hobby flights, lost-link, and RID-off aircraft remain possible. Open airspace is a reason to receive, not a reason to wait."
       });
     }
 
@@ -243,7 +243,7 @@
     /* Duration × type */
     if (input.span === "ongoing" && input.type === "campus") {
       out.push({
-        title: "Year-round campus occupancy is a monitoring problem, not a one-day sit",
+        title: "Year-round campus occupancy is a monitoring problem, not a one-day kit",
         body: p + " does not go quiet after a Saturday. Predictable crowds, media days, and rooftops continue. A one-day session creates a souvenir. Year-round monitoring creates the archive security actually uses."
       });
     } else if (input.span === "ongoing" && input.type === "plant") {
@@ -254,7 +254,7 @@
     } else if (input.span === "ongoing" && input.type === "build") {
       out.push({
         title: "An open job lasts longer than a weekend",
-        body: "Construction at " + p + " stays open: decks, incomplete envelope, new sight lines every week. Weekly stills document the ground. The air still needs a listener if the curiosity flights keep coming between photo days."
+        body: "Construction at " + p + " stays open: decks, incomplete envelope, new sight lines every week. Weekly stills document the ground. The air still needs a receiver if the curiosity flights keep coming between photo days."
       });
     } else if (input.type === "build") {
       out.push({
@@ -328,7 +328,7 @@
       s.push("Stand Fusion Sensor on the named site. Authorized aircraft marked as authorized. Other transmitting aircraft flagged. Export the log.");
     }
     if (input.prior === "yes") s.push("Treat the next contact as a repeat. Do not auto-clear. Write time, band, and who you told.");
-    if (input.air === "tfr") s.push("Print the TFR/NOTAM window and keep it with the operations file. A TFR is not a listener.");
+    if (input.air === "tfr") s.push("Print the TFR/NOTAM window and keep it with the operations file. A TFR is not a receiver.");
     if (input.under === "yes" || input.people === "dense") s.push("Name who is under likely flight paths in the observation file: gates, seats, roof, assembly.");
     if (input.night === "yes") s.push("Do not rely on eyeballs after dark. Keep ADS-B and the 2.4 / 5.8 GHz radios on.");
     s.push("Remember the sensor limit: cooperative Remote ID and radio energy only. Quiet radios are not a clearance that the air is empty of drones.");
@@ -556,7 +556,7 @@
       : "";
     report.exec = (report.exec || "") + " Weather at " + geo + " as of this pull: " + nowLine
       + (ops.fly === "hold"
-        ? " Weather is a hold for flown work; it is not a reason to stop listening."
+        ? " Weather is a hold for flown work; it is not a reason to stop receiving."
         : ops.fly === "caution"
           ? " Weather is a caution for flown work. Fusion Sensor does not wait on a ceiling."
           : " Weather is not the driver of the occupancy/airspace score at this hour.");
@@ -572,11 +572,11 @@
     } else if (wx.alerts && wx.alerts.length) {
       wxFindings.push({
         title: "An official weather alert is in effect",
-        body: "NWS has " + wx.alerts[0].event + " at " + geo + ". That is a crew, battery, and duration constraint — not a reason the air is empty. Lithium packs run hotter. Flown visits get a shorter, cooler window. Keep listening."
+        body: "NWS has " + wx.alerts[0].event + " at " + geo + ". That is a crew, battery, and duration constraint — not a reason the air is empty. Lithium packs run hotter. Flown visits get a shorter, cooler window. Keep receiving."
       });
     } else if (ops.maxGust >= 22 || ops.maxWind >= 18) {
       wxFindings.push({
-        title: "Wind limits a small UAS. It does not limit a listener",
+        title: "Wind limits a small UAS. It does not limit a receiver",
         body: "Near-term wind at " + geo + " reaches about " + ops.maxWind + " mph with gusts near " + ops.maxGust
           + " mph. That is the usual abort for a light airframe (flyaway, unstable hover, no useful still). Unauthorized flyers still launch in it. Fusion Sensor still hears Remote ID and 2.4 / 5.8 GHz. Do not treat wind as an empty sky."
       });
@@ -587,14 +587,14 @@
       });
     } else if (ops.precipNow || ops.maxPrecipProb >= 60) {
       wxFindings.push({
-        title: "Precipitation is a flight call, not a listen call",
+        title: "Precipitation is a flight call, not a receive call",
         body: "Rain or a high precip chance is in the next day at " + geo + " (peak probability about " + Math.round(ops.maxPrecipProb)
           + "%). Wet decks, holes, and lithium packs matter if an aircraft comes down. Progress flights and observation stills wait. The map does not."
       });
     } else {
       wxFindings.push({
         title: "Weather is not the driver at this hour",
-        body: "Current conditions at " + geo + " (" + nowLine + ") do not by themselves abort a small UAS or a listen. Occupancy, airspace, and launch access still set the score. Recheck wind and radar before any flown visit."
+        body: "Current conditions at " + geo + " (" + nowLine + ") do not by themselves abort a small UAS or a receive kit. Occupancy, airspace, and launch access still set the score. Recheck wind and radar before any flown visit."
       });
     }
     report.findings = (wxFindings.concat(report.findings || [])).slice(0, 7);
@@ -613,7 +613,7 @@
     }
 
     if (ops.fly !== "go" && report.rationale) {
-      report.rationale += " Weather at pull time does not change the occupancy/airspace score. It does change flown work: " + (ops.fly === "hold" ? "hold launches;" : "caution on launches;") + " keep the listener on.";
+      report.rationale += " Weather at pull time does not change the occupancy/airspace score. It does change flown work: " + (ops.fly === "hold" ? "hold launches;" : "caution on launches;") + " keep the receiver on.";
     }
     return report;
   }

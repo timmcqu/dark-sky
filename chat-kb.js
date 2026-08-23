@@ -2,9 +2,10 @@ window.DSS_KB = {
   "company": "Dark Sky Systems LLC",
   "dba": "Dark Sky",
   "site": "https://darksky.systems",
-  "contact": "index.html#request",
+  "contact": "/index.html#request",
   "updated": "2026-08-22",
   "limits": [
+    "Public language is Receivers, not Detectors or Receivers.",
     "Detection is receive-only. Fusion Sensor identifies what is transmitting; it does not jam, spoof, intercept, or take over aircraft.",
     "CyberReaper is a restricted capability. It is not a public product and is not on Stripe. Qualified entities only, briefing, TX unlock \u2014 not thermal.",
     "We fly and we run detection on site. We do not sell unattended 24/7 monitoring. Not licensed security, not 911.",
@@ -14,6 +15,78 @@ window.DSS_KB = {
     "Never Dark Sky LLC. Legal name is Dark Sky Systems LLC d/b/a Dark Sky."
   ],
   "products": [
+    {
+      "sku": "scene",
+      "name": "Drone over the scene card",
+      "price": "$19",
+      "href": "/products/drone-over-the-scene/",
+      "pay": "/products/drone-over-the-scene/",
+      "tags": ["digital", "fire", "ems", "card", "19"],
+      "blurb": "First-in pocket card: clock, heading, what is under it, who you called. Observation paper. Not a DFR program."
+    },
+    {
+      "sku": "crew",
+      "name": "Crew paper bundle",
+      "price": "$49",
+      "href": "/products/crew-paper-bundle/",
+      "pay": "/products/crew-paper-bundle/",
+      "tags": ["digital", "bundle", "cards"],
+      "blurb": "Scene card, jobsite log, school/venue size-up, incident file. Four PDFs."
+    },
+    {
+      "sku": "jobsite_log",
+      "name": "Jobsite drone log",
+      "price": "$19",
+      "href": "/products/jobsite-drone-log/",
+      "pay": "/products/jobsite-drone-log/",
+      "tags": ["digital", "construction", "job", "log"],
+      "blurb": "Unauthorized drone log for one named job."
+    },
+    {
+      "sku": "rid_board",
+      "name": "Remote ID Receiver Board",
+      "price": "$39 / $79",
+      "href": "/products/remote-id-receive-board/",
+      "pay": "/products/remote-id-receive-board/",
+      "tags": ["receiver", "esp32", "board", "hardware"],
+      "blurb": "USB-C ESP32 Remote ID receiver. Hardware Only $39. Ready-to-Run $79."
+    },
+    {
+      "sku": "esprid",
+      "name": "Remote ID Receiver Display",
+      "price": "$79 / $129",
+      "href": "/products/esp32-remote-id-scanner/",
+      "pay": "/products/esp32-remote-id-scanner/",
+      "tags": ["receiver", "esp32", "display", "scanner"],
+      "blurb": "USB-C Remote ID receiver with a color screen. Hardware Only $79. Ready-to-Run $129."
+    },
+    {
+      "sku": "listen_starter",
+      "name": "Radio starter",
+      "price": "$99 / $149",
+      "href": "/products/listen-starter-kit/",
+      "pay": "/products/listen-starter-kit/",
+      "tags": ["receiver", "starter", "radio"],
+      "blurb": "Remote ID board plus radio. Hardware Only $99. Ready-to-Run $149."
+    },
+    {
+      "sku": "pistarter",
+      "name": "Pi Receiver Starter",
+      "price": "$279 / $349",
+      "href": "/products/raspberry-pi-remote-id-adsb-receiver-starter/",
+      "pay": "/products/raspberry-pi-remote-id-adsb-receiver-starter/",
+      "tags": ["receiver", "pi", "starter"],
+      "blurb": "Pi 4, 15W, Remote ID board, radio + dipole. Hardware Only $279. Ready-to-Run $349."
+    },
+    {
+      "sku": "pirecv",
+      "name": "Pi Receiver",
+      "price": "$399 / $479",
+      "href": "/products/raspberry-pi-remote-id-adsb-receiver/",
+      "pay": "/products/raspberry-pi-remote-id-adsb-receiver/",
+      "tags": ["receiver", "pi", "adsb"],
+      "blurb": "Pi 5 kit: official case, 27W, Remote ID, radio, 1090 whip. Hardware Only $399. Ready-to-Run $479."
+    },
     {
       "sku": "risk_report",
       "name": "Unauthorized Drone Risk Report",
@@ -97,7 +170,7 @@ window.DSS_KB = {
         "map",
         "alerts"
       ],
-      "blurb": "One named site. Live map. Unauthorized transmitting aircraft flagged. Ninety days of records. Software listening, not a human sitting the glass 24/7."
+      "blurb": "One named site. Live map. Unauthorized transmitting aircraft flagged. Ninety days of records. Software receiving, not a human watching the glass 24/7."
     },
     {
       "sku": "pro_m",

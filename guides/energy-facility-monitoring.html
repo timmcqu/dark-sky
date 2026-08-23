@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script defer data-domain="darksky.systems" src="https://plausible.io/js/script.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#0a0908" />
+  <title>Energy Facility Airspace Monitoring | Dark Sky</title>
+  <meta name="description" content="Energy facility monitoring with an Pi Receiver Outdoor, ESP32 site Remote ID, and a weather box. Receive-only airspace receiver for a named plant. Shop." />
+  <link rel="canonical" href="https://darksky.systems/guides/energy-facility-monitoring.html" />
+  <meta property="og:title" content="Energy Facility Airspace Monitoring | Dark Sky" />
+  <meta property="og:description" content="Energy facility monitoring with an Pi Receiver Outdoor, ESP32 site Remote ID, and a weather box. Receive-only airspace receiver for a named plant. Shop." />
+  <meta property="og:url" content="https://darksky.systems/guides/energy-facility-monitoring.html" />
+  <meta property="og:image" content="https://darksky.systems/assets/products/outdoor-1090-mhz-9dbi-n-female-base-antenna.jpg" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Energy Facility Airspace Monitoring | Dark Sky" />
+  <meta name="twitter:description" content="Energy facility monitoring with an Pi Receiver Outdoor, ESP32 site Remote ID, and a weather box. Receive-only airspace receiver for a named plant. Shop." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css?v=108" />
+  <link rel="stylesheet" href="../products.css?v=5" />
+  <link rel="stylesheet" href="../guides.css?v=1" />
+  <link rel="stylesheet" href="../chat.css?v=1" />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Energy facility monitoring",
+  "description": "Energy facility monitoring with an Pi Receiver Outdoor, ESP32 site Remote ID, and a weather box. Receive-only airspace receiver for a named plant. Shop.",
+  "author": {
+    "@type": "Organization",
+    "name": "Dark Sky Systems LLC"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dark Sky Systems LLC",
+    "url": "https://darksky.systems"
+  },
+  "datePublished": "2026-08-22",
+  "dateModified": "2026-08-22",
+  "image": "https://darksky.systems/assets/products/outdoor-1090-mhz-9dbi-n-female-base-antenna.jpg",
+  "mainEntityOfPage": "https://darksky.systems/guides/energy-facility-monitoring.html",
+  "about": [
+    "Remote ID",
+    "ADS-B",
+    "airspace receiver"
+  ]
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Indoor power on an outdoor kit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The outdoor kit uses an indoor power brick. The box is weatherproof. Plan the cable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you sell C-UAS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Receive only. No jam, spoof, or intercept."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "One box for a linear ROW?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. One kit is one place. A corridor needs nodes or flown visits."
+      }
+    }
+  ]
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://darksky.systems/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Guides",
+      "item": "https://darksky.systems/guides/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Energy facility monitoring",
+      "item": "https://darksky.systems/guides/energy-facility-monitoring.html"
+    }
+  ]
+}</script>
+</head>
+<!-- Dark Sky Systems LLC -->
+<body>
+  <a class="skip" href="#main">Skip to guide</a>
+  <header class="mast">
+    <div class="wrap mast-inner">
+      <a class="brand" href="../index.html">Dark Sky Systems</a>
+      <nav class="rail" aria-label="Primary">
+        <a href="../products/">Shop</a>
+        <a href="../products/raspberry-pi-listeners/">Pi Receivers</a>
+        <a href="../products/esp32-detection-boards/">ESP32 Receivers</a>
+        <a href="../products/camera-modules/">Cameras</a>
+        <a href="./">Guides</a>
+        <a href="../index.html#request">Talk to us</a>
+      </nav>
+    </div>
+  </header>
+  <article class="g-article" id="main">
+    <div class="wrap">
+      <p class="p-crumb"><a href="../index.html">Home</a> / <a href="./">Guides</a> / Energy facility monitoring</p>
+      <p class="eyebrow">Use case</p>
+      <h1>Energy facility monitoring</h1>
+      <p class="lede">An energy facility wants a mast, a weather box, and a Remote ID receiver that stays on. That is an Pi Receiver Outdoor or an ESP32 site receiver — receive only, on a named plant.</p>
+      <div class="g-cta-row">
+        <a class="cta" href="../products/">Shop receivers</a>
+        <a class="cta cta-ghost" href="../products/raspberry-pi-listeners/">Raspberry Pi kits</a>
+      </div>
+      <div class="g-prose">
+        <h2>The kit</h2>
+        <p>Default: <a href="../products/raspberry-pi-outdoor-permanent-listener/">Pi Receiver Outdoor</a> — Remote ID, radio, IP66 box, 9 dBi 1090. Node without a Pi: <a href="../products/esp32-site-listener/">ESP32 site receiver</a>. Coverage: <a href="../products/monitoring-pro-monthly/">Monitoring · Pro</a> if you have more than one plant.</p>
+        <h2>Honesty on the brief</h2>
+        <p class="g-note">Cooperative Remote ID and ADS-B only. A quiet aircraft over a substation does not paint. Say that in the operations file.</p>
+        <p>Buying guide: <a href="outdoor-long-range-listener.html">Pi Receiver Outdoor</a>.</p>
+
+      </div>
+      <section class="p-sec p-related g-grid" id="shop">
+        <h2>Shop these kits</h2>
+        <div class="grid plans-grid">        <a class="card plan" href="../products/raspberry-pi-outdoor-permanent-listener/">
+          <p class="plan-for">Mast</p>
+          <h3>Pi Receiver Outdoor</h3>
+          <p class="plan-price">$649 / $729</p>
+        </a>
+        <a class="card plan" href="../products/esp32-site-listener/">
+          <p class="plan-for">Wall</p>
+          <h3>ESP32 Site Receiver</h3>
+          <p class="plan-price">$179 / $249</p>
+        </a>
+        <a class="card plan" href="../products/monitoring-pro-monthly/">
+          <p class="plan-for">Multi-site</p>
+          <h3>Monitoring · Pro</h3>
+          <p class="plan-price">$750 / month</p>
+        </a>
+        </div>
+      </section>
+      <section class="p-sec faq-block" id="faq">
+        <h2>FAQ</h2>
+        <details><summary>Indoor power on an outdoor kit?</summary><p>Yes. The outdoor kit uses an indoor power brick. The box is weatherproof. Plan the cable.</p></details>
+        <details><summary>Do you sell C-UAS?</summary><p>No. Receive only. No jam, spoof, or intercept.</p></details>
+        <details><summary>One box for a linear ROW?</summary><p>No. One kit is one place. A corridor needs nodes or flown visits.</p></details>
+      </section>
+      <section class="p-sec" id="more">
+        <h2>More guides</h2>
+        <div class="g-cluster">
+        <a href="campus-airspace-monitoring.html"><p class="plan-for">Guide</p><h3>Campus airspace monitoring</h3><p>Closet kit vs mast kit.</p></a>
+        <a href="outdoor-long-range-listener.html"><p class="plan-for">Guide</p><h3>Pi Receiver Outdoor</h3><p>The kit on the mast.</p></a>
+        </div>
+      </section>
+    </div>
+  </article>
+  <footer class="foot">
+    <div class="wrap">
+      <p><strong>Dark Sky Systems LLC</strong> · darksky.systems</p>
+      <p>Detection is receive-only. These products receive. They do not jam, spoof, or intercept aircraft. Dark Sky Systems LLC is not a licensed security company. Card via Stripe. We do not store it.</p>
+      <p class="seo-links"><a href="../products/">Shop Remote ID receivers</a> · <a href="../products/raspberry-pi-listeners/">Raspberry Pi ADS-B receivers</a> · <a href="../products/esp32-detection-boards/">ESP32 Remote ID boards</a> · <a href="../products/camera-modules/">Thermal camera modules</a></p>
+    </div>
+  </footer>
+  <script src="../chat-config.js?v=3"></script>
+  <script src="../chat-kb.js?v=2"></script>
+  <script src="../chat.js?v=9"></script>
+</body>
+</html>

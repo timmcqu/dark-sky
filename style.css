@@ -382,6 +382,32 @@ h3 {
 .cta:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.proof-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1.05rem 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: 36rem;
+}
+.proof-bar li {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--line);
+  padding: 0.32rem 0.6rem;
+  background: rgba(10, 9, 8, 0.5);
+}
+.foot-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1rem;
+  margin: 0.65rem 0 0;
+}
+.foot-nav a { color: var(--gold); text-decoration: none; }
+.foot-nav a:hover { text-decoration: underline; }
 
 .cta-ghost {
   background: transparent;
