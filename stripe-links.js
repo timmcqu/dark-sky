@@ -34,5 +34,11 @@ window.DSS_STRIPE = {
   therm256: "https://buy.stripe.com/14A3cv5rA9J72vKfrxfIs0w",
   therm320: "https://buy.stripe.com/bJe9AT6vEbRf5HW5QXfIs0x",
   adsbkit: "https://buy.stripe.com/aFacN5bPY4oN5HW2ELfIs0y",
-  ant2458: "https://buy.stripe.com/dRm8wPf2acVj6M01AHfIs0z"
+  ant2458: "https://buy.stripe.com/dRm8wPf2acVj6M01AHfIs0z",
+  r2kit: "https://buy.stripe.com/7sYfZh3js08xees3IPfIs0A",
+  r2mic: "https://buy.stripe.com/28E14ndY6f3r7Q41AHfIs0B",
+  "batt-expro": "https://buy.stripe.com/cNi8wPbPY4oN9Yca7dfIs0C",
+  case1200: "https://buy.stripe.com/6oUfZh6vE5sRb2g2ELfIs0D",
+  radiopouch: "https://buy.stripe.com/fZu00jaLU08x0nC2ELfIs0E",
+  lightspeak: "https://buy.stripe.com/8x214n4nw8F35HW939fIs0F"
 };

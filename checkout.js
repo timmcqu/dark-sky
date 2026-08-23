@@ -507,6 +507,107 @@
         "Tracking by email"
       ]
     },
+    r2kit: {
+      title: "Motorola two-way radio + surveillance earpiece",
+      lede: "A Motorola UHF two-way radio with a discreet acoustic-tube earpiece for field and site comms. The buyer licenses their own radio use. Ships at factory default — no programming sold. Not a jammer.",
+      price: "$1,199",
+      amount: "1199",
+      chase: "",
+      stripe: "",
+      photo: "assets/attach/r2kit.jpg?v=1",
+      gets: [
+        "Motorola UHF two-way radio (analog + digital)",
+        "Acoustic-tube earpiece with inline mic and PTT",
+        "Ships at factory default. No programming sold",
+        "Buyer licenses their own use (Part 90). We do not hold the license",
+        "Comms — not a C-UAS transmitter, not a jammer",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    r2mic: {
+      title: "Motorola speaker microphone",
+      lede: "A Motorola speaker microphone for the locked Motorola two-way radio. Clip it to a vest and talk without pulling the radio off the belt.",
+      price: "$179",
+      amount: "179",
+      chase: "",
+      stripe: "",
+      photo: "assets/attach/r2mic.jpg?v=1",
+      gets: [
+        "Motorola remote speaker microphone",
+        "Fits the locked Motorola two-way radio",
+        "Large PTT so the radio stays on the belt",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    "batt-expro": {
+      title: "Extra battery for FLIR E5 Pro / E6 Pro / E8 Pro",
+      lede: "Official extra battery for a FLIR E5 Pro, E6 Pro, or E8 Pro handheld thermal. Will not fit a TOPDON TC004, a Seek Reveal 300, or a pocket FLIR C5 / C8.",
+      price: "$109",
+      amount: "109",
+      chase: "",
+      stripe: "",
+      photo: "assets/attach/batt-expro.jpg?v=1",
+      gets: [
+        "Official extra battery for FLIR E5 Pro / E6 Pro / E8 Pro",
+        "Keep one charged so the camera stays in the lane",
+        "Will not fit TOPDON TC004, Seek Reveal 300, or FLIR C5 / C8",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    case1200: {
+      title: "Pelican 1200 medium hard case",
+      lede: "A Pelican 1200 medium hard case for a listen radio, a receive board, and the small attach that does not fit the compact case. Watertight and crushproof, with pick-and-pluck foam.",
+      price: "$139",
+      amount: "139",
+      chase: "",
+      stripe: "",
+      photo: "assets/attach/case1200.jpg?v=1",
+      gets: [
+        "Pelican 1200 medium hard case, black with foam",
+        "Watertight, crushproof, dustproof",
+        "Pick-and-pluck foam so the kit stays put",
+        "Step up from the small case — interior about 9.3 × 7.1 × 4.1 in",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    radiopouch: {
+      title: "Condor MOLLE radio pouch",
+      lede: "A Condor MOLLE radio pouch that keeps a handheld radio on a carrier or a pack. Default Olive Drab. Hook-and-loop flap, elastic retention.",
+      price: "$49",
+      amount: "49",
+      chase: "",
+      stripe: "",
+      photo: "assets/attach/radiopouch.jpg?v=1",
+      gets: [
+        "Condor MOLLE radio pouch, Olive Drab",
+        "Holds a handheld radio with room for antenna and ear bud",
+        "Hook-and-loop flap and mid-body elastic",
+        "Weaves onto a carrier, a pack, or a belt panel",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    lightspeak: {
+      title: "Spotlight and loudspeaker payload",
+      lede: "A spotlight and loudspeaker payload for a contractor aircraft the buyer already has. One unit that lights a lane and talks to the ground. Not an airframe.",
+      price: "$2,999",
+      amount: "2999",
+      chase: "",
+      stripe: "",
+      photo: "assets/attach/lightspeak.jpg?v=1",
+      gets: [
+        "Spotlight and loudspeaker in one payload",
+        "Hangs on an airframe the buyer already has — not an aircraft we sell",
+        "Live voice, file playback, and text-to-speech",
+        "Payload, not a jammer",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
     radio: {
       title: "Fusion Sensor + radios",
       lede: "Same console. We kit, flash, and ship the radios, then complete initial setup and a first monitoring session with you.",
@@ -562,7 +663,7 @@
   if (price) price.textContent = sku.price;
   var isPack = key === "ra" || key === "cards" || key === "eventpack";
   var isVolume = key === "scene" || key === "job" || key === "school" || key === "incident" || key === "crew";
-  var isAttach = key === "rid" || key === "listen" || key === "ant1090" || key === "case" || key === "starter" || key === "rider" || key === "therm256" || key === "therm320" || key === "adsbkit" || key === "ant2458";
+  var isAttach = key === "rid" || key === "listen" || key === "ant1090" || key === "case" || key === "starter" || key === "rider" || key === "therm256" || key === "therm320" || key === "adsbkit" || key === "ant2458" || key === "r2kit" || key === "r2mic" || key === "batt-expro" || key === "case1200" || key === "radiopouch" || key === "lightspeak";
   var eyebrow = document.getElementById("sku-eyebrow");
   var fine = document.getElementById("sku-fine");
   if (eyebrow) {
