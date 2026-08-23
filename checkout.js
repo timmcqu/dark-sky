@@ -729,6 +729,86 @@
         "Tracking by email to the address on the receipt"
       ]
     },
+
+    pistarter: {
+      title: "Raspberry Pi Remote ID + ADS-B Listener Kit (Starter)",
+      lede: "Raspberry Pi 4 starter sit for Remote ID and a wideband listen radio. Official 15 W USB-C, receive board, listen radio + dipole. No case. No 1090 whip. Not the $399 Pi 5 kit. Not Fusion Sensor. Not V4. Receive only.",
+      price: "$279",
+      amount: "279",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/raspberry-pi-4-4gb-remote-id-adsb-listener.jpg?v=1",
+      gets: [
+        "Raspberry Pi 4, 4 GB",
+        "Official 15 W USB-C power supply — not a 27 W Pi 5 brick",
+        "Remote ID receive board",
+        "Listen radio + dipole. No 1090 SMA whip in this kit",
+        "No official case. No battery. No pre-flashed microSD",
+        "Not the $399 Pi 5 receiver. Not Fusion Sensor. Not V4. Receive only",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Weekend orders ship Monday. Tracking by email"
+      ]
+    },
+    pipro: {
+      title: "Raspberry Pi Professional Remote ID + Dual-Band ADS-B",
+      lede: "Raspberry Pi 5 professional sit for Remote ID plus 1090 and 978. Official 27 W and official case. Dual-channel filter on the listen radio — that filter is why this kit costs more. Not Fusion Sensor. Not V4. Receive only.",
+      price: "$549",
+      amount: "549",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/raspberry-pi-5-4gb-professional-listener.jpg?v=1",
+      gets: [
+        "Raspberry Pi 5, 4 GB",
+        "Official 27 W USB-C PD and official Pi 5 case with fan — no battery",
+        "Remote ID receive board",
+        "Listen radio + dipole",
+        "1090 SMA whip and 978 SMA whip",
+        "Dual-channel 1090 / 978 filter. The expensive line — about $95 of the kit",
+        "Not Fusion Sensor. Not V4. Indoor case, not a weather box. Receive only",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Weekend orders ship Monday. Tracking by email"
+      ]
+    },
+    pioutdoor: {
+      title: "Raspberry Pi Long-Range Outdoor Permanent Listener",
+      lede: "Raspberry Pi 5 outdoor sit: IP66 box, Remote ID board, listen radio, 9 dBi N-female 1090, SMA-to-N jumper. Indoor power brick. Outdoor stick does not screw onto the radio. No battery. Weekend orders ship Monday. Receive only.",
+      price: "$649",
+      amount: "649",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/outdoor-1090-mhz-9dbi-n-female-base-antenna.jpg?v=1",
+      gets: [
+        "Raspberry Pi 5, 4 GB — no official indoor case",
+        "Official 27 W USB-C — indoor brick, not weatherproof",
+        "Remote ID receive board",
+        "Listen radio + dipole (dipole is spare indoor)",
+        "IP66 weatherproof box, clear lid. Buyer drills. Not NEMA 4X",
+        "Outdoor 1090, 9 dBi, N-female. SMA-male to N-male jumper included",
+        "No battery. Not Fusion Sensor. Not V4. Weekend orders ship Monday",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    adsbfeeder: {
+      title: "Dual-Band ADS-B Feeder Kit (Raspberry Pi)",
+      lede: "Raspberry Pi 4 feeder for 1090 and 978. Official 15 W, listen radio, both band whips. No Remote ID board. Not the $199 ADS-B + Remote ID kit. One radio — the two whips are not simultaneous. Not Fusion Sensor. Not V4. Receive only.",
+      price: "$299",
+      amount: "299",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/raspberry-pi-4-4gb-remote-id-adsb-listener.jpg?v=1",
+      gets: [
+        "Raspberry Pi 4, 4 GB",
+        "Official 15 W USB-C power supply",
+        "Listen radio + dipole",
+        "1090 SMA whip and 978 SMA whip",
+        "No Remote ID board. No hard case. Not the $199 kit",
+        "One radio — two whips are not simultaneous without a switch you already have",
+        "Not Fusion Sensor. Not V4. No battery. No pre-flashed microSD. Receive only",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Weekend orders ship Monday. Tracking by email"
+      ]
+    },
     radio: {
       title: "Fusion Sensor + radios",
       lede: "Same console. We kit, flash, and ship the radios, then complete initial setup and a first monitoring session with you.",
