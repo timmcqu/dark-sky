@@ -1351,11 +1351,27 @@
   Object.keys(SKUS).forEach(function (k) {
     if (LINKS[k]) SKUS[k].stripe = LINKS[k];
   });
+  var CHECKOUT_API = (window.DSS_CHECKOUT && window.DSS_CHECKOUT.api) ? String(window.DSS_CHECKOUT.api).replace(/\/$/, "") : "";
+  var MANAGED = { scene: 1, job: 1, school: 1, incident: 1, crew: 1 };
 
   var params = new URLSearchParams(location.search);
   var key = params.get("sku") || "soft";
   if (!SKUS[key]) key = "soft";
   var sku = SKUS[key];
+  var useManaged = !!(CHECKOUT_API && MANAGED[key]);
+
+  function startManagedCheckout(email) {
+    return fetch(CHECKOUT_API + "/create-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ sku: key, email: email || undefined })
+    }).then(function (r) {
+      return r.json().then(function (j) {
+        if (!r.ok || !j || !j.url) throw new Error((j && j.error) || "checkout");
+        location.href = j.url;
+      });
+    });
+  }
 
   var title = document.getElementById("sku-title");
   var lede = document.getElementById("sku-lede");
@@ -1392,7 +1408,7 @@
       : (isAttach ? "Field attach · Checkout" : (isVolume ? "Crew paper · Checkout" : (isPack ? "Digital packs · Checkout" : (key === "soft" || key === "radio" ? "Detect Drones · Checkout" : "Plans · Checkout"))));
   }
   var payHref = sku.stripe || sku.chase || "";
-  var payOnStripe = !!sku.stripe;
+  var payOnStripe = !!sku.stripe || useManaged;
   if (fine) {
     if (key === "soft" || key === "radio") {
       fine.textContent = payOnStripe
@@ -1434,13 +1450,21 @@
     location.replace("paid.html?sku=" + encodeURIComponent(key));
     return;
   }
-  if (btn) btn.textContent = sku.stripe ? "Continue to Stripe" : "Save details";
+  if (btn) btn.textContent = (sku.stripe || useManaged) ? "Continue to Stripe" : "Save details";
   var wrapEarly = document.getElementById("payWrap");
   var payEarly = document.getElementById("payNow");
-  if (payEarly && sku.stripe) {
-    payEarly.href = sku.stripe;
+  if (payEarly && (sku.stripe || useManaged)) {
+    payEarly.href = sku.stripe || "#";
     payEarly.textContent = "Pay with Stripe";
     if (wrapEarly) wrapEarly.hidden = false;
+    if (useManaged) {
+      payEarly.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        startManagedCheckout(val("oEmail")).catch(function () {
+          if (sku.stripe) location.href = sku.stripe;
+        });
+      });
+    }
   }
   document.querySelectorAll(".sku-switch a").forEach(function (a) {
     if (a.getAttribute("data-sku") === key) a.setAttribute("aria-current", "page");
@@ -1491,11 +1515,29 @@
         "Org: " + (val("oOrg") || "(none)"),
         "Window: " + (val("oWindow") || "(none)"),
         payOnStripe
-          ? "Next: customer pays the Stripe Payment Link. Do not mint Chase for this order."
+          ? (useManaged
+            ? "Next: customer pays a Stripe Checkout Session with Managed Payments. Do not mint Chase for this order."
+            : "Next: customer pays the Stripe Payment Link. Do not mint Chase for this order.")
           : "Next: mint a Chase payment link for this customer and amount. Do not reuse a public invid."
       ];
       var wrap = document.getElementById("payWrap");
       var payNow = document.getElementById("payNow");
+      if (useManaged) {
+        if (status) {
+          status.hidden = false;
+          status.textContent = "Opening Stripe. We do not store your card.";
+        }
+        sendNotice(lines.join("\n"));
+        startManagedCheckout(val("oEmail")).catch(function () {
+          if (status) status.textContent = "Checkout is not ready. Use the Payment Link.";
+          if (payNow && sku.stripe) {
+            payNow.href = sku.stripe;
+            payNow.textContent = "Pay with Stripe";
+            if (wrap) wrap.hidden = false;
+          }
+        });
+        return;
+      }
       var href = sku.stripe || sku.chase || "";
       if (payNow && href) {
         if (sku.stripe && val("oEmail")) {

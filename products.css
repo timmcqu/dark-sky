@@ -67,6 +67,49 @@
 .p-trust { color: var(--mute); font-size: 0.92rem; max-width: 40rem; }
 .p-related .card { text-decoration: none; color: inherit; border: 1px solid var(--line); padding: 1.1rem 1.15rem 1.2rem; background: var(--lift); }
 .p-related .card h3 { margin-top: 0.35rem; }
+.also-buy h2 { margin-bottom: 1.15rem; }
+.also-grid {
+  display: grid;
+  gap: 1.15rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 560px) {
+  .also-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 960px) {
+  .also-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.also-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--line);
+  background: var(--lift);
+  min-height: 100%;
+}
+.also-card .sku-photo {
+  width: 100%;
+  height: 10.5rem;
+  margin: 0;
+  object-fit: contain;
+  object-position: center;
+  background: #0c0b0a;
+  border-bottom: 1px solid var(--line);
+}
+.also-card .also-body { padding: 0.9rem 1rem 1.1rem; display: flex; flex-direction: column; flex: 1; }
+.also-card h3 { margin: 0.2rem 0 0.35rem; font-size: 1.15rem; }
+.also-card .plan-price { font-family: var(--serif); font-size: 1.35rem; margin: 0 0 0.35rem; }
+.also-card .plan-price small { display: block; font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); }
+.also-card p { margin: 0; color: var(--mute); font-size: 0.9rem; }
+.also-cta {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  color: var(--gold);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
 .p-sku-pair { display: grid; gap: 1.25rem; margin: 1rem 0; }
 @media (min-width: 700px) { .p-sku-pair { grid-template-columns: 1fr 1fr; } }
 .p-sku-box { border: 1px solid var(--line); padding: 1.15rem 1.2rem 1.25rem; background: var(--lift); }
@@ -135,8 +178,8 @@
 }
 .collection-card img {
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
   background: #0c0b0a;
 }
 .collection-card .pad {

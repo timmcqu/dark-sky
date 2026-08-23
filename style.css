@@ -458,6 +458,18 @@ h3 {
   background: var(--lift);
 }
 
+.card img.sku-photo,
+.sku-photo {
+  height: 14rem;
+  object-fit: contain;
+  object-position: center;
+  background: #0c0b0a;
+  width: 100%;
+  max-width: none;
+  margin: 0 0 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
 .card .loop { pointer-events: none; }
 
 .card p {
