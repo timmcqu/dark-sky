@@ -72,3 +72,10 @@
 .p-sku-box { border: 1px solid var(--line); padding: 1.15rem 1.2rem 1.25rem; background: var(--lift); }
 .p-sku-box .plan-price { margin-top: 0.35rem; }
 .p-local img { width: 100%; height: auto; object-fit: contain; background: #0c0b0a; border: 1px solid var(--line); }
+
+/* Ready-to-Run equal CTAs */
+.p-sku-box .plan-for { margin: 0; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.72rem; color: var(--gold); }
+.p-sku-box .plan-price { font-family: var(--serif); font-size: 1.85rem; margin: 0.25rem 0 0.55rem; }
+.p-sku-box p { color: var(--mute); margin: 0 0 0.45rem; }
+.p-sku-box .p-actions { margin: 0.75rem 0 0; }
+.p-sku-box .cta { min-width: 12rem; text-align: center; }

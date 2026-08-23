@@ -1066,6 +1066,268 @@
       ]
     },
 
+
+    picam3: {
+      title: "Raspberry Pi Camera Module 3",
+      lede: "12 MP visual CSI camera with autofocus. 200 mm 15-pin ribbon. A Pi 5 needs a 22-pin to 15-pin adapter (about $3, not included). Not thermal. Not medical. No battery.",
+      price: "$59",
+      amount: "59",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/raspberry-pi-camera-module-3.jpg?v=1",
+      gets: [
+        "One Raspberry Pi Camera Module 3 (standard 75°) + 200 mm 15-pin CSI ribbon",
+        "Visual CSI only — not thermal, not medical, not a drone camera we fly",
+        "A Raspberry Pi 5 needs a 22-pin to 15-pin adapter (about $3, not in this order)",
+        "No battery. Pairs with Pi listener kits",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    picam3w: {
+      title: "Raspberry Pi Camera Module 3 Wide",
+      lede: "12 MP visual CSI camera with autofocus and a 120° lens. 200 mm 15-pin ribbon. A Pi 5 needs a 22-pin to 15-pin adapter (about $3, not included). Not thermal. No battery.",
+      price: "$89",
+      amount: "89",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/raspberry-pi-camera-module-3-wide.jpg?v=1",
+      gets: [
+        "One Raspberry Pi Camera Module 3 Wide (120°) + 200 mm 15-pin CSI ribbon",
+        "Visual CSI only — not thermal, not medical, not a drone camera we fly",
+        "A Raspberry Pi 5 needs a 22-pin to 15-pin adapter (about $3, not in this order)",
+        "No battery. Pairs with Pi listener kits",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    lepton160: {
+      title: "Thermal camera module, 160×120 USB",
+      lede: "160×120 thermal camera module over USB. Module, not a handheld. Not the 32×24 I2C row. No cell. USB cable not in the box. Not medical.",
+      price: "$649",
+      amount: "649",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/thermal-camera-module-160x120-usb.jpg?v=1",
+      gets: [
+        "One 160×120 thermal core on a USB UVC board",
+        "Module — not a handheld, not the $149 32×24 I2C module, not the $549 handheld",
+        "USB cable is not in the box. No cell. Not medical",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    usbll: {
+      title: "USB low-light camera module, 2MP",
+      lede: "Named 2 MP USB UVC board for low-light site picture. Not CSI. Not thermal. Not a generic webcam. Cable in the box. No battery.",
+      price: "$89",
+      amount: "89",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/usb-low-light-camera-module-2mp.jpg?v=1",
+      gets: [
+        "One named 2 MP USB low-light camera board + USB-to-4-pin cable",
+        "USB UVC — not CSI, not thermal, not a generic webcam",
+        "No battery. Not medical. Not a drone camera we fly",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    ridrtr: {
+      title: "USB-C Remote ID Receive Board (Ready-to-Run)",
+      lede: "Same USB-C Remote ID receive board. We load the listener firmware on the board before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      price: "$79",
+      amount: "79",
+      chase: "",
+      stripe: "",
+      photo: "assets/attach/rid.webp?v=1",
+      gets: [
+        "Same USB-C Remote ID receive board",
+        "We load the listener firmware on the board before it ships",
+        "Extra business day. Ships from Dark Sky Systems after we load it",
+        "No battery or charger in the box",
+        "Receive only",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    espridrtr: {
+      title: "ESP32 Remote ID Scanner with Color Display (Ready-to-Run)",
+      lede: "Same color-display ESP32 Remote ID scanner. We load the listener firmware on the board before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      price: "$129",
+      amount: "129",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/esp32-remote-id-scanner-color-display-front.jpg?v=1",
+      gets: [
+        "Same ESP32 color-display receive board, USB-C, PCB antenna, three buttons",
+        "We load the listener firmware on the board before it ships",
+        "Extra business day. Ships from Dark Sky Systems after we load it",
+        "USB-C only. No LiPo. Receive only",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    rfalertrtr: {
+      title: "Remote ID Alert Board with Display (Ready-to-Run)",
+      lede: "Same Remote ID alert board with display. We load the listener firmware on the board before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      price: "$179",
+      amount: "179",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/remote-id-receive-board.jpg?v=1",
+      gets: [
+        "Same Remote ID receive board, assembled OLED, weatherproof enclosure",
+        "We load the listener firmware on the board before it ships",
+        "Extra business day. Ships from Dark Sky Systems after we load it",
+        "USB-C only. No LiPo. Receive only",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    espmeshrtr: {
+      title: "ESP32 Mesh-Capable Remote ID Listener (Ready-to-Run)",
+      lede: "Same ESP32 mesh-capable Remote ID listener. We load the listener firmware on the board before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      price: "$139",
+      amount: "139",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/esp32-mesh-listener-board.jpg?v=1",
+      gets: [
+        "Same ESP32 listen board and flanged weatherproof box",
+        "We load the listener firmware on the board before it ships",
+        "Extra business day. Ships from Dark Sky Systems after we load it",
+        "USB-C only. No LiPo. Receive only",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    espsitertr: {
+      title: "ESP32 Site Listener Module (Ready-to-Run)",
+      lede: "Same ESP32 site listener module. We load the listener firmware on the board before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      price: "$249",
+      amount: "249",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/esp32-site-listener-ip66-enclosure.jpg?v=1",
+      gets: [
+        "Same w.FL ESP32 receive board, IP66 box, PoE-to-USB-C power, antenna chain",
+        "We load the listener firmware on the board before it ships",
+        "Extra business day. Ships from Dark Sky Systems after we load it",
+        "USB-C. No LiPo. Receive only",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    starterrtr: {
+      title: "Listen Starter Kit (Ready-to-Run)",
+      lede: "Same listen starter kit. We load the listener firmware on the receive board before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      price: "$149",
+      amount: "149",
+      chase: "",
+      stripe: "",
+      photo: "assets/attach/starter.webp?v=1",
+      gets: [
+        "Same Remote ID receive board and listen radio + dipole",
+        "We load the listener firmware on the receive board before it ships",
+        "Extra business day. Ships from Dark Sky Systems after we load it",
+        "Receive only. No Fusion Sensor license in this SKU",
+        "Tracking by email"
+      ]
+    },
+    adsbkitrtr: {
+      title: "ADS-B + Remote ID Receiver Kit (Ready-to-Run)",
+      lede: "Same ADS-B + Remote ID receiver kit. We load the listener firmware on the receive board before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      price: "$259",
+      amount: "259",
+      chase: "",
+      stripe: "",
+      photo: "assets/attach/adsbkit.jpg?v=1",
+      gets: [
+        "Same Remote ID receive board, listen radio, 1090 and 978 antennas, hard case",
+        "We load the listener firmware on the receive board before it ships",
+        "Extra business day. Ships from Dark Sky Systems after we load it",
+        "Receive only. Not Fusion Sensor",
+        "Tracking by email"
+      ]
+    },
+    pistarterrtr: {
+      title: "Raspberry Pi Remote ID + ADS-B Listener Kit (Ready-to-Run)",
+      lede: "Same Raspberry Pi Remote ID + ADS-B listener kit. We load the listener image on a 64GB card before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      price: "$349",
+      amount: "349",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/raspberry-pi-4-4gb-remote-id-adsb-listener.jpg?v=1",
+      gets: [
+        "Same Raspberry Pi 4 4 GB sit — official 15 W, Remote ID board, listen radio + dipole",
+        "We load the listener image on a 64GB card before it ships",
+        "Extra business day. Ships from Dark Sky Systems after we load it",
+        "No official case. No 1090 SMA whip. No battery",
+        "Not Fusion Sensor. Not V4. Receive only",
+        "Weekend +1 day. Tracking by email"
+      ]
+    },
+    pirecvrtr: {
+      title: "Raspberry Pi Remote ID + ADS-B Receiver Kit (Ready-to-Run)",
+      lede: "Same Raspberry Pi Remote ID + ADS-B receiver kit. We load the listener image on a 64GB card before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      price: "$479",
+      amount: "479",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/raspberry-pi-5-remote-id-adsb-receiver.jpg?v=1",
+      gets: [
+        "Same Raspberry Pi 5 4 GB sit — official 27 W, official case, Remote ID, listen radio, 1090 whip",
+        "We load the listener image on a 64GB card before it ships",
+        "Extra business day. Ships from Dark Sky Systems after we load it",
+        "No battery. Not Fusion Sensor. Not V4. Receive only",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    piprortr: {
+      title: "Raspberry Pi Professional Remote ID + Dual-Band ADS-B (Ready-to-Run)",
+      lede: "Same Raspberry Pi professional Remote ID + dual-band ADS-B sit. We load the listener image on a 64GB card before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      price: "$629",
+      amount: "629",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/raspberry-pi-5-4gb-professional-listener.jpg?v=1",
+      gets: [
+        "Same Pi 5 sit plus 1090, 978, and the dual-channel filter",
+        "We load the listener image on a 64GB card before it ships",
+        "Extra business day. Ships from Dark Sky Systems after we load it",
+        "No battery. Not Fusion Sensor. Not V4. Receive only",
+        "Weekend +1 day. Tracking by email"
+      ]
+    },
+    pioutdoorrtr: {
+      title: "Raspberry Pi Long-Range Outdoor Permanent Listener (Ready-to-Run)",
+      lede: "Same Raspberry Pi outdoor permanent listener. We load the listener image on a 64GB card before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      price: "$729",
+      amount: "729",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/outdoor-1090-mhz-9dbi-n-female-base-antenna.jpg?v=1",
+      gets: [
+        "Same Pi 5 outdoor sit — IP66 box, Remote ID, listen radio, 9 dBi N-female 1090, jumper",
+        "We load the listener image on a 64GB card before it ships",
+        "Extra business day. Ships from Dark Sky Systems after we load it",
+        "Indoor power brick. No battery. Not Fusion Sensor. Not V4. Receive only",
+        "Weekend +1 day. Tracking by email"
+      ]
+    },
+    adsbfeederrtr: {
+      title: "Dual-Band ADS-B Feeder Kit (Raspberry Pi) (Ready-to-Run)",
+      lede: "Same dual-band ADS-B feeder kit. We load the listener image on a 64GB card before it ships. Extra business day. Ships from us after we load it. Receive only.",
+      price: "$369",
+      amount: "369",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/raspberry-pi-4-4gb-remote-id-adsb-listener.jpg?v=1",
+      gets: [
+        "Same Pi 4 feeder — official 15 W, listen radio, 1090 and 978 whips",
+        "We load the listener image on a 64GB card before it ships",
+        "Extra business day. Ships from Dark Sky Systems after we load it",
+        "No Remote ID board. Not the $199 kit. Not Fusion Sensor. Not V4. Receive only",
+        "Weekend +1 day. Tracking by email"
+      ]
+    },
+
     radio: {
       title: "Fusion Sensor + radios",
       lede: "Same console. We kit, flash, and ship the radios, then complete initial setup and a first monitoring session with you.",
@@ -1121,7 +1383,7 @@
   if (price) price.textContent = sku.price;
   var isPack = key === "ra" || key === "cards" || key === "eventpack";
   var isVolume = key === "scene" || key === "job" || key === "school" || key === "incident" || key === "crew";
-  var isAttach = key === "rid" || key === "listen" || key === "ant1090" || key === "case" || key === "starter" || key === "rider" || key === "therm256" || key === "therm320" || key === "adsbkit" || key === "ant2458" || key === "r2kit" || key === "r2mic" || key === "batt-expro" || key === "case1200" || key === "radiopouch" || key === "lightspeak" || key === "sd64" || key === "ant1090x" || key === "adsbpair" || key === "piarmor" || key === "pi27w" || key === "smajump" || key === "encl66" || key === "ant24chain" || key === "espbox" || key === "pistart1090" || key === "espridlisten" || key === "rfalertlisten";
+  var isAttach = key === "rid" || key === "listen" || key === "ant1090" || key === "case" || key === "starter" || key === "rider" || key === "therm256" || key === "therm320" || key === "adsbkit" || key === "ant2458" || key === "r2kit" || key === "r2mic" || key === "batt-expro" || key === "case1200" || key === "radiopouch" || key === "lightspeak" || key === "sd64" || key === "ant1090x" || key === "adsbpair" || key === "piarmor" || key === "pi27w" || key === "smajump" || key === "encl66" || key === "ant24chain" || key === "espbox" || key === "pistart1090" || key === "espridlisten" || key === "rfalertlisten" || key === "picam3" || key === "picam3w" || key === "lepton160" || key === "usbll" || key === "ridrtr" || key === "espridrtr" || key === "rfalertrtr" || key === "espmeshrtr" || key === "espsitertr" || key === "starterrtr" || key === "adsbkitrtr" || key === "pistarterrtr" || key === "pirecvrtr" || key === "piprortr" || key === "pioutdoorrtr" || key === "adsbfeederrtr";
   var eyebrow = document.getElementById("sku-eyebrow");
   var fine = document.getElementById("sku-fine");
   if (eyebrow) {

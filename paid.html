@@ -87,7 +87,23 @@
       espbox: "Flanged Weatherproof Enclosure for ESP32 Boards",
       pistart1090: "Raspberry Pi Starter Listener + 1090 Antenna",
       espridlisten: "ESP32 Color Remote ID Scanner + Listen Radio",
-      rfalertlisten: "Remote ID Alert Board + Listen Radio"
+      rfalertlisten: "Remote ID Alert Board + Listen Radio",
+      picam3: "Raspberry Pi Camera Module 3",
+      picam3w: "Raspberry Pi Camera Module 3 Wide",
+      lepton160: "Thermal camera module, 160×120 USB",
+      usbll: "USB low-light camera module, 2MP",
+      ridrtr: "USB-C Remote ID Receive Board (Ready-to-Run)",
+      espridrtr: "ESP32 Remote ID Scanner with Color Display (Ready-to-Run)",
+      rfalertrtr: "Remote ID Alert Board with Display (Ready-to-Run)",
+      espmeshrtr: "ESP32 Mesh-Capable Remote ID Listener (Ready-to-Run)",
+      espsitertr: "ESP32 Site Listener Module (Ready-to-Run)",
+      starterrtr: "Listen Starter Kit (Ready-to-Run)",
+      adsbkitrtr: "ADS-B + Remote ID Receiver Kit (Ready-to-Run)",
+      pistarterrtr: "Raspberry Pi Remote ID + ADS-B Listener Kit (Ready-to-Run)",
+      pirecvrtr: "Raspberry Pi Remote ID + ADS-B Receiver Kit (Ready-to-Run)",
+      piprortr: "Raspberry Pi Professional Remote ID + Dual-Band ADS-B (Ready-to-Run)",
+      pioutdoorrtr: "Raspberry Pi Long-Range Outdoor Permanent Listener (Ready-to-Run)",
+      adsbfeederrtr: "Dual-Band ADS-B Feeder Kit (Raspberry Pi) (Ready-to-Run)"
     };
     var sku = new URLSearchParams(location.search).get("sku") || "";
     var label = names[sku];
@@ -111,7 +127,7 @@
       lede.textContent = "Your named-location report is ready. It opens next. Use Save as PDF in the print dialog.";
       box.innerHTML = '<a class="cta" href="report.html?sku=airspace_report">Open Your Location Report now</a>';
       window.location.replace("report.html?sku=airspace_report");
-    } else if (sku === "rid" || sku === "listen" || sku === "ant1090" || sku === "case" || sku === "starter" || sku === "rider" || sku === "therm256" || sku === "therm320" || sku === "adsbkit" || sku === "ant2458" || sku === "r2kit" || sku === "r2mic" || sku === "batt-expro" || sku === "case1200" || sku === "radiopouch" || sku === "lightspeak" || sku === "pirecv" || sku === "scan" || sku === "mlx32" || sku === "duck2458" || sku === "omni2458" || sku === "sdradv" || sku === "rfalert" || sku === "pistarter" || sku === "pipro" || sku === "pioutdoor" || sku === "adsbfeeder" || sku === "esprid" || sku === "espmesh" || sku === "espsite" || sku === "sd64" || sku === "ant1090x" || sku === "adsbpair" || sku === "piarmor" || sku === "pi27w" || sku === "smajump" || sku === "encl66" || sku === "ant24chain" || sku === "espbox" || sku === "pistart1090" || sku === "espridlisten" || sku === "rfalertlisten") {
+    } else if (sku === "rid" || sku === "listen" || sku === "ant1090" || sku === "case" || sku === "starter" || sku === "rider" || sku === "therm256" || sku === "therm320" || sku === "adsbkit" || sku === "ant2458" || sku === "r2kit" || sku === "r2mic" || sku === "batt-expro" || sku === "case1200" || sku === "radiopouch" || sku === "lightspeak" || sku === "pirecv" || sku === "scan" || sku === "mlx32" || sku === "duck2458" || sku === "omni2458" || sku === "sdradv" || sku === "rfalert" || sku === "pistarter" || sku === "pipro" || sku === "pioutdoor" || sku === "adsbfeeder" || sku === "esprid" || sku === "espmesh" || sku === "espsite" || sku === "sd64" || sku === "ant1090x" || sku === "adsbpair" || sku === "piarmor" || sku === "pi27w" || sku === "smajump" || sku === "encl66" || sku === "ant24chain" || sku === "espbox" || sku === "pistart1090" || sku === "espridlisten" || sku === "rfalertlisten" || sku === "picam3" || sku === "picam3w" || sku === "lepton160" || sku === "usbll" || sku === "ridrtr" || sku === "espridrtr" || sku === "rfalertrtr" || sku === "espmeshrtr" || sku === "espsitertr" || sku === "starterrtr" || sku === "adsbkitrtr" || sku === "pistarterrtr" || sku === "pirecvrtr" || sku === "piprortr" || sku === "pioutdoorrtr" || sku === "adsbfeederrtr") {
       lede.textContent = (label || "Field attach") + ". Ships from Dark Sky Systems to the address on the receipt. Tracking by email.";
     } else {
       lede.textContent = (label || "This order") + ". We email next steps to the address on the Stripe receipt. Deposit is in Dark Sky Systems LLC.";
