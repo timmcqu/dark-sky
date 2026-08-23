@@ -51,5 +51,8 @@ window.DSS_STRIPE = {
   pistarter: "https://buy.stripe.com/aFacN58DM2gF4DS1AHfIs0N",
   pipro: "https://buy.stripe.com/dRm6oH9HQ7AZ4DSa7dfIs0O",
   pioutdoor: "https://buy.stripe.com/4gM4gz1bkdZn7Q43IPfIs0P",
-  adsbfeeder: "https://buy.stripe.com/3cI6oH07gf3rgmAdjpfIs0Q"
+  adsbfeeder: "https://buy.stripe.com/3cI6oH07gf3rgmAdjpfIs0Q",
+  esprid: "https://buy.stripe.com/28E6oH5rA8F34DScflfIs0R",
+  espmesh: "https://buy.stripe.com/14AbJ11bk08x8U82ELfIs0S",
+  espsite: "https://buy.stripe.com/3cIdR9aLU6wV5HWentfIs0T"
 };

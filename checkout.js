@@ -809,6 +809,58 @@
         "Weekend orders ship Monday. Tracking by email"
       ]
     },
+
+    esprid: {
+      title: "ESP32 Remote ID Scanner with Color Display",
+      lede: "Pocket ESP32 Remote ID scanner with a color display. USB-C only. Not the $39 bare board and not the $129 OLED kit. Not pre-flashed. No LiPo. Receive only.",
+      price: "$79",
+      amount: "79",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/esp32-remote-id-scanner-color-display-front.jpg?v=1",
+      gets: [
+        "One ESP32 color-display receive board, USB-C, PCB antenna, three buttons",
+        "Not the $39 bare board. Not the $129 OLED kit",
+        "Not pre-flashed — shop ships the board as they ship it",
+        "USB-C only. No LiPo. Receive only",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    espmesh: {
+      title: "ESP32 Mesh-Capable Remote ID Listener",
+      lede: "ESP32 listener for Remote ID on Wi-Fi and Bluetooth, plus 802.15.4 mesh backhaul. Thread is not a Remote ID radio. Board + flanged box. Not pre-flashed. USB-C. No LiPo.",
+      price: "$89",
+      amount: "89",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/esp32-mesh-listener-board.jpg?v=1",
+      gets: [
+        "ESP32 listen board — Wi-Fi + BLE + 802.15.4 mesh backhaul",
+        "Flanged weatherproof box with cable glands",
+        "Thread / Zigbee is mesh only — Remote ID is Wi-Fi + BLE",
+        "Not pre-flashed. USB-C only. No LiPo. PCB antenna, no external whip",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    espsite: {
+      title: "ESP32 Site Listener Module",
+      lede: "Permanent-install ESP32 Remote ID listener in a large IP66 box. PoE is 5 V USB-C power only — the board has no Ethernet. w.FL antenna chain. Not pre-flashed. No LiPo.",
+      price: "$179",
+      amount: "179",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/esp32-site-listener-ip66-enclosure.jpg?v=1",
+      gets: [
+        "w.FL ESP32 receive board + large IP66 box",
+        "802.3af → USB-C 5 V splitter (power only; board has no Ethernet)",
+        "RJ-45 gland, PG-9 gland, w.FL→SMA pigtail, SMA↔RP-SMA adapter, RP-SMA 2.4 GHz duck",
+        "Not pre-flashed. Buyer drills gland holes. USB-C. No LiPo",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
     radio: {
       title: "Fusion Sensor + radios",
       lede: "Same console. We kit, flash, and ship the radios, then complete initial setup and a first monitoring session with you.",
