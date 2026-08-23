@@ -54,5 +54,17 @@ window.DSS_STRIPE = {
   adsbfeeder: "https://buy.stripe.com/3cI6oH07gf3rgmAdjpfIs0Q",
   esprid: "https://buy.stripe.com/28E6oH5rA8F34DScflfIs0R",
   espmesh: "https://buy.stripe.com/14AbJ11bk08x8U82ELfIs0S",
-  espsite: "https://buy.stripe.com/3cIdR9aLU6wV5HWentfIs0T"
+  espsite: "https://buy.stripe.com/3cIdR9aLU6wV5HWentfIs0T",
+  sd64: "https://buy.stripe.com/9B600jf2a5sR5HW1AHfIs0U",
+  ant1090x: "https://buy.stripe.com/3cIaEXcU24oNb2ga7dfIs0V",
+  adsbpair: "https://buy.stripe.com/4gM9AT8DMaNb8U8939fIs0W",
+  piarmor: "https://buy.stripe.com/7sY3cv07g2gFc6ka7dfIs0X",
+  pi27w: "https://buy.stripe.com/4gM28r7zI7AZdao4MTfIs0Y",
+  smajump: "https://buy.stripe.com/14A6oH7zIf3r0nC3IPfIs0Z",
+  encl66: "https://buy.stripe.com/dRmfZh2foaNb1rG4MTfIs10",
+  ant24chain: "https://buy.stripe.com/eVqbJ1aLU2gF8U81AHfIs11",
+  espbox: "https://buy.stripe.com/28E00j5rA3kJb2ggvBfIs12",
+  pistart1090: "https://buy.stripe.com/dRmfZhdY61cB3zO0wDfIs13",
+  espridlisten: "https://buy.stripe.com/9B614n9HQ4oNc6kdjpfIs14",
+  rfalertlisten: "https://buy.stripe.com/aFa9ATf2aaNbeesdjpfIs15",
 };

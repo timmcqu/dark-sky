@@ -861,6 +861,211 @@
         "Tracking by email to the address on the receipt"
       ]
     },
+
+    sd64: {
+      title: "Official Raspberry Pi 64GB microSD Card (Blank)",
+      lede: "Official Raspberry Pi 64GB microSD, sold blank. No OS and no listener image. We do not flash it. Weekend orders ship Monday.",
+      price: "$49",
+      amount: "49",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/official-raspberry-pi-64gb-microsd-blank.jpg?v=1",
+      gets: [
+        "Official Raspberry Pi 64 GB microSD, blank as shipped",
+        "No OS. No listener image. Not pre-flashed",
+        "Not 32 / 128 / 256 GB",
+        "Weekend orders ship Monday",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    ant1090x: {
+      title: "Outdoor 1090 MHz Listen Antenna (N-Female)",
+      lede: "Outdoor 1090 listen antenna, N-female 9 dBi, plus SMA-male to N-male jumper. Does not screw onto the radio alone. Receive only. Weekend orders ship Monday.",
+      price: "$329",
+      amount: "329",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/outdoor-1090-mhz-9dbi-n-female-listen-antenna.jpg?v=1",
+      gets: [
+        "Mast-mount 1090, N-female, 9 dBi",
+        "SMA-male to N-male jumper included",
+        "Not the indoor SMA whip. No Pi. No radio",
+        "Passive receive only",
+        "Weekend orders ship Monday",
+        "Ships from Dark Sky Systems after Stripe clears"
+      ]
+    },
+    adsbpair: {
+      title: "Dual-Band 1090 / 978 Listen Antenna Kit",
+      lede: "1090 and 978 SMA whips plus a short unfiltered jumper. One radio — not simultaneous. Receive only. Weekend orders ship Monday.",
+      price: "$59",
+      amount: "59",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/1090-mhz-5dbi-sma-listen-whip-lock.png?v=1",
+      gets: [
+        "1090 SMA whip and 978 SMA whip",
+        "Short SMA male–male jumper, unfiltered",
+        "One radio — not simultaneous without a switch or second radio",
+        "No radio in the box. Receive only",
+        "Weekend orders ship Monday",
+        "Ships from Dark Sky Systems after Stripe clears"
+      ]
+    },
+    piarmor: {
+      title: "Raspberry Pi 5 Aluminum Case with Fan",
+      lede: "Indoor aluminum Raspberry Pi 5 case with blower. Not the official plastic case. Not weatherproof. Pi not included. Weekend orders ship Monday.",
+      price: "$29",
+      amount: "29",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/raspberry-pi-5-aluminum-case-fan.jpg?v=1",
+      gets: [
+        "Aluminum plates, blower, tape, screws, tools",
+        "Pi 5 only — will not fit Pi 4",
+        "Pi board not included. Not weatherproof",
+        "Not the official ABS case",
+        "Weekend orders ship Monday",
+        "Ships from Dark Sky Systems after Stripe clears"
+      ]
+    },
+    pi27w: {
+      title: "Official Raspberry Pi 27W USB-C Power Supply",
+      lede: "Official Raspberry Pi 27W USB-C PD brick for a Pi 5. Indoor, US plug. Not the 15W Pi 4 supply. Pi not included. Weekend orders ship Monday.",
+      price: "$29",
+      amount: "29",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/official-raspberry-pi-27w-usb-c-black.jpg?v=1",
+      gets: [
+        "Official 27 W USB-C PD, US plug, 1.2 m",
+        "For Raspberry Pi 5 — not the 15 W Pi 4 brick",
+        "Indoor. Not weatherproof. No Pi in the box",
+        "Weekend orders ship Monday",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    smajump: {
+      title: "SMA to SMA Jumper Cable (Unfiltered)",
+      lede: "Six-inch SMA-to-SMA jumper. Unfiltered coax — not a SAW. No antenna. Weekend orders ship Monday.",
+      price: "$24",
+      amount: "24",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/sma-male-male-rg316-jumper-lock.png?v=1",
+      gets: [
+        "SMA male–male jumper, about 6 in, unfiltered",
+        "Not a filter. Not an antenna",
+        "Weekend orders ship Monday",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    encl66: {
+      title: "Outdoor Weatherproof Project Enclosure (IP66)",
+      lede: "Large IP66 clear-lid project box, about 5×7×3 in. Buyer drills. Not NEMA 4X. No computer. Weekend orders ship Monday.",
+      price: "$39",
+      amount: "39",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/ip66-weatherproof-project-enclosure-905.jpg?v=1",
+      gets: [
+        "Large IP66 clear-lid box, about 5 × 7 × 3 in",
+        "No glands. Buyer drills. Not NEMA 4X",
+        "No Pi and no ESP32 in the box",
+        "Weekend orders ship Monday",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    ant24chain: {
+      title: "2.4 GHz Listen Whip Kit for w.FL Boards",
+      lede: "2.4 GHz chain for w.FL boards: w.FL→SMA pigtail, SMA↔RP-SMA adapter, RP-SMA duck. Not one cable. No board. Weekend orders ship Monday.",
+      price: "$39",
+      amount: "39",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/24ghz-rpsma-listen-duck-945.jpg?v=1",
+      gets: [
+        "w.FL → SMA pigtail",
+        "SMA plug to RP-SMA jack adapter",
+        "RP-SMA 2.4 GHz duck, 5 dBi",
+        "Not a single cable. No board. Not for PCB-antenna boards",
+        "Weekend orders ship Monday",
+        "Ships from Dark Sky Systems after Stripe clears"
+      ]
+    },
+    espbox: {
+      title: "Flanged Weatherproof Enclosure for ESP32 Boards",
+      lede: "Small flanged weatherproof ESP32 box with two glands. Will not fit Pi 4/5. Not the large IP66 box. No board. Weekend orders ship Monday.",
+      price: "$24",
+      amount: "24",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/flanged-weatherproof-esp32-enclosure-3931.jpg?v=1",
+      gets: [
+        "Flanged weatherproof box, two glands, IP65 class",
+        "ESP32 / Feather-size. Will not fit Pi 4 / 5",
+        "Not the large IP66 box. No board",
+        "Weekend orders ship Monday",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
+      ]
+    },
+    pistart1090: {
+      title: "Raspberry Pi Starter Listener + 1090 Antenna",
+      lede: "Pi 4 starter sit plus the 1090 SMA whip it omits. $289 vs $308 separate — save $19. Not pre-flashed. Receive only. Weekend orders ship Monday.",
+      price: "$289",
+      amount: "289",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/raspberry-pi-4-4gb-remote-id-adsb-listener.jpg?v=1",
+      gets: [
+        "Raspberry Pi 4 4 GB, official 15 W, Remote ID board, listen radio + dipole",
+        "1090 SMA whip (the starter page does not include it)",
+        "Live $308 → bundle $289. Save $19",
+        "Not pre-flashed. No case. No battery. Not V4. Receive only",
+        "Weekend orders ship Monday",
+        "Ships from Dark Sky Systems after Stripe clears"
+      ]
+    },
+    espridlisten: {
+      title: "ESP32 Color Remote ID Scanner + Listen Radio",
+      lede: "Color-display ESP32 Remote ID board plus listen radio + dipole. $139 vs $158 separate — save $19. Not the $99 starter. Not pre-flashed. Weekend orders ship Monday.",
+      price: "$139",
+      amount: "139",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/esp32-remote-id-scanner-color-display-front.jpg?v=1",
+      gets: [
+        "ESP32 color-display Remote ID board",
+        "Listen radio + dipole",
+        "Live $158 → bundle $139. Save $19",
+        "Not the $99 starter. Not pre-flashed. No LiPo. Receive only",
+        "Weekend orders ship Monday",
+        "Ships from Dark Sky Systems after Stripe clears"
+      ]
+    },
+    rfalertlisten: {
+      title: "Remote ID Alert Board + Listen Radio",
+      lede: "Alert board with OLED and box, plus listen radio + dipole. $179 vs $208 separate — save $29. Not the $99 starter. Not pre-flashed. Weekend orders ship Monday.",
+      price: "$179",
+      amount: "179",
+      chase: "",
+      stripe: "",
+      photo: "assets/products/remote-id-receive-board.jpg?v=1",
+      gets: [
+        "Remote ID board + assembled OLED + small weatherproof box",
+        "Listen radio + dipole",
+        "Live $208 → bundle $179. Save $29",
+        "Not the $99 starter. Not pre-flashed. No LiPo. Receive only",
+        "Weekend orders ship Monday",
+        "Ships from Dark Sky Systems after Stripe clears"
+      ]
+    },
+
     radio: {
       title: "Fusion Sensor + radios",
       lede: "Same console. We kit, flash, and ship the radios, then complete initial setup and a first monitoring session with you.",
@@ -916,7 +1121,7 @@
   if (price) price.textContent = sku.price;
   var isPack = key === "ra" || key === "cards" || key === "eventpack";
   var isVolume = key === "scene" || key === "job" || key === "school" || key === "incident" || key === "crew";
-  var isAttach = key === "rid" || key === "listen" || key === "ant1090" || key === "case" || key === "starter" || key === "rider" || key === "therm256" || key === "therm320" || key === "adsbkit" || key === "ant2458" || key === "r2kit" || key === "r2mic" || key === "batt-expro" || key === "case1200" || key === "radiopouch" || key === "lightspeak";
+  var isAttach = key === "rid" || key === "listen" || key === "ant1090" || key === "case" || key === "starter" || key === "rider" || key === "therm256" || key === "therm320" || key === "adsbkit" || key === "ant2458" || key === "r2kit" || key === "r2mic" || key === "batt-expro" || key === "case1200" || key === "radiopouch" || key === "lightspeak" || key === "sd64" || key === "ant1090x" || key === "adsbpair" || key === "piarmor" || key === "pi27w" || key === "smajump" || key === "encl66" || key === "ant24chain" || key === "espbox" || key === "pistart1090" || key === "espridlisten" || key === "rfalertlisten";
   var eyebrow = document.getElementById("sku-eyebrow");
   var fine = document.getElementById("sku-fine");
   if (eyebrow) {
