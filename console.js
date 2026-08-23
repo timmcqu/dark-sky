@@ -200,7 +200,7 @@
       if (selected === tr.id) b.className = "on";
       var tag = tr.layer === "rf" ? '<span class="hit">Detected</span>' : "";
       b.innerHTML = (tr.label || tr.id) + tag + '<span class="sub">' + tr.kind + "</span>";
-      b.addEventReceiver("click", function () { openTrack(tr.id); });
+      b.addEventListener("click", function () { openTrack(tr.id); });
       li.appendChild(b);
       list.appendChild(li);
     });
@@ -262,7 +262,7 @@
   }
 
   document.querySelectorAll(".layers button").forEach(function (btn) {
-    btn.addEventReceiver("click", function () {
+    btn.addEventListener("click", function () {
       var key = btn.getAttribute("data-layer");
       layers[key] = !layers[key];
       btn.classList.toggle("on", layers[key]);
@@ -273,7 +273,7 @@
       syncLayers();
     });
   });
-  document.getElementById("detail-close").addEventReceiver("click", clearDetail);
+  document.getElementById("detail-close").addEventListener("click", clearDetail);
 
   var spawnClock = 0;
   var hold = false;
@@ -305,7 +305,7 @@
   }
 
   var clearBtn = document.getElementById("clear-uas");
-  if (clearBtn) clearBtn.addEventReceiver("click", clearUas);
+  if (clearBtn) clearBtn.addEventListener("click", clearUas);
 
   var specHist = [];
   function drawSpec(now) {

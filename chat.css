@@ -38,6 +38,14 @@
   padding: 0.85rem 1rem;
   border-bottom: 1px solid var(--line);
 }
+.dss-chat-live {
+  margin-left: auto;
+  margin-right: 0.4rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8fca9a;
+}
 .dss-chat-head strong {
   font-family: var(--serif);
   font-weight: 500;

@@ -195,7 +195,7 @@
     var btn = el('<button type="button" class="dss-chat-btn" id="dssChatBtn">Ask Dark Sky</button>');
     var panel = el(
       '<div class="dss-chat-panel" id="dssChatPanel" hidden role="dialog" aria-label="Product assistant">' +
-        '<div class="dss-chat-head"><strong>Ask Dark Sky</strong><button type="button" class="dss-chat-x" id="dssChatX" aria-label="Close">×</button></div>' +
+        '<div class="dss-chat-head"><strong>Ask Dark Sky</strong><span class="dss-chat-live">Online</span><button type="button" class="dss-chat-x" id="dssChatX" aria-label="Close">×</button></div>' +
         '<div class="dss-chat-log" id="dssChatLog"></div>' +
         '<div class="dss-chat-chips" id="dssChatChips"></div>' +
         '<form class="dss-chat-form" id="dssChatForm"><input id="dssChatIn" maxlength="500" autocomplete="off" placeholder="Fire, campus, job, or event?" /><button type="submit">Send</button></form>' +
@@ -216,15 +216,15 @@
       var b = document.createElement("button");
       b.type = "button";
       b.textContent = c[0];
-      b.addEventReceiver("click", function () { send(c[1]); });
+      b.addEventListener("click", function () { send(c[1]); });
       box.appendChild(b);
     });
-    btn.addEventReceiver("click", function () {
+    btn.addEventListener("click", function () {
       panel.hidden = !panel.hidden;
       if (!panel.hidden) document.getElementById("dssChatIn").focus();
     });
-    document.getElementById("dssChatX").addEventReceiver("click", function () { panel.hidden = true; });
-    document.getElementById("dssChatForm").addEventReceiver("submit", function (e) {
+    document.getElementById("dssChatX").addEventListener("click", function () { panel.hidden = true; });
+    document.getElementById("dssChatForm").addEventListener("submit", function (e) {
       e.preventDefault();
       var inp = document.getElementById("dssChatIn");
       var v = inp.value;
@@ -233,6 +233,6 @@
     });
   }
 
-  if (document.readyState === "loading") document.addEventReceiver("DOMContentLoaded", mount);
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount);
   else mount();
 })();

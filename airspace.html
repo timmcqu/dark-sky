@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Named location report — Dark Sky Systems</title>
   <link rel="stylesheet" href="style.css?v=93" />
-  <link rel="stylesheet" href="chat.css?v=1" />
+  <link rel="stylesheet" href="chat.css?v=2" />
 </head>
 <body>
   <header class="mast">
@@ -65,7 +65,7 @@
   </section>
   <script src="risk-engine.js?v=6"></script>
   <script>
-    document.getElementById("air").addEventReceiver("submit", function (e) {
+    document.getElementById("air").addEventListener("submit", function (e) {
       e.preventDefault();
       var type = document.getElementById("aType").value;
       var people = document.getElementById("aPeople").value;
@@ -90,6 +90,6 @@
   </script>
   <script src="chat-config.js?v=3"></script>
   <script src="chat-kb.js?v=2"></script>
-  <script src="chat.js?v=9"></script>
+  <script src="chat.js?v=10"></script>
 </body>
 </html>

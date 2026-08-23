@@ -214,7 +214,7 @@
 
   function wireForm(formEl, buttonEl, statusEl, composeFn, sendFn) {
     if (!formEl) return;
-    formEl.addEventReceiver("submit", function (ev) {
+    formEl.addEventListener("submit", function (ev) {
       ev.preventDefault();
       if (typeof formEl.reportValidity === "function" && !formEl.reportValidity()) return;
       var hp = formEl.querySelector('input[name="botcheck"]');
@@ -259,7 +259,7 @@
   }
 
   if (form) {
-    form.addEventReceiver("submit", function (ev) {
+    form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       if (typeof form.reportValidity === "function" && !form.reportValidity()) return;
       var hp = form.querySelector('input[name="botcheck"]');

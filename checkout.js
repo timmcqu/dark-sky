@@ -1501,7 +1501,7 @@
   }
 
   if (form) {
-    form.addEventReceiver("submit", function (ev) {
+    form.addEventListener("submit", function (ev) {
       ev.preventDefault();
       if (typeof form.reportValidity === "function" && !form.reportValidity()) return;
       var hp = form.querySelector('input[name="botcheck"]');

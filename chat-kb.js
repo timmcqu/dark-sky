@@ -22,7 +22,7 @@ window.DSS_KB = {
       "href": "/products/drone-over-the-scene/",
       "pay": "/products/drone-over-the-scene/",
       "tags": ["digital", "fire", "ems", "card", "19"],
-      "blurb": "First-in pocket card: clock, heading, what is under it, who you called. Observation paper. Not a DFR program."
+      "blurb": "First-in pocket card: clock, heading, height, what is under it, who you called."
     },
     {
       "sku": "crew",
