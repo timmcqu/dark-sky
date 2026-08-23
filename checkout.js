@@ -1352,7 +1352,7 @@
     if (LINKS[k]) SKUS[k].stripe = LINKS[k];
   });
   var CHECKOUT_API = (window.DSS_CHECKOUT && window.DSS_CHECKOUT.api) ? String(window.DSS_CHECKOUT.api).replace(/\/$/, "") : "";
-  var MANAGED = { scene: 1, job: 1, school: 1, incident: 1, crew: 1 };
+  var MANAGED = { job: 1, school: 1, incident: 1, crew: 1 };
 
   var params = new URLSearchParams(location.search);
   var key = params.get("sku") || "soft";

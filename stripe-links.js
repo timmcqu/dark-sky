@@ -20,7 +20,7 @@ window.DSS_STRIPE = {
   ra: "https://buy.stripe.com/4gM28rbPY2gFgmAdjpfIs0j",
   cards: "https://buy.stripe.com/eVq14n8DM9J7fiwfrxfIs0i",
   eventpack: "https://buy.stripe.com/4gMeVdg6e6wV5HW2ELfIs0k",
-  scene: "https://buy.stripe.com/00wcN57zI9J7daobbhfIs0l",
+  scene: "",
   job: "https://buy.stripe.com/8x2cN59HQ1cB8U87Z5fIs0m",
   school: "https://buy.stripe.com/aFa4gzbPY7AZdaoentfIs0n",
   incident: "https://buy.stripe.com/eVq28r07gbRf9YcentfIs0o",

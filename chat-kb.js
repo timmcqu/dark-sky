@@ -16,15 +16,6 @@ window.DSS_KB = {
   ],
   "products": [
     {
-      "sku": "scene",
-      "name": "Drone over the scene card",
-      "price": "$19",
-      "href": "/products/drone-over-the-scene/",
-      "pay": "/products/drone-over-the-scene/",
-      "tags": ["digital", "fire", "ems", "card", "19"],
-      "blurb": "First-in pocket card: clock, heading, height, what is under it, who you called."
-    },
-    {
       "sku": "crew",
       "name": "Crew paper bundle",
       "price": "$49",

@@ -115,11 +115,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://darksky.systems/products/drone-over-the-scene/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
+
   <url>
     <loc>https://darksky.systems/products/dual-band-adsb-feeder-kit/</loc>
     <changefreq>weekly</changefreq>

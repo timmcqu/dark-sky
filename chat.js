@@ -44,10 +44,10 @@
   function localAnswer(q) {
     var t = String(q || "").toLowerCase();
     if (/wedding|bride|groom|engagement photo|portrait|real.?estate listing|birthday party|grad party|prom |music video|influencer|cinematic|family photos|headshot/.test(t)) {
-      return "No. We do not shoot weddings or marketing stills. If the question is unauthorized drones over a named venue, that is " + pack("event_package") + " Or start with " + link(bySku("scene")) + ".";
+      return "No. We do not shoot weddings or marketing stills. If the question is unauthorized drones over a named venue, that is " + pack("event_package") + " Or start with " + link(bySku("crew")) + ".";
     }
     if (/911|hurt|injured|dying|someone is down|life.?threat/.test(t)) {
-      return "If people are in danger, call 911 first. Dark Sky Systems LLC is not dispatch and not a licensed security company. After command owns the scene: " + link(bySku("scene")) + " or " + talk() + ".";
+      return "If people are in danger, call 911 first. Dark Sky Systems LLC is not dispatch and not a licensed security company. After command owns the scene: " + link(bySku("crew")) + " or " + talk() + ".";
     }
     if (/jam|spoof|neutraliz|take over|takeover|shoot.?down|kill the drone|intercept|cuas|c-uas/.test(t)) {
       return "Receive-only. We do not jam, spoof, or intercept. Public products are Remote ID <strong>receivers</strong> and files. " + link(bySku("esprid")) + " or " + talk() + ".";
@@ -65,10 +65,10 @@
       return "Same hardware. Hardware Only: you load the receiver image. Ready-to-Run: we load it before it ships, extra business day. Guide: <a href=\"/guides/hardware-only-vs-ready-to-run.html\">Hardware Only vs Ready-to-Run</a>. Pocket: " + link(bySku("esprid")) + " Site: " + link(bySku("pirecv")) + ".";
     }
     if (/^(\s*)?(hi|hey|hello|help|what do you sell|start)\s*[.!?]*$/.test(t)) {
-      return "Fire/EMS, campus, job, or event? Fastest file is " + link(bySku("scene")) + ". USB-C receiver with a screen: " + link(bySku("esprid")) + ".";
+      return "Fire/EMS, campus, job, or event? Fastest file is " + link(bySku("crew")) + ". USB-C receiver with a screen: " + link(bySku("esprid")) + ".";
     }
     if (/fire|ems|first.?in|engine |medic |chief |rig\b|station /.test(t) && !/campus|stadium/.test(t)) {
-      return "For the dash: " + pack("scene") + " All four cards: " + link(bySku("crew")) + ". If you want IDs on a screen in the CP: " + link(bySku("esprid")) + ".";
+      return "For the dash: " + pack("crew") + " All four cards: " + link(bySku("crew")) + ". If you want IDs on a screen in the CP: " + link(bySku("esprid")) + ".";
     }
     if (/job.?site|construction|gc\b|superintendent|trailer/.test(t)) {
       return pack("jobsite_log") + " Trailer radios: " + link(bySku("listen_starter")) + ". Pi kit: " + link(bySku("pistarter")) + ".";
@@ -86,10 +86,10 @@
       return "Named window, receive-only. Package: " + pack("event_package") + " Bag a Display for the CP: " + link(bySku("esprid")) + ". Book: " + talk();
     }
     if (/disaster|search|missing person|wreck|hurricane|wildfire|flood/.test(t)) {
-      return "Call 911 if people are in danger. Rapid named-window: " + pack("event_package") + " Card for the dash: " + link(bySku("scene")) + ". Page: <a href=\"/disaster.html?v=2\">Disaster &amp; Emergency</a>.";
+      return "Call 911 if people are in danger. Rapid named-window: " + pack("event_package") + " Card for the dash: " + link(bySku("crew")) + ". Page: <a href=\"/disaster.html?v=2\">Disaster &amp; Emergency</a>.";
     }
     if (/\b19\b|scene card|pocket card|over the scene/.test(t)) {
-      return pack("scene", "Pay on the product page. Print two copies.");
+      return "That $19 card is pulled. Crew paper is " + pack("crew") + " USB-C receiver: " + link(bySku("esprid")) + ".";
     }
     if (/\b79\b|risk report|score (the |this )?site|assessment report/.test(t)) {
       return pack("risk_report", "A file this afternoon. If you want radios after that: " + link(bySku("esprid")) + ".");
@@ -134,12 +134,12 @@
       return "Files: scene card $19 · crew bundle $49 · risk $79 · EAP $149. Receivers: ESP32 $39–$249 · Pi $279–$729 (Hardware Only / Ready-to-Run). Fusion Sensor $2,000 · with radios $4,500. Named-date coverage $2,495. Stripe on the product page.";
     }
     if (/recommend|what should i buy|which package|need help choos/.test(t)) {
-      return "Fire/EMS → " + link(bySku("scene")) + ". Pocket IDs → " + link(bySku("esprid")) + ". Site that stays on → " + link(bySku("pirecv")) + ". Named weekend → " + link(bySku("event_package")) + " then " + talk() + ".";
+      return "Fire/EMS → " + link(bySku("crew")) + ". Pocket IDs → " + link(bySku("esprid")) + ". Site that stays on → " + link(bySku("pirecv")) + ". Named weekend → " + link(bySku("event_package")) + " then " + talk() + ".";
     }
     if (/contact|talk to|human|someone from/.test(t)) {
       return talk() + " If people are in danger, call 911 first.";
     }
-    return "Tell me fire/EMS, campus, job, or event. Fastest Stripe: " + link(bySku("scene")) + ". Pocket receiver: " + link(bySku("esprid")) + ". Or " + talk() + ".";
+    return "Tell me fire/EMS, campus, job, or event. Fastest Stripe: " + link(bySku("crew")) + ". Pocket receiver: " + link(bySku("esprid")) + ". Or " + talk() + ".";
   }
 
   function el(html) {
@@ -205,7 +205,7 @@
     document.body.appendChild(panel);
     addMsg("bot", "Ask Dark Sky. I sell receive-only Remote ID <strong>receivers</strong> and instant files. Fire/EMS, campus, job, or event? If people are in danger, call 911 first.");
     var chips = [
-      ["$19 scene card", "I need the $19 scene card"],
+      ["Crew paper", "I need crew paper"],
       ["Receivers", "Which receiver should I buy?"],
       ["Ready-to-Run", "Hardware Only or Ready-to-Run?"],
       ["Named date", "I have a stadium date this weekend."],

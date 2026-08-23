@@ -112,18 +112,7 @@
 <g:brand>Dark Sky Systems</g:brand>
 <g:identifier_exists>no</g:identifier_exists>
 </item>
-<item>
-<g:id>scene</g:id>
-<title>Drone Over the Scene</title>
-<link>https://darksky.systems/products/drone-over-the-scene/</link>
-<description>Drone over the scene pocket card for fire and EMS. Clock, heading, what is under it.</description>
-<g:image_link>https://darksky.systems/assets/products/drone-over-the-scene-pocket-card.png</g:image_link>
-<g:price>19.00 USD</g:price>
-<g:availability>in_stock</g:availability>
-<g:condition>new</g:condition>
-<g:brand>Dark Sky Systems</g:brand>
-<g:identifier_exists>no</g:identifier_exists>
-</item>
+
 <item>
 <g:id>adsbfeeder</g:id>
 <title>Pi ADS-B Feeder</title>
