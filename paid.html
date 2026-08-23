@@ -110,7 +110,22 @@
     var lede = document.getElementById("paidLede");
     var box = document.getElementById("deliver");
     if (label) lede.textContent = label + ". Deposit lands in Dark Sky Systems LLC.";
-    if (sku === "eap_pack") {
+    if (sku === "scene") {
+      lede.textContent = "Your scene card is ready. Two pages: the pocket card and the write-down. Print both. Keep them with the crew.";
+      box.innerHTML = '<a class="cta" href="deliver/scene.pdf">Download Drone over the scene (PDF)</a>';
+    } else if (sku === "job") {
+      lede.textContent = "Your jobsite log is ready. Download, print, keep it with the trailer packet.";
+      box.innerHTML = '<a class="cta" href="deliver/job.pdf">Download Jobsite drone log (PDF)</a>';
+    } else if (sku === "school") {
+      lede.textContent = "Your school and venue size-up is ready. Download and keep it with the admin packet.";
+      box.innerHTML = '<a class="cta" href="deliver/school.pdf">Download School and venue size-up (PDF)</a>';
+    } else if (sku === "incident") {
+      lede.textContent = "Your incident file is ready. Download and keep it with the run file.";
+      box.innerHTML = '<a class="cta" href="deliver/incident.pdf">Download Unauthorized drone incident file (PDF)</a>';
+    } else if (sku === "crew") {
+      lede.textContent = "Your crew paper bundle is ready. Four PDFs.";
+      box.innerHTML = '<a class="cta" href="deliver/scene.pdf">Scene card</a><a class="cta cta-ghost" href="deliver/job.pdf">Jobsite log</a><a class="cta cta-ghost" href="deliver/school.pdf">School and venue</a><a class="cta cta-ghost" href="deliver/incident.pdf">Incident file</a>';
+    } else if (sku === "eap_pack") {
       lede.textContent = "Your EAP templates are ready. Download the PDF and the editable file. Use them to build your company’s Emergency Action Plan.";
       box.innerHTML = '<a class="cta" href="deliver/eap-pack.pdf">Download the EAP Pack PDF</a><a class="cta cta-ghost" href="deliver/eap-pack-editable.html">Open the editable file</a>';
     } else if (sku === "obs_templates") {
