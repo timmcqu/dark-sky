@@ -342,68 +342,81 @@
 
     rid: {
       title: "Remote ID receive board",
-      lede: "Remote ID receive board from Dark Sky Systems. Receive only. We ship after payment.",
+      lede: "USB-C ESP32-S3 board for Remote ID receive. We ship it after payment. Receive only. No battery in the box.",
       price: "$39",
       amount: "39",
       chase: "",
       stripe: "",
+      photo: "assets/attach/rid.webp?v=1",
       gets: [
-        "Remote ID receive board, shipped by Dark Sky Systems",
-        "Receive only. It does not jam or transmit a command",
-        "Tracking by email",
-        "No battery in the box"
+        "ESP32-S3 Remote ID receive board with USB-C",
+        "Receive only — it does not jam or send a command",
+        "No battery or charger in the box",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
       ]
     },
     listen: {
       title: "Listen radio + dipole",
-      lede: "Listen radio with dipole from Dark Sky Systems. Receive only. We ship after payment.",
+      lede: "USB listen radio with a dipole kit. SMA. Receive only. We ship it after payment.",
       price: "$79",
       amount: "79",
       chase: "",
       stripe: "",
+      photo: "assets/attach/listen.webp?v=1",
       gets: [
-        "Listen radio with dipole",
-        "Receive only. It does not jam",
-        "Tracking by email"
+        "USB listen radio in a shielded enclosure, SMA connector",
+        "Dipole kit: elements, base, extension, suction and mini-tripod mounts",
+        "Receive only — it does not jam or transmit",
+        "Ships from Dark Sky Systems after Stripe clears",
+        "Tracking by email to the address on the receipt"
       ]
     },
     ant1090: {
       title: "1090 MHz listen antenna",
-      lede: "SMA 1090 MHz listen antenna from Dark Sky Systems. We ship after payment.",
+      lede: "SMA whip tuned for 1090 MHz crewed-aircraft broadcasts. We ship it after payment.",
       price: "$29",
       amount: "29",
       chase: "",
       stripe: "",
+      photo: "assets/attach/ant1090.webp?v=1",
       gets: [
-        "SMA 1090 MHz listen antenna",
+        "SMA 1090 MHz listen antenna, about 7.5 inches",
+        "Hinged base so it sits next to a listen radio",
         "Receive only",
+        "Ships from Dark Sky Systems after Stripe clears",
         "Tracking by email"
       ]
     },
     case: {
       title: "Small hard case",
-      lede: "Small weatherproof case from Dark Sky Systems. We ship after payment.",
+      lede: "Weatherproof hard case for the board and listen radio. Pick-and-pluck foam. We ship it after payment.",
       price: "$29",
       amount: "29",
       chase: "",
       stripe: "",
+      photo: "assets/attach/case.webp?v=1",
       gets: [
-        "Small weatherproof hard case",
-        "Ships from Dark Sky Systems",
+        "Small weatherproof hard case with latches and a purge valve",
+        "Pick-and-pluck foam so the radios sit still",
+        "Interior about 8 × 5.5 × 3.75 inches",
+        "Ships from Dark Sky Systems after Stripe clears",
         "Tracking by email"
       ]
     },
     starter: {
       title: "Listen starter",
-      lede: "Remote ID board plus the listen radio, from Dark Sky Systems. Receive only. We ship after payment.",
+      lede: "The board and the listen radio together. Receive only. Not Fusion Sensor. We ship both after payment.",
       price: "$99",
       amount: "99",
       chase: "",
       stripe: "",
+      photo: "assets/attach/starter.webp?v=1",
       gets: [
-        "Remote ID receive board",
-        "Listen radio + dipole",
+        "Remote ID receive board (USB-C, no battery)",
+        "Listen radio + dipole kit",
         "Receive only. No Fusion Sensor license in this SKU",
+        "Ships from Dark Sky Systems after Stripe clears",
         "Tracking by email"
       ]
     },
@@ -447,6 +460,18 @@
   document.title = sku.title + " — Checkout — Dark Sky Systems";
   if (title) title.textContent = sku.title;
   if (lede) lede.textContent = sku.lede;
+  var existPhoto = document.getElementById("sku-photo");
+  if (existPhoto) existPhoto.remove();
+  if (sku.photo && title) {
+    var img = document.createElement("img");
+    img.id = "sku-photo";
+    img.className = "sku-hero-photo";
+    img.src = sku.photo;
+    img.alt = sku.title;
+    img.width = 1000;
+    img.height = 720;
+    title.insertAdjacentElement("afterend", img);
+  }
   if (price) price.textContent = sku.price;
   var isPack = key === "ra" || key === "cards" || key === "eventpack";
   var isVolume = key === "scene" || key === "job" || key === "school" || key === "incident" || key === "crew";
