@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dark Sky Field Pad · DSS-FP · OEM cutsheet</title>
+  <meta name="description" content="Dark Sky Systems LLC Field Pad OEM cutsheet. DSS-FP. $5,900. Texas. Receive-only." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://darksky.systems/cutsheet/" />
+  <link rel="icon" href="/assets/logo-spear.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0c0b09;
+      --ink2: #14120f;
+      --paper: #e8e0d0;
+      --muted: #8b8578;
+      --gold: #c4a35a;
+      --gold2: #e0c07a;
+      --line: #3a3428;
+      --fill: #1b1914;
+      --glass: #0a1620;
+      --h4m: #161410;
+      --warn: #e0a04a;
+      --stamp: #c45a3a;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: #050504; color: var(--paper); font-family: "IBM Plex Sans", sans-serif; }
+    html[data-export="1"] body { background: var(--ink); }
+    html[data-export="1"] .screen-only { display: none !important; }
+    html[data-export="1"] .viewport { padding: 0; }
+    html[data-export="1"] .sheet {
+      width: 100vw; height: 100vh; box-shadow: none; border: 0;
+    }
+    .screen-only {
+      position: static;
+      display: flex; gap: 8px;
+      justify-content: center;
+      margin: 0 0 14px;
+    }
+    .screen-only a, .screen-only button {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--ink); background: var(--gold); border: 0; padding: 8px 12px;
+      cursor: pointer; text-decoration: none;
+    }
+    .viewport {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+      padding: 16px 12px 48px;
+    }
+    .sheet {
+      width: 420mm; height: 297mm;
+      background: var(--ink);
+      border: 1px solid var(--gold);
+      color: var(--paper);
+      display: grid;
+      grid-template-rows: 18mm 1.58fr 0.98fr 1.08fr 12mm;
+      grid-template-columns: 1.12fr 1.28fr 0.92fr;
+      gap: 0;
+      box-shadow: 0 24px 80px #000c;
+    }
+    .pane {
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+      min-height: 0;
+    }
+    .bom, .notes { overflow: hidden; }
+    .pane svg { width: 100%; height: 100%; display: block; }
+    .lbl {
+      position: absolute; top: 4px; left: 8px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 8px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold); pointer-events: none;
+    }
+    .title {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 18mm 1fr auto;
+      align-items: center;
+      gap: 10px;
+      padding: 0 10px;
+      border-bottom: 1px solid var(--gold);
+      background: var(--ink2);
+    }
+    .title svg { width: 14mm; height: 14mm; }
+    .title h1 {
+      margin: 0; font-size: 15px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .title h1 small { display: block; font-size: 9px; letter-spacing: 0.18em; color: var(--muted); font-weight: 500; margin-top: 2px; }
+    .title-meta {
+      font-family: "IBM Plex Mono", monospace; font-size: 10px; text-align: right;
+      letter-spacing: 0.06em; line-height: 1.45; color: var(--paper);
+    }
+    .title-meta b { color: var(--gold2); font-weight: 600; }
+    .iso { grid-column: 1; grid-row: 2; }
+    .views { grid-column: 2 / -1; grid-row: 2; }
+    .sect { grid-column: 1 / 3; grid-row: 3; }
+    .rear { grid-column: 3; grid-row: 3; }
+    .bom { grid-column: 1; grid-row: 4; padding: 14px 10px 8px; }
+    .notes { grid-column: 2 / -1; grid-row: 4; padding: 14px 10px 8px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 8px; }
+    .foot {
+      grid-column: 1 / -1;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 10px;
+      font-family: "IBM Plex Mono", monospace; font-size: 8px;
+      letter-spacing: 0.1em; color: var(--muted);
+      background: var(--ink2);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 9px; font-family: "IBM Plex Mono", monospace; }
+    th, td { text-align: left; padding: 2px 4px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--gold); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; font-size: 7.5px; }
+    td.r, th.r { text-align: right; }
+    tr.sell td { color: var(--gold2); border-bottom: 0; font-weight: 600; }
+    .stamp {
+      display: inline-block; border: 1px solid var(--warn); color: var(--warn);
+      font-family: "IBM Plex Mono", monospace; font-size: 7px; letter-spacing: 0.12em;
+      padding: 1px 5px; margin-left: 4px; vertical-align: 1px;
+    }
+    .notes h2, .bom h2 {
+      margin: 0 0 6px; font-family: "IBM Plex Mono", monospace;
+      font-size: 8px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); font-weight: 500;
+    }
+    .notes ol { margin: 0; padding-left: 16px; font-size: 9px; line-height: 1.35; color: var(--paper); }
+    .notes li { margin: 0 0 3px; }
+    pre {
+      margin: 0; padding: 6px 8px; background: #080706; border: 1px solid var(--line);
+      font-family: "IBM Plex Mono", monospace; font-size: 7.2px; line-height: 1.35;
+      color: #c8c0b0; white-space: pre; overflow: hidden;
+    }
+    .warn {
+      position: absolute; bottom: 6px; left: 8px; right: 8px;
+      font-family: "IBM Plex Mono", monospace; font-size: 7.5px;
+      letter-spacing: 0.08em; color: var(--warn);
+    }
+    @page { size: A3 landscape; margin: 8mm; }
+    @media print {
+      html, body { background: var(--ink); }
+      .screen-only { display: none !important; }
+      .viewport { padding: 0; }
+      .sheet {
+        width: 404mm; height: 281mm;
+        box-shadow: none;
+        page-break-inside: avoid;
+      }
+    }
+    @media screen and (max-width: 1100px) {
+      .viewport { display: block; overflow: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen-only">
+    <button type="button" onclick="window.print()">Print A3</button>
+    <a href="field-pad.png">PNG 2400</a>
+    <a href="dss-fp-sled.scad">OpenSCAD</a>
+  </div>
+  <div class="viewport">
+    <article class="sheet" id="sheet">
+
+      <header class="title">
+        <svg viewBox="0 0 1024 1024" aria-hidden="true">
+          <path fill="#C8CDD3" d="M 185.02 806.42 L 448.55 625.65 L 634.58 542.92 L 518.69 519.43 L 838.98 217.58 L 575.45 398.35 L 389.42 481.08 L 505.31 504.57 Z"/>
+        </svg>
+        <h1>
+          Dark Sky Field Pad
+          <small>Dark Sky Systems LLC · d/b/a Dark Sky · Texas · SOS 806750312</small>
+        </h1>
+        <div class="title-meta">
+          DSS-FP&nbsp;&nbsp;·&nbsp;&nbsp;<b>$5,900</b>&nbsp;&nbsp;·&nbsp;&nbsp;OEM CUTSHEET<br />
+          DSS-FP-CS&nbsp;&nbsp;REV A&nbsp;&nbsp;·&nbsp;&nbsp;2026-08-31&nbsp;&nbsp;·&nbsp;&nbsp;SHEET 1 / 1<br />
+          THIRD ANGLE&nbsp;&nbsp;·&nbsp;&nbsp;mm&nbsp;&nbsp;·&nbsp;&nbsp;ENVELOPE A PRIMARY
+        </div>
+      </header>
+
+      <!-- 2. Isometric assembled -->
+      <section class="pane iso">
+        <div class="lbl">2 · Isometric assembled · orthographic · not photoreal</div>
+        <svg viewBox="0 0 240 230" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gGlass" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#0d2430"/>
+              <stop offset="1" stop-color="#071018"/>
+            </linearGradient>
+            <pattern id="grid" width="8" height="8" patternUnits="userSpaceOnUse">
+              <path d="M8 0H0V8" fill="none" stroke="#1a3a44" stroke-width="0.4"/>
+            </pattern>
+          </defs>
+          <!-- panel top -->
+          <polygon points="33.9,18.0 18.0,27.2 170.6,115.3 186.5,106.1" fill="#141210" stroke="#c4a35a" stroke-width="0.7"/>
+          <!-- panel right -->
+          <polygon points="186.5,106.1 170.6,115.3 170.6,217.0 186.5,207.8" fill="#0e0d0b" stroke="#c4a35a" stroke-width="0.7"/>
+          <!-- panel front -->
+          <polygon points="33.9,18.0 186.5,106.1 186.5,207.8 33.9,119.8" fill="#1a1814" stroke="#c4a35a" stroke-width="0.9"/>
+          <!-- glass -->
+          <polygon points="50.4,39.5 170.0,108.6 170.0,186.3 50.4,117.2" fill="url(#gGlass)" stroke="#3d6a78" stroke-width="0.5"/>
+          <polygon points="50.4,39.5 170.0,108.6 170.0,186.3 50.4,117.2" fill="url(#grid)" opacity="0.55"/>
+          <!-- waterfall strip on glass -->
+          <polygon points="50.4,105.0 170.0,174.0 170.0,186.3 50.4,117.2" fill="#0b1c14" opacity="0.85"/>
+          <g stroke="#3d8a6a" stroke-width="0.5" fill="none" opacity="0.8">
+            <polyline points="58,112 70,108 82,114 96,106 110,111 124,104 140,110 156,103 168,108"/>
+          </g>
+          <!-- spear on bezel -->
+          <g transform="translate(58,48) scale(0.028)">
+            <path fill="#C8CDD3" d="M 185.02 806.42 L 448.55 625.65 L 634.58 542.92 L 518.69 519.43 L 838.98 217.58 L 575.45 398.35 L 389.42 481.08 L 505.31 504.57 Z"/>
+          </g>
+          <!-- U-clamp hook on glass, 28 mm -->
+          <polygon points="176.8,123.3 186.5,128.9 186.5,185.0 176.8,179.4" fill="#2a2418" stroke="#e0c07a" stroke-width="0.8"/>
+          <!-- sled / H4M body -->
+          <polygon points="186.5,130.5 214.9,147.0 214.9,199.8 186.5,183.4" fill="#161410" stroke="#c4a35a" stroke-width="0.8"/>
+          <polygon points="214.9,147.0 205.5,152.4 205.5,205.2 214.9,199.8" fill="#0c0b09" stroke="#c4a35a" stroke-width="0.7"/>
+          <!-- H4M screen (open front) -->
+          <polygon points="187.0,131.9 214.0,147.5 214.0,198.7 187.0,183.1" fill="#0a1210" stroke="#6a9a88" stroke-width="0.5"/>
+          <!-- wheel lower half -->
+          <ellipse cx="206" cy="190" rx="4.2" ry="2.6" fill="none" stroke="#e0c07a" stroke-width="0.7"/>
+          <!-- SMA top ×1 -->
+          <rect x="198" y="124.5" width="4" height="7" rx="0.4" fill="#9aa0a6" stroke="#c4a35a" stroke-width="0.3"/>
+          <!-- SMA bottom ×2 -->
+          <rect x="193" y="198.5" width="3.2" height="6" rx="0.3" fill="#9aa0a6" stroke="#c4a35a" stroke-width="0.3"/>
+          <rect x="201" y="200.5" width="3.2" height="6" rx="0.3" fill="#9aa0a6" stroke="#c4a35a" stroke-width="0.3"/>
+          <!-- callouts -->
+          <g fill="#c4a35a" font-family="IBM Plex Mono, monospace" font-size="6.2" letter-spacing="0.06em">
+            <text x="8" y="70">15.6" PANEL</text>
+            <text x="8" y="78" fill="#8b8578">ENVELOPE A</text>
+            <text x="8" y="86" fill="#8b8578">440.4 × 254.4 × 45.9</text>
+            <text x="168" y="28">H4M SLED</text>
+            <text x="168" y="36" fill="#e0a04a">MEASURE-ON-UNIT</text>
+            <text x="168" y="44" fill="#8b8578">USB-C → PANEL</text>
+          </g>
+          <line x1="100" y1="80" x2="110" y2="90" stroke="#c4a35a" stroke-width="0.4"/>
+          <text x="6" y="220" fill="#8b8578" font-family="IBM Plex Mono, monospace" font-size="5.8">SPEAR ON BEZEL · KIOSK GLASS · SLED ON RIGHT EDGE</text>
+        </svg>
+      </section>
+
+      <!-- 3. Third-angle 3-view -->
+      <section class="pane views">
+        <div class="lbl">3 · Third-angle · panel + sled + H4M · overall W × H × D</div>
+        <svg viewBox="8 4 360 226" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arr" viewBox="0 0 8 8" refX="8" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M0,0 L8,4 L0,8" fill="none" stroke="#c4a35a" stroke-width="1.2"/>
+            </marker>
+          </defs>
+          <!-- scale 0.36 px/mm. Origin front: (36, 78) -->
+          <!-- TOP -->
+          <g font-family="IBM Plex Mono, monospace">
+            <text x="36" y="18" fill="#c4a35a" font-size="7.5" letter-spacing="0.14em">TOP</text>
+            <!-- panel top 440.4 × 45.9 -->
+            <rect x="36" y="24" width="158.5" height="16.5" fill="#1a1814" stroke="#c4a35a" stroke-width="0.9"/>
+            <!-- sled outboard 82.1 × ~27.2 (H4M t + walls, front-aligned) -->
+            <rect x="194.5" y="24" width="29.6" height="9.8" fill="#161410" stroke="#e0c07a" stroke-width="0.8"/>
+            <!-- Envelope B phantom depth -->
+            <rect x="36" y="24" width="144.1" height="21.2" fill="none" stroke="#8b8578" stroke-width="0.5" stroke-dasharray="3 2"/>
+            <text x="36" y="54" fill="#8b8578" font-size="6.5">ENVELOPE B PHANTOM 400.4 × 58.8 D — DO NOT MIX WITH A SLED</text>
+            <!-- overall W dim -->
+            <line x1="36" y1="62" x2="224.1" y2="62" stroke="#c4a35a" stroke-width="0.5" marker-start="url(#arr)" marker-end="url(#arr)"/>
+            <text x="92" y="72" fill="#c4a35a" font-size="7.5">OVERALL W 522.5 COMPUTED</text>
+            <line x1="36" y1="24" x2="36" y2="40.5" stroke="#3a3428" stroke-width="0.4"/>
+            <text x="228" y="34" fill="#8b8578" font-size="6.5">D 45.9 A</text>
+          </g>
+          <!-- FRONT -->
+          <g font-family="IBM Plex Mono, monospace">
+            <text x="36" y="96" fill="#c4a35a" font-size="7.5" letter-spacing="0.14em">FRONT</text>
+            <rect x="36" y="100" width="158.5" height="91.6" fill="#1a1814" stroke="#c4a35a" stroke-width="0.9"/>
+            <!-- glass 16:9 inside bezel 47.5 / 30.1 -->
+            <rect x="53.1" y="110.8" width="124.3" height="69.9" fill="#0a1620" stroke="#3d6a78" stroke-width="0.5"/>
+            <rect x="53.1" y="164" width="124.3" height="16.7" fill="#0b1c14" opacity="0.9"/>
+            <!-- clamp hook 28 mm = 10.1 px -->
+            <rect x="184.4" y="120" width="10.1" height="52" fill="#2a2418" stroke="#e0c07a" stroke-width="0.7"/>
+            <!-- H4M pocket -->
+            <rect x="194.5" y="122" width="29.6" height="47.6" fill="#161410" stroke="#c4a35a" stroke-width="0.8"/>
+            <rect x="196.2" y="123.8" width="26.2" height="44" fill="#0a1210" stroke="#6a9a88" stroke-width="0.4"/>
+            <circle cx="216.5" cy="160" r="3.1" fill="none" stroke="#e0c07a" stroke-width="0.7"/>
+            <text x="197" y="136" fill="#e0a04a" font-size="5.5">H4M</text>
+            <!-- SMA -->
+            <rect x="206" y="116.5" width="5" height="6" fill="#9aa0a6"/>
+            <rect x="202" y="169.2" width="4" height="5.5" fill="#9aa0a6"/>
+            <rect x="212" y="169.2" width="4" height="5.5" fill="#9aa0a6"/>
+            <!-- H dim -->
+            <line x1="28" y1="100" x2="28" y2="191.6" stroke="#c4a35a" stroke-width="0.5" marker-start="url(#arr)" marker-end="url(#arr)"/>
+            <text x="4" y="148" fill="#c4a35a" font-size="7" transform="rotate(-90 10 148)">H 254.4</text>
+            <text x="36" y="208" fill="#c4a35a" font-size="7.5">PANEL W 440.4</text>
+            <text x="168" y="208" fill="#8b8578" font-size="6.5">+ SLED 82.1</text>
+            <text x="36" y="214" fill="#8b8578" font-size="6.5">DISPLAY 1920×1080 · 16:9 · IP65 FRONT · VESA 100 · DC 12V</text>
+            <text x="36" y="224" fill="#e0a04a" font-size="5.8">CONFIRM THICKNESS AT RIGHT EDGE BEFORE PRINTING SLED · 45.9 IS OVERALL, NOT THE CLAMP LIP</text>
+          </g>
+          <!-- RIGHT -->
+          <g font-family="IBM Plex Mono, monospace">
+            <text x="250" y="96" fill="#c4a35a" font-size="7.5" letter-spacing="0.14em">RIGHT</text>
+            <rect x="250" y="100" width="16.5" height="91.6" fill="#1a1814" stroke="#c4a35a" stroke-width="0.9"/>
+            <!-- H4M 24 mm thick at front = 8.6 px -->
+            <rect x="250" y="122" width="8.6" height="47.6" fill="#161410" stroke="#e0c07a" stroke-width="0.8"/>
+            <text x="272" y="148" fill="#c4a35a" font-size="7">D 45.9</text>
+            <text x="272" y="158" fill="#e0a04a" font-size="6.5">H4M t 24 START</text>
+            <text x="272" y="168" fill="#8b8578" font-size="6.2">OVERALL D = PANEL</text>
+            <!-- third-angle symbol -->
+            <g transform="translate(300,28)" fill="none" stroke="#c4a35a" stroke-width="0.8">
+              <circle cx="18" cy="10" r="7"/>
+              <circle cx="18" cy="10" r="3"/>
+              <path d="M32,4 L44,10 L32,16 Z"/>
+              <text x="0" y="28" fill="#c4a35a" stroke="none" font-size="6" font-family="IBM Plex Mono, monospace">3RD ∠</text>
+            </g>
+            <text x="300" y="88" fill="#8b8578" font-size="6.5">SCALE 1:2.8 ON SHEET</text>
+          </g>
+        </svg>
+      </section>
+
+      <!-- 4. Sled section -->
+      <section class="pane sect">
+        <div class="lbl">4 · Sled section · clamp · pocket · USB path · 2:1</div>
+        <svg viewBox="0 0 500 195" xmlns="http://www.w3.org/2000/svg">
+          <g font-family="IBM Plex Mono, monospace" font-size="7">
+            <!-- FRONT up. Section looking down on right edge. Scale 2 px/mm -->
+            <text x="12" y="16" fill="#8b8578" font-size="6.5">PLAN SECTION THROUGH USB-C · FRONT AT TOP · RIGHT EDGE OF PANEL</text>
+
+            <!-- panel remnant (left of right-edge) -->
+            <rect x="40" y="36" width="80" height="91.8" fill="#1a1814" stroke="#c4a35a" stroke-width="1"/>
+            <!-- glass plane at y=36 -->
+            <line x1="36" y1="36" x2="176" y2="36" stroke="#6a9a88" stroke-width="1.2"/>
+            <text x="42" y="33" fill="#6a9a88" font-size="6">GLASS</text>
+
+            <!-- front hook 28 mm = 56 px, behind glass (hooks past plane) -->
+            <path d="M104,28 L176,28 L176,44 L120,44 L120,36 L104,36 Z" fill="#2a2418" stroke="#e0c07a" stroke-width="1"/>
+            <text x="108" y="24" fill="#e0c07a" font-size="6.5">FRONT HOOK · JAW 28</text>
+            <text x="108" y="54" fill="#8b8578" font-size="6">HOOKS BEHIND GLASS</text>
+
+            <!-- two M3 pinch -->
+            <circle cx="132" cy="36" r="3" fill="none" stroke="#c4a35a" stroke-width="0.8"/>
+            <circle cx="156" cy="36" r="3" fill="none" stroke="#c4a35a" stroke-width="0.8"/>
+            <text x="118" y="66" fill="#c4a35a" font-size="6">2× M3 PINCH</text>
+
+            <!-- panel thickness dim -->
+            <line x1="34" y1="36" x2="34" y2="127.8" stroke="#c4a35a" stroke-width="0.5"/>
+            <text x="4" y="90" fill="#c4a35a" font-size="6.5" transform="rotate(-90 12 90)">panel_t 45.9</text>
+            <text x="4" y="148" fill="#e0a04a" font-size="6">CONFIRM</text>
+            <text x="4" y="156" fill="#e0a04a" font-size="6">AT R EDGE</text>
+
+            <!-- rear hook -->
+            <path d="M104,120 L176,120 L176,132 L104,132 Z" fill="#2a2418" stroke="#e0c07a" stroke-width="1"/>
+            <text x="108" y="144" fill="#8b8578" font-size="6">REAR HOOK</text>
+
+            <!-- U spine + USB slot to panel rear -->
+            <rect x="176" y="36" width="16" height="96" fill="#241e14" stroke="#c4a35a" stroke-width="1"/>
+            <rect x="180" y="88" width="8" height="36" fill="#0c0b09" stroke="#6a9a88" stroke-width="0.8"/>
+            <text x="158" y="168" fill="#6a9a88" font-size="6.5">USB-C SLOT → PANEL REAR</text>
+            <path d="M184,124 C184,150 200,158 220,158" fill="none" stroke="#6a9a88" stroke-width="1" stroke-dasharray="3 2"/>
+            <text x="188" y="80" fill="#8b8578" font-size="6">SPINE</text>
+
+            <!-- H4M pocket, open front -->
+            <rect x="192" y="48" width="157.8" height="51.2" fill="#0c0b09" stroke="#c4a35a" stroke-width="1"/>
+            <!-- H4M body 78 × 24 at 2:1 = 156 × 48, with 0.45*2 clearance -->
+            <rect x="193.8" y="49.8" width="156" height="48" fill="#161410" stroke="#e0c07a" stroke-width="0.9"/>
+            <text x="220" y="78" fill="#e0a04a" font-size="8">H4M BODY 78 × 24</text>
+            <text x="220" y="88" fill="#e0a04a" font-size="6.5">MEASURE-ON-UNIT START</text>
+            <text x="352" y="78" fill="#8b8578" font-size="6">OPEN</text>
+            <text x="352" y="86" fill="#8b8578" font-size="6">FRONT</text>
+            <!-- wheel -->
+            <circle cx="330" cy="86" r="7" fill="none" stroke="#e0c07a" stroke-width="1"/>
+            <text x="318" y="108" fill="#8b8578" font-size="6">WHEEL FREE</text>
+            <!-- USB-C toward panel (left of H4M) -->
+            <rect x="192" y="64" width="8" height="12" fill="#222" stroke="#6a9a88" stroke-width="0.7"/>
+            <text x="196" y="62" fill="#6a9a88" font-size="6">USB-C</text>
+
+            <!-- SMA notches -->
+            <rect x="250" y="40" width="10" height="8" fill="none" stroke="#9aa0a6" stroke-width="0.7"/>
+            <text x="248" y="38" fill="#9aa0a6" font-size="6">SMA TOP ×1</text>
+            <rect x="236" y="98" width="8" height="8" fill="none" stroke="#9aa0a6" stroke-width="0.7"/>
+            <rect x="250" y="98" width="8" height="8" fill="none" stroke="#9aa0a6" stroke-width="0.7"/>
+            <text x="236" y="118" fill="#9aa0a6" font-size="6">SMA BOT ×2</text>
+
+            <!-- pocket dim -->
+            <line x1="192" y1="176" x2="349.8" y2="176" stroke="#c4a35a" stroke-width="0.5"/>
+            <text x="210" y="188" fill="#c4a35a" font-size="7">POCKET 78.90 × 128.90  (= H4M + 0.45 / SIDE)</text>
+            <text x="400" y="60" fill="#8b8578" font-size="6.5">PETG / ASA</text>
+            <text x="400" y="70" fill="#8b8578" font-size="6.5">4 WALLS</text>
+            <text x="400" y="80" fill="#8b8578" font-size="6.5">30% GYROID</text>
+            <text x="400" y="96" fill="#8b8578" font-size="6.5">WALL 1.60 PRINT SETTING</text>
+            <text x="400" y="106" fill="#8b8578" font-size="6.5">4 PERIMETERS @ 0.4 mm</text>
+            <text x="400" y="124" fill="#e0a04a" font-size="6.5">NOT AMAZON BOX SIZE</text>
+          </g>
+        </svg>
+      </section>
+
+      <!-- 5. Rear I/O -->
+      <section class="pane rear">
+        <div class="lbl">5 · Rear I/O</div>
+        <svg viewBox="0 0 260 200" xmlns="http://www.w3.org/2000/svg">
+          <g font-family="IBM Plex Mono, monospace">
+            <rect x="28" y="28" width="140" height="80" fill="#1a1814" stroke="#c4a35a" stroke-width="0.9"/>
+            <!-- VESA 100: 100mm on ~140px panel w = 140/440.4*100 ≈ 31.8, centered -->
+            <g fill="none" stroke="#8b8578" stroke-width="0.7">
+              <circle cx="82.1" cy="52.1" r="3"/>
+              <circle cx="113.9" cy="52.1" r="3"/>
+              <circle cx="82.1" cy="83.9" r="3"/>
+              <circle cx="113.9" cy="83.9" r="3"/>
+            </g>
+            <text x="70" y="72" fill="#8b8578" font-size="6">VESA 100</text>
+            <!-- DC 12V -->
+            <circle cx="44" cy="96" r="5" fill="#111" stroke="#c4a35a" stroke-width="0.8"/>
+            <circle cx="44" cy="96" r="2" fill="#c4a35a"/>
+            <!-- USB RID -->
+            <rect x="62" y="92" width="16" height="8" rx="1" fill="#111" stroke="#6a9a88" stroke-width="0.8"/>
+            <!-- USB WB -->
+            <rect x="86" y="92" width="16" height="8" rx="1" fill="#111" stroke="#e0c07a" stroke-width="0.8"/>
+            <!-- leaders -->
+            <path d="M44,101 L44,118 L168,118" fill="none" stroke="#c4a35a" stroke-width="0.5"/>
+            <text x="50" y="130" fill="#c4a35a" font-size="7">DC 12V</text>
+            <path d="M70,100 L70,140 L168,140" fill="none" stroke="#6a9a88" stroke-width="0.5"/>
+            <text x="50" y="152" fill="#6a9a88" font-size="7">RID · S3 USB</text>
+            <path d="M94,100 L94,158 L168,158" fill="none" stroke="#e0c07a" stroke-width="0.5"/>
+            <text x="50" y="170" fill="#e0c07a" font-size="7">WB · H4M USB</text>
+            <text x="28" y="188" fill="#8b8578" font-size="6">S3 FLASHED · H4M VIA SLED SLOT</text>
+            <!-- sled edge -->
+            <rect x="168" y="48" width="22" height="40" fill="#161410" stroke="#e0c07a" stroke-width="0.7"/>
+            <text x="192" y="70" fill="#8b8578" font-size="6">SLED</text>
+          </g>
+        </svg>
+      </section>
+
+      <!-- 6. BOM -->
+      <section class="pane bom">
+        <h2>6 · BOM · source / target</h2>
+        <table>
+          <thead>
+            <tr><th>Item</th><th>Source</th><th class="r">Target</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>15.6" panel, SunKol-class</td>
+              <td>Envelope A 440.4 × 254.4 × 45.9</td>
+              <td class="r">$250–380</td>
+            </tr>
+            <tr>
+              <td>PortaPack Mayhem H4M</td>
+              <td>Body 78 × 128 × 24 · not box</td>
+              <td class="r">$185</td>
+            </tr>
+            <tr>
+              <td>ESP32-S3 RID</td>
+              <td>USB board, flashed</td>
+              <td class="r">$15</td>
+            </tr>
+            <tr>
+              <td>Sled PETG/ASA</td>
+              <td>4 walls · 30% gyroid · 2× M3</td>
+              <td class="r">$12</td>
+            </tr>
+            <tr>
+              <td>Foam / case</td>
+              <td>H4M cradle in the foam</td>
+              <td class="r">$40</td>
+            </tr>
+            <tr>
+              <td>Labor</td>
+              <td>Image · flash · faceplate · setup</td>
+              <td class="r">$300</td>
+            </tr>
+            <tr>
+              <td>Hardware floor</td>
+              <td>Panel low / high</td>
+              <td class="r">$802–932</td>
+            </tr>
+            <tr class="sell">
+              <td>DSS-FP sell</td>
+              <td>Dark Sky Systems LLC · Texas</td>
+              <td class="r">$5,900</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 7. Notes + OpenSCAD -->
+      <section class="pane notes">
+        <div>
+          <h2>7 · Notes</h2>
+          <ol>
+            <li>Linux kiosk boots <b>/console/?kiosk=1</b>.</li>
+            <li>No iPad USB host. We image the panel. No BYO glass.</li>
+            <li>No Coverage. This SKU is the Field Pad we build.</li>
+            <li>Receive energy ≠ ID. Waterfall is energy. RID is cooperative ID.</li>
+            <li>Dark / RID-off aircraft are not in the picture.</li>
+            <li>H4M figures are <span class="stamp">MEASURE-ON-UNIT</span> start. Caliper the body. Not the Amazon carton.</li>
+            <li>Confirm thickness at the right edge before printing the sled.</li>
+            <li>Envelope B 400.4 × 254.4 × 58.8 is a different lot. Do not mix sleds.</li>
+            <li>Receive-only. No jam. No spoof. No effects on this plate.</li>
+          </ol>
+        </div>
+        <div>
+          <h2>OpenSCAD header</h2>
+          <pre>h4m_w   = 78.0;   // MEASURE-ON-UNIT
+h4m_h   = 128.0;  // MEASURE-ON-UNIT
+h4m_t   = 24.0;   // MEASURE-ON-UNIT
+panel_t = 45.9;   // Envelope A; confirm R edge
+bezel_f = 47.5;   // derived start; MEASURE-ON-UNIT
+
+clearance = 0.45; // mm / side
+jaw_w     = 28.0; // U-clamp, behind glass
+wall      = 1.60; // 4 walls @ 0.4 mm
+// dss-fp-sled.scad</pre>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <span>DARK SKY SYSTEMS LLC · D/B/A DARK SKY · TEXAS · PASSIVE RECEIVE</span>
+        <span>DSS-FP-CS REV A · THIS PAGE IS THE DRAWING · mm UNLESS NOTED</span>
+        <span>darksky.systems/cutsheet/</span>
+      </footer>
+    </article>
+  </div>
+  <script>
+    if (/[?&]export=1(?:&|$)/.test(location.search)) document.documentElement.dataset.export = "1";
+  </script>
+</body>
+</html>
